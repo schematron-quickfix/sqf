@@ -74,7 +74,7 @@
             </xs:annotation>
         </xs:attribute>
     </xs:attributeGroup>
-    
+
     <xs:attributeGroup name="parameterAttributes">
         <xs:attribute name="name" type="xs:string" use="required">
             <xs:annotation>
@@ -318,7 +318,7 @@
             <xs:attribute name="abstract" type="xs:boolean" default="false">
                 <xs:annotation>
                     <xs:documentation>This attribute sets for the parameter whether it is abstract or not.</xs:documentation>
-                    
+
                     <xs:documentation>The current quick fix can be instantiate only from an abstract pattern that defines this abstract parameter. Inside of a global QuickFix every used parameter of an abstract pattern must be declared by an abstract parameter.</xs:documentation>
                     <xs:documentation>If a parameter is defined as abstract, it can not have a <icode type="attribute">type</icode>, <icode type="attribute">required</icode> or <icode type="attribute">default</icode> attribute. Its value will be only form the abstract pattern instantiation.</xs:documentation>
                     <xs:documentation source="Value">The value <icode type="attributeValue">true</icode> is used for abstract parameter, <icode type="attributeValue">false</icode> for regular parameter.</xs:documentation>
@@ -409,7 +409,7 @@
     <xs:element name="stringReplace">
         <xs:annotation>
             <xs:documentation>This activity element replaces substrings of text nodes by other nodes. The text nodes are defined by the <icode type="attribute">match</icode> attribute. The <icode type="attribute">regex</icode> attribute defines the substrings of the text nodes.</xs:documentation>
-            <xs:documentation>The nodes to be inserted are defined by the content of the <icode type="element">sqf:stringReplace</icode> element. <b>Note:</b> The context within the <icode type="element">sqf:stringReplace</icode> element is set to the substrings. So, it is an atomic value.</xs:documentation>
+            <xs:documentation>The nodes to be inserted are defined by the content of the <icode type="element">sqf:stringReplace</icode> element or the <icode type="attribute">select</icode> attribute. <b>Note:</b> The context within the <icode type="element">sqf:stringReplace</icode> element is set to the substrings. So, it is an atomic value.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:choice>
@@ -419,6 +419,15 @@
             <xs:attribute name="regex" type="xs:string" use="required">
                 <xs:annotation>
                     <xs:documentation source="Value">Regular expression. The expression can be specified by XPath expressions which are marked by curly brackets. After processing, the regular expression must meet the requirements of the <icode type="attribute">regex</icode> attribute of the <icode type="element">xsl:analyze-string</icode> element.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="select" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>The <icode type="attribute">select</icode> attribute defines nodes or an atomic value as the nodes to be inserted. If the <icode type="attribute">select</icode> attribute is set, the <icode type="attribute">sqf:stringReplace</icode> element should be empty.</xs:documentation>
+                    <xs:documentation>The selected nodes will be copied. Unlike a deep copy function, the copied nodes could be manipulated by the current or other activity elements.</xs:documentation>
+                    <xs:documentation source="Value">XPath expression. The context of relative expressions is the substring to replace. </xs:documentation>
+                    <xs:documentation><b>Note:</b> The context will be always an atomic value. To select nodes from the XML instance, the use of variables outside of the <icode type="element">sqf:stringReplace</icode> element is necessary.</xs:documentation>
+                    <xs:documentation source="Default">There is no default value. If the <icode type="attribute">select</icode> attribute is not set, the content of the activity element defines the nodes to be inserted.</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
         </xs:complexType>
@@ -434,6 +443,12 @@
                 <xs:documentation source="Default">By default the anchor node is the context node of the related Schematron rule.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="use-when" use="optional" type="xs:string" default="true()">
+            <xs:annotation>
+                <xs:documentation>A condition for the action of the activity Element. The action will just be executed, if the condition returns true.</xs:documentation>
+                <xs:documentation source="value">XPath expression. Its expect as return value an xs:boolean.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
         <xs:attributeGroup ref="sch:foreign"/>
     </xs:attributeGroup>
     <xs:attributeGroup name="activityManipulate">
@@ -441,7 +456,7 @@
         <xs:attribute name="node-type" type="sqf:nodeTypeType">
             <xs:annotation>
                 <xs:documentation>The <icode type="attribute">node-type</icode> attribute defines the node type of the nodes to be added. The attribute is required, if the target attribut is set.</xs:documentation>
-                <xs:documentation>If the <icode type="attribute">node-type</icode> value is missing, the activity element should not have a <icode type="attribute">target</icode> attribute. In this case the nodes to be added will be defined by the activity elements content.</xs:documentation>
+                <xs:documentation>If the <icode type="attribute">node-type</icode> value is missing, the activity element should not have a <icode type="attribute">target</icode> attribute. In this case the nodes to be added will be defined by the activity elements content or <icode type="attribute">select</icode> attribute.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
         <xs:attribute name="select" type="xs:string" use="optional">
@@ -460,6 +475,9 @@
             </xs:annotation>
         </xs:attribute>
     </xs:attributeGroup>
+
+
+
     <xs:simpleType name="positionType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="after">
