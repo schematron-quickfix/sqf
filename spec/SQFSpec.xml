@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.w3.org/XML/1998/06/schema/xmlspec.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<spec>
+    <header>
+        <title>Schematron Quick Fixes Specification</title>
+        <w3c-designation>W3C Designation</w3c-designation>
+        <w3c-doctype>W3C Candidate</w3c-doctype>
+        <pubdate>
+            <month>March</month>
+            <year>2015</year>
+        </pubdate>
+        <publoc>Document location</publoc>
+        <authlist>
+            <author>
+                <name>Nico Kutscherauer</name>
+            </author>
+            <author>
+                <name>Octavian Nadolu</name>
+            </author>
+        </authlist>
+        <status>
+            <p>Status of this Document</p>
+        </status>
+        <abstract>
+            <p>Schematron QuickFix is an extension of the ISO standard Schematron. With Schematron QuickFix the developer is able to define QuickFixes for the Schematron errors. The implementation should offer the user these QuickFixes for the reported Schematron errors. With just one click the user can decide which QuickFix acceptably fixes the error.</p>
+        </abstract>
+        <langusage>
+            <language>Language</language>
+        </langusage>
+        <revisiondesc>
+            <p>Revision description</p>
+        </revisiondesc>
+    </header>
+    <body>
+        <div1>
+            <head>Introduction</head>
+            <p>Schematron has become a very popular language in the XML world. More and more
+                publishers and other companies use Schematron to ensure the quality of their
+                documents. The reasons for the breakthrough of Schematron do not matter here. We are
+                interested in the task to handle Schematron reports. What is to be done if documents
+                are not compliant with the Schematron schema? Who is able to fix the reported
+                errors?</p>
+            <p>In order to save money and nerves we will give the author the chance to solve the
+                problem by himself without producing new errors. The Schematron report should not
+                only list what the author did wrong. It should give him options – called QuickFixes
+                – to fix these errors. The author can now choose which QuickFix is the right fix for
+                the corresponding Schematron error. </p>
+            <p>Today, the companies have two alternatives: </p>
+            <p><ulist>
+                    <item>
+                        <p>The author: He knows the context of the document. He is the expert in his
+                            subject and he knows what he intends with his content. But in most cases
+                            he is not very good in XML. In addition, he already committed the error!
+                            How shall he fix it correctly?</p>
+                    </item>
+                    <item>
+                        <p>A XML expert: He is very good in XML. In some cases, he knows how to fix
+                            the error. But his working hours are very expensive. Moreover, there are
+                            many cases when he does not know how to fix the errors because he has to
+                            guess what the author has meant.</p>
+                    </item>
+                </ulist>Because none of them is able to fix the Schematron reported errors, much
+                communication is necessary to fix all errors correctly. So, the author and the XML
+                expert need more time and the company loses much money.</p>
+            <p>When he has chosen the matching QuickFixes, he can "execute" them. With one click his
+                problems end in smoke. Of course, we do not want to pretend that it is that easy.
+                For many errors, no perfect QuickFix exists. However, sometimes the errors have to
+                be fixed manually. But the QuickFixes can help in many situations.</p>            
+        </div1>
+        <div1>
+            <head>Concepts</head>
+            <p>In this specification the following concepts will be used. The list bellow shows the
+                definitions of these expressions:</p>
+            <p>
+                <ulist>
+                    <item>
+                        <p><emph>Quick Fix</emph> - A possible fix for a Schematron report or
+                            assert. An implementation should provide it to the user (per default)
+                            for each reported assert or report. The QuickFix will be executed if the
+                            user chooses it.</p>
+                    </item>
+                    <item>
+                        <p><emph>Global Quick Fix</emph> - A QuickFix which is defined in the
+                            top-level &lt;sqf:fixes> element. A global QuickFix is available in each
+                            Schematron rule.</p>
+                    </item>
+                    <item>
+                        <p><emph>Local Quick Fix</emph> - A QuickFix which is defined for a
+                            Schematron rule. It is only available in this Schematron rule.</p>
+                    </item>
+                    <item>
+                        <p><emph>Execute a Quick Fix</emph> - All activity elements which the
+                            QuickFix contains will be performed.</p>
+                    </item>
+                    <item>
+                        <p><emph>Activity element</emph> - implements a change command.</p>
+                    </item>
+                    <item>
+                        <p><emph>Change command</emph> - defined by an activity element for a change
+                            of the XML instance. A change command can have the activity kinds "add",
+                            "delete", "replace" and "stringReplace".</p>
+                    </item>
+                    <item>
+                        <p><emph>Add change command</emph> - creates one or more nodes and adds them
+                            relatively to an anchor node to the XML instance.</p>
+                    </item>
+                    <item>
+                        <p><emph>Delete change command</emph> - deletes one or more nodes.</p>
+                    </item>
+                    <item>
+                        <p><emph>Replace change command</emph> - creates one or more nodes and
+                            replaces nodes of the XML instance with them.</p>
+                    </item>
+                    <item>
+                        <p><emph>String replace change command</emph> - creates one or more nodes
+                            and replaces substrings of a text node of the XML instance with
+                            them.</p>
+                    </item>
+                    <item>
+                        <p><emph>Anchor node</emph> - context node of an activity element. The node
+                            is the subject of the change command of the activity element.</p>
+                    </item>
+                </ulist>
+            </p> 
+        </div1>
+        <div1>
+            <head>Elements</head>
+            <div2>
+                <head>&lt;sqf:add></head>
+                <p>This activity element adds a node to one or more nodes of the XML instance.</p>
+                <p>The attributes match and position define the position where the nodes will be
+                    added. The position is determined by the anchor node(s) (@match) and the
+                    insertion direction (@position).</p>
+                <p>The attributes node-type, select and target and the content of the element define
+                    the nodes to be added.</p>
+            </div2>
+        </div1>
+    </body>
+    <back>
+        <div1>
+            <head>Schematron Quick Fixes schema</head>
+            <eg><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../schemas/schematron-quickFix.xsd" parse="text"/></eg>
+        </div1>
+    </back>
+</spec>

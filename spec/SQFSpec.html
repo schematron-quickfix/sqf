@@ -1,0 +1,658 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang=""><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <title>Schematron Quick Fixes Specification</title><style type="text/css">
+code           { font-family: monospace; }
+
+div.constraint,
+div.issue,
+div.note,
+div.notice     { margin-left: 2em; }
+
+ol.enumar      { list-style-type: decimal; }
+ol.enumla      { list-style-type: lower-alpha; }
+ol.enumlr      { list-style-type: lower-roman; }
+ol.enumua      { list-style-type: upper-alpha; }
+ol.enumur      { list-style-type: upper-roman; }
+
+
+div.exampleInner pre { margin-left: 1em;
+                       margin-top: 0em; margin-bottom: 0em}
+div.exampleOuter {border: 4px double gray;
+                  margin: 0em; padding: 0em}
+div.exampleInner { background-color: #d5dee3;
+                   border-top-width: 4px;
+                   border-top-style: double;
+                   border-top-color: #d3d3d3;
+                   border-bottom-width: 4px;
+                   border-bottom-style: double;
+                   border-bottom-color: #d3d3d3;
+                   padding: 4px; margin: 0em }
+div.exampleWrapper { margin: 4px }
+div.exampleHeader { font-weight: bold;
+                    margin: 4px}
+</style><link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/TR/base.css"></head><body><div class="head"><p><a href="http://www.w3.org/"><img src="http://www.w3.org/Icons/w3c_home" alt="W3C" height="48" width="72"></a></p>
+<h1><a name="title" id="title"></a>Schematron Quick Fixes Specification</h1>
+<h2><a name="w3c-doctype" id="w3c-doctype"></a>W3C Candidate March 2015</h2><dl><dt>This version:</dt><dd>Document location</dd><dt>Editors:</dt><dd>Nico Kutscherauer</dd><dd>Octavian Nadolu</dd></dl><p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>&nbsp;&copy;&nbsp;2015&nbsp;<a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>&reg;</sup> (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>, <a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p></div><hr><div>
+<h2><a name="abstract" id="abstract"></a>Abstract</h2><p>Schematron QuickFix is an extension of the ISO standard Schematron. With Schematron QuickFix the developer is able to define QuickFixes for the Schematron errors. The implementation should offer the user these QuickFixes for the reported Schematron errors. With just one click the user can decide which QuickFix acceptably fixes the error.</p></div><div>
+<h2><a name="status" id="status"></a>Status of this Document</h2><p>Status of this Document</p></div><div class="toc">
+<h2><a name="contents" id="contents"></a>Table of Contents</h2><p class="toc">1 <a href="#d0e37">Introduction</a><br>
+2 <a href="#d0e57">Concepts</a><br>
+3 <a href="#d0e121">Elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;3.1 <a href="#d0e124">&lt;sqf:add&gt;</a><br>
+</p>
+<h3><a name="appendices" id="appendices"></a>Appendix</h3><p class="toc">A <a href="#d0e134">Schematron Quick Fixes schema</a><br>
+</p></div><hr><div class="body"><div class="div1">
+<h2><a name="d0e37" id="d0e37"></a>1 Introduction</h2><p>Schematron has become a very popular language in the XML world. More and more
+                publishers and other companies use Schematron to ensure the quality of their
+                documents. The reasons for the breakthrough of Schematron do not matter here. We are
+                interested in the task to handle Schematron reports. What is to be done if documents
+                are not compliant with the Schematron schema? Who is able to fix the reported
+                errors?</p><p>In order to save money and nerves we will give the author the chance to solve the
+                problem by himself without producing new errors. The Schematron report should not
+                only list what the author did wrong. It should give him options &#8211; called QuickFixes
+                &#8211; to fix these errors. The author can now choose which QuickFix is the right fix for
+                the corresponding Schematron error. </p><p>Today, the companies have two alternatives: </p><p><ul><li><p>The author: He knows the context of the document. He is the expert in his
+                            subject and he knows what he intends with his content. But in most cases
+                            he is not very good in XML. In addition, he already committed the error!
+                            How shall he fix it correctly?</p></li><li><p>A XML expert: He is very good in XML. In some cases, he knows how to fix
+                            the error. But his working hours are very expensive. Moreover, there are
+                            many cases when he does not know how to fix the errors because he has to
+                            guess what the author has meant.</p></li></ul>Because none of them is able to fix the Schematron reported errors, much
+                communication is necessary to fix all errors correctly. So, the author and the XML
+                expert need more time and the company loses much money.</p><p>When he has chosen the matching QuickFixes, he can "execute" them. With one click his
+                problems end in smoke. Of course, we do not want to pretend that it is that easy.
+                For many errors, no perfect QuickFix exists. However, sometimes the errors have to
+                be fixed manually. But the QuickFixes can help in many situations.</p></div><div class="div1">
+<h2><a name="d0e57" id="d0e57"></a>2 Concepts</h2><p>In this specification the following concepts will be used. The list bellow shows the
+                definitions of these expressions:</p><p>
+                <ul><li><p><em>Quick Fix</em> - A possible fix for a Schematron report or
+                            assert. An implementation should provide it to the user (per default)
+                            for each reported assert or report. The QuickFix will be executed if the
+                            user chooses it.</p></li><li><p><em>Global Quick Fix</em> - A QuickFix which is defined in the
+                            top-level &lt;sqf:fixes&gt; element. A global QuickFix is available in each
+                            Schematron rule.</p></li><li><p><em>Local Quick Fix</em> - A QuickFix which is defined for a
+                            Schematron rule. It is only available in this Schematron rule.</p></li><li><p><em>Execute a Quick Fix</em> - All activity elements which the
+                            QuickFix contains will be performed.</p></li><li><p><em>Activity element</em> - implements a change command.</p></li><li><p><em>Change command</em> - defined by an activity element for a change
+                            of the XML instance. A change command can have the activity kinds "add",
+                            "delete", "replace" and "stringReplace".</p></li><li><p><em>Add change command</em> - creates one or more nodes and adds them
+                            relatively to an anchor node to the XML instance.</p></li><li><p><em>Delete change command</em> - deletes one or more nodes.</p></li><li><p><em>Replace change command</em> - creates one or more nodes and
+                            replaces nodes of the XML instance with them.</p></li><li><p><em>String replace change command</em> - creates one or more nodes
+                            and replaces substrings of a text node of the XML instance with
+                            them.</p></li><li><p><em>Anchor node</em> - context node of an activity element. The node
+                            is the subject of the change command of the activity element.</p></li></ul>
+            </p></div><div class="div1">
+<h2><a name="d0e121" id="d0e121"></a>3 Elements</h2><div class="div2">
+<h3><a name="d0e124" id="d0e124"></a>3.1 &lt;sqf:add&gt;</h3><p>This activity element adds a node to one or more nodes of the XML instance.</p><p>The attributes match and position define the position where the nodes will be
+                    added. The position is determined by the anchor node(s) (@match) and the
+                    insertion direction (@position).</p><p>The attributes node-type, select and target and the content of the element define
+                    the nodes to be added.</p></div></div></div><div class="back"><div class="div1">
+<h2><a name="d0e134" id="d0e134"></a>A Schematron Quick Fixes schema</h2><div class="exampleInner"><pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;!--  
+    Copyright (c) 2014 Nico Kutscherauer
+        
+    This file is part of Escali Schematron.
+    
+    Escali Schematron is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    Escali Schematron is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with Escali Schematron.  If not, see http://www.gnu.org/licenses/gpl-3.0.
+    
+    --&gt;
+
+&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://www.schematron-quickfix.com/validator/process" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xml:lang="en"&gt;
+    &lt;xs:import namespace="http://purl.oclc.org/dsdl/schematron" schemaLocation="iso-schematron.xsd"/&gt;
+    &lt;xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/&gt;
+
+    &lt;xs:annotation&gt;
+        &lt;xs:appinfo source="sqf:meta"&gt;
+            &lt;title navTitle="SQF reference"&gt;Schematron QuickFix reference&lt;/title&gt;
+        &lt;/xs:appinfo&gt;
+        &lt;xs:appinfo source="sqf:meta" xml:lang="de"&gt;
+            &lt;title navTitle="SQF-Referenz"&gt;Schematron QuickFix Referenz&lt;/title&gt;
+        &lt;/xs:appinfo&gt;
+    &lt;/xs:annotation&gt;
+
+    &lt;xs:annotation&gt;
+        &lt;xs:documentation&gt;In this documentation the following expressions will be used. The table bellow shows the definitions of these expressions:&lt;/xs:documentation&gt;
+        &lt;xs:documentation source="QuickFix"&gt;A possible fix for a Schematron report or assert. An implementation should provide it to the user (per default) for each reported assert or report. The QuickFix will be executed if the user chooses it.&lt;/xs:documentation&gt;
+        &lt;xs:documentation source="Global QuickFix"&gt;A QuickFix which is defined in the top-level &lt;icode type="element"&gt;sqf:fixes&lt;/icode&gt; element. A global QuickFix is available in each Schematron rule.&lt;/xs:documentation&gt;
+        &lt;xs:documentation source="Local QuickFix"&gt;A QuickFix which is defined for a Schematron rule. It is only available in this Schematron rule.&lt;/xs:documentation&gt;
+        &lt;xs:documentation source="Execute a QuickFix"&gt;All activity elements which the QuickFix contains will be performed.&lt;/xs:documentation&gt;
+        &lt;xs:documentation source="Activity element"&gt;implements a change command.&lt;/xs:documentation&gt;
+        &lt;xs:documentation source="Change command"&gt;defined by an activity element for a change of the XML instance. A change command can have the activity kinds "add", "delete", "replace" and "stringReplace".&lt;/xs:documentation&gt;
+        &lt;xs:documentation source="Add change command"&gt;creates one or more nodes and adds them relatively to an anchor node to the XML instance.&lt;/xs:documentation&gt;
+        &lt;xs:documentation source="Delete change command"&gt;deletes one or more nodes.&lt;/xs:documentation&gt;
+        &lt;xs:documentation source="Replace change command"&gt;creates one or more nodes and replaces nodes of the XML instance with them.&lt;/xs:documentation&gt;
+        &lt;xs:documentation source="String replace change command"&gt;creates one or more nodes and replaces substrings of a text node of the XML instance with them.&lt;/xs:documentation&gt;
+        &lt;xs:documentation source="Anchor node"&gt;context node of an activity element. The node is the subject of the change command of the activity element.&lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+
+    &lt;xs:attributeGroup name="messageAttributes"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation xml:lang="de"&gt;Attribute zur Zuweisung eins oder mehrerer QuickFixes zu einem Schematron-Assert oder -Report.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;Attributes to assign one or more QuickFixes to a Schematron assert or report.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:attribute name="fix" type="xs:string" use="optional" form="qualified"&gt;
+            &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;This attribute refers to one or more QuickFixes wich should be assigned to the Schematron assert or report. Each referred QuickFix must be defined globally or locally for the same Schematron rule.&lt;/xs:documentation&gt;
+                &lt;xs:documentation&gt;The reference works with the ID of the QuickFix. If there is a local and a global QuickFix having the same ID, the local QuickFix will be selected.&lt;/xs:documentation&gt;
+                &lt;xs:documentation source="Value"&gt;A list of IDs of the referred QuickFixes separated by white space.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name="default-fix" type="xs:string" use="optional" form="qualified"&gt;
+            &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;This attribute sets a default QuickFix for the Schematron assert or report. The default QuickFix must also be referred by the &lt;icode type="attribute"&gt;sqf:fix&lt;/icode&gt; attribute.&lt;/xs:documentation&gt;
+                &lt;xs:documentation source="Value"&gt;The ID of a QuickFix which is referred by the &lt;icode type="attribute"&gt;sqf:fix&lt;/icode&gt; attribute.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+    &lt;/xs:attributeGroup&gt;
+    &lt;xs:attributeGroup name="rootAttributes"&gt;
+        &lt;xs:attribute name="version" type="xs:token"&gt;
+            &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;The attribute defines the used Schematron QuickFix version. The attribute should be set, if the Schematron schema uses the Schematron QuickFix extensions.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+    &lt;/xs:attributeGroup&gt;
+
+    &lt;xs:attributeGroup name="parameterAttributes"&gt;
+        &lt;xs:attribute name="name" type="xs:string" use="required"&gt;
+            &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;This attribute defines the name of the parameter or User Entry.&lt;/xs:documentation&gt;
+                &lt;xs:documentation source="Value"&gt;Must be unique within a QuickFix.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name="default" type="xs:string" use="optional"&gt;
+            &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;This attribute defines a default value for a parameter or User Entry by using a XPath expression. If the attribute is set to a &lt;icode type="element"&gt;sqf:param&lt;/icode&gt; element, the element must be empty.&lt;/xs:documentation&gt;
+                &lt;xs:documentation source="Value"&gt;Must be a valid XPath expression.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name="type" type="xs:string" use="optional"&gt;
+            &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;This attribute defines the type of the parameter or User Entry.&lt;/xs:documentation&gt;
+                &lt;xs:documentation source="Value"&gt;The value should be a valid XML Schema type.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+    &lt;/xs:attributeGroup&gt;
+
+
+    &lt;xs:group name="templateElements"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;This element group describes the content of the activity elements. The behaviour is similar to the content of the &lt;icode type="element"&gt;xsl:template&lt;/icode&gt; element. Additionally, the elements &lt;icode type="element"&gt;sch:value-of&lt;/icode&gt; and &lt;icode type="element"&gt;sch:let&lt;/icode&gt; are treated as &lt;icode type="element"&gt;xsl:value-of&lt;/icode&gt; and &lt;icode type="element"&gt;xsl:variable&lt;/icode&gt;. Also the &lt;a ref="#sqf_keep"&gt;&lt;icode type="element"&gt;sqf:keep&lt;/icode&gt;&lt;/a&gt; element is available.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+                &lt;xs:any processContents="skip"/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:group&gt;
+    &lt;xs:group name="activityElements"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;An activity element defines a change command for one or more nodes of the instance element. This change command is specified by the kind of activity element, the content and several attributes.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:choice maxOccurs="unbounded" minOccurs="0"&gt;
+                &lt;xs:element ref="sqf:add"/&gt;
+                &lt;xs:element ref="sqf:delete"/&gt;
+                &lt;xs:element ref="sqf:replace"/&gt;
+                &lt;xs:element ref="sqf:stringReplace"/&gt;
+            &lt;/xs:choice&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:group&gt;
+    &lt;xs:group name="fixElements"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Elements to define QuickFixes or QuickFix groups inside of a Schematron schema.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:choice&gt;
+            &lt;xs:element ref="sqf:fix"/&gt;
+            &lt;xs:element ref="sqf:group"/&gt;
+        &lt;/xs:choice&gt;
+    &lt;/xs:group&gt;
+
+    &lt;xs:element name="fixes"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Contains globally useable Schematron QuickFixes and QuickFix groups.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType&gt;
+            &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+                &lt;xs:group ref="sqf:fixElements"/&gt;
+            &lt;/xs:choice&gt;
+            &lt;xs:attribute ref="xml:lang"/&gt;
+            &lt;xs:attribute name="id" type="xs:ID"/&gt;
+            &lt;xs:attributeGroup ref="sch:foreign"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="group"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Defines a Schematron QuickFix group. If the group is linked by an assert or report, all QuickFixes of this group will be accosieted with the assert/report.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType&gt;
+            &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+                &lt;xs:element ref="sqf:fix"/&gt;
+            &lt;/xs:choice&gt;
+            &lt;xs:attribute name="id" use="required" type="xs:string"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The ID to reference the QuickFix group.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="value"&gt;characters of type xs:ID. The value must be unique in the parent element.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attribute name="use-when" use="optional" type="xs:string" default="true()"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The condition to provide the QuickFixes of the QuickFix group.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="value"&gt;XPath expression. Its expect as return value an xs:boolean.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attribute ref="xml:lang"/&gt;
+            &lt;xs:attributeGroup ref="sch:foreign"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="fix"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Defines a Schematron QuickFix with its content. All commands will be processed if the QuickFix is activated by the user.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+                &lt;xs:element ref="sqf:param" minOccurs="0" maxOccurs="unbounded"/&gt;
+                &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+                    &lt;xs:group ref="sqf:foreign"/&gt;
+                    &lt;xs:element ref="sch:let"/&gt;
+                &lt;/xs:choice&gt;
+                &lt;xs:element ref="sqf:description"/&gt;
+                &lt;xs:group ref="sqf:foreign"/&gt;
+                &lt;xs:choice&gt;
+                    &lt;xs:sequence&gt;
+                        &lt;xs:element ref="sqf:call-fix"/&gt;
+                    &lt;/xs:sequence&gt;
+                    &lt;xs:sequence&gt;
+                        &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+                            &lt;xs:element ref="sch:let"/&gt;
+                            &lt;xs:element ref="sqf:user-entry"/&gt;
+                        &lt;/xs:choice&gt;
+                        &lt;xs:group ref="sqf:activityElements"/&gt;
+                    &lt;/xs:sequence&gt;
+                &lt;/xs:choice&gt;
+            &lt;/xs:sequence&gt;
+            &lt;xs:attribute name="id" use="required" type="xs:string"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The ID to reference the QuickFix.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="value"&gt;characters of type xs:ID. The value must be unique in the parent element.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attribute name="use-when" use="optional" type="xs:string" default="true()"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The condition to provide the QuickFix.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="value"&gt;XPath expression. Its expect as return value an xs:boolean.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attribute name="role" use="optional"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;With this attribute the role of the QuickFix can be set manually.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation&gt;The role of a QuickFix describes the type of change which it makes. If the role is not set manually, the role is the type of the used activity element ("add", "delete", "replace" or "stringReplace"). If two different activity elements are used in a QuickFix, the role is automatically "mix".&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="default"&gt;Depends on which activity element is used by the QuickFix.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+                &lt;xs:simpleType&gt;
+                    &lt;xs:restriction base="xs:string"&gt;
+                        &lt;xs:enumeration value="replace"/&gt;
+                        &lt;xs:enumeration value="add"/&gt;
+                        &lt;xs:enumeration value="stringReplace"/&gt;
+                        &lt;xs:enumeration value="delete"/&gt;
+                        &lt;xs:enumeration value="mix"/&gt;
+                    &lt;/xs:restriction&gt;
+                &lt;/xs:simpleType&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attribute ref="xml:lang"/&gt;
+            &lt;xs:attributeGroup ref="sch:foreign"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="description"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Adds a human readable description to the parent element.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+                &lt;xs:element ref="sqf:title"/&gt;
+                &lt;xs:element ref="sqf:p" minOccurs="0" maxOccurs="unbounded"/&gt;
+            &lt;/xs:sequence&gt;
+            &lt;xs:attribute ref="xml:lang"/&gt;
+            &lt;xs:attributeGroup ref="sch:foreign"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="user-entry"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Defines an user entry. With the help of the user entry, the user can interact with the QuickFix. The user entry refers to a &lt;icode type="element"&gt;sqf:param&lt;/icode&gt; element. The value of the parameter is set manually by the user. The implementation should provide the user entry when the user selects the QuickFix.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+                &lt;xs:element ref="sqf:description"/&gt;
+            &lt;/xs:sequence&gt;
+            &lt;xs:attributeGroup ref="sqf:parameterAttributes"/&gt;
+            &lt;xs:attribute ref="xml:lang"/&gt;
+            &lt;xs:attributeGroup ref="sch:foreign"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="call-fix"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;This element calls another QuickFix within a QuickFix. The called QuickFix must be defined globally or for the same Schematron rule as the calling QuickFix. A calling QuickFix should not have other activity elements.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The calling QuickFix adopts the activity elements of the called QuickFix. With the help of parameters, these can be specified (see &lt;a ref="#sqf_with-param"&gt;&lt;icode type="element"&gt;sqf:with-param&lt;/icode&gt;&lt;/a&gt;).&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The description and other characteristics (e.g. @use-when) of the called QuickFix will not be adopted.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+                &lt;xs:element ref="sqf:with-param" minOccurs="0" maxOccurs="unbounded"/&gt;
+            &lt;/xs:sequence&gt;
+            &lt;xs:attribute name="ref" use="required" type="xs:string"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;This attribute refers to a QuickFix by using the ID. The referred QuickFix must be defined globally or for the same Schematron rule as the referring QuickFix.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attributeGroup ref="sch:foreign"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="with-param"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;With the help of this element, QuickFix calls can be specified. A &lt;icode type="element"&gt;sqf:with-param&lt;/icode&gt; element refers to a parameter of the called QuickFix.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The content or the &lt;icode type="attribute"&gt;select&lt;/icode&gt; attribute define the value of the parameter. If there is content, the &lt;icode type="element"&gt;sqf:with-param&lt;/icode&gt; element should not have a &lt;icode type="attribute"&gt;select&lt;/icode&gt; attribute.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType mixed="true"&gt;
+            &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+                &lt;xs:any processContents="lax"/&gt;
+            &lt;/xs:choice&gt;
+            &lt;xs:attribute name="name" type="xs:string" use="required"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation source="Value"&gt;The name of the referred parameter.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attribute name="select" type="xs:string" use="optional"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;This attribute defines with a XPath expression the value of the parameter. If the attribute is set, the &lt;icode type="element"&gt;sqf:with-param&lt;/icode&gt; element must be empty.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="Value"&gt;Must be a valid XPath expression.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attributeGroup ref="sch:foreign"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="param"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;This element defines a parameter for a QuickFix. The parameter can be used like a variable within the QuickFix. The value can be set by the &lt;a ref="#sqf_with-param"&gt;&lt;icode type="element"&gt;sqf:with-param&lt;/icode&gt;&lt;/a&gt; element.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The content defines a default value for the parameter.&lt;/xs:documentation&gt;
+            &lt;xs:documentation source="Exception"&gt;Abstract parameters (see attribute &lt;icode type="attribute"&gt;abstract&lt;/icode&gt;) can not used as normal XPath variables. An abstract parameter declares, that the current QuickFix uses a parameter of an abstract pattern. A QuickFix with one or more abstract parameters can just used by abstract patterns. The value of the parameter will be set by the instantiation of the abstract pattern according to the Schematron specification. The instantiation of the abstract pattern must specify a value for every abstract parameter of the QuickFix.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType mixed="true"&gt;
+            &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+                &lt;xs:any processContents="lax"/&gt;
+            &lt;/xs:choice&gt;
+            &lt;xs:attribute name="required" default="no"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;This attribute sets for the parameter whether it is optional or required.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation&gt;If the parameter is required, it cannot have a &lt;icode type="attribute"&gt;default&lt;/icode&gt; attribute or any content.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="Value"&gt;The value &lt;icode type="attributeValue"&gt;yes&lt;/icode&gt; is used for required, &lt;icode type="attributeValue"&gt;no&lt;/icode&gt; for optional.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+                &lt;xs:simpleType&gt;
+                    &lt;xs:restriction base="xs:string"&gt;
+                        &lt;xs:enumeration value="yes"/&gt;
+                        &lt;xs:enumeration value="no"/&gt;
+                    &lt;/xs:restriction&gt;
+                &lt;/xs:simpleType&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attribute name="abstract" type="xs:boolean" default="false"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;This attribute sets for the parameter whether it is abstract or not.&lt;/xs:documentation&gt;
+
+                    &lt;xs:documentation&gt;The current quick fix can be instantiate only from an abstract pattern that defines this abstract parameter. Inside of a global QuickFix every used parameter of an abstract pattern must be declared by an abstract parameter.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation&gt;If a parameter is defined as abstract, it can not have a &lt;icode type="attribute"&gt;type&lt;/icode&gt;, &lt;icode type="attribute"&gt;required&lt;/icode&gt; or &lt;icode type="attribute"&gt;default&lt;/icode&gt; attribute. Its value will be only form the abstract pattern instantiation.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="Value"&gt;The value &lt;icode type="attributeValue"&gt;true&lt;/icode&gt; is used for abstract parameter, &lt;icode type="attributeValue"&gt;false&lt;/icode&gt; for regular parameter.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attributeGroup ref="sqf:parameterAttributes"/&gt;
+            &lt;xs:attributeGroup ref="sch:foreign"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="title"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Name of a QuickFix or a user entry.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType mixed="true"&gt;
+            &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+                &lt;xs:group ref="sch:foreign"/&gt;
+                &lt;xs:choice&gt;
+                    &lt;xs:element ref="sch:name"/&gt;
+                    &lt;xs:element ref="sch:value-of"/&gt;
+                &lt;/xs:choice&gt;
+            &lt;/xs:choice&gt;
+            &lt;xs:attribute ref="xml:lang"/&gt;
+            &lt;xs:attributeGroup ref="sch:foreign"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="p"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Paragraph within a description.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType mixed="true"&gt;
+            &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+                &lt;xs:group ref="sch:foreign"/&gt;
+                &lt;xs:choice&gt;
+                    &lt;xs:element ref="sch:name"/&gt;
+                    &lt;xs:element ref="sch:value-of"/&gt;
+                    &lt;xs:element ref="sch:emph"/&gt;
+                    &lt;xs:element ref="sch:dir"/&gt;
+                    &lt;xs:element ref="sch:span"/&gt;
+                &lt;/xs:choice&gt;
+            &lt;/xs:choice&gt;
+            &lt;xs:attribute ref="xml:lang"/&gt;
+            &lt;xs:attributeGroup ref="sch:foreign"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+
+    &lt;xs:element name="replace"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;This activity element replaces one or more nodes of the XML instance by a node. The activity command combines the delete and the add command.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The nodes to be deleted are defined by the &lt;icode type="attribute"&gt;match&lt;/icode&gt; attribute. The nodes to be added are defined by the the attributes &lt;icode type="attribute"&gt;node-type&lt;/icode&gt; and &lt;icode type="attribute"&gt;select&lt;/icode&gt; and the content of the &lt;icode type="element"&gt;sqf:replace&lt;/icode&gt; element.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The position of the nodes to be added is the position of the nodes to be deleted.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType mixed="true"&gt;
+            &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+                &lt;xs:group ref="sqf:templateElements"/&gt;
+            &lt;/xs:choice&gt;
+            &lt;xs:attributeGroup ref="sqf:activityManipulate"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+
+    &lt;xs:element name="delete"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;This activity element deletes one or more nodes of the XML instance.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The &lt;icode type="attribute"&gt;match&lt;/icode&gt; attribute defines the nodes to be deleted.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType&gt;
+            &lt;xs:attributeGroup ref="sqf:activityBase"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="add"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;This activity element adds a node to one or more nodes of the XML instance.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The attributes &lt;icode type="attribute"&gt;match&lt;/icode&gt; and &lt;icode type="attribute"&gt;position&lt;/icode&gt; define the position where the nodes will be added. The position is determined by the anchor node(s) (&lt;a ref="#activityBase_match"&gt;@match&lt;/a&gt;) and the insertion direction (&lt;a ref="#add_position"&gt;@position&lt;/a&gt;).&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The attributes &lt;icode type="attribute"&gt;node-type&lt;/icode&gt;, &lt;icode type="attribute"&gt;select&lt;/icode&gt; and &lt;icode type="attribute"&gt;target&lt;/icode&gt; and the content of the element define the nodes to be added.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType mixed="true"&gt;
+            &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+                &lt;xs:group ref="sqf:templateElements"/&gt;
+            &lt;/xs:choice&gt;
+            &lt;xs:attribute name="position" type="sqf:positionType"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The &lt;icode type="attribute"&gt;position&lt;/icode&gt; attribute defines the position of the nodes to be added relatively to the anchor node (see &lt;a ref="#activityBase_match"&gt;@match&lt;/a&gt;).&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="Default"&gt;If the value of the &lt;icode type="attribute"&gt;node-type&lt;/icode&gt; attribute is &lt;icode type="attributeValue"&gt;attribute&lt;/icode&gt;, the &lt;icode type="attribute"&gt;position&lt;/icode&gt; attribute should not be set, because the node to be added will always be inserted as attribute. Otherwise the default value is &lt;icode type="attributeValue"&gt;first-child&lt;/icode&gt;.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attributeGroup ref="sqf:activityManipulate"/&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+    &lt;xs:element name="stringReplace"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;This activity element replaces substrings of text nodes by other nodes. The text nodes are defined by the &lt;icode type="attribute"&gt;match&lt;/icode&gt; attribute. The &lt;icode type="attribute"&gt;regex&lt;/icode&gt; attribute defines the substrings of the text nodes.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;The nodes to be inserted are defined by the content of the &lt;icode type="element"&gt;sqf:stringReplace&lt;/icode&gt; element or the &lt;icode type="attribute"&gt;select&lt;/icode&gt; attribute. &lt;b&gt;Note:&lt;/b&gt; The context within the &lt;icode type="element"&gt;sqf:stringReplace&lt;/icode&gt; element is set to the substrings. So, it is an atomic value.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType&gt;
+            &lt;xs:choice&gt;
+                &lt;xs:group ref="sqf:templateElements"/&gt;
+            &lt;/xs:choice&gt;
+            &lt;xs:attributeGroup ref="sqf:activityBase"/&gt;
+            &lt;xs:attribute name="regex" type="xs:string" use="required"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation source="Value"&gt;Regular expression. The expression can be specified by XPath expressions which are marked by curly brackets. After processing, the regular expression must meet the requirements of the &lt;icode type="attribute"&gt;regex&lt;/icode&gt; attribute of the &lt;icode type="element"&gt;xsl:analyze-string&lt;/icode&gt; element.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+            &lt;xs:attribute name="select" type="xs:string"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The &lt;icode type="attribute"&gt;select&lt;/icode&gt; attribute defines nodes or an atomic value as the nodes to be inserted. If the &lt;icode type="attribute"&gt;select&lt;/icode&gt; attribute is set, the &lt;icode type="attribute"&gt;sqf:stringReplace&lt;/icode&gt; element should be empty.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation&gt;The selected nodes will be copied. Unlike a deep copy function, the copied nodes could be manipulated by the current or other activity elements.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="Value"&gt;XPath expression. The context of relative expressions is the substring to replace. &lt;/xs:documentation&gt;
+                    &lt;xs:documentation&gt;&lt;b&gt;Note:&lt;/b&gt; The context will be always an atomic value. To select nodes from the XML instance, the use of variables outside of the &lt;icode type="element"&gt;sqf:stringReplace&lt;/icode&gt; element is necessary.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="Default"&gt;There is no default value. If the &lt;icode type="attribute"&gt;select&lt;/icode&gt; attribute is not set, the content of the activity element defines the nodes to be inserted.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+
+    &lt;xs:attributeGroup name="activityBase"&gt;
+        &lt;xs:attribute name="match" type="xs:string" default="."&gt;
+            &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;The &lt;icode type="attribute"&gt;match&lt;/icode&gt; attribute defines anchor nodes for an activity element.&lt;/xs:documentation&gt;
+                &lt;xs:documentation&gt;For each selected anchor node, the command of the activity element will be executed. For each execution, the context will be set to the anchor node.&lt;/xs:documentation&gt;
+                &lt;xs:documentation&gt;Exception: The &lt;icode type="attribute"&gt;match&lt;/icode&gt; attribute of the &lt;a ref="#sqf_stringReplace"&gt;&lt;icode type="element"&gt;sqf:stringReplace&lt;/icode&gt;&lt;/a&gt; element should only select text nodes.&lt;/xs:documentation&gt;
+                &lt;xs:documentation source="Value"&gt;XPath expression. The context of relative expressions is the context of the related Schematron rule.&lt;/xs:documentation&gt;
+                &lt;xs:documentation source="Default"&gt;By default the anchor node is the context node of the related Schematron rule.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name="use-when" use="optional" type="xs:string" default="true()"&gt;
+            &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;A condition for the action of the activity Element. The action will just be executed, if the condition returns true.&lt;/xs:documentation&gt;
+                &lt;xs:documentation source="value"&gt;XPath expression. Its expect as return value an xs:boolean.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attributeGroup ref="sch:foreign"/&gt;
+    &lt;/xs:attributeGroup&gt;
+    &lt;xs:attributeGroup name="activityManipulate"&gt;
+        &lt;xs:attributeGroup ref="sqf:activityBase"/&gt;
+        &lt;xs:attribute name="node-type" type="sqf:nodeTypeType"&gt;
+            &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;The &lt;icode type="attribute"&gt;node-type&lt;/icode&gt; attribute defines the node type of the nodes to be added. The attribute is required, if the target attribut is set.&lt;/xs:documentation&gt;
+                &lt;xs:documentation&gt;If the &lt;icode type="attribute"&gt;node-type&lt;/icode&gt; value is missing, the activity element should not have a &lt;icode type="attribute"&gt;target&lt;/icode&gt; attribute. In this case the nodes to be added will be defined by the activity elements content or &lt;icode type="attribute"&gt;select&lt;/icode&gt; attribute.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name="select" type="xs:string" use="optional"&gt;
+            &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;The &lt;icode type="attribute"&gt;select&lt;/icode&gt; attribute defines nodes or an atomic value as the content of the node to be added. If the &lt;icode type="attribute"&gt;select&lt;/icode&gt; attribute is set, the activity element should be empty.&lt;/xs:documentation&gt;
+                &lt;xs:documentation&gt;The selected nodes will be copied into the node to be added. Unlike a deep copy function, the copied nodes could be manipulated by the current or other activity elements.&lt;/xs:documentation&gt;
+                &lt;xs:documentation source="Value"&gt;XPath expression. The context of relative expressions is the anchor node.&lt;/xs:documentation&gt;
+                &lt;xs:documentation source="Default"&gt;There is no default value. If the &lt;icode type="attribute"&gt;select&lt;/icode&gt; attribute is not set, the content of the activity element defines the content of the nodes to be added.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute name="target" type="xs:string"&gt;
+            &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;This attribute defines the name of the node to be added. The attribute is required if the &lt;icode type="attribute"&gt;node-type&lt;/icode&gt; attribute is specified and the value is not &lt;icode type="attributeValue"&gt;comment&lt;/icode&gt;.&lt;/xs:documentation&gt;
+                &lt;xs:documentation source="Value"&gt;A string to define a node name. The string can be specified by XPath expressions which are marked by curly brackets. After processing, the name must be valid to the XML Schema type xs:QName.&lt;/xs:documentation&gt;
+                &lt;xs:documentation&gt;Prefixes must be attached to a namespace in the current context of the Schematron schema. Names without prefixes will be attached to the namespace declared by the &lt;icode type="element"&gt;sqf:default-namespace&lt;/icode&gt; element or to the null namespace.&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+    &lt;/xs:attributeGroup&gt;
+
+
+
+    &lt;xs:simpleType name="positionType"&gt;
+        &lt;xs:restriction base="xs:string"&gt;
+            &lt;xs:enumeration value="after"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The nodes to be added will be inserted after the anchor node.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:enumeration&gt;
+            &lt;xs:enumeration value="before"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The nodes to be added will be inserted before the anchor node.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:enumeration&gt;
+            &lt;xs:enumeration value="first-child"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The nodes to be added will be inserted as the first child of the anchor node.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:enumeration&gt;
+            &lt;xs:enumeration value="last-child"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The nodes to be added will be inserted as the last child of the anchor node.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:enumeration&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+    &lt;xs:simpleType name="nodeTypeType"&gt;
+        &lt;xs:restriction base="xs:string"&gt;
+            &lt;xs:enumeration value="keep"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The node type of the node to be added will be defined by the anchor node.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:enumeration&gt;
+            &lt;xs:enumeration value="element"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The node to be added will be an element.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:enumeration&gt;
+            &lt;xs:enumeration value="attribute"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The node to be added will be an attribute. The &lt;icode type="attribute"&gt;position&lt;/icode&gt; attribute should not be set.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:enumeration&gt;
+            &lt;xs:enumeration value="processing-instruction"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The node to be added will be a processing instruction.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:enumeration&gt;
+            &lt;xs:enumeration value="pi"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The short notation of "processing-instruction".&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:enumeration&gt;
+            &lt;xs:enumeration value="comment"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The node to be added will be a comment. If the value of the &lt;icode type="attribute"&gt;node-type&lt;/icode&gt; attribute is &lt;icode type="attributeValue"&gt;comment&lt;/icode&gt;, the activity element should not have a &lt;icode type="attribute"&gt;target&lt;/icode&gt; attribute.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:enumeration&gt;
+        &lt;/xs:restriction&gt;
+    &lt;/xs:simpleType&gt;
+
+    &lt;xs:element name="keep"&gt;
+        &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;This element is available within activity elements. The function is to copy nodes selected by the &lt;icode type="attribute"&gt;select&lt;/icode&gt; attribute. Unlike a deep copy function, with this function the copied nodes can be manipulated by the current or other activity elements.&lt;/xs:documentation&gt;
+        &lt;/xs:annotation&gt;
+        &lt;xs:complexType&gt;
+            &lt;xs:attribute name="select" type="xs:string" default="node()"&gt;
+                &lt;xs:annotation&gt;
+                    &lt;xs:documentation&gt;The attribute selects nodes to be copied.&lt;/xs:documentation&gt;
+                    &lt;xs:documentation source="Value"&gt;XPath expression.&lt;/xs:documentation&gt;
+                &lt;/xs:annotation&gt;
+            &lt;/xs:attribute&gt;
+        &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+
+    &lt;xs:group name="foreign"&gt;
+        &lt;xs:sequence&gt;
+            &lt;xs:group minOccurs="0" maxOccurs="unbounded" ref="sqf:foreign-element"/&gt;
+        &lt;/xs:sequence&gt;
+    &lt;/xs:group&gt;
+
+    &lt;xs:group name="foreign-element"&gt;
+        &lt;xs:choice&gt;
+            &lt;xs:any namespace="http://www.w3.org/1999/XSL/Transform" processContents="skip"/&gt;
+            &lt;xs:any namespace="##local" processContents="skip"/&gt;
+        &lt;/xs:choice&gt;
+    &lt;/xs:group&gt;
+&lt;/xs:schema&gt;
+</pre></div></div></div></body></html>
