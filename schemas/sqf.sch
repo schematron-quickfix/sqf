@@ -59,10 +59,21 @@
         <title>Fix references</title>
         <rule context="sch:assert[@sqf:fix] | sch:report[@sqf:fix]">
             <let name="fixes" value="tokenize(@sqf:fix,'\s')"/>
-            <let name="availableFixIds" value="../sqf:fix/@id | ../sqf:group/@id | /sch:schema/sqf:fixes/sqf:fix/@id | /sch:schema/sqf:fixes/sqf:group/@id"/>
+            <let name="availableFixIds" value="../sqf:fix/@id | /sch:schema/sqf:fixes/sqf:fix/@id"/>
+            <let name="availableGroups" value="../sqf:group | /sch:schema/sqf:fixes/sqf:group"/>
+            <let name="availableGroupIds" value="for $g 
+                                                  in $availableGroups 
+                                              return (  $g/@id,
+                                                        for $f 
+                                                         in $g/sqf:fix 
+                                                     return concat($g/@id, '#', $f/@id))"/>
+            <let name="availableFixIds" value="$availableFixIds, $availableGroupIds"/>
             <assert test="every $fix in $fixes satisfies $availableFixIds[. = $fix]" see="http://www.schematron-quickfix.com/quickFix/reference.html#messageAttributes_fix">The fix(es) <value-of select="string-join($fixes[not(. = $availableFixIds)], ', ')"/> are not available in this rule.</assert>
         </rule>
         
+        </pattern>
+    <pattern>
+        <title>Default fix</title>
         <rule context="sch:assert[@sqf:default-fix] | sch:report[@sqf:default-fix]">
             <let name="defaultFix" value="@sqf:default-fix"/>
             <let name="fixes" value="tokenize(@sqf:fix,'\s')"/>
@@ -75,7 +86,7 @@
             <assert test="not(@position)" see="http://www.schematron-quickfix.com/quickFix/reference.html#add_position">If the node-type attribute has the value "attribute" the position attribute should not be set.</assert>
         </rule>
         <rule context="sqf:add[@select]|sqf:replace[@select]">
-            <report test="node()" see="http://www.schematron-quickfix.com/quickFix/reference.html#activityManipulate_select">If the select attribute is setted the <name/> element should be empty.</report>
+            <report test="* or normalize-space(.) != ''" see="http://www.schematron-quickfix.com/quickFix/reference.html#activityManipulate_select">If the select attribute is setted the <name/> element should be empty.</report>
         </rule>
         <rule context="sqf:add[@target] | sqf:replace[@target]" role="fatal">
             <assert test="@node-type" see="http://www.schematron-quickfix.com/quickFix/reference.html#activityManipulate_target">The attribute node-type is required if the target attribute has been set.</assert>
