@@ -411,7 +411,7 @@
             <xs:documentation>This activity element replaces substrings of text nodes by other nodes. The text nodes are defined by the <icode type="attribute">match</icode> attribute. The <icode type="attribute">regex</icode> attribute defines the substrings of the text nodes.</xs:documentation>
             <xs:documentation>The nodes to be inserted are defined by the content of the <icode type="element">sqf:stringReplace</icode> element or the <icode type="attribute">select</icode> attribute. <b>Note:</b> The context within the <icode type="element">sqf:stringReplace</icode> element is set to the substrings. So, it is an atomic value.</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
+        <xs:complexType mixed="true">
             <xs:choice>
                 <xs:group ref="sqf:templateElements"/>
             </xs:choice>
