@@ -193,7 +193,7 @@
                     </xs:sequence>
                 </xs:choice>
             </xs:sequence>
-            <xs:attribute name="id" use="required" type="xs:string">
+            <xs:attribute name="id" use="required" type="xs:NCName">
                 <xs:annotation>
                     <xs:documentation>The ID to reference the QuickFix.</xs:documentation>
                     <xs:documentation source="value">characters of type xs:ID. The value must be unique in the parent element.</xs:documentation>
