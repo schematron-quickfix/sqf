@@ -114,7 +114,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e513.svg"/>
+               <graphic source="img/svg/sqf_add.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_call-fix">
@@ -196,7 +196,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e3811.svg"/>
+               <graphic source="img/svg/sqf_call-fix.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_delete">
@@ -228,7 +228,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e5044.svg"/>
+               <graphic source="img/svg/sqf_delete.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_description">
@@ -288,7 +288,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e6378.svg"/>
+               <graphic source="img/svg/sqf_description.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_fix">
@@ -397,7 +397,7 @@
                            </th>
                            <td>
                               
-                                 <code>xs:string</code>
+                                 <code>xs:NCName</code>
                               
                            </td>
                         </tr>
@@ -525,7 +525,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e8012.svg"/>
+               <graphic source="img/svg/sqf_fix.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_fixes">
@@ -586,7 +586,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e12991.svg"/>
+               <graphic source="img/svg/sqf_fixes.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_group">
@@ -712,7 +712,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e14391.svg"/>
+               <graphic source="img/svg/sqf_group.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_keep">
@@ -771,7 +771,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e15783.svg"/>
+               <graphic source="img/svg/sqf_keep.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_p">
@@ -850,7 +850,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e16270.svg"/>
+               <graphic source="img/svg/sqf_p.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_param">
@@ -1002,7 +1002,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e17786.svg"/>
+               <graphic source="img/svg/sqf_param.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_replace">
@@ -1047,7 +1047,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e19976.svg"/>
+               <graphic source="img/svg/sqf_replace.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_stringReplace">
@@ -1091,18 +1091,7 @@
                               Use
                            </th>
                            <td>
-                              optional
-                           </td>
-                        </tr>
-                        <tr>
-                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
-                              Default
-                           </th>
-                           <td>
-                              
-                                 <attval>.*</attval>
-                              
-                              By default the whole text node will be replaced by 
+                              required
                            </td>
                         </tr>
                         <tr>
@@ -1177,7 +1166,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e23185.svg"/>
+               <graphic source="img/svg/sqf_stringReplace.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_title">
@@ -1235,7 +1224,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e25744.svg"/>
+               <graphic source="img/svg/sqf_title.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_user-entry">
@@ -1287,7 +1276,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e26975.svg"/>
+               <graphic source="img/svg/sqf_user-entry.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_with-param">
@@ -1383,7 +1372,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e28737.svg"/>
+               <graphic source="img/svg/sqf_with-param.svg"/>
             </div4>
          </div3>
       </div2>
@@ -1441,7 +1430,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e30015.svg"/>
+               <graphic source="img/svg/sqf_activityElements.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_fixElements">
@@ -1482,7 +1471,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e31592.svg"/>
+               <graphic source="img/svg/sqf_fixElements.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_foreign">
@@ -1515,7 +1504,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e32231.svg"/>
+               <graphic source="img/svg/sqf_foreign.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_foreign-element">
@@ -1536,7 +1525,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e32666.svg"/>
+               <graphic source="img/svg/sqf_foreign-element.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_templateElements">
@@ -1574,7 +1563,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e32971.svg"/>
+               <graphic source="img/svg/sqf_templateElements.svg"/>
             </div4>
          </div3>
       </div2>
@@ -1717,7 +1706,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e34481.svg"/>
+               <graphic source="img/svg/sqf_activityBase.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_activityManipulate">
@@ -1909,31 +1898,12 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e36230.svg"/>
+               <graphic source="img/svg/sqf_activityManipulate.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_messageAttributes">
             <head>messageAttributes</head>
             <p>Attributes to assign one or more QuickFixes to a Schematron assert or report.</p>
-            <div4>
-               <head>Used by</head>
-               <ulist>
-                  <item>
-                     <p>
-                        
-                           <loc href="http://www.data2type.de/en/xml-xslt-xslfo/schematron/schematron-reference/">sch:assert</loc>
-                        
-                     </p>
-                  </item>
-                  <item>
-                     <p>
-                        
-                           <loc href="http://www.data2type.de/en/xml-xslt-xslfo/schematron/schematron-reference/">sch:report</loc>
-                        
-                     </p>
-                  </item>
-               </ulist>
-            </div4>
             <div4>
                <head>Attributes</head>
                <div5 id="messageAttributes_default-fix">
@@ -2014,7 +1984,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e39038.svg"/>
+               <graphic source="img/svg/sqf_messageAttributes.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_parameterAttributes">
@@ -2153,7 +2123,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e40020.svg"/>
+               <graphic source="img/svg/sqf_parameterAttributes.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_rootAttributes">
@@ -2200,7 +2170,7 @@
                <head>Content model</head>
                
                
-               <graphic source="img/svg/d1e41352.svg"/>
+               <graphic source="img/svg/sqf_rootAttributes.svg"/>
             </div4>
          </div3>
       </div2>
