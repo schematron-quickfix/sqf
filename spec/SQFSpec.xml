@@ -34,7 +34,7 @@
     <body>
         <div1>
             <head>Namespaces and prefixes</head>
-            <p>This document discribes nodes which belongs to different namespaces. For distinction and for unique descriptions all nodes, which do not belong to the NULL namespace, will be named with a prefix. The following table assigns to each used prefix the corresponding namespace URI:</p>
+            <p>This document describes the nodes which belong to different namespaces. For distinction and for unique descriptions all nodes, which do not belong to the NULL namespace, are named with a prefix. The following table assigns to each used prefix the corresponding namespace URI:</p>
             <table>
                 <thead>
                     <tr>
@@ -80,7 +80,7 @@
                             <gitem id="sch-rule-context">
                                 <label>Context</label>
                                 <def>
-                                    <p>The context of a <termref def="sch-rule">Schematron rule</termref> is definded by the attribute <att>context</att>. If a rule match to more than one node, it has more than one contexts. </p>
+                                    <p>The context of a <termref def="sch-rule">Schematron rule</termref> is defined by the attribute <att>context</att>. If a rule matches to more than one node, it has more than one context. </p>
                                 </def>
                             </gitem>
                         </glist>
@@ -113,7 +113,7 @@
             </div2>
             <div2 id="quick-fix-concept">
                 <head>Quick fix</head>
-                <p>A Quick fix is a fully automatic implemented fix. In connection with an error (produced by a validation of a document) one ore more Quick fixes will be offered to exectue. A user can choose the Quick fix, wich will be executed by an fully automated process. </p>
+                <p>A Quick fix is a fully automatic implemented fix. In connection with an error (produced by a validation of a document) one ore more Quick fixes are offered to execute. A user can choose the Quick fix, which is executed by a fully automated process. </p>
                 <p>A Quick fix requires: </p>
                 <olist>
                     <item>
@@ -123,8 +123,8 @@
                         <p>A human-readable description of the Quick fix. The description should be displayed to the user, when he chooses the Quick fix.</p>
                     </item>
                 </olist>
-                <p>It is able to define Quick fixes inside of a validation parser or using a therefor designed script language. First, there is a limited quantity of Quick fixes, in the second case the quantity is unlimited.</p>
-                <p>It depends on the quantity of unique kinds of errors from the validation language, which way makes more sence. Is the quantity of kinds of errors limited, a implementation of Quick fixes inside of the parser is possible.</p>
+                <p>It is able to define Quick fixes inside of a validation parser or using a therefore designed script language. First, there is a limited quantity of Quick fixes, in the second case the quantity is unlimited.</p>
+                <p>It depends on the quantity of unique kinds of errors from the validation language, which way makes more sense. Is the quantity of kinds of errors limited, an implementation of Quick fixes inside of the parser is possible.</p>
                 <p>Requirements:</p>
                 <ulist>
                     <item>
@@ -141,16 +141,16 @@
         </div1>
         <div1>
             <head>Language</head>
-            <p>Schematron QuickFix (SQF) is an extension of the validation language Schematron to embed Quick fixes. The language uses additional concepts, which should be explained in this sections.</p>
+            <p>Schematron QuickFix (SQF) is an extension of the validation language Schematron to embed Quick fixes. The language uses additional concepts, which should be explained in this section.</p>
             <div2>
                 <head>Embedding into Schematron</head>
-                <p>To embed Schematron QuickFix into Schematron, all extending elements should contains to the namespace <code>http://www.schematron-quickfix.com/validator/process</code> (prefix <code>sqf</code>).</p>
+                <p>To embed Schematron QuickFix into Schematron, all extending elements should have the namespace <code>http://www.schematron-quickfix.com/validator/process</code> (prefix <code>sqf</code>).</p>
                 <p>The following table shows the permitted parent-child relations between the namespaces of SQF and Schematron.</p>
                 <table border="1" cellspacing="0" cellpadding="10">
                     <thead>
                         <tr>
                             <th>Parent element</th>
-                            <th>Permitted childrens</th>
+                            <th>Permitted children</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -266,7 +266,7 @@
             <div2>
                 <head>QuickFix</head>
                 <note>
-                    <p>Please note the different spelling of <emph>QuickFix</emph> and <emph>Quick fix</emph>. The spelling QuickFix means a Quick fix of the extension language Schematron QuickFix. The spelling Quick fix means a not specific Quick fix, which was desribed in the section <titleref href="#quick-fix-concept">Quick fix</titleref>.</p>
+                    <p>Please note the different spelling of <emph>QuickFix</emph> and <emph>Quick fix</emph>. The spelling QuickFix means a Quick fix of the extension language Schematron QuickFix. The spelling Quick fix means a not specific Quick fix, which was described in the section <titleref href="#quick-fix-concept">Quick fix</titleref>.</p>
                 </note>
                 <p>A QuickFix is consequently a <titleref href="#quick-fix-concept">Quick fix</titleref> of the language Schematron QuickFix.</p>
                 <p>A QuickFix requires the following properties:</p>
@@ -324,7 +324,7 @@
                     <p>The ID of the QuickFix and the QuickFix groups (see below) is the Identifier for references to QuickFixes and QuickFix groups.</p>
                     <p>Requirements to set the ID:<ulist>
                             <item>
-                                <p>The ID hast to correspond with the XSD type xs:NCName.</p>
+                                <p>The ID has to correspond with the XSD type xs:NCName.</p>
                             </item>
                             <item>
                                 <p>Inside of a <termref def="sch-rule">Schematron rule</termref> the ID must be unique.</p>
@@ -344,7 +344,7 @@
                 </div3>
                 <div3>
                     <head>Reference to a QuickFix</head>
-                    <p><termref def="sch-assertion">Schematron assertions</termref> are able to refer to one or more QuickFixes. Therefor the <att>sqf:fix</att> attribute contains a whitespace seperated list of IDs. Each ID refers to a ID of a QuickFix.</p>
+                    <p><termref def="sch-assertion">Schematron assertions</termref> are able to refer to one or more QuickFixes. Therefore the <att>sqf:fix</att> attribute contains a whitespace separated list of IDs. Each ID refers to an ID of a QuickFix.</p>
                     <example>
                         <p>The <el>sch:assert</el> element refers to the QuickFixes with the ID <attval>fix1</attval> and <attval>fix2</attval>:</p>
                         <eg xml:space="preserve">&lt;sch:assert test="[...]" sqf:fix="fix1 fix2">[...]&lt;/sch:assert>
@@ -355,20 +355,20 @@
     [...] 
 &lt;/sqf:fix></eg>
                     </example>
-                    <p>Is a <termref def="sch-assertion">Schematron assertion</termref> producing a <termref def="sch-error">Schematron error</termref> and refers to a QuickFix, a Schematron QuickFix implementation needs to provide the QuickFix as a choice for the user in connection to the occurred error.</p>
-                    <p><emph>Exception:</emph> A QuickFix, wich condtion was not satisfied in the <termref def="sch-error-context">context of the  Schematron error</termref>, should not be provided.</p>
+                    <p>Is a <termref def="sch-assertion">Schematron assertion</termref> producing a <termref def="sch-error">Schematron error</termref> that refers to a QuickFix, a Schematron QuickFix implementation needs to provide the QuickFix as a choice for the user in connection to the occurred error.</p>
+                    <p><emph>Exception:</emph> A QuickFix, which condition was not satisfied in the <termref def="sch-error-context">context of the Schematron error</termref>, should not be provided.</p>
                     <p>The user should be able to execute each provided QuickFix.</p>
                 </div3>
                 <div3>
-                    <head>Execution of a QuickFixes</head>
-                    <p>During the execution process of a QuickFix each <titleref href="#change-commands">command changes</titleref> fill be executed to the <termref def="sch-error-context">context node of the error</termref>, if there condition was satisfied in this context. </p>
+                    <head>Execution of a QuickFix</head>
+                    <p>During the execution process of a QuickFix each <titleref href="#change-commands">command changes</titleref> will be executed in the <termref def="sch-error-context">context node of the error</termref>, if their condition was satisfied in this context. </p>
                 </div3>
                 <div3>
                     <head>QuickFix group</head>
                     <p>A QuickFix group is a set of one or more QuickFixes. Additional it needs an ID, which is equal to the ID of a QuickFix. The QuickFix will be implemented with the <el>sqf:group</el> element.</p>
                     <p>A <termref def="sch-assertion">Schematron assertion</termref> is able to refer to a QuickFix group on the same way it refers to a QuickFix. A reference to a QuickFix group is equal to references to all QuickFixes which the QuickFix group contains. <example>
                             <p>The QuickFix group has the ID groupid and contains the QuickFixes with the IDs fix1 and fix2.</p>
-                            <p>The first <el>sch:assert</el> element refers to the QuickFixes fix1 and fix2 per QuickFix ID. The seconde one refers to the same QuickFixes per ID of the QuickFix group.</p>
+                            <p>The first <el>sch:assert</el> element refers to the QuickFixes fix1 and fix2 per QuickFix ID. The second one refers to the same QuickFixes per ID of the QuickFix group.</p>
                             <eg>&lt;sch:assert test="[...]" sqf:fix="fix1 fix2">[...]&lt;/sch:assert>
 &lt;sch:assert test="[...]" sqf:fix="groupid">[...]&lt;/sch:assert>
 &lt;sqf:group id="groupid">
@@ -410,13 +410,13 @@
             </div2>
             <div2 id="change-commands">
                 <head>Change commands</head>
-                <p>A QuickFix needs at least one change command. A change command is implemented by an activity element (see element group <titleref href="#sqf_activityElements"><phrase><code>sqf:activityElements</code></phrase></titleref>). A change command will be executed relativ to an <titleref href="#change-command-anchor-node">anchor node</titleref>. </p>
-                <p>There are four pre defined kinds of change commands:</p>
+                <p>A QuickFix needs at least one change command. A change command is implemented by an activity element (see element group <titleref href="#sqf_activityElements"><phrase><code>sqf:activityElements</code></phrase></titleref>). A change command is executed relative to an <titleref href="#change-command-anchor-node">anchor node</titleref>. </p>
+                <p>There are four predefined kinds of change commands:</p>
                 <glist>
                     <gitem>
                         <label>Add</label>
                         <def>
-                            <p>Creates one or more nodes relativ to the anchor node.</p>
+                            <p>Creates one or more nodes relative to the anchor node.</p>
                         </def>
                     </gitem>
                     <gitem>
@@ -446,7 +446,7 @@
                 </div3>
                 <div3>
                     <head>Conditions</head>
-                    <p>Each change command can have a condition to execute. Therfor the attribute <att>use-when</att> is provided to each activity element. The condition will be defined in the <termref def="sch-error-context">context of the Schematron errors</termref>. If the condition is not satisfied the change command should not be executed.</p>
+                    <p>Each change command can have a condition to execute. Therefore the attribute <att>use-when</att> is provided to each activity element. The condition will be defined in the <termref def="sch-error-context">context of the Schematron errors</termref>. If the condition is not satisfied the change command should not be executed.</p>
                 </div3>
             </div2>
             <div2>
