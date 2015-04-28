@@ -55,7 +55,7 @@
         </xs:annotation>
         <xs:attribute name="fix" type="xs:string" use="optional" form="qualified">
             <xs:annotation>
-                <xs:documentation>This attribute refers to one or more QuickFixes wich should be assigned to the Schematron assert or report. Each referred QuickFix must be defined globally or locally for the same Schematron rule.</xs:documentation>
+                <xs:documentation>This attribute refers to one or more QuickFixes which should be assigned to the Schematron assert or report. Each referred QuickFix must be defined globally or locally for the same Schematron rule.</xs:documentation>
                 <xs:documentation>The reference works with the ID of the QuickFix. If there is a local and a global QuickFix having the same ID, the local QuickFix will be selected.</xs:documentation>
                 <xs:documentation source="Value">A list of IDs of the referred QuickFixes separated by white space.</xs:documentation>
             </xs:annotation>
@@ -99,7 +99,7 @@
 
     <xs:group name="templateElements">
         <xs:annotation>
-            <xs:documentation>This element group describes the content of the activity elements. The behaviour is similar to the content of the <icode type="element">xsl:template</icode> element. Additionally, the elements <icode type="element">sch:value-of</icode> and <icode type="element">sch:let</icode> are treated as <icode type="element">xsl:value-of</icode> and <icode type="element">xsl:variable</icode>. Also the <a ref="#sqf_keep"><icode type="element">sqf:keep</icode></a> element is available.</xs:documentation>
+            <xs:documentation>This element group describes the content of the activity elements. The behavior is similar to the content of the <icode type="element">xsl:template</icode> element. Additionally, the elements <icode type="element">sch:value-of</icode> and <icode type="element">sch:let</icode> are treated as <icode type="element">xsl:value-of</icode> and <icode type="element">xsl:variable</icode>. Also the <a ref="#sqf_keep"><icode type="element">sqf:keep</icode></a> element is available.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -145,7 +145,7 @@
     </xs:element>
     <xs:element name="group">
         <xs:annotation>
-            <xs:documentation>Defines a Schematron QuickFix group. If the group is linked by an assert or report, all QuickFixes of this group will be accosieted with the assert/report.</xs:documentation>
+            <xs:documentation>Defines a Schematron QuickFix group. If the group is linked by an assert or report, all QuickFixes of this group will be associated with the assert/report.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -160,7 +160,7 @@
             <xs:attribute name="use-when" use="optional" type="xs:string" default="true()">
                 <xs:annotation>
                     <xs:documentation>The condition to provide the QuickFixes of the QuickFix group.</xs:documentation>
-                    <xs:documentation source="value">XPath expression. Its expect as return value an xs:boolean.</xs:documentation>
+                    <xs:documentation source="value">XPath expression. It expects as return value an xs:boolean.</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute ref="xml:lang"/>
@@ -202,7 +202,7 @@
             <xs:attribute name="use-when" use="optional" type="xs:string" default="true()">
                 <xs:annotation>
                     <xs:documentation>The condition to provide the QuickFix.</xs:documentation>
-                    <xs:documentation source="value">XPath expression. Its expect as return value an xs:boolean.</xs:documentation>
+                    <xs:documentation source="value">XPath expression. It expects as return value an xs:boolean.</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="role" use="optional">
@@ -240,7 +240,7 @@
     </xs:element>
     <xs:element name="user-entry">
         <xs:annotation>
-            <xs:documentation>Defines an user entry. With the help of the user entry, the user can interact with the QuickFix. The user entry refers to a <icode type="element">sqf:param</icode> element. The value of the parameter is set manually by the user. The implementation should provide the user entry when the user selects the QuickFix.</xs:documentation>
+            <xs:documentation>Defines a user entry. With the help of the user entry, the user can interact with the QuickFix. The user entry refers to a <icode type="element">sqf:param</icode> element. The value of the parameter is set manually by the user. The implementation should provide the user entry when the user selects the QuickFix.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
@@ -296,7 +296,7 @@
         <xs:annotation>
             <xs:documentation>This element defines a parameter for a QuickFix. The parameter can be used like a variable within the QuickFix. The value can be set by the <a ref="#sqf_with-param"><icode type="element">sqf:with-param</icode></a> element.</xs:documentation>
             <xs:documentation>The content defines a default value for the parameter.</xs:documentation>
-            <xs:documentation source="Exception">Abstract parameters (see attribute <icode type="attribute">abstract</icode>) can not used as normal XPath variables. An abstract parameter declares, that the current QuickFix uses a parameter of an abstract pattern. A QuickFix with one or more abstract parameters can just used by abstract patterns. The value of the parameter will be set by the instantiation of the abstract pattern according to the Schematron specification. The instantiation of the abstract pattern must specify a value for every abstract parameter of the QuickFix.</xs:documentation>
+            <xs:documentation source="Exception">Abstract parameters (see attribute <icode type="attribute">abstract</icode>) cannot be used as normal XPath variables. An abstract parameter declares, that the current QuickFix uses a parameter of an abstract pattern. A QuickFix with one or more abstract parameters can be used just by abstract patterns. The value of the parameter will be set by the instantiation of the abstract pattern according to the Schematron specification. The instantiation of the abstract pattern must specify a value for every abstract parameter of the QuickFix.</xs:documentation>
         </xs:annotation>
         <xs:complexType mixed="true">
             <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -367,7 +367,7 @@
     <xs:element name="replace">
         <xs:annotation>
             <xs:documentation>This activity element replaces one or more nodes of the XML instance by a node. The activity command combines the delete and the add command.</xs:documentation>
-            <xs:documentation>The nodes to be deleted are defined by the <icode type="attribute">match</icode> attribute. The nodes to be added are defined by the the attributes <icode type="attribute">node-type</icode> and <icode type="attribute">select</icode> and the content of the <icode type="element">sqf:replace</icode> element.</xs:documentation>
+            <xs:documentation>The nodes to be deleted are defined by the <icode type="attribute">match</icode> attribute. The nodes to be added are defined by the attributes <icode type="attribute">node-type</icode> and <icode type="attribute">select</icode> and the content of the <icode type="element">sqf:replace</icode> element.</xs:documentation>
             <xs:documentation>The position of the nodes to be added is the position of the nodes to be deleted.</xs:documentation>
         </xs:annotation>
         <xs:complexType mixed="true">
@@ -446,7 +446,7 @@
         <xs:attribute name="use-when" use="optional" type="xs:string" default="true()">
             <xs:annotation>
                 <xs:documentation>A condition for the action of the activity Element. The action will just be executed, if the condition returns true.</xs:documentation>
-                <xs:documentation source="value">XPath expression. Its expect as return value an xs:boolean.</xs:documentation>
+                <xs:documentation source="value">XPath expression. It expects as return value an xs:boolean.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
         <xs:attributeGroup ref="sch:foreign"/>
@@ -455,7 +455,7 @@
         <xs:attributeGroup ref="sqf:activityBase"/>
         <xs:attribute name="node-type" type="sqf:nodeTypeType">
             <xs:annotation>
-                <xs:documentation>The <icode type="attribute">node-type</icode> attribute defines the node type of the nodes to be added. The attribute is required, if the target attribut is set.</xs:documentation>
+                <xs:documentation>The <icode type="attribute">node-type</icode> attribute defines the node type of the nodes to be added. The attribute is required, if the target attribute is set.</xs:documentation>
                 <xs:documentation>If the <icode type="attribute">node-type</icode> value is missing, the activity element should not have a <icode type="attribute">target</icode> attribute. In this case the nodes to be added will be defined by the activity elements content or <icode type="attribute">select</icode> attribute.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
