@@ -4,12 +4,17 @@
     <header>
         <title>Schematron Quick Fixes Specification</title>
         <w3c-designation>W3C Designation</w3c-designation>
-        <w3c-doctype>W3C Candidate</w3c-doctype>
+        <w3c-doctype>Quick-fix support for XML Community Group - Draft</w3c-doctype>
         <pubdate>
             <month>April</month>
             <year>2015</year>
         </pubdate>
-        <publoc>Document location</publoc>
+        <publoc>
+            <loc href="http://rawgit.com/schematron-quickfix/sqf/master/spec/SQFSpec.html"></loc>
+        </publoc>
+        <latestloc>
+            <loc href="http://rawgit.com/schematron-quickfix/sqf/master/spec/SQFSpec.html"/>
+        </latestloc>
         <authlist>
             <author>
                 <name>Nico Kutscherauer</name>
@@ -18,7 +23,11 @@
                 <name>Octavian Nadolu</name>
             </author>
         </authlist>
+        <copyright>
+            <p>Copyright © 2015, published by the <loc href="http://www.w3.org/community/quickfix/">Quick-fix support for XML Community Group</loc> under the <xspecref href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</xspecref>. A human-readable <xspecref href="http://www.w3.org/community/about/agreements/cla-deed/">summary</xspecref> is available. </p>
+        </copyright>
         <status>
+            <p><emph>This specification was published by the <loc href="http://www.w3.org/community/quickfix/">Quick-fix support for XML Community Group</loc>. It is not a W3C Standard nor is it on the W3C Standards Track. Please note that under the <xspecref href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</xspecref> there is a limited opt-out and other conditions apply. Learn more about <loc href="http://www.w3.org/community/">W3C Community and Business Groups</loc>.</emph></p>
             <p>First Draft</p>
         </status>
         <abstract>
