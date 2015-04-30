@@ -10,10 +10,10 @@
             <year>2015</year>
         </pubdate>
         <publoc>
-            <loc href="http://rawgit.com/schematron-quickfix/sqf/master/spec/SQFSpec.html"></loc>
+            <loc href="https://schematron-quickfix.github.io/sqf/spec/SQFSpec.html"/>
         </publoc>
         <latestloc>
-            <loc href="http://rawgit.com/schematron-quickfix/sqf/master/spec/SQFSpec.html"/>
+            <loc href="https://schematron-quickfix.github.io/sqf/spec/SQFSpec.html"/>
         </latestloc>
         <authlist>
             <author>
