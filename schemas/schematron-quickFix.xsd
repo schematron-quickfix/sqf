@@ -178,7 +178,7 @@
                     <xs:group ref="sqf:foreign"/>
                     <xs:element ref="sch:let"/>
                 </xs:choice>
-                <xs:element ref="sqf:description"/>
+                <xs:element ref="sqf:description" maxOccurs="unbounded"/>
                 <xs:group ref="sqf:foreign"/>
                 <xs:choice>
                     <xs:sequence>
@@ -244,7 +244,7 @@
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="sqf:description"/>
+                <xs:element ref="sqf:description" maxOccurs="unbounded"/>
             </xs:sequence>
             <xs:attributeGroup ref="sqf:parameterAttributes"/>
             <xs:attribute ref="xml:lang"/>

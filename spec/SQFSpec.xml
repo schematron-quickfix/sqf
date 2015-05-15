@@ -118,7 +118,7 @@
             <p>This section describes the classification of the based concepts of Schematron QuickFix.</p>
             <div2>
                 <head>Fix</head>
-                <p>A fix is a change of a document, applied to an occurred error. All changes must have the object to solve this error. Requirement is to detect the error.</p>
+                <p>A fix is a change of a document, applied to an occurred error. All changes must have the object to solve this error. Requirement is to detect the error first.</p>
             </div2>
             <div2 id="quick-fix-concept">
                 <head>Quick fix</head>
@@ -149,8 +149,48 @@
             </div2>
         </div1>
         <div1>
+            <head>Workflow</head>
+            <p>Schematron QuickFix (SQF) is an extension of the validation language Schematron to embed Quick fixes. To overview the Schematron QuickFix concept, this section describes the integration of SQF into the Schematron workflow.</p>
+            <p>The following figure shows the SQF workflow in eight steps:</p>
+            <graphic source="img/workflow.png"/>
+            <p>The following sections describes each step of the workflow diagram and its difference to the conventional Schematron workflow.</p>
+            <div2>
+                <head>Schematron validation</head>
+                <glist>
+                    <gitem>
+                        <label id="sch-document">Document to be fixed</label>
+                        <def>
+                            <p/>
+                        </def>
+                    </gitem>
+                </glist>
+                
+            </div2>
+            <div2>
+                <head>Validation result</head>
+            </div2>
+            <div2>
+                <head>Error report</head>
+            </div2>
+            <div2>
+                <head>Show the errors in the document to be fixed</head>
+            </div2>
+            <div2>
+                <head>Decision of the user</head>
+            </div2>
+            <div2>
+                <head>Executing a Quick fix</head>
+            </div2>
+            <div2>
+                <head>Validation after the fix</head>
+            </div2>
+            <div2>
+                <head>Fixed document</head>
+            </div2>
+        </div1>
+        <div1>
             <head>Language</head>
-            <p>Schematron QuickFix (SQF) is an extension of the validation language Schematron to embed Quick fixes. The language uses additional concepts, which should be explained in this section.</p>
+            <p>This section describes the meanings of the Schematron QuickFix syntax.</p>
             <div2>
                 <head>Embedding into Schematron</head>
                 <p>To embed Schematron QuickFix into Schematron, all extending elements should have the namespace <code>http://www.schematron-quickfix.com/validator/process</code> (prefix <code>sqf</code>).</p>
@@ -428,7 +468,7 @@
                 </div3>
                 <div3>
                     <head>Create new content</head>
-                    <p>Depending of the <titleref href="#change-command-kind">kind</titleref>, the change command may create new content to insert it into or replace nodes from the document. There are three ways to create new content:</p>
+                    <p>Depending of the <titleref href="#change-command-kind">kind</titleref>, the change command may create new content to insert it into or replace nodes from the <termref def="sch-document">document to be fixed</termref>. There are three ways to create new content:</p>
                     <div4 id="create-by-sqf-att">
                         <head>By SQF attributes</head>
                         <p>To create a new node, the change command may provide the attributes <att>type</att> and <att>target</att>. This attributes create exact one node.</p>
@@ -470,7 +510,7 @@
                                 <p>If the XPath expression returns a sequence of atomic values, all values will be transformed to a text node. The values will be separated by whitespace.</p>
                             </item>
                             <item>
-                                <p><?oxy_comment_start author="Nico Kutscherauer" timestamp="20150511T121134+0200" comment="Shall it be free to the implementation, whether it is a deep copy or like a &quot;apply-templates&quot; which respects other change commands?"?>If the XPath expression returns one or more nodes, the nodes will be copied into the document.<?oxy_comment_end?></p>
+                                <p><?oxy_comment_start author="Nico Kutscherauer" timestamp="20150511T121134+0200" comment="Shall it be free to the implementation, whether it is a deep copy or like a &quot;apply-templates&quot; which respects other change commands?"?>If the XPath expression returns one or more nodes, the nodes will be copied into the <termref def="sch-document">document to be fixed</termref>.<?oxy_comment_end?></p>
                             </item>
                         </ulist>
                         <p>If the Activity Element has a <att>select</att> attribute, the element should be empty.</p>
@@ -520,7 +560,7 @@
                             </item>
                             <item>
                                 <p>Warning raised conflict</p>
-                                <p>If two or more change commands from different QuickFixes are in conflict, the conflict is not resolvable. A warning should be produced. The implementation is free to decide which QuickFix has hire priority. This kind of a conflict is just posible, if an implementation allows to execute more than one QuickFix at once.</p>
+                                <p>If two or more change commands from different QuickFixes are in conflict, the conflict is not resolvable. A warning should be produced. The implementation is free to decide which QuickFix has hire priority. This kind of a conflict is just possible, if an implementation allows to execute more than one QuickFix at once.</p>
                             </item>
                         </ulist></p>
                 </div3>
@@ -575,8 +615,8 @@
                     </div4>
                     <div4>
                         <head>StringReplace</head>
-                        <p>The anchor node has to be a text node. To analyze the text node, the <att>regex</att> attibute is required. The attribute value of the regex attribute will be interpreted as an <titleref href="http://www.w3.org/TR/xslt20/#attribute-value-templates">attribute value template</titleref>. The effective value should be a valid <titleref href="http://www.w3.org/TR/xslt20/#regular-expressions">Regular Expression</titleref> corresponding to the XSLT 2.0 Recommendation.</p>
-                        <p>Any substrings, which matches to this Regular Expression, will be replaced by new content. The new content can be creatded <titleref href="#create-by-xpath">by XPath</titleref> or <titleref href="#create-by-content">by the content of the sqf:stringReplace element</titleref>.</p>
+                        <p>The anchor node has to be a text node. To analyze the text node, the <att>regex</att> attribute is required. The attribute value of the regex attribute will be interpreted as an <titleref href="http://www.w3.org/TR/xslt20/#attribute-value-templates">attribute value template</titleref>. The effective value should be a valid <titleref href="http://www.w3.org/TR/xslt20/#regular-expressions">Regular Expression</titleref> corresponding to the XSLT 2.0 Recommendation.</p>
+                        <p>Any substrings, which matches to this Regular Expression, will be replaced by new content. The new content can be created <titleref href="#create-by-xpath">by XPath</titleref> or <titleref href="#create-by-content">by the content of the sqf:stringReplace element</titleref>.</p>
                     </div4>
                 </div3>
             </div2>
@@ -751,6 +791,9 @@
                     <p>The effective value requirements should be satisfied after interpreting the attribute value template.</p>
                 </div3>
             </div2>
+            <div2>
+                <head>Localisation</head>
+            </div2>
         </div1>
         <div1>
             <head>Implementation <?oxy_comment_start author="Nico Kutscherauer" timestamp="20150511T141452+0200" comment="move to appendix?"?>modes<?oxy_comment_end?></head>
@@ -765,11 +808,11 @@
             <p>An implementation is free to implement only one or both modes.</p>
             <div2>
                 <head>XML save mode</head>
-                <p>The XML save mode requires that no changes will be applied to the document, which are not defined by the executed QuickFix. Changes which are caused by an XSLT processor (skip the XML declaration, resolving default attributes, CDATA sections, etc.) any time, should not influence the document. That is why it is not possible to implement the XML save mode with only XSLT processes.</p>
+                <p>The XML save mode requires that no changes will be applied to the <termref def="sch-document">document to be fixed</termref>, which are not defined by the executed QuickFix. Changes which are caused by an XSLT processor (skip the XML declaration, resolving default attributes, CDATA sections, etc.) any time, should not influence the document. That is why it is not possible to implement the XML save mode with only XSLT processes.</p>
             </div2>
             <div2>
                 <head>XSLT only mode</head>
-                <p>If an implementation is based only on XSLT processes, this is called the XSLT only mode. In this case, it is allowed to change the document on any QuickFix execution in the following ways, though it is not defined in the QuickFix:<ulist>
+                <p>If an implementation is based only on XSLT processes, this is called the XSLT only mode. In this case, it is allowed to change the <termref def="sch-document">document to be fixed</termref> on any QuickFix execution in the following ways, though it is not defined in the QuickFix:<ulist>
                         <item>
                             <p>Skip the XML declaration</p>
                         </item>

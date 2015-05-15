@@ -20,29 +20,25 @@
     
     -->
 
-<schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:sch="http://purl.oclc.org/dsdl/schematron" 
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-    queryBinding="xslt2" see="http://www.schematron-quickfix.com/quickFix/reference.html">
+<schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" queryBinding="xslt2" see="http://www.schematron-quickfix.com/quickFix/reference.html">
     <ns uri="http://purl.oclc.org/dsdl/schematron" prefix="sch"/>
     <ns uri="http://www.schematron-quickfix.com/validator/process" prefix="sqf"/>
-    
+
     <pattern>
         <title>Query binding</title>
         <rule context="sch:schema">
-            <assert test="not(namespace::sqf) or @queryBinding='xslt2'" sqf:fix="setQueryBinding">
-                Schematron Quick Fixes are only available within Schematron schemas based on XSLT 2.0.</assert>
-            
+            <assert test="not(namespace::sqf) or @queryBinding='xslt2'" sqf:fix="setQueryBinding"> Schematron Quick Fixes are only available within Schematron schemas based on XSLT 2.0.</assert>
+
             <sqf:fix id="setQueryBinding" role="replace">
                 <sqf:description>
                     <sqf:title>Set @queryBinding attribute value to 'xslt2'</sqf:title>
-                    <sqf:p>The quick fixes support works only with 'xslt2' query binding. 
-                        So, the @queryBinding attribute value must be set to 'xslt2'.</sqf:p>
+                    <sqf:p>The quick fixes support works only with 'xslt2' query binding. So, the @queryBinding attribute value must be set to 'xslt2'.</sqf:p>
                 </sqf:description>
                 <sqf:add node-type="attribute" target="queryBinding" select="'xslt2'"/>
             </sqf:fix>
         </rule>
     </pattern>
-    
+
     <pattern>
         <title>Embedinging correctly</title>
         <rule context="sch:*/sqf:fixes">
@@ -70,8 +66,16 @@
             <let name="availableFixIds" value="$availableFixIds, $availableGroupIds"/>
             <assert test="every $fix in $fixes satisfies $availableFixIds[. = $fix]" see="http://www.schematron-quickfix.com/quickFix/reference.html#messageAttributes_fix">The fix(es) <value-of select="string-join($fixes[not(. = $availableFixIds)], ', ')"/> are not available in this rule.</assert>
         </rule>
-        
-        </pattern>
+
+    <rule context="sch:rule/sqf:fix | sch:rule/sqf:group">
+            <let name="id" value="@id"/>
+            <let name="fixRefs" value="for $f in ../(sch:assert|sch:report)/@sqf:fix return tokenize($f, '\s')"/>
+            <assert test="some $fr 
+                            in $fixRefs 
+                     satisfies ($fr = $id or matches($fr, concat('^', $id, '#')))" role="warn">The fix is not used by an assert or a report inside of this rule.</assert>
+
+        </rule>
+    </pattern>
     <pattern>
         <title>Default fix</title>
         <rule context="sch:assert[@sqf:default-fix] | sch:report[@sqf:default-fix]">
@@ -82,20 +86,24 @@
     </pattern>
     <pattern>
         <title>Activity elements</title>
-        <rule context="sqf:add[@node-type='attribute']">
-            <assert test="not(@position)" see="http://www.schematron-quickfix.com/quickFix/reference.html#add_position">If the node-type attribute has the value "attribute" the position attribute should not be set.</assert>
-        </rule>
         <rule context="sqf:add[@select]|sqf:replace[@select]">
             <report test="* or normalize-space(.) != ''" see="http://www.schematron-quickfix.com/quickFix/reference.html#activityManipulate_select">If the select attribute is setted the <name/> element should be empty.</report>
         </rule>
-        <rule context="sqf:add[@target] | sqf:replace[@target]" role="fatal">
-            <assert test="@node-type" see="http://www.schematron-quickfix.com/quickFix/reference.html#activityManipulate_target">The attribute node-type is required if the target attribute has been set.</assert>
+    </pattern>
+    <pattern>
+        <title>Activity elements 2</title>
+        <rule context="sqf:add[@node-type='attribute']">
+            <assert test="not(@position)" see="http://www.schematron-quickfix.com/quickFix/reference.html#add_position">If the node-type attribute has the value "attribute" the position attribute should not be set.</assert>
         </rule>
         <rule context="sqf:add[@node-type != 'comment'] | sqf:replace[@node-type != 'comment']" role="warn">
             <assert test="@target" see="http://www.schematron-quickfix.com/quickFix/reference.html#activityManipulate_node-type">The attribute target has been set if the node-type attribute has the value "comment".</assert>
         </rule>
+        <rule context="sqf:add[@target] | sqf:replace[@target]" role="fatal">
+            <assert test="@node-type" see="http://www.schematron-quickfix.com/quickFix/reference.html#activityManipulate_target">The attribute node-type is required if the target attribute has been set.</assert>
+        <report test="@node-type='comment'" role="warn">The attribute target is useless if the node-type attribut has the value comment.</report>
+        </rule>
     </pattern>
-    
+
     <pattern>
         <title>Generic fixes</title>
         <rule context="sqf:call-fix">
@@ -118,7 +126,7 @@
             <report test="$forbiddenAttr">The attributes <value-of select="string-join(for $a in $forbiddenAttr return name($a), ', ')"/> should not be set for abstract parameters.</report>
         </rule>
     </pattern>
-    
+
     <xsl:function name="sqf:getLang" as="xs:string">
         <xsl:param name="node" as="node()"/>
         <xsl:variable name="lang" select="($node/ancestor-or-self::*/@xml:lang)[last()]"/>
@@ -142,10 +150,13 @@
                 $msgLang"/>
             <report test="count($languages[not(. = $usedLangs)]) gt 0">Localisation failed. Missing a diagnostic or error message for the language(s) <value-of select="$languages[not(. = $usedLangs)]"/>.</report>
         </rule>
-        <rule context="sqf:description" role="info">
-            <let name="usedLangs" value="(for $p in sqf:p
-                return sqf:getLang($p))"/>
+        <rule context="sqf:*[sqf:description]" role="info">
+            <let name="usedLangs" value="(sqf:description/sqf:getLang(.))"/>
             <report test="count($languages[not(. = $usedLangs)]) gt 0">Localisation failed. Missing a description for the language(s) <value-of select="$languages[not(. = $usedLangs)]"/>.</report>
         </rule>
+    <rule context="sqf:description[preceding-sibling::sqf:description]">
+            <let name="lang" value="sqf:getLang(.)"/>
+            <report test="$lang = preceding-sibling::sqf:description/sqf:getLang(.)">Double description for the language <value-of select="$lang"/> and <name path="parent::*"/> element.</report>
+        </rule>
     </pattern>
-</schema>
+    </schema>
