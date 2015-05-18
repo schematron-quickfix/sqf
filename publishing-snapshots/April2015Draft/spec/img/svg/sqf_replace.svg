@@ -1,0 +1,1277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" width="986" height="530" id="modeld9e719_sqf_replace" sqf:width="986" sqf:height="530">
+                     <desc/>
+                     <g alignment-baseline="baseline" transform="translate(156, 330.75)" id="modeld9e719_elementRef_d9e719" sqf:width="156" sqf:height="330.75">
+                        <g>
+                           <rect width="65" height="25" rx="10" ry="10" stroke="#007" stoke-width="1" fill="#88f"/>
+                        </g>
+                        <text x="5" y="16" fill="white" font-family="arial, helvetica, sans-serif" font-size="11">sqf:replace</text>
+                     </g>
+                     <g transform="translate(221, 0)" sqf:width="986" sqf:height="530">
+                        <svg width="765" height="530" class="objectPaths" sqf:width="765" sqf:height="530">
+                           <path stroke="#007" stroke-width="1" fill="none" d="M 0 343.25 L 25 343.25"/>
+                           <path stroke="#007" stroke-width="1" fill="none" d="M 50 429.5 L 32 429.5 Q 26.5 429.5 26.5 424 L 26.5 343.25" stroke-dasharray="5,5"/>
+                           <path stroke="#007" stroke-width="1" fill="none" d="M 50 432.5 L 32 432.5 Q 23.5 432.5 23.5 424 L 23.5 343.25" stroke-dasharray="5,5"/>
+                           <g transform="translate(50,                                         383.5)" sqf:width="555" sqf:height="511.5">
+                              <svg width="505" height="128" class="choice" sqf:width="505" sqf:height="128">
+                                 <g transform="translate(0,37.5)" sqf:width="20" sqf:height="61">
+                                    <svg width="20" height="23.5" sqf:width="20" sqf:height="23.5">
+                                       <g>
+                                          <circle r="9.5" stroke="#007" stroke-width="0.33" cx="10" cy="13.5" fill="white" stroke-dashoffset="2" stroke-dasharray="2"/>
+                                          <circle r="9.5" stroke="#007" stroke-width="0.66" cx="10" cy="12" fill="white" stroke-dashoffset="2" stroke-dasharray="2"/>
+                                          <circle r="9.5" stroke="#007" stroke-width="1" cx="10" cy="10" fill="white" stroke-dashoffset="2" stroke-dasharray="2"/>
+                                          <g>
+                                             <path d="M 0 10                          L 3 10                          L 3 6                          L 6 6                         M 3 10                         L 3 14                         L 6 14" stroke="#007" fill="none" stroke-width="0.75"/>
+                                             <g transform="translate(6, 4)" sqf:width="6" sqf:height="4">
+                                                <rect width="8" height="4" fill="#88f" stroke-width="1" stroke="#007"/>
+                                             </g>
+                                             <g transform="translate(6, 12)" sqf:width="6" sqf:height="12">
+                                                <rect width="8" height="4" fill="#88f" stroke-width="1" stroke="#007"/>
+                                             </g>
+                                             <path d="M 20 10                                  L 17 10                                  L 17 6                                  L 14 6                                 M 17 10                                 L 17 14                                 L 14 14" stroke="#007" fill="none" stroke-width="0.75"/>
+                                          </g>
+                                       </g>
+                                    </svg>
+                                 </g>
+                                 <g transform="translate(20,0)" sqf:width="505" sqf:height="128">
+                                    <svg width="485" height="128" class="objectPaths" sqf:width="485" sqf:height="128">
+                                       <path stroke="#007" stroke-width="1" fill="none" d="M 0 47.5 L 15 47.5"/>
+                                       <g transform="translate(15,                                         0)" sqf:width="485" sqf:height="128">
+                                          <svg width="470" height="128" class="element_group" sqf:width="470" sqf:height="128">
+                                             <g transform="translate(0, 5)" id="modeld9e719_group_d9e749" sqf:width="470" sqf:height="128">
+                                                <rect width="139.5" height="60" rx="7" ry="7" fill="white" stroke="#007" stroke-width="1"/>
+                                                <rect width="139.5" height="60" rx="7" ry="7" fill="white" stroke="#007" stroke-width="1"/>
+                                                <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sqf_templateElements" target="_top">
+                                                   <svg width="137" height="25" sqf:width="137" sqf:height="25">
+                                                      <g transform="translate(3,3)" sqf:width="3" sqf:height="3">
+                                                         <rect width="5" height="5" x="6" y="3" fill="#007" opacity="0.5"/>
+                                                         <rect width="5" height="5" x="6" y="11" fill="#007" opacity="0.5"/>
+                                                         <rect width="5" height="5" x="14" y="11" fill="#007" opacity="0.5"/>
+                                                         <rect width="5" height="5" x="6" y="3" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                         <rect width="5" height="5" x="6" y="11" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                         <rect width="5" height="5" x="14" y="11" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                         <text x="26" y="13" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:templateElements</text>
+                                                      </g>
+                                                   </svg>
+                                                   <path d="M 2.5 25 L 137 25" fill="none" stroke="#007" stroke-width="0.25"/>
+                                                </a>
+                                                <g transform="translate(138, 0)" sqf:width="470" sqf:height="123">
+                                                   <svg width="332" height="123" class="annotation" sqf:width="332" sqf:height="123">
+                                                      <g visibility="hidden" style="z-index:1000">
+                                                         <set attributeName="visibility" to="visible" begin="modeld9e719_group_d9e749.mouseover" end="modeld9e719_group_d9e749.mouseout"/>
+                                                         <g transform="translate(1,1)" sqf:width="321" sqf:height="112">
+                                                            <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 106 Q 10 116 20 116 L 320 116 Q 330 116 330 106 L 330 10 Q 330 0 320 0 Z" fill="white" opacity="1" stroke="#007" stroke-width="1"/>
+                                                            <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 106 Q 10 116 20 116 L 320 116 Q 330 116 330 106 L 330 10 Q 330 0 320 0 Z" fill="#007" opacity="0.1" stroke="#007" stroke-width="1"/>
+                                                            <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 106 Q 10 116 20 116 L 320 116 Q 330 116 330 106 L 330 10 Q 330 0 320 0 Z" fill="none" opacity="1" stroke="#007" stroke-width="1"/>
+                                                            <g transform="translate(20,5)" sqf:width="320" sqf:height="23">
+                                                               <svg width="300" height="18" class="text_box" sqf:width="300" sqf:height="18">
+                                                                  <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                     <tspan y="16" x="0">Documentation</tspan>
+                                                                  </text>
+                                                               </svg>
+                                                            </g>
+                                                            <g transform="translate(20,23)" sqf:width="320" sqf:height="111">
+                                                               <svg width="300" height="88" class="text_box" sqf:width="300" sqf:height="88">
+                                                                  <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                     <tspan y="16" x="0">This </tspan>
+                                                                     <tspan y="16">element </tspan>
+                                                                     <tspan y="16">group </tspan>
+                                                                     <tspan y="16">describes </tspan>
+                                                                     <tspan y="16">the </tspan>
+                                                                     <tspan y="16">content </tspan>
+                                                                     <tspan y="16">of </tspan>
+                                                                     <tspan y="16">the </tspan>
+                                                                     <tspan y="16">activity </tspan>
+                                                                     <tspan y="32" x="0">elements. </tspan>
+                                                                     <tspan y="32">The </tspan>
+                                                                     <tspan y="32">behaviour </tspan>
+                                                                     <tspan y="32">is </tspan>
+                                                                     <tspan y="32">similar </tspan>
+                                                                     <tspan y="32">to </tspan>
+                                                                     <tspan y="32">the </tspan>
+                                                                     <tspan y="32">content </tspan>
+                                                                     <tspan y="32">of </tspan>
+                                                                     <tspan y="32">the </tspan>
+                                                                     <tspan y="48" x="0">xsl:template </tspan>
+                                                                     <tspan y="48">element. </tspan>
+                                                                     <tspan y="48">Additionally, </tspan>
+                                                                     <tspan y="48">the </tspan>
+                                                                     <tspan y="48">elements </tspan>
+                                                                     <tspan y="48">sch:value-</tspan>
+                                                                     <tspan y="48">of </tspan>
+                                                                     <tspan y="64" x="0">and </tspan>
+                                                                     <tspan y="64">sch:let </tspan>
+                                                                     <tspan y="64">are </tspan>
+                                                                     <tspan y="64">treated </tspan>
+                                                                     <tspan y="64">as </tspan>
+                                                                     <tspan y="64">xsl:value-</tspan>
+                                                                     <tspan y="64">of </tspan>
+                                                                     <tspan y="64">and </tspan>
+                                                                     <tspan y="64">xsl:variable. </tspan>
+                                                                     <tspan y="64">Also </tspan>
+                                                                     <tspan y="80" x="0">the </tspan>
+                                                                     <tspan y="80">sqf:keep </tspan>
+                                                                     <tspan y="80">element </tspan>
+                                                                     <tspan y="80">is </tspan>
+                                                                     <tspan y="80">available.</tspan>
+                                                                  </text>
+                                                               </svg>
+                                                            </g>
+                                                         </g>
+                                                      </g>
+                                                   </svg>
+                                                </g>
+                                                <g transform="translate(0, 27.5)" sqf:width="135" sqf:height="57.5">
+                                                   <svg width="135" height="30" class="objectPaths" sqf:width="135" sqf:height="30">
+                                                      <path stroke="#007" stroke-width="1" fill="none" d="M 0 15 L 25 15"/>
+                                                      <g transform="translate(25,                                         0)" sqf:width="135" sqf:height="30">
+                                                         <svg width="110" height="30" class="sequence" sqf:width="110" sqf:height="30">
+                                                            <g transform="translate(0,5)" sqf:width="20" sqf:height="25">
+                                                               <svg width="20" height="20" sqf:width="20" sqf:height="20">
+                                                                  <g>
+                                                                     <circle r="9.5" stroke="#007" stroke-width="1" cx="10" cy="10" fill="white"/>
+                                                                     <g>
+                                                                        <path d="M 0 10                          L 3 10                         M 8.5 10                         L 11.5 10                         M 17 10                         L 20 10" stroke="#007" fill="none" stroke-width="0.75"/>
+                                                                        <g transform="translate(3, 8)" sqf:width="3" sqf:height="8">
+                                                                           <rect width="5.5" height="4" fill="#88f" stroke-width="1" stroke="#007"/>
+                                                                        </g>
+                                                                        <g transform="translate(11.5, 8)" sqf:width="11.5" sqf:height="8">
+                                                                           <rect width="5.5" height="4" fill="#88f" stroke-width="1" stroke="#007"/>
+                                                                        </g>
+                                                                     </g>
+                                                                  </g>
+                                                               </svg>
+                                                            </g>
+                                                            <g transform="translate(20,0)" sqf:width="110" sqf:height="30">
+                                                               <svg width="90" height="30" class="objectPaths" sqf:width="90" sqf:height="30">
+                                                                  <path stroke="#007" stroke-width="1" fill="none" d="M 0 13.5 L 15 13.5" stroke-dasharray="3,3"/>
+                                                                  <path stroke="#007" stroke-width="1" fill="none" d="M 0 16.5 L 15 16.5" stroke-dasharray="3,3"/>
+                                                                  <g transform="translate(15,                                         0)" sqf:width="90" sqf:height="30">
+                                                                     <svg width="75" height="30" class="choice" sqf:width="75" sqf:height="30">
+                                                                        <g transform="translate(0,5)" sqf:width="20" sqf:height="28.5">
+                                                                           <svg width="20" height="23.5" sqf:width="20" sqf:height="23.5">
+                                                                              <g>
+                                                                                 <circle r="9.5" stroke="#007" stroke-width="0.33" cx="10" cy="13.5" fill="white" stroke-dashoffset="2" stroke-dasharray="2"/>
+                                                                                 <circle r="9.5" stroke="#007" stroke-width="0.66" cx="10" cy="12" fill="white" stroke-dashoffset="2" stroke-dasharray="2"/>
+                                                                                 <circle r="9.5" stroke="#007" stroke-width="1" cx="10" cy="10" fill="white" stroke-dashoffset="2" stroke-dasharray="2"/>
+                                                                                 <g>
+                                                                                    <path d="M 0 10                          L 3 10                          L 3 6                          L 6 6                         M 3 10                         L 3 14                         L 6 14" stroke="#007" fill="none" stroke-width="0.75"/>
+                                                                                    <g transform="translate(6, 4)" sqf:width="6" sqf:height="4">
+                                                                                       <rect width="8" height="4" fill="#88f" stroke-width="1" stroke="#007"/>
+                                                                                    </g>
+                                                                                    <g transform="translate(6, 12)" sqf:width="6" sqf:height="12">
+                                                                                       <rect width="8" height="4" fill="#88f" stroke-width="1" stroke="#007"/>
+                                                                                    </g>
+                                                                                    <path d="M 20 10                                  L 17 10                                  L 17 6                                  L 14 6                                 M 17 10                                 L 17 14                                 L 14 14" stroke="#007" fill="none" stroke-width="0.75"/>
+                                                                                 </g>
+                                                                              </g>
+                                                                           </svg>
+                                                                        </g>
+                                                                        <g transform="translate(20,0)" sqf:width="75" sqf:height="30">
+                                                                           <svg width="55" height="30" class="objectPaths" sqf:width="55" sqf:height="30">
+                                                                              <path stroke="#007" stroke-width="1" fill="none" d="M 0 15 L 15 15"/>
+                                                                              <g transform="translate(15,                                         0)" sqf:width="55" sqf:height="30">
+                                                                                 <svg width="40" height="30" class="element_ref" sqf:width="40" sqf:height="30">
+                                                                                    <desc/>
+                                                                                    <g alignment-baseline="baseline" class="svg-element-ref" transform="translate(0, 2.5)" sqf:width="0" sqf:height="2.5">
+                                                                                       <g id="modeld9e719_elementRef_d9e189">
+                                                                                          <rect height="25" width="40" rx="10" ry="10" stroke="#007" stoke-width="1" fill="white"/>
+                                                                                          <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">##any</text>
+                                                                                       </g>
+                                                                                    </g>
+                                                                                    <g transform="translate(40, 0)" sqf:width="40" sqf:height="0"/>
+                                                                                 </svg>
+                                                                              </g>
+                                                                           </svg>
+                                                                        </g>
+                                                                     </svg>
+                                                                  </g>
+                                                               </svg>
+                                                            </g>
+                                                         </svg>
+                                                      </g>
+                                                   </svg>
+                                                </g>
+                                             </g>
+                                             <g transform="translate(0, 47.5)" sqf:width="0" sqf:height="47.5"/>
+                                          </svg>
+                                       </g>
+                                    </svg>
+                                 </g>
+                              </svg>
+                           </g>
+                           <path stroke="#F5844C" stroke-width="1" fill="none" d="M 50 255.5 L 32 255.5 Q 25 255.5 25 262.5 L 25 343.25"/>
+                           <g transform="translate(50,                                         0)" sqf:width="765" sqf:height="530">
+                              <svg width="715" height="530" class="attribute_box" sqf:width="715" sqf:height="530">
+                                 <g transform="translate(0, 2.5)" sqf:width="715" sqf:height="530">
+                                    <rect height="378.5" width="348.5" rx="10" ry="10" stroke="#F5844C" stoke-width="1" fill="white"/>
+                                    <g transform="translate(0, 2.5)" sqf:width="715" sqf:height="527.5">
+                                       <svg width="715" height="525" class="objectPaths" sqf:width="715" sqf:height="525">
+                                          <path stroke="#F5844C" stroke-width="1" fill="none" d="M 0 250.5 L 25 250.5"/>
+                                          <g transform="translate(25,                                         0)" sqf:width="715" sqf:height="525">
+                                             <svg width="690" height="525" class="element_group" sqf:width="690" sqf:height="525">
+                                                <g transform="translate(0, 5)" id="modeld9e719_group_d9e752" sqf:width="690" sqf:height="525">
+                                                   <rect width="316" height="363.5" rx="7" ry="7" fill="white" stroke="#F5844C" stroke-width="1"/>
+                                                   <rect width="316" height="363.5" rx="7" ry="7" fill="white" stroke="#F5844C" stroke-width="1"/>
+                                                   <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sqf_activityManipulate" target="_top">
+                                                      <svg width="139" height="25" sqf:width="139" sqf:height="25">
+                                                         <g transform="translate(3,3)" sqf:width="3" sqf:height="3">
+                                                            <rect width="5" height="5" x="6" y="3" fill="#F5844C" opacity="0.5"/>
+                                                            <rect width="5" height="5" x="6" y="11" fill="#F5844C" opacity="0.5"/>
+                                                            <rect width="5" height="5" x="14" y="11" fill="#F5844C" opacity="0.5"/>
+                                                            <rect width="5" height="5" x="6" y="3" fill="none" stroke="#F5844C" stroke-width="0.75" opacity="1"/>
+                                                            <rect width="5" height="5" x="6" y="11" fill="none" stroke="#F5844C" stroke-width="0.75" opacity="1"/>
+                                                            <rect width="5" height="5" x="14" y="11" fill="none" stroke="#F5844C" stroke-width="0.75" opacity="1"/>
+                                                            <text x="26" y="13" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:activityManipulate</text>
+                                                         </g>
+                                                      </svg>
+                                                      <path d="M 2.5 25 L 313.5 25" fill="none" stroke="#F5844C" stroke-width="0.25"/>
+                                                   </a>
+                                                   <g transform="translate(314.5, 0)" sqf:width="314.5" sqf:height="0"/>
+                                                   <g transform="translate(0, 27.5)" sqf:width="690" sqf:height="520">
+                                                      <svg width="690" height="492.5" class="objectPaths" sqf:width="690" sqf:height="492.5">
+                                                         <path stroke="#F5844C" stroke-width="1" fill="none" d="M 0 218 L 25 218"/>
+                                                         <path stroke="#F5844C" stroke-width="1" fill="none" d="M 50 318.5 L 32 318.5 Q 25 318.5 25 311.5 L 25 288.5" stroke-dasharray="5,5"/>
+                                                         <g transform="translate(50,                                         303.5)" sqf:width="639" sqf:height="492.5">
+                                                            <svg width="589" height="189" class="attribute" id="modeld9e719_attribute_sqf_target" sqf:width="589" sqf:height="189">
+                                                               <desc/>
+                                                               <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld9e719_attributName_d9e1049" sqf:width="0" sqf:height="2.5">
+                                                                  <g>
+                                                                     <rect height="25" width="57" rx="10" ry="10" stroke="#F5844C" stoke-width="1" fill="white" stroke-dasharray="5,5"/>
+                                                                  </g>
+                                                                  <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:target</text>
+                                                               </g>
+                                                               <g transform="translate(57, 0)" sqf:width="589" sqf:height="189">
+                                                                  <svg width="532" height="189" class="annotation" sqf:width="532" sqf:height="189">
+                                                                     <g visibility="hidden" style="z-index:1000">
+                                                                        <set attributeName="visibility" to="visible" begin="modeld9e719_attributName_d9e1049.mouseover" end="modeld9e719_attributName_d9e1049.mouseout"/>
+                                                                        <g transform="translate(1,1)" sqf:width="521" sqf:height="178">
+                                                                           <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 172 Q 10 182 20 182 L 520 182 Q 530 182 530 172 L 530 10 Q 530 0 520 0 Z" fill="white" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                                           <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 172 Q 10 182 20 182 L 520 182 Q 530 182 530 172 L 530 10 Q 530 0 520 0 Z" fill="#F5844C" opacity="0.1" stroke="#F5844C" stroke-width="1"/>
+                                                                           <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 172 Q 10 182 20 182 L 520 182 Q 530 182 530 172 L 530 10 Q 530 0 520 0 Z" fill="none" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                                           <g transform="translate(20,5)" sqf:width="520" sqf:height="23">
+                                                                              <svg width="500" height="18" class="text_box" sqf:width="500" sqf:height="18">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                                    <tspan y="16" x="0">Documentation</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,23)" sqf:width="520" sqf:height="63">
+                                                                              <svg width="500" height="40" class="text_box" sqf:width="500" sqf:height="40">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                    <tspan y="16" x="0">This </tspan>
+                                                                                    <tspan y="16">attribute </tspan>
+                                                                                    <tspan y="16">defines </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">name </tspan>
+                                                                                    <tspan y="16">of </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">node </tspan>
+                                                                                    <tspan y="16">to </tspan>
+                                                                                    <tspan y="16">be </tspan>
+                                                                                    <tspan y="16">added. </tspan>
+                                                                                    <tspan y="16">The </tspan>
+                                                                                    <tspan y="16">attribute </tspan>
+                                                                                    <tspan y="16">is </tspan>
+                                                                                    <tspan y="16">required </tspan>
+                                                                                    <tspan y="16">if </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">node-</tspan>
+                                                                                    <tspan y="16">type </tspan>
+                                                                                    <tspan y="32" x="0">attribute </tspan>
+                                                                                    <tspan y="32">is </tspan>
+                                                                                    <tspan y="32">specified </tspan>
+                                                                                    <tspan y="32">and </tspan>
+                                                                                    <tspan y="32">the </tspan>
+                                                                                    <tspan y="32">value </tspan>
+                                                                                    <tspan y="32">is </tspan>
+                                                                                    <tspan y="32">not </tspan>
+                                                                                    <tspan y="32">comment.</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,63)" sqf:width="520" sqf:height="81">
+                                                                              <svg width="500" height="18" class="text_box" sqf:width="500" sqf:height="18">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                                    <tspan y="16" x="0">Value</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,81)" sqf:width="520" sqf:height="121">
+                                                                              <svg width="500" height="40" class="text_box" sqf:width="500" sqf:height="40">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                    <tspan y="16" x="0">A </tspan>
+                                                                                    <tspan y="16">string </tspan>
+                                                                                    <tspan y="16">to </tspan>
+                                                                                    <tspan y="16">define </tspan>
+                                                                                    <tspan y="16">a </tspan>
+                                                                                    <tspan y="16">node </tspan>
+                                                                                    <tspan y="16">name. </tspan>
+                                                                                    <tspan y="16">The </tspan>
+                                                                                    <tspan y="16">string </tspan>
+                                                                                    <tspan y="16">can </tspan>
+                                                                                    <tspan y="16">be </tspan>
+                                                                                    <tspan y="16">specified </tspan>
+                                                                                    <tspan y="16">by </tspan>
+                                                                                    <tspan y="16">XPath </tspan>
+                                                                                    <tspan y="16">expressions </tspan>
+                                                                                    <tspan y="16">which </tspan>
+                                                                                    <tspan y="16">are </tspan>
+                                                                                    <tspan y="16">marked </tspan>
+                                                                                    <tspan y="32" x="0">by </tspan>
+                                                                                    <tspan y="32">curly </tspan>
+                                                                                    <tspan y="32">brackets. </tspan>
+                                                                                    <tspan y="32">After </tspan>
+                                                                                    <tspan y="32">processing, </tspan>
+                                                                                    <tspan y="32">the </tspan>
+                                                                                    <tspan y="32">name </tspan>
+                                                                                    <tspan y="32">must </tspan>
+                                                                                    <tspan y="32">be </tspan>
+                                                                                    <tspan y="32">valid </tspan>
+                                                                                    <tspan y="32">to </tspan>
+                                                                                    <tspan y="32">the </tspan>
+                                                                                    <tspan y="32">XML </tspan>
+                                                                                    <tspan y="32">Schema </tspan>
+                                                                                    <tspan y="32">type </tspan>
+                                                                                    <tspan y="32">xs:QName.</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,121)" sqf:width="520" sqf:height="177">
+                                                                              <svg width="500" height="56" class="text_box" sqf:width="500" sqf:height="56">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                    <tspan y="16" x="0">Prefixes </tspan>
+                                                                                    <tspan y="16">must </tspan>
+                                                                                    <tspan y="16">be </tspan>
+                                                                                    <tspan y="16">attached </tspan>
+                                                                                    <tspan y="16">to </tspan>
+                                                                                    <tspan y="16">a </tspan>
+                                                                                    <tspan y="16">namespace </tspan>
+                                                                                    <tspan y="16">in </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">current </tspan>
+                                                                                    <tspan y="16">context </tspan>
+                                                                                    <tspan y="16">of </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">Schematron </tspan>
+                                                                                    <tspan y="16">schema. </tspan>
+                                                                                    <tspan y="16">Names </tspan>
+                                                                                    <tspan y="32" x="0">without </tspan>
+                                                                                    <tspan y="32">prefixes </tspan>
+                                                                                    <tspan y="32">will </tspan>
+                                                                                    <tspan y="32">be </tspan>
+                                                                                    <tspan y="32">attached </tspan>
+                                                                                    <tspan y="32">to </tspan>
+                                                                                    <tspan y="32">the </tspan>
+                                                                                    <tspan y="32">namespace </tspan>
+                                                                                    <tspan y="32">declared </tspan>
+                                                                                    <tspan y="32">by </tspan>
+                                                                                    <tspan y="32">the </tspan>
+                                                                                    <tspan y="32">sqf:default-</tspan>
+                                                                                    <tspan y="32">namespace </tspan>
+                                                                                    <tspan y="32">element </tspan>
+                                                                                    <tspan y="32">or </tspan>
+                                                                                    <tspan y="48" x="0">to </tspan>
+                                                                                    <tspan y="48">the </tspan>
+                                                                                    <tspan y="48">null </tspan>
+                                                                                    <tspan y="48">namespace.</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                        </g>
+                                                                     </g>
+                                                                  </svg>
+                                                               </g>
+                                                            </svg>
+                                                         </g>
+                                                         <path stroke="#F5844C" stroke-width="1" fill="none" d="M 25 288.5 L 50 288.5" stroke-dasharray="5,5"/>
+                                                         <path stroke="#F5844C" stroke-width="1" fill="none" d="M 25 288.5 L 25 258.5" stroke-dasharray="5,5"/>
+                                                         <g transform="translate(50,                                         273.5)" sqf:width="640" sqf:height="488.5">
+                                                            <svg width="590" height="215" class="attribute" id="modeld9e719_attribute_sqf_select" sqf:width="590" sqf:height="215">
+                                                               <desc/>
+                                                               <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld9e719_attributName_d9e1022" sqf:width="0" sqf:height="2.5">
+                                                                  <g>
+                                                                     <rect height="25" width="58" rx="10" ry="10" stroke="#F5844C" stoke-width="1" fill="white" stroke-dasharray="5,5"/>
+                                                                  </g>
+                                                                  <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:select</text>
+                                                               </g>
+                                                               <g transform="translate(58, 0)" sqf:width="590" sqf:height="215">
+                                                                  <svg width="532" height="215" class="annotation" sqf:width="532" sqf:height="215">
+                                                                     <g visibility="hidden" style="z-index:1000">
+                                                                        <set attributeName="visibility" to="visible" begin="modeld9e719_attributName_d9e1022.mouseover" end="modeld9e719_attributName_d9e1022.mouseout"/>
+                                                                        <g transform="translate(1,1)" sqf:width="521" sqf:height="204">
+                                                                           <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 198 Q 10 208 20 208 L 520 208 Q 530 208 530 198 L 530 10 Q 530 0 520 0 Z" fill="white" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                                           <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 198 Q 10 208 20 208 L 520 208 Q 530 208 530 198 L 530 10 Q 530 0 520 0 Z" fill="#F5844C" opacity="0.1" stroke="#F5844C" stroke-width="1"/>
+                                                                           <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 198 Q 10 208 20 208 L 520 208 Q 530 208 530 198 L 530 10 Q 530 0 520 0 Z" fill="none" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                                           <g transform="translate(20,5)" sqf:width="520" sqf:height="23">
+                                                                              <svg width="500" height="18" class="text_box" sqf:width="500" sqf:height="18">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                                    <tspan y="16" x="0">Documentation</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,23)" sqf:width="520" sqf:height="63">
+                                                                              <svg width="500" height="40" class="text_box" sqf:width="500" sqf:height="40">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                    <tspan y="16" x="0">The </tspan>
+                                                                                    <tspan y="16">select </tspan>
+                                                                                    <tspan y="16">attribute </tspan>
+                                                                                    <tspan y="16">defines </tspan>
+                                                                                    <tspan y="16">nodes </tspan>
+                                                                                    <tspan y="16">or </tspan>
+                                                                                    <tspan y="16">an </tspan>
+                                                                                    <tspan y="16">atomic </tspan>
+                                                                                    <tspan y="16">value </tspan>
+                                                                                    <tspan y="16">as </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">content </tspan>
+                                                                                    <tspan y="16">of </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">node </tspan>
+                                                                                    <tspan y="16">to </tspan>
+                                                                                    <tspan y="16">be </tspan>
+                                                                                    <tspan y="16">added. </tspan>
+                                                                                    <tspan y="16">If </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="32" x="0">select </tspan>
+                                                                                    <tspan y="32">attribute </tspan>
+                                                                                    <tspan y="32">is </tspan>
+                                                                                    <tspan y="32">set, </tspan>
+                                                                                    <tspan y="32">the </tspan>
+                                                                                    <tspan y="32">activity </tspan>
+                                                                                    <tspan y="32">element </tspan>
+                                                                                    <tspan y="32">should </tspan>
+                                                                                    <tspan y="32">be </tspan>
+                                                                                    <tspan y="32">empty.</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,63)" sqf:width="520" sqf:height="103">
+                                                                              <svg width="500" height="40" class="text_box" sqf:width="500" sqf:height="40">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                    <tspan y="16" x="0">The </tspan>
+                                                                                    <tspan y="16">selected </tspan>
+                                                                                    <tspan y="16">nodes </tspan>
+                                                                                    <tspan y="16">will </tspan>
+                                                                                    <tspan y="16">be </tspan>
+                                                                                    <tspan y="16">copied </tspan>
+                                                                                    <tspan y="16">into </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">node </tspan>
+                                                                                    <tspan y="16">to </tspan>
+                                                                                    <tspan y="16">be </tspan>
+                                                                                    <tspan y="16">added. </tspan>
+                                                                                    <tspan y="16">Unlike </tspan>
+                                                                                    <tspan y="16">a </tspan>
+                                                                                    <tspan y="16">deep </tspan>
+                                                                                    <tspan y="16">copy </tspan>
+                                                                                    <tspan y="16">function, </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">copied </tspan>
+                                                                                    <tspan y="32" x="0">nodes </tspan>
+                                                                                    <tspan y="32">could </tspan>
+                                                                                    <tspan y="32">be </tspan>
+                                                                                    <tspan y="32">manipulated </tspan>
+                                                                                    <tspan y="32">by </tspan>
+                                                                                    <tspan y="32">the </tspan>
+                                                                                    <tspan y="32">current </tspan>
+                                                                                    <tspan y="32">or </tspan>
+                                                                                    <tspan y="32">other </tspan>
+                                                                                    <tspan y="32">activity </tspan>
+                                                                                    <tspan y="32">elements.</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,103)" sqf:width="520" sqf:height="121">
+                                                                              <svg width="500" height="18" class="text_box" sqf:width="500" sqf:height="18">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                                    <tspan y="16" x="0">Value</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,121)" sqf:width="520" sqf:height="145">
+                                                                              <svg width="500" height="24" class="text_box" sqf:width="500" sqf:height="24">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                    <tspan y="16" x="0">XPath </tspan>
+                                                                                    <tspan y="16">expression. </tspan>
+                                                                                    <tspan y="16">The </tspan>
+                                                                                    <tspan y="16">context </tspan>
+                                                                                    <tspan y="16">of </tspan>
+                                                                                    <tspan y="16">relative </tspan>
+                                                                                    <tspan y="16">expressions </tspan>
+                                                                                    <tspan y="16">is </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">anchor </tspan>
+                                                                                    <tspan y="16">node.</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,145)" sqf:width="520" sqf:height="163">
+                                                                              <svg width="500" height="18" class="text_box" sqf:width="500" sqf:height="18">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                                    <tspan y="16" x="0">Default</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,163)" sqf:width="520" sqf:height="203">
+                                                                              <svg width="500" height="40" class="text_box" sqf:width="500" sqf:height="40">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                    <tspan y="16" x="0">There </tspan>
+                                                                                    <tspan y="16">is </tspan>
+                                                                                    <tspan y="16">no </tspan>
+                                                                                    <tspan y="16">default </tspan>
+                                                                                    <tspan y="16">value. </tspan>
+                                                                                    <tspan y="16">If </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">select </tspan>
+                                                                                    <tspan y="16">attribute </tspan>
+                                                                                    <tspan y="16">is </tspan>
+                                                                                    <tspan y="16">not </tspan>
+                                                                                    <tspan y="16">set, </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">content </tspan>
+                                                                                    <tspan y="16">of </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">activity </tspan>
+                                                                                    <tspan y="16">element </tspan>
+                                                                                    <tspan y="16">defines </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="32" x="0">content </tspan>
+                                                                                    <tspan y="32">of </tspan>
+                                                                                    <tspan y="32">the </tspan>
+                                                                                    <tspan y="32">nodes </tspan>
+                                                                                    <tspan y="32">to </tspan>
+                                                                                    <tspan y="32">be </tspan>
+                                                                                    <tspan y="32">added.</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                        </g>
+                                                                     </g>
+                                                                  </svg>
+                                                               </g>
+                                                            </svg>
+                                                         </g>
+                                                         <path stroke="#F5844C" stroke-width="1" fill="none" d="M 25 258.5 L 50 258.5" stroke-dasharray="5,5"/>
+                                                         <path stroke="#F5844C" stroke-width="1" fill="none" d="M 25 258.5 L 25 218" stroke-dasharray="5,5"/>
+                                                         <g transform="translate(50,                                         243.5)" sqf:width="460" sqf:height="390.5">
+                                                            <svg width="410" height="147" class="attribute" id="modeld9e719_attribute_sqf_node-type" sqf:width="410" sqf:height="147">
+                                                               <desc/>
+                                                               <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld9e719_attributName_d9e998" sqf:width="0" sqf:height="2.5">
+                                                                  <g>
+                                                                     <rect height="25" width="78" rx="10" ry="10" stroke="#F5844C" stoke-width="1" fill="white" stroke-dasharray="5,5"/>
+                                                                  </g>
+                                                                  <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:node-type</text>
+                                                               </g>
+                                                               <g transform="translate(78, 0)" sqf:width="410" sqf:height="147">
+                                                                  <svg width="332" height="147" class="annotation" sqf:width="332" sqf:height="147">
+                                                                     <g visibility="hidden" style="z-index:1000">
+                                                                        <set attributeName="visibility" to="visible" begin="modeld9e719_attributName_d9e998.mouseover" end="modeld9e719_attributName_d9e998.mouseout"/>
+                                                                        <g transform="translate(1,1)" sqf:width="321" sqf:height="136">
+                                                                           <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 130 Q 10 140 20 140 L 320 140 Q 330 140 330 130 L 330 10 Q 330 0 320 0 Z" fill="white" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                                           <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 130 Q 10 140 20 140 L 320 140 Q 330 140 330 130 L 330 10 Q 330 0 320 0 Z" fill="#F5844C" opacity="0.1" stroke="#F5844C" stroke-width="1"/>
+                                                                           <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 130 Q 10 140 20 140 L 320 140 Q 330 140 330 130 L 330 10 Q 330 0 320 0 Z" fill="none" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                                           <g transform="translate(20,5)" sqf:width="320" sqf:height="23">
+                                                                              <svg width="300" height="18" class="text_box" sqf:width="300" sqf:height="18">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                                    <tspan y="16" x="0">Documentation</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,23)" sqf:width="320" sqf:height="63">
+                                                                              <svg width="300" height="40" class="text_box" sqf:width="300" sqf:height="40">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                    <tspan y="16" x="0">The </tspan>
+                                                                                    <tspan y="16">node-</tspan>
+                                                                                    <tspan y="16">type </tspan>
+                                                                                    <tspan y="16">attribute </tspan>
+                                                                                    <tspan y="16">defines </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">node </tspan>
+                                                                                    <tspan y="16">type </tspan>
+                                                                                    <tspan y="16">of </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">nodes </tspan>
+                                                                                    <tspan y="16">to </tspan>
+                                                                                    <tspan y="32" x="0">be </tspan>
+                                                                                    <tspan y="32">added. </tspan>
+                                                                                    <tspan y="32">The </tspan>
+                                                                                    <tspan y="32">attribute </tspan>
+                                                                                    <tspan y="32">is </tspan>
+                                                                                    <tspan y="32">required, </tspan>
+                                                                                    <tspan y="32">if </tspan>
+                                                                                    <tspan y="32">the </tspan>
+                                                                                    <tspan y="32">target </tspan>
+                                                                                    <tspan y="32">attribut </tspan>
+                                                                                    <tspan y="32">is </tspan>
+                                                                                    <tspan y="32">set.</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                           <g transform="translate(20,63)" sqf:width="320" sqf:height="135">
+                                                                              <svg width="300" height="72" class="text_box" sqf:width="300" sqf:height="72">
+                                                                                 <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                    <tspan y="16" x="0">If </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">node-</tspan>
+                                                                                    <tspan y="16">type </tspan>
+                                                                                    <tspan y="16">value </tspan>
+                                                                                    <tspan y="16">is </tspan>
+                                                                                    <tspan y="16">missing, </tspan>
+                                                                                    <tspan y="16">the </tspan>
+                                                                                    <tspan y="16">activity </tspan>
+                                                                                    <tspan y="16">element </tspan>
+                                                                                    <tspan y="16">should </tspan>
+                                                                                    <tspan y="32" x="0">not </tspan>
+                                                                                    <tspan y="32">have </tspan>
+                                                                                    <tspan y="32">a </tspan>
+                                                                                    <tspan y="32">target </tspan>
+                                                                                    <tspan y="32">attribute. </tspan>
+                                                                                    <tspan y="32">In </tspan>
+                                                                                    <tspan y="32">this </tspan>
+                                                                                    <tspan y="32">case </tspan>
+                                                                                    <tspan y="32">the </tspan>
+                                                                                    <tspan y="32">nodes </tspan>
+                                                                                    <tspan y="32">to </tspan>
+                                                                                    <tspan y="32">be </tspan>
+                                                                                    <tspan y="32">added </tspan>
+                                                                                    <tspan y="48" x="0">will </tspan>
+                                                                                    <tspan y="48">be </tspan>
+                                                                                    <tspan y="48">defined </tspan>
+                                                                                    <tspan y="48">by </tspan>
+                                                                                    <tspan y="48">the </tspan>
+                                                                                    <tspan y="48">activity </tspan>
+                                                                                    <tspan y="48">elements </tspan>
+                                                                                    <tspan y="48">content </tspan>
+                                                                                    <tspan y="48">or </tspan>
+                                                                                    <tspan y="48">select </tspan>
+                                                                                    <tspan y="64" x="0">attribute.</tspan>
+                                                                                 </text>
+                                                                              </svg>
+                                                                           </g>
+                                                                        </g>
+                                                                     </g>
+                                                                  </svg>
+                                                               </g>
+                                                            </svg>
+                                                         </g>
+                                                         <path stroke="#F5844C" stroke-width="1" fill="none" d="M 50 117.5 L 32 117.5 Q 25 117.5 25 124.5 L 25 218"/>
+                                                         <g transform="translate(50,                                         0)" sqf:width="690" sqf:height="243.5">
+                                                            <svg width="640" height="243.5" class="element_group" sqf:width="640" sqf:height="243.5">
+                                                               <g transform="translate(0, 5)" id="modeld9e719_group_d9e996" sqf:width="640" sqf:height="239.5">
+                                                                  <rect width="258.5" height="233.5" rx="7" ry="7" fill="white" stroke="#F5844C" stroke-width="1"/>
+                                                                  <rect width="258.5" height="233.5" rx="7" ry="7" fill="white" stroke="#F5844C" stroke-width="1"/>
+                                                                  <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sqf_activityBase" target="_top">
+                                                                     <svg width="113" height="25" sqf:width="113" sqf:height="25">
+                                                                        <g transform="translate(3,3)" sqf:width="3" sqf:height="3">
+                                                                           <rect width="5" height="5" x="6" y="3" fill="#F5844C" opacity="0.5"/>
+                                                                           <rect width="5" height="5" x="6" y="11" fill="#F5844C" opacity="0.5"/>
+                                                                           <rect width="5" height="5" x="14" y="11" fill="#F5844C" opacity="0.5"/>
+                                                                           <rect width="5" height="5" x="6" y="3" fill="none" stroke="#F5844C" stroke-width="0.75" opacity="1"/>
+                                                                           <rect width="5" height="5" x="6" y="11" fill="none" stroke="#F5844C" stroke-width="0.75" opacity="1"/>
+                                                                           <rect width="5" height="5" x="14" y="11" fill="none" stroke="#F5844C" stroke-width="0.75" opacity="1"/>
+                                                                           <text x="26" y="13" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:activityBase</text>
+                                                                        </g>
+                                                                     </svg>
+                                                                     <path d="M 2.5 25 L 256 25" fill="none" stroke="#F5844C" stroke-width="0.25"/>
+                                                                  </a>
+                                                                  <g transform="translate(257, 0)" sqf:width="257" sqf:height="0"/>
+                                                                  <g transform="translate(0, 27.5)" sqf:width="640" sqf:height="234.5">
+                                                                     <svg width="640" height="207" class="objectPaths" sqf:width="640" sqf:height="207">
+                                                                        <path stroke="#F5844C" stroke-width="1" fill="none" d="M 0 85 L 25 85"/>
+                                                                        <path stroke="#F5844C" stroke-width="1" fill="none" d="M 50 155 L 32 155 Q 25 155 25 148 L 25 85"/>
+                                                                        <g transform="translate(50,                                         60)" sqf:width="256" sqf:height="203.5">
+                                                                           <svg width="206" height="143.5" class="element_group" sqf:width="206" sqf:height="143.5">
+                                                                              <g transform="translate(0, 5)" id="modeld9e719_group_d9e991" sqf:width="199.5" sqf:height="136">
+                                                                                 <rect width="201" height="133.5" rx="7" ry="7" fill="white" stroke="#007" stroke-width="1"/>
+                                                                                 <rect width="201" height="133.5" rx="7" ry="7" fill="white" stroke="#007" stroke-width="1"/>
+                                                                                 <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sch_foreign" target="_top">
+                                                                                    <svg width="90" height="25" sqf:width="90" sqf:height="25">
+                                                                                       <g transform="translate(3,3)" sqf:width="3" sqf:height="3">
+                                                                                          <rect width="5" height="5" x="6" y="3" fill="#007" opacity="0.5"/>
+                                                                                          <rect width="5" height="5" x="6" y="11" fill="#007" opacity="0.5"/>
+                                                                                          <rect width="5" height="5" x="14" y="11" fill="#007" opacity="0.5"/>
+                                                                                          <rect width="5" height="5" x="6" y="3" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                                                          <rect width="5" height="5" x="6" y="11" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                                                          <rect width="5" height="5" x="14" y="11" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                                                          <text x="26" y="13" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sch:foreign</text>
+                                                                                       </g>
+                                                                                    </svg>
+                                                                                    <path d="M 2.5 25 L 198.5 25" fill="none" stroke="#007" stroke-width="0.25"/>
+                                                                                 </a>
+                                                                                 <g transform="translate(199.5, 0)" sqf:width="199.5" sqf:height="0"/>
+                                                                                 <g transform="translate(0, 27.5)" sqf:width="198.5" sqf:height="131">
+                                                                                    <svg width="198.5" height="103.5" class="objectPaths" sqf:width="198.5" sqf:height="103.5">
+                                                                                       <path stroke="#007" stroke-width="1" fill="none" d="M 0 62.5 L 25 62.5"/>
+                                                                                       <g transform="translate(25,                                         0)" sqf:width="198.5" sqf:height="103.5">
+                                                                                          <svg width="173.5" height="103.5" class="sequence" sqf:width="173.5" sqf:height="103.5">
+                                                                                             <g transform="translate(0,52.5)" sqf:width="20" sqf:height="72.5">
+                                                                                                <svg width="20" height="20" sqf:width="20" sqf:height="20">
+                                                                                                   <g>
+                                                                                                      <circle r="9.5" stroke="#007" stroke-width="1" cx="10" cy="10" fill="white"/>
+                                                                                                      <g>
+                                                                                                         <path d="M 0 10                          L 3 10                         M 8.5 10                         L 11.5 10                         M 17 10                         L 20 10" stroke="#007" fill="none" stroke-width="0.75"/>
+                                                                                                         <g transform="translate(3, 8)" sqf:width="3" sqf:height="8">
+                                                                                                            <rect width="5.5" height="4" fill="#88f" stroke-width="1" stroke="#007"/>
+                                                                                                         </g>
+                                                                                                         <g transform="translate(11.5, 8)" sqf:width="11.5" sqf:height="8">
+                                                                                                            <rect width="5.5" height="4" fill="#88f" stroke-width="1" stroke="#007"/>
+                                                                                                         </g>
+                                                                                                      </g>
+                                                                                                   </g>
+                                                                                                </svg>
+                                                                                             </g>
+                                                                                             <g transform="translate(20,0)" sqf:width="173.5" sqf:height="103.5">
+                                                                                                <svg width="153.5" height="103.5" class="objectPaths" sqf:width="153.5" sqf:height="103.5">
+                                                                                                   <path stroke="#007" stroke-width="1" fill="none" d="M 0 61 L 15 61" stroke-dasharray="3,3"/>
+                                                                                                   <path stroke="#007" stroke-width="1" fill="none" d="M 0 64 L 15 64" stroke-dasharray="3,3"/>
+                                                                                                   <g transform="translate(15,                                         0)" sqf:width="153.5" sqf:height="103.5">
+                                                                                                      <svg width="138.5" height="103.5" class="element_group" sqf:width="138.5" sqf:height="103.5">
+                                                                                                         <g transform="translate(0, 5)" id="modeld9e719_group_d5e993" sqf:width="132" sqf:height="92.5">
+                                                                                                            <rect width="133.5" height="90" rx="7" ry="7" fill="white" stroke="#007" stroke-width="0.33" stroke-dashoffset="2" stroke-dasharray="2" y="3.5"/>
+                                                                                                            <rect width="133.5" height="90" rx="7" ry="7" fill="white" stroke="#007" stroke-width="0.66" stroke-dashoffset="2" stroke-dasharray="2" y="2"/>
+                                                                                                            <rect width="133.5" height="90" rx="7" ry="7" fill="white" stroke="#007" stroke-width="1" stroke-dashoffset="2" stroke-dasharray="2"/>
+                                                                                                            <rect width="133.5" height="90" rx="7" ry="7" fill="white" stroke="#007" stroke-width="1"/>
+                                                                                                            <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sch_foreign-element" target="_top">
+                                                                                                               <svg width="131" height="25" sqf:width="131" sqf:height="25">
+                                                                                                                  <g transform="translate(3,3)" sqf:width="3" sqf:height="3">
+                                                                                                                     <rect width="5" height="5" x="6" y="3" fill="#007" opacity="0.5"/>
+                                                                                                                     <rect width="5" height="5" x="6" y="11" fill="#007" opacity="0.5"/>
+                                                                                                                     <rect width="5" height="5" x="14" y="11" fill="#007" opacity="0.5"/>
+                                                                                                                     <rect width="5" height="5" x="6" y="3" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                                                                                     <rect width="5" height="5" x="6" y="11" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                                                                                     <rect width="5" height="5" x="14" y="11" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                                                                                     <text x="26" y="13" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sch:foreign-element</text>
+                                                                                                                  </g>
+                                                                                                               </svg>
+                                                                                                               <path d="M 2.5 25 L 131 25" fill="none" stroke="#007" stroke-width="0.25"/>
+                                                                                                            </a>
+                                                                                                            <g transform="translate(132, 0)" sqf:width="132" sqf:height="0"/>
+                                                                                                            <g transform="translate(0, 27.5)" sqf:width="107" sqf:height="87.5">
+                                                                                                               <svg width="107" height="60" class="objectPaths" sqf:width="107" sqf:height="60">
+                                                                                                                  <path stroke="#007" stroke-width="1" fill="none" d="M 0 30 L 25 30"/>
+                                                                                                                  <g transform="translate(25,                                         0)" sqf:width="107" sqf:height="60">
+                                                                                                                     <svg width="82" height="60" class="choice" sqf:width="82" sqf:height="60">
+                                                                                                                        <g transform="translate(0,20)" sqf:width="20" sqf:height="40">
+                                                                                                                           <svg width="20" height="20" sqf:width="20" sqf:height="20">
+                                                                                                                              <g>
+                                                                                                                                 <circle r="9.5" stroke="#007" stroke-width="1" cx="10" cy="10" fill="white"/>
+                                                                                                                                 <g>
+                                                                                                                                    <path d="M 0 10                          L 3 10                          L 3 6                          L 6 6                         M 3 10                         L 3 14                         L 6 14" stroke="#007" fill="none" stroke-width="0.75"/>
+                                                                                                                                    <g transform="translate(6, 4)" sqf:width="6" sqf:height="4">
+                                                                                                                                       <rect width="8" height="4" fill="#88f" stroke-width="1" stroke="#007"/>
+                                                                                                                                    </g>
+                                                                                                                                    <g transform="translate(6, 12)" sqf:width="6" sqf:height="12">
+                                                                                                                                       <rect width="8" height="4" fill="#88f" stroke-width="1" stroke="#007"/>
+                                                                                                                                    </g>
+                                                                                                                                    <path d="M 10 0                                  L 10 4" stroke="#007" fill="none" stroke-width="0.75"/>
+                                                                                                                                    <path d="M 10 16                                  L 10 20" stroke="#007" fill="none" stroke-width="0.75"/>
+                                                                                                                                 </g>
+                                                                                                                              </g>
+                                                                                                                           </svg>
+                                                                                                                        </g>
+                                                                                                                        <g transform="translate(20,30)" sqf:width="79" sqf:height="60">
+                                                                                                                           <svg width="59" height="30" class="objectPaths" sqf:width="59" sqf:height="30">
+                                                                                                                              <path stroke="#007" stroke-width="1" fill="none" d="M 0 15 L 15 15"/>
+                                                                                                                              <g transform="translate(15,                                         0)" sqf:width="59" sqf:height="30">
+                                                                                                                                 <svg width="44" height="30" class="element_ref" sqf:width="44" sqf:height="30">
+                                                                                                                                    <desc/>
+                                                                                                                                    <g alignment-baseline="baseline" class="svg-element-ref" transform="translate(0, 2.5)" sqf:width="0" sqf:height="2.5">
+                                                                                                                                       <g id="modeld9e719_elementRef_d5e1018">
+                                                                                                                                          <rect height="25" width="44" rx="10" ry="10" stroke="#007" stoke-width="1" fill="white"/>
+                                                                                                                                          <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">##local</text>
+                                                                                                                                       </g>
+                                                                                                                                    </g>
+                                                                                                                                    <g transform="translate(44, 0)" sqf:width="44" sqf:height="0"/>
+                                                                                                                                 </svg>
+                                                                                                                              </g>
+                                                                                                                           </svg>
+                                                                                                                        </g>
+                                                                                                                        <g transform="translate(20,0)" sqf:width="82" sqf:height="30">
+                                                                                                                           <svg width="62" height="30" class="objectPaths" sqf:width="62" sqf:height="30">
+                                                                                                                              <path stroke="#007" stroke-width="1" fill="none" d="M 0 15 L 15 15"/>
+                                                                                                                              <g transform="translate(15,                                         0)" sqf:width="62" sqf:height="30">
+                                                                                                                                 <svg width="47" height="30" class="element_ref" sqf:width="47" sqf:height="30">
+                                                                                                                                    <desc/>
+                                                                                                                                    <g alignment-baseline="baseline" class="svg-element-ref" transform="translate(0, 2.5)" sqf:width="0" sqf:height="2.5">
+                                                                                                                                       <g id="modeld9e719_elementRef_d5e1016">
+                                                                                                                                          <rect height="25" width="47" rx="10" ry="10" stroke="#007" stoke-width="1" fill="white"/>
+                                                                                                                                          <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">##other</text>
+                                                                                                                                       </g>
+                                                                                                                                    </g>
+                                                                                                                                    <g transform="translate(47, 0)" sqf:width="47" sqf:height="0"/>
+                                                                                                                                 </svg>
+                                                                                                                              </g>
+                                                                                                                           </svg>
+                                                                                                                        </g>
+                                                                                                                        <path fill="none" stroke-width="1" stroke="#007" d="M 10 20 L 10 22 Q 10 15 17 15 L 20 15"/>
+                                                                                                                        <path fill="none" stroke-width="1" stroke="#007" d="M 10 40 L 10 38 Q 10 45 17 45 L 20 45"/>
+                                                                                                                     </svg>
+                                                                                                                  </g>
+                                                                                                               </svg>
+                                                                                                            </g>
+                                                                                                         </g>
+                                                                                                         <g transform="translate(0, 62.5)" sqf:width="0" sqf:height="62.5"/>
+                                                                                                      </svg>
+                                                                                                   </g>
+                                                                                                </svg>
+                                                                                             </g>
+                                                                                          </svg>
+                                                                                       </g>
+                                                                                    </svg>
+                                                                                 </g>
+                                                                              </g>
+                                                                              <g transform="translate(0, 95)" sqf:width="0" sqf:height="95"/>
+                                                                           </svg>
+                                                                        </g>
+                                                                        <path stroke="#F5844C" stroke-width="1" fill="none" d="M 25 45 L 50 45" stroke-dasharray="5,5"/>
+                                                                        <path stroke="#F5844C" stroke-width="1" fill="none" d="M 25 45 L 25 85" stroke-dasharray="5,5"/>
+                                                                        <g transform="translate(50,                                         30)" sqf:width="461" sqf:height="147">
+                                                                           <svg width="411" height="117" class="attribute" id="modeld9e719_attribute_sqf_use-when" sqf:width="411" sqf:height="117">
+                                                                              <desc/>
+                                                                              <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld9e719_attributName_d9e979" sqf:width="0" sqf:height="2.5">
+                                                                                 <g>
+                                                                                    <rect height="25" width="79" rx="10" ry="10" stroke="#F5844C" stoke-width="1" fill="white" stroke-dasharray="5,5"/>
+                                                                                 </g>
+                                                                                 <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:use-when</text>
+                                                                              </g>
+                                                                              <g transform="translate(79, 0)" sqf:width="411" sqf:height="117">
+                                                                                 <svg width="332" height="117" class="annotation" sqf:width="332" sqf:height="117">
+                                                                                    <g visibility="hidden" style="z-index:1000">
+                                                                                       <set attributeName="visibility" to="visible" begin="modeld9e719_attributName_d9e979.mouseover" end="modeld9e719_attributName_d9e979.mouseout"/>
+                                                                                       <g transform="translate(1,1)" sqf:width="321" sqf:height="106">
+                                                                                          <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 100 Q 10 110 20 110 L 320 110 Q 330 110 330 100 L 330 10 Q 330 0 320 0 Z" fill="white" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                                                          <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 100 Q 10 110 20 110 L 320 110 Q 330 110 330 100 L 330 10 Q 330 0 320 0 Z" fill="#F5844C" opacity="0.1" stroke="#F5844C" stroke-width="1"/>
+                                                                                          <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 100 Q 10 110 20 110 L 320 110 Q 330 110 330 100 L 330 10 Q 330 0 320 0 Z" fill="none" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                                                          <g transform="translate(20,5)" sqf:width="320" sqf:height="23">
+                                                                                             <svg width="300" height="18" class="text_box" sqf:width="300" sqf:height="18">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                                                   <tspan y="16" x="0">Documentation</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                          <g transform="translate(20,23)" sqf:width="320" sqf:height="63">
+                                                                                             <svg width="300" height="40" class="text_box" sqf:width="300" sqf:height="40">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                                   <tspan y="16" x="0">A </tspan>
+                                                                                                   <tspan y="16">condition </tspan>
+                                                                                                   <tspan y="16">for </tspan>
+                                                                                                   <tspan y="16">the </tspan>
+                                                                                                   <tspan y="16">action </tspan>
+                                                                                                   <tspan y="16">of </tspan>
+                                                                                                   <tspan y="16">the </tspan>
+                                                                                                   <tspan y="16">activity </tspan>
+                                                                                                   <tspan y="16">Element. </tspan>
+                                                                                                   <tspan y="16">The </tspan>
+                                                                                                   <tspan y="16">action </tspan>
+                                                                                                   <tspan y="32" x="0">will </tspan>
+                                                                                                   <tspan y="32">just </tspan>
+                                                                                                   <tspan y="32">be </tspan>
+                                                                                                   <tspan y="32">executed, </tspan>
+                                                                                                   <tspan y="32">if </tspan>
+                                                                                                   <tspan y="32">the </tspan>
+                                                                                                   <tspan y="32">condition </tspan>
+                                                                                                   <tspan y="32">returns </tspan>
+                                                                                                   <tspan y="32">true.</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                          <g transform="translate(20,63)" sqf:width="320" sqf:height="81">
+                                                                                             <svg width="300" height="18" class="text_box" sqf:width="300" sqf:height="18">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                                                   <tspan y="16" x="0">value</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                          <g transform="translate(20,81)" sqf:width="320" sqf:height="105">
+                                                                                             <svg width="300" height="24" class="text_box" sqf:width="300" sqf:height="24">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                                   <tspan y="16" x="0">XPath </tspan>
+                                                                                                   <tspan y="16">expression. </tspan>
+                                                                                                   <tspan y="16">Its </tspan>
+                                                                                                   <tspan y="16">expect </tspan>
+                                                                                                   <tspan y="16">as </tspan>
+                                                                                                   <tspan y="16">return </tspan>
+                                                                                                   <tspan y="16">value </tspan>
+                                                                                                   <tspan y="16">an </tspan>
+                                                                                                   <tspan y="16">xs:boolean.</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                       </g>
+                                                                                    </g>
+                                                                                 </svg>
+                                                                              </g>
+                                                                           </svg>
+                                                                        </g>
+                                                                        <path stroke="#F5844C" stroke-width="1" fill="none" d="M 50 15 L 32 15 Q 25 15 25 22 L 25 45" stroke-dasharray="5,5"/>
+                                                                        <g transform="translate(50,                                         0)" sqf:width="640" sqf:height="207">
+                                                                           <svg width="590" height="207" class="attribute" id="modeld9e719_attribute_sqf_match" sqf:width="590" sqf:height="207">
+                                                                              <desc/>
+                                                                              <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld9e719_attributName_d9e948" sqf:width="0" sqf:height="2.5">
+                                                                                 <g>
+                                                                                    <rect height="25" width="58" rx="10" ry="10" stroke="#F5844C" stoke-width="1" fill="white" stroke-dasharray="5,5"/>
+                                                                                 </g>
+                                                                                 <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:match</text>
+                                                                              </g>
+                                                                              <g transform="translate(58, 0)" sqf:width="590" sqf:height="207">
+                                                                                 <svg width="532" height="207" class="annotation" sqf:width="532" sqf:height="207">
+                                                                                    <g visibility="hidden" style="z-index:1000">
+                                                                                       <set attributeName="visibility" to="visible" begin="modeld9e719_attributName_d9e948.mouseover" end="modeld9e719_attributName_d9e948.mouseout"/>
+                                                                                       <g transform="translate(1,1)" sqf:width="521" sqf:height="196">
+                                                                                          <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 190 Q 10 200 20 200 L 520 200 Q 530 200 530 190 L 530 10 Q 530 0 520 0 Z" fill="white" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                                                          <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 190 Q 10 200 20 200 L 520 200 Q 530 200 530 190 L 530 10 Q 530 0 520 0 Z" fill="#F5844C" opacity="0.1" stroke="#F5844C" stroke-width="1"/>
+                                                                                          <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 190 Q 10 200 20 200 L 520 200 Q 530 200 530 190 L 530 10 Q 530 0 520 0 Z" fill="none" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                                                          <g transform="translate(20,5)" sqf:width="520" sqf:height="23">
+                                                                                             <svg width="500" height="18" class="text_box" sqf:width="500" sqf:height="18">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                                                   <tspan y="16" x="0">Documentation</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                          <g transform="translate(20,23)" sqf:width="520" sqf:height="47">
+                                                                                             <svg width="500" height="24" class="text_box" sqf:width="500" sqf:height="24">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                                   <tspan y="16" x="0">The </tspan>
+                                                                                                   <tspan y="16">match </tspan>
+                                                                                                   <tspan y="16">attribute </tspan>
+                                                                                                   <tspan y="16">defines </tspan>
+                                                                                                   <tspan y="16">anchor </tspan>
+                                                                                                   <tspan y="16">nodes </tspan>
+                                                                                                   <tspan y="16">for </tspan>
+                                                                                                   <tspan y="16">an </tspan>
+                                                                                                   <tspan y="16">activity </tspan>
+                                                                                                   <tspan y="16">element.</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                          <g transform="translate(20,47)" sqf:width="520" sqf:height="87">
+                                                                                             <svg width="500" height="40" class="text_box" sqf:width="500" sqf:height="40">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                                   <tspan y="16" x="0">For </tspan>
+                                                                                                   <tspan y="16">each </tspan>
+                                                                                                   <tspan y="16">selected </tspan>
+                                                                                                   <tspan y="16">anchor </tspan>
+                                                                                                   <tspan y="16">node, </tspan>
+                                                                                                   <tspan y="16">the </tspan>
+                                                                                                   <tspan y="16">command </tspan>
+                                                                                                   <tspan y="16">of </tspan>
+                                                                                                   <tspan y="16">the </tspan>
+                                                                                                   <tspan y="16">activity </tspan>
+                                                                                                   <tspan y="16">element </tspan>
+                                                                                                   <tspan y="16">will </tspan>
+                                                                                                   <tspan y="16">be </tspan>
+                                                                                                   <tspan y="16">executed. </tspan>
+                                                                                                   <tspan y="16">For </tspan>
+                                                                                                   <tspan y="16">each </tspan>
+                                                                                                   <tspan y="32" x="0">execution, </tspan>
+                                                                                                   <tspan y="32">the </tspan>
+                                                                                                   <tspan y="32">context </tspan>
+                                                                                                   <tspan y="32">will </tspan>
+                                                                                                   <tspan y="32">be </tspan>
+                                                                                                   <tspan y="32">set </tspan>
+                                                                                                   <tspan y="32">to </tspan>
+                                                                                                   <tspan y="32">the </tspan>
+                                                                                                   <tspan y="32">anchor </tspan>
+                                                                                                   <tspan y="32">node.</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                          <g transform="translate(20,87)" sqf:width="520" sqf:height="111">
+                                                                                             <svg width="500" height="24" class="text_box" sqf:width="500" sqf:height="24">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                                   <tspan y="16" x="0">Exception: </tspan>
+                                                                                                   <tspan y="16">The </tspan>
+                                                                                                   <tspan y="16">match </tspan>
+                                                                                                   <tspan y="16">attribute </tspan>
+                                                                                                   <tspan y="16">of </tspan>
+                                                                                                   <tspan y="16">the </tspan>
+                                                                                                   <tspan y="16">sqf:stringReplace </tspan>
+                                                                                                   <tspan y="16">element </tspan>
+                                                                                                   <tspan y="16">should </tspan>
+                                                                                                   <tspan y="16">only </tspan>
+                                                                                                   <tspan y="16">select </tspan>
+                                                                                                   <tspan y="16">text </tspan>
+                                                                                                   <tspan y="16">nodes.</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                          <g transform="translate(20,111)" sqf:width="520" sqf:height="129">
+                                                                                             <svg width="500" height="18" class="text_box" sqf:width="500" sqf:height="18">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                                                   <tspan y="16" x="0">Value</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                          <g transform="translate(20,129)" sqf:width="520" sqf:height="153">
+                                                                                             <svg width="500" height="24" class="text_box" sqf:width="500" sqf:height="24">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                                   <tspan y="16" x="0">XPath </tspan>
+                                                                                                   <tspan y="16">expression. </tspan>
+                                                                                                   <tspan y="16">The </tspan>
+                                                                                                   <tspan y="16">context </tspan>
+                                                                                                   <tspan y="16">of </tspan>
+                                                                                                   <tspan y="16">relative </tspan>
+                                                                                                   <tspan y="16">expressions </tspan>
+                                                                                                   <tspan y="16">is </tspan>
+                                                                                                   <tspan y="16">the </tspan>
+                                                                                                   <tspan y="16">context </tspan>
+                                                                                                   <tspan y="16">of </tspan>
+                                                                                                   <tspan y="16">the </tspan>
+                                                                                                   <tspan y="16">related </tspan>
+                                                                                                   <tspan y="16">Schematron </tspan>
+                                                                                                   <tspan y="16">rule.</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                          <g transform="translate(20,153)" sqf:width="520" sqf:height="171">
+                                                                                             <svg width="500" height="18" class="text_box" sqf:width="500" sqf:height="18">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                                                                   <tspan y="16" x="0">Default</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                          <g transform="translate(20,171)" sqf:width="520" sqf:height="195">
+                                                                                             <svg width="500" height="24" class="text_box" sqf:width="500" sqf:height="24">
+                                                                                                <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                                                                   <tspan y="16" x="0">By </tspan>
+                                                                                                   <tspan y="16">default </tspan>
+                                                                                                   <tspan y="16">the </tspan>
+                                                                                                   <tspan y="16">anchor </tspan>
+                                                                                                   <tspan y="16">node </tspan>
+                                                                                                   <tspan y="16">is </tspan>
+                                                                                                   <tspan y="16">the </tspan>
+                                                                                                   <tspan y="16">context </tspan>
+                                                                                                   <tspan y="16">node </tspan>
+                                                                                                   <tspan y="16">of </tspan>
+                                                                                                   <tspan y="16">the </tspan>
+                                                                                                   <tspan y="16">related </tspan>
+                                                                                                   <tspan y="16">Schematron </tspan>
+                                                                                                   <tspan y="16">rule.</tspan>
+                                                                                                </text>
+                                                                                             </svg>
+                                                                                          </g>
+                                                                                       </g>
+                                                                                    </g>
+                                                                                 </svg>
+                                                                              </g>
+                                                                           </svg>
+                                                                        </g>
+                                                                     </svg>
+                                                                  </g>
+                                                               </g>
+                                                               <g transform="translate(0, 117.5)" sqf:width="0" sqf:height="117.5"/>
+                                                            </svg>
+                                                         </g>
+                                                      </svg>
+                                                   </g>
+                                                </g>
+                                                <g transform="translate(0, 250.5)" sqf:width="0" sqf:height="250.5"/>
+                                             </svg>
+                                          </g>
+                                       </svg>
+                                    </g>
+                                 </g>
+                              </svg>
+                           </g>
+                        </svg>
+                     </g>
+                     <g transform="translate(221, 328.25)" sqf:width="553" sqf:height="515.25">
+                        <svg width="332" height="187" class="annotation" sqf:width="332" sqf:height="187">
+                           <g visibility="hidden" style="z-index:1000">
+                              <set attributeName="visibility" to="visible" begin="modeld9e719_elementRef_d9e719.mouseover" end="modeld9e719_elementRef_d9e719.mouseout"/>
+                              <g transform="translate(1,1)" sqf:width="321" sqf:height="176">
+                                 <path d="M 17.5 0 Q 10 0 10 7.5 L 10 7.5 L 0 12.5 L 10 17.5 L 10 172.5 Q 10 180 17.5 180 L 322.5 180 Q 330 180 330 172.5 L 330 7.5 Q 330 0 322.5 0 Z" fill="white" opacity="1" stroke="#007" stroke-width="1"/>
+                                 <path d="M 17.5 0 Q 10 0 10 7.5 L 10 7.5 L 0 12.5 L 10 17.5 L 10 172.5 Q 10 180 17.5 180 L 322.5 180 Q 330 180 330 172.5 L 330 7.5 Q 330 0 322.5 0 Z" fill="#007" opacity="0.1" stroke="#007" stroke-width="1"/>
+                                 <path d="M 17.5 0 Q 10 0 10 7.5 L 10 7.5 L 0 12.5 L 10 17.5 L 10 172.5 Q 10 180 17.5 180 L 322.5 180 Q 330 180 330 172.5 L 330 7.5 Q 330 0 322.5 0 Z" fill="none" opacity="1" stroke="#007" stroke-width="1"/>
+                                 <g transform="translate(20,5)" sqf:width="320" sqf:height="23">
+                                    <svg width="300" height="18" class="text_box" sqf:width="300" sqf:height="18">
+                                       <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                          <tspan y="16" x="0">Documentation</tspan>
+                                       </text>
+                                    </svg>
+                                 </g>
+                                 <g transform="translate(20,23)" sqf:width="320" sqf:height="79">
+                                    <svg width="300" height="56" class="text_box" sqf:width="300" sqf:height="56">
+                                       <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                          <tspan y="16" x="0">This </tspan>
+                                          <tspan y="16">activity </tspan>
+                                          <tspan y="16">element </tspan>
+                                          <tspan y="16">replaces </tspan>
+                                          <tspan y="16">one </tspan>
+                                          <tspan y="16">or </tspan>
+                                          <tspan y="16">more </tspan>
+                                          <tspan y="16">nodes </tspan>
+                                          <tspan y="16">of </tspan>
+                                          <tspan y="16">the </tspan>
+                                          <tspan y="16">XML </tspan>
+                                          <tspan y="32" x="0">instance </tspan>
+                                          <tspan y="32">by </tspan>
+                                          <tspan y="32">a </tspan>
+                                          <tspan y="32">node. </tspan>
+                                          <tspan y="32">The </tspan>
+                                          <tspan y="32">activity </tspan>
+                                          <tspan y="32">command </tspan>
+                                          <tspan y="32">combines </tspan>
+                                          <tspan y="32">the </tspan>
+                                          <tspan y="48" x="0">delete </tspan>
+                                          <tspan y="48">and </tspan>
+                                          <tspan y="48">the </tspan>
+                                          <tspan y="48">add </tspan>
+                                          <tspan y="48">command.</tspan>
+                                       </text>
+                                    </svg>
+                                 </g>
+                                 <g transform="translate(20,79)" sqf:width="320" sqf:height="135">
+                                    <svg width="300" height="56" class="text_box" sqf:width="300" sqf:height="56">
+                                       <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                          <tspan y="16" x="0">The </tspan>
+                                          <tspan y="16">nodes </tspan>
+                                          <tspan y="16">to </tspan>
+                                          <tspan y="16">be </tspan>
+                                          <tspan y="16">deleted </tspan>
+                                          <tspan y="16">are </tspan>
+                                          <tspan y="16">defined </tspan>
+                                          <tspan y="16">by </tspan>
+                                          <tspan y="16">the </tspan>
+                                          <tspan y="16">match </tspan>
+                                          <tspan y="16">attribute. </tspan>
+                                          <tspan y="32" x="0">The </tspan>
+                                          <tspan y="32">nodes </tspan>
+                                          <tspan y="32">to </tspan>
+                                          <tspan y="32">be </tspan>
+                                          <tspan y="32">added </tspan>
+                                          <tspan y="32">are </tspan>
+                                          <tspan y="32">defined </tspan>
+                                          <tspan y="32">by </tspan>
+                                          <tspan y="32">the </tspan>
+                                          <tspan y="32">the </tspan>
+                                          <tspan y="32">attributes </tspan>
+                                          <tspan y="32">node-</tspan>
+                                          <tspan y="48" x="0">type </tspan>
+                                          <tspan y="48">and </tspan>
+                                          <tspan y="48">select </tspan>
+                                          <tspan y="48">and </tspan>
+                                          <tspan y="48">the </tspan>
+                                          <tspan y="48">content </tspan>
+                                          <tspan y="48">of </tspan>
+                                          <tspan y="48">the </tspan>
+                                          <tspan y="48">sqf:replace </tspan>
+                                          <tspan y="48">element.</tspan>
+                                       </text>
+                                    </svg>
+                                 </g>
+                                 <g transform="translate(20,135)" sqf:width="320" sqf:height="175">
+                                    <svg width="300" height="40" class="text_box" sqf:width="300" sqf:height="40">
+                                       <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                          <tspan y="16" x="0">The </tspan>
+                                          <tspan y="16">position </tspan>
+                                          <tspan y="16">of </tspan>
+                                          <tspan y="16">the </tspan>
+                                          <tspan y="16">nodes </tspan>
+                                          <tspan y="16">to </tspan>
+                                          <tspan y="16">be </tspan>
+                                          <tspan y="16">added </tspan>
+                                          <tspan y="16">is </tspan>
+                                          <tspan y="16">the </tspan>
+                                          <tspan y="16">position </tspan>
+                                          <tspan y="16">of </tspan>
+                                          <tspan y="16">the </tspan>
+                                          <tspan y="32" x="0">nodes </tspan>
+                                          <tspan y="32">to </tspan>
+                                          <tspan y="32">be </tspan>
+                                          <tspan y="32">deleted.</tspan>
+                                       </text>
+                                    </svg>
+                                 </g>
+                              </g>
+                           </g>
+                        </svg>
+                     </g>
+                     <g transform="translate(0,328.25)" sqf:width="463" sqf:height="437.75">
+                        <svg width="463" height="109.5" class="objectPaths" sqf:width="463" sqf:height="109.5">
+                           <path stroke="#007" stroke-width="1" fill="none" d="M 156 15 L 131 15"/>
+                           <g transform="translate(0,                                         0)" sqf:width="463" sqf:height="109.5">
+                              <svg width="463" height="109.5" sqf:width="463" sqf:height="109.5">
+                                 <g transform="translate(1,1)" id="modeld9e719_d9e194_parentOf_" sqf:width="1" sqf:height="1">
+                                    <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sqf_activityElements" target="_top">
+                                       <path stroke="#007" stoke-width="1" fill="white" d="M 0 28 L 0 10 Q 0 0 10 0 L 119 0 Q 129 0 129 10 L 129 28"/>
+                                       <path d="M 2.5 27 L 126.5 27" fill="none" stroke="#007" stroke-width="0.25"/>
+                                       <g transform="translate(0, 2.5)" sqf:width="131" sqf:height="27.5">
+                                          <svg width="131" height="25" sqf:width="131" sqf:height="25">
+                                             <g transform="translate(3,3)" sqf:width="3" sqf:height="3">
+                                                <rect width="5" height="5" x="6" y="3" fill="#007" opacity="0.5"/>
+                                                <rect width="5" height="5" x="6" y="11" fill="#007" opacity="0.5"/>
+                                                <rect width="5" height="5" x="14" y="11" fill="#007" opacity="0.5"/>
+                                                <rect width="5" height="5" x="6" y="3" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                <rect width="5" height="5" x="6" y="11" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                <rect width="5" height="5" x="14" y="11" fill="none" stroke="#007" stroke-width="0.75" opacity="1"/>
+                                                <text x="26" y="13" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:activityElements</text>
+                                             </g>
+                                          </svg>
+                                       </g>
+                                    </a>
+                                 </g>
+                                 <g transform="translate(131, 2.5)" sqf:width="463" sqf:height="109.5">
+                                    <svg width="332" height="107" class="annotation" sqf:width="332" sqf:height="107">
+                                       <g visibility="hidden" style="z-index:1000">
+                                          <set attributeName="visibility" to="visible" begin="modeld9e719_d9e194_parentOf_.mouseover" end="modeld9e719_d9e194_parentOf_.mouseout"/>
+                                          <g transform="translate(1,1)" sqf:width="321" sqf:height="96">
+                                             <path d="M 17.5 0 Q 10 0 10 7.5 L 10 7.5 L 0 12.5 L 10 17.5 L 10 92.5 Q 10 100 17.5 100 L 322.5 100 Q 330 100 330 92.5 L 330 7.5 Q 330 0 322.5 0 Z" fill="white" opacity="1" stroke="#007" stroke-width="1"/>
+                                             <path d="M 17.5 0 Q 10 0 10 7.5 L 10 7.5 L 0 12.5 L 10 17.5 L 10 92.5 Q 10 100 17.5 100 L 322.5 100 Q 330 100 330 92.5 L 330 7.5 Q 330 0 322.5 0 Z" fill="#007" opacity="0.1" stroke="#007" stroke-width="1"/>
+                                             <path d="M 17.5 0 Q 10 0 10 7.5 L 10 7.5 L 0 12.5 L 10 17.5 L 10 92.5 Q 10 100 17.5 100 L 322.5 100 Q 330 100 330 92.5 L 330 7.5 Q 330 0 322.5 0 Z" fill="none" opacity="1" stroke="#007" stroke-width="1"/>
+                                             <g transform="translate(20,5)" sqf:width="320" sqf:height="23">
+                                                <svg width="300" height="18" class="text_box" sqf:width="300" sqf:height="18">
+                                                   <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                      <tspan y="16" x="0">Documentation</tspan>
+                                                   </text>
+                                                </svg>
+                                             </g>
+                                             <g transform="translate(20,23)" sqf:width="320" sqf:height="95">
+                                                <svg width="300" height="72" class="text_box" sqf:width="300" sqf:height="72">
+                                                   <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                      <tspan y="16" x="0">An </tspan>
+                                                      <tspan y="16">activity </tspan>
+                                                      <tspan y="16">element </tspan>
+                                                      <tspan y="16">defines </tspan>
+                                                      <tspan y="16">a </tspan>
+                                                      <tspan y="16">change </tspan>
+                                                      <tspan y="16">command </tspan>
+                                                      <tspan y="16">for </tspan>
+                                                      <tspan y="16">one </tspan>
+                                                      <tspan y="16">or </tspan>
+                                                      <tspan y="32" x="0">more </tspan>
+                                                      <tspan y="32">nodes </tspan>
+                                                      <tspan y="32">of </tspan>
+                                                      <tspan y="32">the </tspan>
+                                                      <tspan y="32">instance </tspan>
+                                                      <tspan y="32">element. </tspan>
+                                                      <tspan y="32">This </tspan>
+                                                      <tspan y="32">change </tspan>
+                                                      <tspan y="32">command </tspan>
+                                                      <tspan y="48" x="0">is </tspan>
+                                                      <tspan y="48">specified </tspan>
+                                                      <tspan y="48">by </tspan>
+                                                      <tspan y="48">the </tspan>
+                                                      <tspan y="48">kind </tspan>
+                                                      <tspan y="48">of </tspan>
+                                                      <tspan y="48">activity </tspan>
+                                                      <tspan y="48">element, </tspan>
+                                                      <tspan y="48">the </tspan>
+                                                      <tspan y="48">content </tspan>
+                                                      <tspan y="48">and </tspan>
+                                                      <tspan y="64" x="0">several </tspan>
+                                                      <tspan y="64">attributes.</tspan>
+                                                   </text>
+                                                </svg>
+                                             </g>
+                                          </g>
+                                       </g>
+                                    </svg>
+                                 </g>
+                              </svg>
+                           </g>
+                        </svg>
+                     </g>
+                  </svg>
+               

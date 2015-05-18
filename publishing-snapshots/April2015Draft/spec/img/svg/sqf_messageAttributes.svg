@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" width="478" height="253.5" class="element_group" sqf:width="478" sqf:height="253.5">
+                     <g transform="translate(0, 5)" id="modeld9e60_group_d9e60" sqf:width="478" sqf:height="253.5">
+                        <rect width="147.5" height="90" rx="7" ry="7" fill="white" stroke="#F5844C" stroke-width="1"/>
+                        <rect width="147.5" height="90" rx="7" ry="7" fill="white" stroke="#F5844C" stroke-width="1"/>
+                        <path fill="#F5844C" opacity="0.1" d="M 0 25 L 0 7 Q 0 0 7 0 L 140.5 0 Q 147.5 0 147.5 7 L 147.5 25 Z"/>
+                        <svg width="145" height="25" sqf:width="145" sqf:height="25">
+                           <g transform="translate(3,3)" sqf:width="3" sqf:height="3">
+                              <rect width="5" height="5" x="6" y="3" fill="#F5844C" opacity="0.5"/>
+                              <rect width="5" height="5" x="6" y="11" fill="#F5844C" opacity="0.5"/>
+                              <rect width="5" height="5" x="14" y="11" fill="#F5844C" opacity="0.5"/>
+                              <rect width="5" height="5" x="6" y="3" fill="none" stroke="#F5844C" stroke-width="0.75" opacity="1"/>
+                              <rect width="5" height="5" x="6" y="11" fill="none" stroke="#F5844C" stroke-width="0.75" opacity="1"/>
+                              <rect width="5" height="5" x="14" y="11" fill="none" stroke="#F5844C" stroke-width="0.75" opacity="1"/>
+                              <text x="26" y="13" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:messageAttributes</text>
+                           </g>
+                        </svg>
+                        <path d="M 2.5 25 L 145 25" fill="none" stroke="#F5844C" stroke-width="0.25"/>
+                        <g transform="translate(146, 0)" sqf:width="478" sqf:height="75">
+                           <svg width="332" height="75" class="annotation" sqf:width="332" sqf:height="75">
+                              <g visibility="hidden" style="z-index:1000">
+                                 <set attributeName="visibility" to="visible" begin="modeld9e60_group_d9e60.mouseover" end="modeld9e60_group_d9e60.mouseout"/>
+                                 <set attributeName="visibility" to="hidden" begin="modeld9e60_attributName_d9e68.mouseover" end="modeld9e60_attributName_d9e68.mouseout"/>
+                                 <set attributeName="visibility" to="hidden" begin="modeld9e60_attributName_d9e83.mouseover" end="modeld9e60_attributName_d9e83.mouseout"/>
+                                 <g transform="translate(1,1)" sqf:width="321" sqf:height="64">
+                                    <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 58 Q 10 68 20 68 L 320 68 Q 330 68 330 58 L 330 10 Q 330 0 320 0 Z" fill="white" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                    <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 58 Q 10 68 20 68 L 320 68 Q 330 68 330 58 L 330 10 Q 330 0 320 0 Z" fill="#F5844C" opacity="0.1" stroke="#F5844C" stroke-width="1"/>
+                                    <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 58 Q 10 68 20 68 L 320 68 Q 330 68 330 58 L 330 10 Q 330 0 320 0 Z" fill="none" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                    <g transform="translate(20,5)" sqf:width="320" sqf:height="23">
+                                       <svg width="300" height="18" class="text_box" sqf:width="300" sqf:height="18">
+                                          <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                             <tspan y="16" x="0">Documentation</tspan>
+                                          </text>
+                                       </svg>
+                                    </g>
+                                    <g transform="translate(20,23)" sqf:width="320" sqf:height="63">
+                                       <svg width="300" height="40" class="text_box" sqf:width="300" sqf:height="40">
+                                          <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                             <tspan y="16" x="0">Attribute </tspan>
+                                             <tspan y="16">zur </tspan>
+                                             <tspan y="16">Zuweisung </tspan>
+                                             <tspan y="16">eins </tspan>
+                                             <tspan y="16">oder </tspan>
+                                             <tspan y="16">mehrerer </tspan>
+                                             <tspan y="16">QuickFixes </tspan>
+                                             <tspan y="16">zu </tspan>
+                                             <tspan y="32" x="0">einem </tspan>
+                                             <tspan y="32">Schematron-</tspan>
+                                             <tspan y="32">Assert </tspan>
+                                             <tspan y="32">oder -</tspan>
+                                             <tspan y="32">Report.</tspan>
+                                          </text>
+                                       </svg>
+                                    </g>
+                                 </g>
+                              </g>
+                           </svg>
+                        </g>
+                        <g transform="translate(0, 27.5)" sqf:width="460" sqf:height="248.5">
+                           <svg width="460" height="221" class="objectPaths" sqf:width="460" sqf:height="221">
+                              <path stroke="#F5844C" stroke-width="1" fill="none" d="M 0 30 L 25 30" stroke-dasharray="5,5"/>
+                              <path stroke="#F5844C" stroke-width="1" fill="none" d="M 50 45 L 32 45 Q 25 45 25 38 L 25 30" stroke-dasharray="5,5"/>
+                              <g transform="translate(50,                                         30)" sqf:width="460" sqf:height="163">
+                                 <svg width="410" height="133" class="attribute" id="modeld9e60_attribute_sqf_default-fix" sqf:width="410" sqf:height="133">
+                                    <desc/>
+                                    <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld9e60_attributName_d9e83" sqf:width="0" sqf:height="2.5">
+                                       <g>
+                                          <rect height="25" width="78" rx="10" ry="10" stroke="#F5844C" stoke-width="1" fill="white" stroke-dasharray="5,5"/>
+                                       </g>
+                                       <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:default-fix</text>
+                                    </g>
+                                    <g transform="translate(78, 0)" sqf:width="410" sqf:height="133">
+                                       <svg width="332" height="133" class="annotation" sqf:width="332" sqf:height="133">
+                                          <g visibility="hidden" style="z-index:1000">
+                                             <set attributeName="visibility" to="visible" begin="modeld9e60_attributName_d9e83.mouseover" end="modeld9e60_attributName_d9e83.mouseout"/>
+                                             <g transform="translate(1,1)" sqf:width="321" sqf:height="122">
+                                                <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 116 Q 10 126 20 126 L 320 126 Q 330 126 330 116 L 330 10 Q 330 0 320 0 Z" fill="white" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 116 Q 10 126 20 126 L 320 126 Q 330 126 330 116 L 330 10 Q 330 0 320 0 Z" fill="#F5844C" opacity="0.1" stroke="#F5844C" stroke-width="1"/>
+                                                <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 116 Q 10 126 20 126 L 320 126 Q 330 126 330 116 L 330 10 Q 330 0 320 0 Z" fill="none" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                <g transform="translate(20,5)" sqf:width="320" sqf:height="23">
+                                                   <svg width="300" height="18" class="text_box" sqf:width="300" sqf:height="18">
+                                                      <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                         <tspan y="16" x="0">Documentation</tspan>
+                                                      </text>
+                                                   </svg>
+                                                </g>
+                                                <g transform="translate(20,23)" sqf:width="320" sqf:height="79">
+                                                   <svg width="300" height="56" class="text_box" sqf:width="300" sqf:height="56">
+                                                      <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                         <tspan y="16" x="0">This </tspan>
+                                                         <tspan y="16">attribute </tspan>
+                                                         <tspan y="16">sets </tspan>
+                                                         <tspan y="16">a </tspan>
+                                                         <tspan y="16">default </tspan>
+                                                         <tspan y="16">QuickFix </tspan>
+                                                         <tspan y="16">for </tspan>
+                                                         <tspan y="16">the </tspan>
+                                                         <tspan y="16">Schematron </tspan>
+                                                         <tspan y="32" x="0">assert </tspan>
+                                                         <tspan y="32">or </tspan>
+                                                         <tspan y="32">report. </tspan>
+                                                         <tspan y="32">The </tspan>
+                                                         <tspan y="32">default </tspan>
+                                                         <tspan y="32">QuickFix </tspan>
+                                                         <tspan y="32">must </tspan>
+                                                         <tspan y="32">also </tspan>
+                                                         <tspan y="32">be </tspan>
+                                                         <tspan y="32">referred </tspan>
+                                                         <tspan y="48" x="0">by </tspan>
+                                                         <tspan y="48">the </tspan>
+                                                         <tspan y="48">sqf:fix </tspan>
+                                                         <tspan y="48">attribute.</tspan>
+                                                      </text>
+                                                   </svg>
+                                                </g>
+                                                <g transform="translate(20,79)" sqf:width="320" sqf:height="97">
+                                                   <svg width="300" height="18" class="text_box" sqf:width="300" sqf:height="18">
+                                                      <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                         <tspan y="16" x="0">Value</tspan>
+                                                      </text>
+                                                   </svg>
+                                                </g>
+                                                <g transform="translate(20,97)" sqf:width="320" sqf:height="121">
+                                                   <svg width="300" height="24" class="text_box" sqf:width="300" sqf:height="24">
+                                                      <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                         <tspan y="16" x="0">The </tspan>
+                                                         <tspan y="16">ID </tspan>
+                                                         <tspan y="16">of </tspan>
+                                                         <tspan y="16">a </tspan>
+                                                         <tspan y="16">QuickFix </tspan>
+                                                         <tspan y="16">which </tspan>
+                                                         <tspan y="16">is </tspan>
+                                                         <tspan y="16">referred </tspan>
+                                                         <tspan y="16">by </tspan>
+                                                         <tspan y="16">the </tspan>
+                                                         <tspan y="16">sqf:fix </tspan>
+                                                         <tspan y="16">attribute.</tspan>
+                                                      </text>
+                                                   </svg>
+                                                </g>
+                                             </g>
+                                          </g>
+                                       </svg>
+                                    </g>
+                                 </svg>
+                              </g>
+                              <path stroke="#F5844C" stroke-width="1" fill="none" d="M 50 15 L 32 15 Q 25 15 25 22 L 25 30" stroke-dasharray="5,5"/>
+                              <g transform="translate(50,                                         0)" sqf:width="423" sqf:height="221">
+                                 <svg width="373" height="221" class="attribute" id="modeld9e60_attribute_sqf_fix" sqf:width="373" sqf:height="221">
+                                    <desc/>
+                                    <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld9e60_attributName_d9e68" sqf:width="0" sqf:height="2.5">
+                                       <g>
+                                          <rect height="25" width="41" rx="10" ry="10" stroke="#F5844C" stoke-width="1" fill="white" stroke-dasharray="5,5"/>
+                                       </g>
+                                       <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:fix</text>
+                                    </g>
+                                    <g transform="translate(41, 0)" sqf:width="373" sqf:height="221">
+                                       <svg width="332" height="221" class="annotation" sqf:width="332" sqf:height="221">
+                                          <g visibility="hidden" style="z-index:1000">
+                                             <set attributeName="visibility" to="visible" begin="modeld9e60_attributName_d9e68.mouseover" end="modeld9e60_attributName_d9e68.mouseout"/>
+                                             <g transform="translate(1,1)" sqf:width="321" sqf:height="210">
+                                                <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 204 Q 10 214 20 214 L 320 214 Q 330 214 330 204 L 330 10 Q 330 0 320 0 Z" fill="white" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 204 Q 10 214 20 214 L 320 214 Q 330 214 330 204 L 330 10 Q 330 0 320 0 Z" fill="#F5844C" opacity="0.1" stroke="#F5844C" stroke-width="1"/>
+                                                <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 204 Q 10 214 20 214 L 320 214 Q 330 214 330 204 L 330 10 Q 330 0 320 0 Z" fill="none" opacity="1" stroke="#F5844C" stroke-width="1"/>
+                                                <g transform="translate(20,5)" sqf:width="320" sqf:height="23">
+                                                   <svg width="300" height="18" class="text_box" sqf:width="300" sqf:height="18">
+                                                      <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                         <tspan y="16" x="0">Documentation</tspan>
+                                                      </text>
+                                                   </svg>
+                                                </g>
+                                                <g transform="translate(20,23)" sqf:width="320" sqf:height="95">
+                                                   <svg width="300" height="72" class="text_box" sqf:width="300" sqf:height="72">
+                                                      <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                         <tspan y="16" x="0">This </tspan>
+                                                         <tspan y="16">attribute </tspan>
+                                                         <tspan y="16">refers </tspan>
+                                                         <tspan y="16">to </tspan>
+                                                         <tspan y="16">one </tspan>
+                                                         <tspan y="16">or </tspan>
+                                                         <tspan y="16">more </tspan>
+                                                         <tspan y="16">QuickFixes </tspan>
+                                                         <tspan y="16">wich </tspan>
+                                                         <tspan y="16">should </tspan>
+                                                         <tspan y="32" x="0">be </tspan>
+                                                         <tspan y="32">assigned </tspan>
+                                                         <tspan y="32">to </tspan>
+                                                         <tspan y="32">the </tspan>
+                                                         <tspan y="32">Schematron </tspan>
+                                                         <tspan y="32">assert </tspan>
+                                                         <tspan y="32">or </tspan>
+                                                         <tspan y="32">report. </tspan>
+                                                         <tspan y="32">Each </tspan>
+                                                         <tspan y="48" x="0">referred </tspan>
+                                                         <tspan y="48">QuickFix </tspan>
+                                                         <tspan y="48">must </tspan>
+                                                         <tspan y="48">be </tspan>
+                                                         <tspan y="48">defined </tspan>
+                                                         <tspan y="48">globally </tspan>
+                                                         <tspan y="48">or </tspan>
+                                                         <tspan y="48">locally </tspan>
+                                                         <tspan y="48">for </tspan>
+                                                         <tspan y="48">the </tspan>
+                                                         <tspan y="64" x="0">same </tspan>
+                                                         <tspan y="64">Schematron </tspan>
+                                                         <tspan y="64">rule.</tspan>
+                                                      </text>
+                                                   </svg>
+                                                </g>
+                                                <g transform="translate(20,95)" sqf:width="320" sqf:height="151">
+                                                   <svg width="300" height="56" class="text_box" sqf:width="300" sqf:height="56">
+                                                      <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                         <tspan y="16" x="0">The </tspan>
+                                                         <tspan y="16">reference </tspan>
+                                                         <tspan y="16">works </tspan>
+                                                         <tspan y="16">with </tspan>
+                                                         <tspan y="16">the </tspan>
+                                                         <tspan y="16">ID </tspan>
+                                                         <tspan y="16">of </tspan>
+                                                         <tspan y="16">the </tspan>
+                                                         <tspan y="16">QuickFix. </tspan>
+                                                         <tspan y="16">If </tspan>
+                                                         <tspan y="16">there </tspan>
+                                                         <tspan y="16">is </tspan>
+                                                         <tspan y="16">a </tspan>
+                                                         <tspan y="32" x="0">local </tspan>
+                                                         <tspan y="32">and </tspan>
+                                                         <tspan y="32">a </tspan>
+                                                         <tspan y="32">global </tspan>
+                                                         <tspan y="32">QuickFix </tspan>
+                                                         <tspan y="32">having </tspan>
+                                                         <tspan y="32">the </tspan>
+                                                         <tspan y="32">same </tspan>
+                                                         <tspan y="32">ID, </tspan>
+                                                         <tspan y="32">the </tspan>
+                                                         <tspan y="32">local </tspan>
+                                                         <tspan y="48" x="0">QuickFix </tspan>
+                                                         <tspan y="48">will </tspan>
+                                                         <tspan y="48">be </tspan>
+                                                         <tspan y="48">selected.</tspan>
+                                                      </text>
+                                                   </svg>
+                                                </g>
+                                                <g transform="translate(20,151)" sqf:width="320" sqf:height="169">
+                                                   <svg width="300" height="18" class="text_box" sqf:width="300" sqf:height="18">
+                                                      <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11" font-weight="bold">
+                                                         <tspan y="16" x="0">Value</tspan>
+                                                      </text>
+                                                   </svg>
+                                                </g>
+                                                <g transform="translate(20,169)" sqf:width="320" sqf:height="209">
+                                                   <svg width="300" height="40" class="text_box" sqf:width="300" sqf:height="40">
+                                                      <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
+                                                         <tspan y="16" x="0">A </tspan>
+                                                         <tspan y="16">list </tspan>
+                                                         <tspan y="16">of </tspan>
+                                                         <tspan y="16">IDs </tspan>
+                                                         <tspan y="16">of </tspan>
+                                                         <tspan y="16">the </tspan>
+                                                         <tspan y="16">referred </tspan>
+                                                         <tspan y="16">QuickFixes </tspan>
+                                                         <tspan y="16">separated </tspan>
+                                                         <tspan y="16">by </tspan>
+                                                         <tspan y="16">white </tspan>
+                                                         <tspan y="32" x="0">space.</tspan>
+                                                      </text>
+                                                   </svg>
+                                                </g>
+                                             </g>
+                                          </g>
+                                       </svg>
+                                    </g>
+                                 </svg>
+                              </g>
+                           </svg>
+                        </g>
+                     </g>
+                     <g transform="translate(0, 62.5)" sqf:width="0" sqf:height="62.5"/>
+                  </svg>
+               
