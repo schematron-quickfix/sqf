@@ -205,6 +205,7 @@
                     <xs:documentation source="value">XPath expression. It expects as return value an xs:boolean.</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
+            <xs:attribute name="use-for-each" use="optional" type="xs:string" default="."/>
             <xs:attribute name="role" use="optional">
                 <xs:annotation>
                     <xs:documentation>With this attribute the role of the QuickFix can be set manually.</xs:documentation>

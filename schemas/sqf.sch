@@ -552,7 +552,7 @@
             <let name="doubleLangCount" value="count($usedLangs) - count(distinct-values($usedLangs))"/>
             <let name="countMissLang" value="count($languages[not(. = $usedLangs)])"/>
 
-            <report test="$countLang gt 0" sqf:fix="createMissingLang">Localisation failed. Missing a diagnostic or error message for the language(s) <value-of select="$languages[not(. = $usedLangs)]"/>.</report>
+            <report test="$countMissLang gt 0" sqf:fix="createMissingLang">Localisation failed. Missing a diagnostic or error message for the language(s) <value-of select="$languages[not(. = $usedLangs)]"/>.</report>
             <sqf:fix id="createMissingLang">
                 <sqf:description>
                     <sqf:title>Create for each language a diagnostic</sqf:title>
