@@ -188,7 +188,7 @@
                 <sqf:description>
                     <sqf:title>Delete the references</sqf:title>
                 </sqf:description>
-                <sqf:replace match="@sqf:fix" target="sqf:fix" node-type="attribute" select="string-join($fixes[. = $availableFixIds], ' ')" use-when="$fixes[. = $availableFixIds]"/>
+                <sqf:replace match="@sqf:fix" target="sqf:fix" node-type="attribute" select="string-join($fixes[. = $availableFixIds], ' ')" use-when="count($fixes[. = $availableFixIds]) gt 0"/>
                 <sqf:delete match="@sqf:fix" use-when="not($fixes[. = $availableFixIds])"/>
                 <sqf:delete match="@sqf:default-fix" use-when="@sqf:default-fix = $notAvailableFixes"/>
             </sqf:fix>
