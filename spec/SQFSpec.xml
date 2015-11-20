@@ -43,7 +43,7 @@
     <body>
         <div1>
             <head>Namespaces and prefixes</head>
-            <p>This document describes the nodes which belong to different namespaces. For distinction and for unique descriptions all nodes, which do not belong to the NULL namespace, are named with a prefix. The following table assigns to each used prefix the corresponding namespace URI:</p>
+            <p>This document describes nodes that belong to different namespaces. All nodes that do not belong to the NULL namespace are give a prefix in order to distinguish them. The following table assigns a namespace URI to each prefix used in this document:</p>
             <table>
                 <thead>
                     <tr>
