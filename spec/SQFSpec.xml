@@ -150,7 +150,7 @@
         </div1>
         <div1>
             <head>Workflow</head>
-            <p>Schematron QuickFix (SQF) is an extension of the validation language Schematron to embed Quick fixes. To overview the Schematron QuickFix concept, this section describes the integration of SQF into the Schematron workflow.</p>
+            <p>Schematron QuickFix (SQF) is an extension of the validation language Schematron to embed Quick fixes. To provide an overview of the Schematron QuickFix concept, this section describes the integration of SQF into the Schematron workflow.</p>
             <note>
                 <p>Please note the different spelling of <emph>QuickFix</emph> and <emph>Quick fix</emph>. The spelling QuickFix means a Quick fix of the extension language Schematron QuickFix. The spelling Quick fix means a nonspecific Quick fix, which was described in the section <titleref href="#quick-fix-concept">Quick fix</titleref>.</p>
             </note>
