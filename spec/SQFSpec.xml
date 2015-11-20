@@ -831,7 +831,7 @@ The step 3 it is not necessary to be a SVRL report."?>
     [Elements from the content model  (sqf:delete | sqf:add | sqf:replace | sqf:stringReplace)+]
 &lt;/sqf:fix></eg>
                         </example></p>
-                    <p>Each sqf:user-entry element defines a User Entry. Consequently the QuickFix fix1 has two User Entries with the names ue1 and ue2.</p>
+                    <p>Each sqf:user-entry element defines a User Entry. Consequently, the QuickFix fix1 has two User Entries with the names ue1 and ue2.</p>
                 </div3>
                 <div3>
                     <head>Value usage</head>
@@ -1034,7 +1034,7 @@ The step 3 it is not necessary to be a SVRL report."?>
             </div2>
             <div2 id="localization">
                 <head>Localization</head>
-                <p>The SQF localisation concept is based on the <titleref href="http://www.w3.org/TR/xml/#sec-lang-tag">XML concept to detect the natural language</titleref>, using the <att>xml:lang</att> attribute. Consequently SQF elements are able to inherit the language property of all ancestors.</p>
+                <p>The SQF localisation concept is based on the <titleref href="http://www.w3.org/TR/xml/#sec-lang-tag">XML concept to detect the natural language</titleref>, using the <att>xml:lang</att> attribute. Consequently, SQF elements are able to inherit the language property of all ancestors.</p>
                 <div3>
                     <head>Locatable elements</head>
                     <p>The following list shows SQF elements, which are locatable with the attribute <att>xml:lang</att>:</p>
