@@ -157,7 +157,7 @@
             <p>The following figure shows the SQF workflow in eight steps:</p>
             <?oxy_comment_start author="octavian_nadolu" timestamp="20151014T095936+0300" comment="I think the workflow process should be more generic. 
 The step 3 it is not necessary to be a SVRL report."?>
-            <graphic source="img/workflow.png"/>
+            <graphic source="img/workflow.png" alt="Workflow diagram with eight numbered steps that correspond to the eight sections in this chapter." />
             <?oxy_comment_end?>
             <p>The following sections describes each step of the workflow diagram and its difference to the conventional Schematron workflow.</p>
             <div2>
