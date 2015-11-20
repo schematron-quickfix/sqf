@@ -31,7 +31,7 @@
             <p>First Draft</p>
         </status>
         <abstract>
-            <p>Schematron QuickFix is an extension of the ISO standard Schematron. With Schematron QuickFix the developer is able to define QuickFixes for the Schematron errors. The implementation should offer the user these QuickFixes for the reported Schematron errors. With just one click the user can decide which QuickFix acceptably fixes the error.</p>
+            <p>Schematron QuickFix is an extension of Schematron (standard ISO/IEC 19757-3:2006). Schematron QuickFix enables developers to define QuickFixes for Schematron errors. QuickFix implementations should present these QuickFixes for the reported Schematron errors to the user. The user can then decide which QuickFix fixes the error in an acceptable way.</p>
         </abstract>
         <langusage>
             <language>English</language>
