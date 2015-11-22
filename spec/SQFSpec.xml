@@ -31,7 +31,7 @@
             <p>First Draft</p>
         </status>
         <abstract>
-            <p>Schematron QuickFix is an extension of the ISO standard Schematron. With Schematron QuickFix the developer is able to define QuickFixes for the Schematron errors. The implementation should offer the user these QuickFixes for the reported Schematron errors. With just one click the user can decide which QuickFix acceptably fixes the error.</p>
+            <p>Schematron QuickFix is an extension of Schematron (standard ISO/IEC 19757-3:2006). Schematron QuickFix enables developers to define QuickFixes for Schematron errors. QuickFix implementations should present these QuickFixes for the reported Schematron errors to the user. The user can then decide which QuickFix fixes the error in an acceptable way.</p>
         </abstract>
         <langusage>
             <language>English</language>
@@ -43,7 +43,7 @@
     <body>
         <div1>
             <head>Namespaces and prefixes</head>
-            <p>This document describes the nodes which belong to different namespaces. For distinction and for unique descriptions all nodes, which do not belong to the NULL namespace, are named with a prefix. The following table assigns to each used prefix the corresponding namespace URI:</p>
+            <p>This document describes nodes that belong to different namespaces. All nodes that do not belong to the NULL namespace are give a prefix in order to distinguish them. The following table assigns a namespace URI to each prefix used in this document:</p>
             <table>
                 <thead>
                     <tr>
@@ -150,14 +150,14 @@
         </div1>
         <div1>
             <head>Workflow</head>
-            <p>Schematron QuickFix (SQF) is an extension of the validation language Schematron to embed Quick fixes. To overview the Schematron QuickFix concept, this section describes the integration of SQF into the Schematron workflow.</p>
+            <p>Schematron QuickFix (SQF) is an extension of the validation language Schematron to embed Quick fixes. To provide an overview of the Schematron QuickFix concept, this section describes the integration of SQF into the Schematron workflow.</p>
             <note>
                 <p>Please note the different spelling of <emph>QuickFix</emph> and <emph>Quick fix</emph>. The spelling QuickFix means a Quick fix of the extension language Schematron QuickFix. The spelling Quick fix means a nonspecific Quick fix, which was described in the section <titleref href="#quick-fix-concept">Quick fix</titleref>.</p>
             </note>
             <p>The following figure shows the SQF workflow in eight steps:</p>
             <?oxy_comment_start author="octavian_nadolu" timestamp="20151014T095936+0300" comment="I think the workflow process should be more generic. 
 The step 3 it is not necessary to be a SVRL report."?>
-            <graphic source="img/workflow.png"/>
+            <graphic source="img/workflow.png" alt="Workflow diagram with eight numbered steps that correspond to the eight sections in this chapter." />
             <?oxy_comment_end?>
             <p>The following sections describes each step of the workflow diagram and its difference to the conventional Schematron workflow.</p>
             <div2>
@@ -831,7 +831,7 @@ The step 3 it is not necessary to be a SVRL report."?>
     [Elements from the content model  (sqf:delete | sqf:add | sqf:replace | sqf:stringReplace)+]
 &lt;/sqf:fix></eg>
                         </example></p>
-                    <p>Each sqf:user-entry element defines a User Entry. Consequently the QuickFix fix1 has two User Entries with the names ue1 and ue2.</p>
+                    <p>Each sqf:user-entry element defines a User Entry. Consequently, the QuickFix fix1 has two User Entries with the names ue1 and ue2.</p>
                 </div3>
                 <div3>
                     <head>Value usage</head>
@@ -1034,7 +1034,7 @@ The step 3 it is not necessary to be a SVRL report."?>
             </div2>
             <div2 id="localization">
                 <head>Localization</head>
-                <p>The SQF localisation concept is based on the <titleref href="http://www.w3.org/TR/xml/#sec-lang-tag">XML concept to detect the natural language</titleref>, using the <att>xml:lang</att> attribute. Consequently SQF elements are able to inherit the language property of all ancestors.</p>
+                <p>The SQF localisation concept is based on the <titleref href="http://www.w3.org/TR/xml/#sec-lang-tag">XML concept to detect the natural language</titleref>, using the <att>xml:lang</att> attribute. Consequently, SQF elements are able to inherit the language property of all ancestors.</p>
                 <div3>
                     <head>Locatable elements</head>
                     <p>The following list shows SQF elements, which are locatable with the attribute <att>xml:lang</att>:</p>
