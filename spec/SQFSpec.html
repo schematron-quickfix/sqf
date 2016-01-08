@@ -35,7 +35,7 @@ div.exampleHeader { font-weight: bold;
                     margin: 4px}
 </style><link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/TR/base.css"></head><body><div class="head"><p><a href="http://www.w3.org/"><img src="http://www.w3.org/Icons/w3c_home" alt="W3C" height="48" width="72"></a></p>
 <h1><a name="title" id="title"></a>Schematron Quick Fixes Specification</h1>
-<h2><a name="w3c-doctype" id="w3c-doctype"></a>Quick-fix support for XML Community Group - Draft April 2015</h2><dl><dt>This version:</dt><dd>
+<h2><a name="w3c-doctype" id="w3c-doctype"></a>Quick-fix support for XML Community Group &#8211; Draft April 2015</h2><dl><dt>This version:</dt><dd>
             <a href="http://schematron-quickfix.github.io/sqf/spec/SQFSpec.html">schematron-quickfix.github.io/sqf/spec/SQFSpec.html</a>
         </dd><dt>Latest version:</dt><dd>
             <a href="http://schematron-quickfix.github.io/sqf/spec/SQFSpec.html">schematron-quickfix.github.io/sqf/spec/SQFSpec.html</a>
@@ -48,233 +48,240 @@ div.exampleHeader { font-weight: bold;
 &nbsp;&nbsp;&nbsp;&nbsp;3.1 <a href="#d0e192">Fix</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;3.2 <a href="#quick-fix-concept">Quick fix</a><br>
 4 <a href="#d0e227">Workflow</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;4.1 <a href="#d0e249">Schematron validation</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;4.2 <a href="#d0e278">Validation result check</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;4.3 <a href="#d0e291">Error report</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;4.4 <a href="#d0e298">Show the errors in the source document</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;4.5 <a href="#d0e308">Decision of the user</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.1 <a href="#d0e251">Schematron validation</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.2 <a href="#d0e280">Validation result check</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.3 <a href="#d0e293">Error report</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.4 <a href="#d0e300">Show the errors in the source document</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.5 <a href="#d0e310">Decision of the user</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;4.6 <a href="#workflow_fix_process">Executing a Quick fix</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;4.7 <a href="#d0e326">Validation after the fix</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.7 <a href="#d0e328">Validation after the fix</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;4.8 <a href="#step8">Fixed document</a><br>
-5 <a href="#d0e336">Language</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;5.1 <a href="#d0e341">Embedding into Schematron</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;5.2 <a href="#d0e489">QuickFix</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.1 <a href="#d0e528">Definition of a QuickFix</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.2 <a href="#d0e555">QuickFixes ID</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.3 <a href="#d0e587">Reference to a QuickFix</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.3.1 <a href="#d0e644">Default fix</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.4 <a href="#d0e649">Execution of a QuickFix</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.4.1 <a href="#d0e660">Execution of more than one QuickFix</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.5 <a href="#d0e670">QuickFix group</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.6 <a href="#generic-fixes">Generic QuickFix</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.6.1 <a href="#d0e746">Maximum number of provided QuickFixes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.7 <a href="#d0e751">Scope of QuickFixes and QuickFix groups</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.8 <a href="#d0e778">Role</a><br>
+5 <a href="#d0e341">Language</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.1 <a href="#d0e346">Embedding into Schematron</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.2 <a href="#quick-fix">QuickFix</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.1 <a href="#d0e533">Definition of a QuickFix</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.2 <a href="#d0e560">QuickFixes ID</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.3 <a href="#quick-fix.global-local">Global and local QuickFixes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.4 <a href="#quick-fix.reference">Reference to a QuickFix</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.4.1 <a href="#quick-fix.reference.scope">Scope</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.4.2 <a href="#d0e780">Providing conditions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.4.3 <a href="#d0e814">Default QuickFix</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.5 <a href="#d0e835">Execution of a QuickFix</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.5.1 <a href="#d0e846">Execution of more than one QuickFix</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.6 <a href="#quick-fix.group">QuickFix group</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.7 <a href="#generic-fixes">Generic QuickFix</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.7.1 <a href="#d0e962">Maximum number of provided QuickFixes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.8 <a href="#d0e970">Role</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;5.3 <a href="#change-commands">Change commands</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.1 <a href="#change-command-anchor-node">Anchor node</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.1.1 <a href="#anchor_node_restrictions">Requirements of the Anchor node / match attribute</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.2 <a href="#d0e830">Conditions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.2 <a href="#d0e1094">Conditions</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.3 <a href="#fix_create_new_content">Create new content</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.3.1 <a href="#create-by-sqf-att">By the attributes node-type and target</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.3.2 <a href="#create-by-xpath">By an XPath expression</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.3.3 <a href="#create-by-content">By the Activity Element content</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.3.4 <a href="#create-by-sqf_keep">Special case: sqf:keep element</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.3.4 <a href="#copy-nodes">Copy nodes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.4 <a href="#conflicts">Conflicts</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.5 <a href="#d0e1083">Kind of the change commands</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.5.1 <a href="#d0e1111">Add</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.5.2 <a href="#d0e1177">Delete</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.5.3 <a href="#d0e1182">Replace</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.5.4 <a href="#d0e1198">StringReplace</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;5.4 <a href="#d0e1220">Variables</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.4.1 <a href="#d0e1223">Declaration</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.4.1.1 <a href="#d0e1243">Places to declare variables</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.4.1.2 <a href="#d0e1260">Scope</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.4.2 <a href="#d0e1265">Usage</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;5.5 <a href="#d0e1273">Parameter</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.1 <a href="#d0e1276">Definition</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.2 <a href="#d0e1281">Call a QuickFix</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.3 <a href="#d0e1286">Usage</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.4 <a href="#d0e1291">Default value</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.5 <a href="#d0e1296">Abstract parameter</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;5.6 <a href="#d0e1301">User Entry</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.6.1 <a href="#d0e1327">Definition of a User Entry</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.6.2 <a href="#d0e1338">Value usage</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.6.2.1 <a href="#d0e1349">Scope</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.6.3 <a href="#d0e1362">Implementation of User Entries</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.6.4 <a href="#d0e1367">Default value</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;5.7 <a href="#d0e1382">Embedding XPath</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.7.1 <a href="#d0e1387">Attributes to embed XPath expressions</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.5 <a href="#d0e1385">Kind of the change commands</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.5.1 <a href="#d0e1413">Add</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.5.2 <a href="#d0e1481">Delete</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.5.3 <a href="#d0e1486">Replace</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3.5.4 <a href="#d0e1502">StringReplace</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.4 <a href="#d0e1524">Variables</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.4.1 <a href="#d0e1527">Declaration</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.4.1.1 <a href="#d0e1547">Places to declare variables</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.4.1.2 <a href="#d0e1564">Scope</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.4.2 <a href="#d0e1569">Usage</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.5 <a href="#d0e1577">Parameter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.1 <a href="#param.declaration">Declaration</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.1.1 <a href="#d0e1621">Name</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.1.2 <a href="#param.default-value">Default value</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.1.3 <a href="#d0e1655">Type</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.1.4 <a href="#d0e1666">Required parameters</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.2 <a href="#param.call-fix">Call a QuickFix</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.2.1 <a href="#d0e1758">Specify a parameter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.2.2 <a href="#d0e1769">Adoption of properties</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.3 <a href="#d0e1774">Example</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5.4 <a href="#abstract-param">Abstract parameter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.6 <a href="#d0e1786">User Entry</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.6.1 <a href="#d0e1812">Definition of a User Entry</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.6.2 <a href="#d0e1823">Value usage</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.6.2.1 <a href="#d0e1837">Scope</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.6.3 <a href="#d0e1850">Implementation of User Entries</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.6.4 <a href="#d0e1855">Default value</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.7 <a href="#d0e1870">Embedding XPath</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.7.1 <a href="#d0e1875">Attributes to embed XPath expressions</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.7.2 <a href="#attribute-value-template">Attribute Value Template</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;5.8 <a href="#d0e1645">Localization</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.8.1 <a href="#d0e1656">Locatable elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.8.2 <a href="#d0e1696">Localisation of a QuickFix</a><br>
-6 <a href="#d0e1727">Implementation modes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;6.1 <a href="#d0e1744">XML save mode</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;6.2 <a href="#d0e1752">XSLT only mode</a><br>
-7 <a href="#d0e1796">Schematron QuickFix reference</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;7.1 <a href="#d0e1799">Elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.8 <a href="#localization">Localization</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.8.1 <a href="#d0e2146">Locatable elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.8.2 <a href="#d0e2186">Localisation of a QuickFix</a><br>
+6 <a href="#d0e2217">Implementation modes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;6.1 <a href="#d0e2234">XML save mode</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;6.2 <a href="#d0e2242">XSLT only mode</a><br>
+7 <a href="#d0e2286">Schematron QuickFix reference</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;7.1 <a href="#d0e2289">Elements</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1 <a href="#sqf_add">&lt;sqf:add&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1.1 <a href="#d0e1832">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1.2 <a href="#d0e1842">Child elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1.3 <a href="#d0e1852">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1.1 <a href="#d0e2322">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1.2 <a href="#d0e2332">Child elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1.3 <a href="#d0e2342">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1.3.1 <a href="#add_position">@position</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1.3.2 <a href="#d0e1934"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1.4 <a href="#d0e1941">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1.3.2 <a href="#d0e2424"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.1.4 <a href="#d0e2431">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2 <a href="#sqf_call-fix">&lt;sqf:call-fix&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2.1 <a href="#d0e1957">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2.2 <a href="#d0e1967">Child elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2.3 <a href="#d0e1977">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2.1 <a href="#d0e2447">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2.2 <a href="#d0e2457">Child elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2.3 <a href="#d0e2467">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2.3.1 <a href="#call-fix_ref">@ref</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2.3.2 <a href="#d0e2005"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2.4 <a href="#d0e2012">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2.3.2 <a href="#d0e2495"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.2.4 <a href="#d0e2502">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.3 <a href="#sqf_delete">&lt;sqf:delete&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.3.1 <a href="#d0e2026">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.3.2 <a href="#d0e2036">Attributes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.3.2.1 <a href="#d0e2039"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.3.3 <a href="#d0e2046">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.3.1 <a href="#d0e2516">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.3.2 <a href="#d0e2526">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.3.2.1 <a href="#d0e2529"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.3.3 <a href="#d0e2536">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4 <a href="#sqf_description">&lt;sqf:description&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.1 <a href="#d0e2055">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.2 <a href="#d0e2071">Child elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.3 <a href="#d0e2087">Attributes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.3.1 <a href="#d0e2090">@xml:lang (optional)</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.3.2 <a href="#d0e2093"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.4 <a href="#d0e2100">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.1 <a href="#d0e2545">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.2 <a href="#d0e2561">Child elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.3 <a href="#d0e2577">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.3.1 <a href="#d0e2580">@xml:lang (optional)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.3.2 <a href="#d0e2583"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.4.4 <a href="#d0e2590">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5 <a href="#sqf_fix">&lt;sqf:fix&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.1 <a href="#d0e2109">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.2 <a href="#d0e2125">Child elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.3 <a href="#d0e2171">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.1 <a href="#d0e2599">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.2 <a href="#d0e2615">Child elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.3 <a href="#d0e2661">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.3.1 <a href="#fix_id">@id</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.3.2 <a href="#fix_role">@role</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.3.3 <a href="#fix_use-when">@use-when</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.3.4 <a href="#d0e2286">@xml:lang (optional)</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.3.5 <a href="#d0e2289"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.4 <a href="#d0e2296">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.3.4 <a href="#d0e2776">@xml:lang (optional)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.3.5 <a href="#d0e2779"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.5.4 <a href="#d0e2786">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6 <a href="#sqf_fixes">&lt;sqf:fixes&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6.1 <a href="#d0e2305">Child elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6.2 <a href="#d0e2315">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6.1 <a href="#d0e2795">Child elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6.2 <a href="#d0e2805">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6.2.1 <a href="#fixes_id">@id</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6.2.2 <a href="#d0e2338">@xml:lang (optional)</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6.2.3 <a href="#d0e2341"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6.3 <a href="#d0e2348">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6.2.2 <a href="#d0e2828">@xml:lang (optional)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6.2.3 <a href="#d0e2831"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.6.3 <a href="#d0e2838">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7 <a href="#sqf_group">&lt;sqf:group&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.1 <a href="#d0e2357">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.2 <a href="#d0e2367">Child elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.3 <a href="#d0e2377">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.1 <a href="#d0e2847">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.2 <a href="#d0e2857">Child elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.3 <a href="#d0e2867">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.3.1 <a href="#group_id">@id</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.3.2 <a href="#group_use-when">@use-when</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.3.3 <a href="#d0e2438">@xml:lang (optional)</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.3.4 <a href="#d0e2441"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.4 <a href="#d0e2448">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.3.3 <a href="#d0e2928">@xml:lang (optional)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.3.4 <a href="#d0e2931"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.7.4 <a href="#d0e2938">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.8 <a href="#sqf_keep">&lt;sqf:keep&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.8.1 <a href="#d0e2460">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.8.1 <a href="#d0e2950">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.8.1.1 <a href="#keep_select">@select</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.8.2 <a href="#d0e2496">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.8.2 <a href="#d0e2986">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9 <a href="#sqf_p">&lt;sqf:p&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.1 <a href="#d0e2505">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.2 <a href="#d0e2515">Child elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.3 <a href="#d0e2555">Attributes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.3.1 <a href="#d0e2558">@xml:lang (optional)</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.3.2 <a href="#d0e2561"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.4 <a href="#d0e2568">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.1 <a href="#d0e2995">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.2 <a href="#d0e3005">Child elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.3 <a href="#d0e3045">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.3.1 <a href="#d0e3048">@xml:lang (optional)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.3.2 <a href="#d0e3051"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.4 <a href="#d0e3058">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10 <a href="#sqf_param">&lt;sqf:param&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.1 <a href="#d0e2582">Exception</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.2 <a href="#d0e2590">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.3 <a href="#d0e2600">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.1 <a href="#d0e3072">Exception</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.2 <a href="#d0e3080">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.3 <a href="#d0e3090">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.3.1 <a href="#param_abstract">@abstract</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.3.2 <a href="#param_required">@required</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.3.3 <a href="#d0e2704"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.3.4 <a href="#d0e2711"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.4 <a href="#d0e2718">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.3.3 <a href="#d0e3194"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.3.4 <a href="#d0e3201"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.4 <a href="#d0e3208">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.11 <a href="#sqf_replace">&lt;sqf:replace&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.11.1 <a href="#d0e2743">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.11.2 <a href="#d0e2753">Child elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.11.3 <a href="#d0e2763">Attributes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.11.3.1 <a href="#d0e2766"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.11.4 <a href="#d0e2773">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.11.1 <a href="#d0e3233">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.11.2 <a href="#d0e3243">Child elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.11.3 <a href="#d0e3253">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.11.3.1 <a href="#d0e3256"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.11.4 <a href="#d0e3263">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12 <a href="#sqf_stringReplace">&lt;sqf:stringReplace&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.1 <a href="#d0e2802">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.2 <a href="#d0e2812">Child elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.3 <a href="#d0e2822">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.1 <a href="#d0e3292">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.2 <a href="#d0e3302">Child elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.3 <a href="#d0e3312">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.3.1 <a href="#stringReplace_regex">@regex</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.3.2 <a href="#stringReplace_select">@select</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.3.3 <a href="#d0e2899"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.4 <a href="#d0e2906">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.3.3 <a href="#d0e3389"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.12.4 <a href="#d0e3396">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13 <a href="#sqf_title">&lt;sqf:title&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.1 <a href="#d0e2915">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.2 <a href="#d0e2925">Child elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.3 <a href="#d0e2947">Attributes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.3.1 <a href="#d0e2950">@xml:lang (optional)</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.3.2 <a href="#d0e2953"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.4 <a href="#d0e2960">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.1 <a href="#d0e3405">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.2 <a href="#d0e3415">Child elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.3 <a href="#d0e3437">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.3.1 <a href="#d0e3440">@xml:lang (optional)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.3.2 <a href="#d0e3443"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.4 <a href="#d0e3450">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14 <a href="#sqf_user-entry">&lt;sqf:user-entry&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.1 <a href="#d0e2972">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.2 <a href="#d0e2982">Child elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.3 <a href="#d0e2992">Attributes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.3.1 <a href="#d0e2995">@xml:lang (optional)</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.3.2 <a href="#d0e2998"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.3.3 <a href="#d0e3005"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.4 <a href="#d0e3012">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.1 <a href="#d0e3462">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.2 <a href="#d0e3472">Child elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.3 <a href="#d0e3482">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.3.1 <a href="#d0e3485">@xml:lang (optional)</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.3.2 <a href="#d0e3488"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.3.3 <a href="#d0e3495"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.4 <a href="#d0e3502">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.15 <a href="#sqf_with-param">&lt;sqf:with-param&gt;</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.15.1 <a href="#d0e3035">Parent elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.15.2 <a href="#d0e3045">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.15.1 <a href="#d0e3525">Parent elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.15.2 <a href="#d0e3535">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.15.2.1 <a href="#with-param_name">@name</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.15.2.2 <a href="#with-param_select">@select</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.15.2.3 <a href="#d0e3096"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.15.3 <a href="#d0e3103">Content model</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;7.2 <a href="#d0e3107">Element groups</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.15.2.3 <a href="#d0e3586"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.15.3 <a href="#d0e3593">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;7.2 <a href="#d0e3597">Element groups</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.1 <a href="#sqf_activityElements">sqf:activityElements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.1.1 <a href="#d0e3115">Used by</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.1.2 <a href="#d0e3125">Elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.1.3 <a href="#d0e3153">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.1.1 <a href="#d0e3605">Used by</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.1.2 <a href="#d0e3615">Elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.1.3 <a href="#d0e3643">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.2 <a href="#sqf_fixElements">sqf:fixElements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.2.1 <a href="#d0e3162">Used by</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.2.2 <a href="#d0e3172">Elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.2.3 <a href="#d0e3188">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.2.1 <a href="#d0e3652">Used by</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.2.2 <a href="#d0e3662">Elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.2.3 <a href="#d0e3678">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.3 <a href="#sqf_foreign">sqf:foreign</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.3.1 <a href="#d0e3195">Used by</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.3.2 <a href="#d0e3205">Elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.3.3 <a href="#d0e3215">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.3.1 <a href="#d0e3685">Used by</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.3.2 <a href="#d0e3695">Elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.3.3 <a href="#d0e3705">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.4 <a href="#sqf_foreign-element">sqf:foreign-element</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.4.1 <a href="#d0e3222">Used by</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.4.2 <a href="#d0e3232">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.4.1 <a href="#d0e3712">Used by</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.4.2 <a href="#d0e3722">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.5 <a href="#sqf_templateElements">sqf:templateElements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.5.1 <a href="#d0e3259">Used by</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.5.2 <a href="#d0e3281">Content model</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;7.3 <a href="#d0e3285">Attribute groups</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.5.1 <a href="#d0e3749">Used by</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.5.2 <a href="#d0e3771">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;7.3 <a href="#d0e3775">Attribute groups</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.1 <a href="#sqf_activityBase">activityBase</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.1.1 <a href="#d0e3291">Used by</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.1.2 <a href="#d0e3313">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.1.1 <a href="#d0e3781">Used by</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.1.2 <a href="#d0e3803">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.1.2.1 <a href="#activityBase_match">@match</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.1.2.2 <a href="#activityBase_use-when">@use-when</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.1.2.3 <a href="#d0e3391"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.1.3 <a href="#d0e3398">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.1.2.3 <a href="#d0e3881"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.1.3 <a href="#d0e3888">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2 <a href="#sqf_activityManipulate">activityManipulate</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2.1 <a href="#d0e3405">Used by</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2.2 <a href="#d0e3421">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2.1 <a href="#d0e3895">Used by</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2.2 <a href="#d0e3911">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2.2.1 <a href="#activityManipulate_node-type">@node-type</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2.2.2 <a href="#activityManipulate_select">@select</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2.2.3 <a href="#activityManipulate_target">@target</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2.2.4 <a href="#d0e3593"></a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2.3 <a href="#d0e3600">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2.2.4 <a href="#d0e4083"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.2.3 <a href="#d0e4090">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.3 <a href="#sqf_messageAttributes">messageAttributes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.3.1 <a href="#d0e3609">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.3.1 <a href="#d0e4099">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.3.1.1 <a href="#messageAttributes_default-fix">@default-fix</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.3.1.2 <a href="#messageAttributes_fix">@fix</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.3.2 <a href="#d0e3668">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.3.2 <a href="#d0e4158">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4 <a href="#sqf_parameterAttributes">parameterAttributes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.1 <a href="#d0e3675">Used by</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.2 <a href="#d0e3691">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.1 <a href="#d0e4165">Used by</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.2 <a href="#d0e4181">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.2.1 <a href="#parameterAttributes_default">@default</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.2.2 <a href="#parameterAttributes_name">@name</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.2.3 <a href="#parameterAttributes_type">@type</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.3 <a href="#d0e3772">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.3 <a href="#d0e4262">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5 <a href="#sqf_rootAttributes">rootAttributes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.1 <a href="#d0e3779">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.1 <a href="#d0e4269">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.1.1 <a href="#rootAttributes_version">@version</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.2 <a href="#d0e3807">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.2 <a href="#d0e4297">Content model</a><br>
 </p>
-<h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc">A <a href="#d0e3812">Schematron Quick Fixes schema</a><br>
-B <a href="#d0e3817">Examples</a><br>
+<h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc">A <a href="#d0e4302">Schematron Quick Fixes schema</a><br>
+B <a href="#d0e4307">Examples</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;B.1 <a href="#example_apply_fixes">QuickFix which applies to itself</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;B.2 <a href="#example_external_doc">QuickFixes for external documents</a><br>
 </p></div><hr><div class="body"><div class="div1">
@@ -284,16 +291,16 @@ B <a href="#d0e3817">Examples</a><br>
 <h3><a name="d0e192" id="d0e192"></a>3.1 Fix</h3><p>A fix is a change of a document, applied to an occurred error. All changes must have the object to solve this error. Requirement is to detect the error first.</p></div><div class="div2">
 <h3><a name="quick-fix-concept" id="quick-fix-concept"></a>3.2 Quick fix</h3><p>A Quick fix is a fully automatic implemented fix. In connection with an error (produced by a validation of a document) one ore more Quick fixes are offered to execute. A user can choose the Quick fix, which is executed by a fully automated process. </p><p>A Quick fix requires: </p><ol class="enumar"><li><p>Instructions, written in a document processing language, to implement the fix. The instructions have to designed in a way, that it is able to process them applied to a context. The context is defined by the occurred error.</p></li><li><p>A human-readable description of the Quick fix. The description should be displayed to the user, when he chooses the Quick fix.</p></li></ol><p>It is able to define Quick fixes inside of a validation parser or using a therefore designed script language. First, there is a limited quantity of Quick fixes, in the second case the quantity is unlimited.</p><p>It depends on the quantity of unique kinds of errors from the validation language, which way makes more sense. Is the quantity of kinds of errors limited, an implementation of Quick fixes inside of the parser is possible.</p><p>Basic requirements for an implementation of a Quick fix workflow:</p><ul><li><p>Definition of Quick fixes (embedding into a parser or into a validation language).</p></li><li><p>A workflow to execute the Quick fixes.</p></li><li><p>Graphical user interface to choose the Quick fixes.</p></li></ul></div></div><div class="div1">
 <h2><a name="d0e227" id="d0e227"></a>4 Workflow</h2><p>Schematron QuickFix (SQF) is an extension of the validation language Schematron to embed Quick fixes. To overview the Schematron QuickFix concept, this section describes the integration of SQF into the Schematron workflow.</p><div class="note"><p class="prefix"><b>Note:</b></p><p>Please note the different spelling of <em>QuickFix</em> and <em>Quick fix</em>. The spelling QuickFix means a Quick fix of the extension language Schematron QuickFix. The spelling Quick fix means a nonspecific Quick fix, which was described in the section <a href="#quick-fix-concept"><cite>Quick fix</cite></a>.</p></div><p>The following figure shows the SQF workflow in eight steps:</p><img src="img/workflow.png"><p>The following sections describes each step of the workflow diagram and its difference to the conventional Schematron workflow.</p><div class="div2">
-<h3><a name="d0e249" id="d0e249"></a>4.1 Schematron validation</h3><p>The workflow starts with a classic Schematron validation process. There is no changes needed for Schematron QuickFix, but a preferred way to implement the QuickFixes is, to compile them during the basic Schematron validation. </p><p>For this specification, the following terms will be used to describe the documents, which are subject of this step:</p><dl><dt class="label"><a name="sch-document" id="sch-document"></a>Source document</dt><dd><p>The document, which is validated. If there are multiple documents, which are connected by using XInclude, these documents will be considered as one document. If there are multiple documents, which will be validated to one Schematron schema (for instance during a validation of documents of a folder), this validations will be considered as multiple separated validations.</p></dd><dt class="label">Schematron schema</dt><dd><p>The <a title="" href="#sch-document">source document</a> will be validated against the Schematron schema. If there are multiple schematron documents, which are connected by include techniques of Schematron, these documents will be considered as one document. If there are multiple schematron schemas are associated with the <a title="" href="#sch-document">source document</a> (for instance by more than one <code>xml-model</code> processing instructions), the validations by each schema will be considered as multiple separated validations.</p></dd></dl></div><div class="div2">
-<h3><a name="d0e278" id="d0e278"></a>4.2 Validation result check</h3><p>The second step is the validation result check. If the validation result is true, the <a title="" href="#sch-document">source document</a> is valid and the next step is <a href="#step8"><cite>step 8</cite></a>. If the validation result is false, there are errors detected.</p><p>In this step, there is no changes for Schematron QuickFix necessary.</p></div><div class="div2">
-<h3><a name="d0e291" id="d0e291"></a>4.3 Error report</h3><p>The error report should be generated by the Schematron validation. It should be a valid SVRL document (Schematron Validation Report Language). </p><p>In this step, changes for Schematron QuickFix are not needed, but it is a possible way, to implement Schematron QuickFix, by extending the SVRL structure, so the report is able to contain the compiled QuickFixes.</p></div><div class="div2">
-<h3><a name="d0e298" id="d0e298"></a>4.4 Show the errors in the source document</h3><p>The last step of the classic Schematron validation workflow is, to display the detected errors, by using the error message in connection with the <a title="" href="#sch-error-context">context of the Schematron error</a>.</p><p>A required change for Schematron QuickFix is, to display the available QuickFixes for those errors, in relation to the Schematron error.</p></div><div class="div2">
-<h3><a name="d0e308" id="d0e308"></a>4.5 Decision of the user</h3><p>The Schematron QuickFix user should have an interactive option to select one or more QuickFixes to execute it. This is a new step for Schematron QuickFix only.</p></div><div class="div2">
-<h3><a name="workflow_fix_process" id="workflow_fix_process"></a>4.6 Executing a Quick fix</h3><p>Depending on the decision of the user, the selected QuickFix(es) will be executed. Normally the <a title="" href="#sch-document">source document</a> will be the source of this fix process and will be replaced by the result of this process. But the implementation could support QuickFixes for external documents (<a href="#example_external_doc"><cite>See example in Appendix</cite></a>). In this cases each external document will be the source of a separate fix process and replaced by the result.</p><p>This is also a new step for Schematron QuickFix only.</p></div><div class="div2">
-<h3><a name="d0e326" id="d0e326"></a>4.7 Validation after the fix</h3><p>After each execution of a QuickFix, a new validation of the changed document is necessary to update the error report or to get a positive validation result. This is equal to a new Schematron validation in a classic Schematron workflow, which is necessary if there are any changes on the source document.</p></div><div class="div2">
+<h3><a name="d0e251" id="d0e251"></a>4.1 Schematron validation</h3><p>The workflow starts with a classic Schematron validation process. There are no changes needed for Schematron QuickFix, but a preferred way to implement the QuickFixes is, to compile them during the basic Schematron validation. </p><p>For this specification, the following terms will be used to describe the documents, which are subject of this step:</p><dl><dt class="label"><a name="sch-source-document" id="sch-source-document"></a>Source document</dt><dd><p>The document, which is validated. If there are multiple documents, which are connected by using XInclude, these documents will be considered as one document. If there are multiple documents, which will be validated to one Schematron schema (for instance during a validation of documents of a folder), this validations will be considered as multiple separated validations.</p></dd><dt class="label">Schematron schema</dt><dd><p>The <a title="" href="#sch-source-document">source document</a> will be validated against the Schematron schema. If there are multiple schematron documents, which are connected by include techniques of Schematron, these documents will be considered as one document. If there are multiple schematron schemas are associated with the <a title="" href="#sch-source-document">source document</a> (for instance by more than one <code>xml-model</code> processing instructions), the validations by each schema will be considered as multiple separated validations.</p></dd></dl></div><div class="div2">
+<h3><a name="d0e280" id="d0e280"></a>4.2 Validation result check</h3><p>The second step is the validation result check. If the validation result is true, the <a title="" href="#sch-source-document">source document</a> is valid and the next step is <a href="#step8"><cite>step 8</cite></a>. If the validation result is false, there are errors detected.</p><p>In this step, there is no changes for Schematron QuickFix necessary.</p></div><div class="div2">
+<h3><a name="d0e293" id="d0e293"></a>4.3 Error report</h3><p>The error report should be generated by the Schematron validation. The implementation is free to use a proprietary or a standardised structur for this report (SVRL for example). </p><p>In this step, changes for Schematron QuickFix are not needed, but it is a possible way, to implement Schematron QuickFix, by extending the SVRL or any other maybe existing report structure, so the report is able to contain the compiled QuickFixes.</p></div><div class="div2">
+<h3><a name="d0e300" id="d0e300"></a>4.4 Show the errors in the source document</h3><p>The last step of the classic Schematron validation workflow is, to display the detected errors, by using the error message in connection with the <a title="" href="#sch-error-context">context of the Schematron error</a>.</p><p>A required change for Schematron QuickFix is, to display the available QuickFixes for those errors, in relation to the Schematron error.</p></div><div class="div2">
+<h3><a name="d0e310" id="d0e310"></a>4.5 Decision of the user</h3><p>The Schematron QuickFix user should have an interactive option to select one or more QuickFixes to execute it. This is a new step for Schematron QuickFix only.</p></div><div class="div2">
+<h3><a name="workflow_fix_process" id="workflow_fix_process"></a>4.6 Executing a Quick fix</h3><p>Depending on the decision of the user, the selected QuickFix(es) will be executed. Normally the <a title="" href="#sch-source-document">source document</a> will be the source of this fix process and will be replaced by the result of this process. But the implementation could support QuickFixes for external documents (<a href="#example_external_doc"><cite>See example in Appendix</cite></a>). In this cases each external document will be the source of a separate fix process and replaced by the result.</p><p>This is also a new step for Schematron QuickFix only.</p></div><div class="div2">
+<h3><a name="d0e328" id="d0e328"></a>4.7 Validation after the fix</h3><p>After each execution of a QuickFix, a new validation of the changed document is necessary to update the error report or to get a positive validation result. This is equal to a new Schematron validation in a classic Schematron workflow, which is necessary if there are any changes on the <a title="" href="#sch-source-document">source document</a>.</p></div><div class="div2">
 <h3><a name="step8" id="step8"></a>4.8 Fixed document</h3><p>The fixed document, which does not contains any errors any more is the target of each Schematron validation. There is no changes for Schematron QuickFix.</p></div></div><div class="div1">
-<h2><a name="d0e336" id="d0e336"></a>5 Language</h2><p>This section describes the meanings of the Schematron QuickFix syntax.</p><div class="div2">
-<h3><a name="d0e341" id="d0e341"></a>5.1 Embedding into Schematron</h3><p>To embed Schematron QuickFix into Schematron, all extending elements should have the namespace <code>http://www.schematron-quickfix.com/validator/process</code> (preferred prefix <code>sqf</code>).</p><p>The following table shows the permitted parent-child relations between the namespaces of SQF and Schematron.</p><table border="1" cellspacing="0" cellpadding="10"><thead><tr><th>Parent element</th><th>Permitted children</th></tr></thead><tbody><tr><td><code>sch:schema</code></td><td>
+<h2><a name="d0e341" id="d0e341"></a>5 Language</h2><p>This section describes the meanings of the Schematron QuickFix syntax.</p><div class="div2">
+<h3><a name="d0e346" id="d0e346"></a>5.1 Embedding into Schematron</h3><p>To embed Schematron QuickFix into Schematron, all extending elements should have the namespace <code>http://www.schematron-quickfix.com/validator/process</code> (preferred prefix <code>sqf</code>).</p><p>The following table shows the permitted parent-child relations between the namespaces of SQF and Schematron.</p><table border="1" cellspacing="0" cellpadding="10"><thead><tr><th>Parent element</th><th>Permitted children</th></tr></thead><tbody><tr><td><code>sch:schema</code></td><td>
                                 <ul><li><p><code>sqf:fixes</code></p></li></ul>
                             </td></tr><tr><td><code>sch:rule</code></td><td>
                                 <ul><li><p><code>sqf:fix</code></p></li><li><p><code>sqf:group</code></p></li></ul>
@@ -309,8 +316,8 @@ B <a href="#d0e3817">Examples</a><br>
                             </td></tr><tr><td><code>sqf:report</code></td><td>
                                 <ul><li><p><code>sqf:fix</code></p></li><li><p><code>sqf:default-fix</code></p></li></ul>
                             </td></tr></tbody></table></div><div class="div2">
-<h3><a name="d0e489" id="d0e489"></a>5.2 QuickFix</h3><p>A QuickFix requires the following properties:</p><ul><li><p>Title</p></li><li><p>ID</p></li><li><p>One or more change commands (see <a href="#change-commands"><cite>Change commands</cite></a>)</p></li></ul><p>A QuickFix is able to have the following additional properties:</p><ul><li><p>Additional description</p></li><li><p>Condition to provide the QuickFix</p></li><li><p>Loop to make the QuickFix generic (see <a href="#generic-fixes"><cite>Generic QuickFix</cite></a>)</p></li><li><p>User Entry to parametrise the QuickFix (see <a href="#user-entry"><cite>User Entries</cite></a>)</p></li></ul><div class="div3">
-<h4><a name="d0e528" id="d0e528"></a>5.2.1 Definition of a QuickFix</h4><p>The QuickFix is defined by the <code>sqf:fix</code> element. The requirements will be satisfied with the following base structure:</p><p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:fix id="fix1"&gt;
+<h3><a name="quick-fix" id="quick-fix"></a>5.2 QuickFix</h3><p>A QuickFix requires the following properties:</p><ul><li><p>Title</p></li><li><p>ID</p></li><li><p>One or more change commands (see <a href="#change-commands"><cite>Change commands</cite></a>)</p></li></ul><p>A QuickFix is able to have the following additional properties:</p><ul><li><p>Additional description</p></li><li><p>Condition to provide the QuickFix</p></li><li><p>Loop to make the QuickFix generic (see <a href="#generic-fixes"><cite>Generic QuickFix</cite></a>)</p></li><li><p>User Entry to parametrise the QuickFix (see <a href="#user-entry"><cite>User Entries</cite></a>)</p></li></ul><div class="div3">
+<h4><a name="d0e533" id="d0e533"></a>5.2.1 Definition of a QuickFix</h4><p>The QuickFix is defined by the <code>sqf:fix</code> element. The requirements will be satisfied with the following base structure:</p><p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:fix id="fix1"&gt;
     &lt;sqf:description&gt;
         &lt;sqf:title&gt;Fix 1&lt;/sqf:title&gt;
     &lt;/sqf:description&gt;
@@ -318,70 +325,93 @@ B <a href="#d0e3817">Examples</a><br>
 &lt;/sqf:fix&gt;</pre></div></div></p><p>The defined QuickFix above has the following properties:</p><p>
                         <ul><li><p>Title: Fix 1</p></li><li><p>ID: fix1</p></li><li><p>One or more change commands: not specified yet.</p></li></ul>
                     </p></div><div class="div3">
-<h4><a name="d0e555" id="d0e555"></a>5.2.2 QuickFixes ID</h4><p>The ID of the QuickFix and the QuickFix groups (see below) is the Identifier for references to QuickFixes and QuickFix groups.</p><p>Requirements to set the ID:<ul><li><p>The ID has to correspond with the XSD type xs:NCName.</p></li><li><p>Inside of a <a title="" href="#sch-rule">Schematron rule</a> the ID must be unique.</p></li><li><p>Global QuickFixes or QuickFix groups should not have the same IDs.</p></li></ul></p><p>In the following cases it is permitted that two QuickFixes, QuickFix groups or a QuickFix and a QuickFix group have the same IDs:<ul><li><p>One is global the other is local.</p></li><li><p>Both are local, but declared in different <a title="" href="#sch-rule">Schematron rules</a>.</p></li></ul></p></div><div class="div3">
-<h4><a name="d0e587" id="d0e587"></a>5.2.3 Reference to a QuickFix</h4><p><a title="" href="#sch-assertion">Schematron assertions</a> are able to refer to one or more QuickFixes. Therefore the <code>sqf:fix</code> attribute contains a whitespace separated list of IDs. Each ID refers to an ID of a QuickFix or QuickFix group.</p><div class="exampleOuter"><p>The <code>sch:assert</code> element refers to the QuickFixes with the ID "fix1" and "fix2":</p><div class="exampleInner"><pre>&lt;sch:assert test="[...]" sqf:fix="fix1 fix2"&gt;[...]&lt;/sch:assert&gt;
+<h4><a name="d0e560" id="d0e560"></a>5.2.2 QuickFixes ID</h4><p>The ID of the QuickFix and the <a href="#quick-fix.group"><cite>QuickFix groups</cite></a> is the Identifier for references to QuickFixes and <a href="#quick-fix.group"><cite>QuickFix groups</cite></a>.</p><p>Requirements to set the ID:<ul><li><p>The ID has to correspond with the XSD type xs:NCName.</p></li><li><p>Inside of a <a title="" href="#sch-rule">Schematron rule</a> the ID must be unique.</p></li><li><p><a href="#quick-fix.global-local"><cite>Global</cite></a> QuickFixes or <a href="#quick-fix.group"><cite>QuickFix groups</cite></a> should not have the same IDs.</p></li></ul></p><p>In the following cases it is permitted that two QuickFixes, <a href="#quick-fix.group"><cite>QuickFix groups</cite></a> or a QuickFix and a <a href="#quick-fix.group"><cite>QuickFix group</cite></a> have the same IDs:<ul><li><p>One is <a href="#quick-fix.global-local"><cite>global</cite></a> the other is <a href="#quick-fix.global-local"><cite>local</cite></a>.</p></li><li><p>Both are <a href="#quick-fix.global-local"><cite>local</cite></a>, but declared in different <a title="" href="#sch-rule">Schematron rules</a>.</p></li></ul></p></div><div class="div3">
+<h4><a name="quick-fix.global-local" id="quick-fix.global-local"></a>5.2.3 Global and local QuickFixes</h4><p>A QuickFix or a <a href="#quick-fix.group"><cite>QuickFix group</cite></a> can be defined <a href="#quick-fix.global-local"><cite>global</cite></a> or <a href="#quick-fix.global-local"><cite>local</cite></a>. <a href="#quick-fix.global-local"><cite>Local</cite></a> QuickFixes or <a href="#quick-fix.group"><cite>QuickFix groups</cite></a> are declared inside of the <a title="" href="#sch-rule">Schematron rule</a> and only the <a title="" href="#sch-assertion">assertions</a> of this rule are able to refer to the QuickFixes or <a href="#quick-fix.group"><cite>QuickFix groups</cite></a>. <a href="#quick-fix.global-local"><cite>Global</cite></a> QuickFixes or <a href="#quick-fix.group"><cite>QuickFix groups</cite></a> are declared inside of the <code>sqf:fixes</code> element and available for all <a title="" href="#sch-assertion">Schematron assertions</a> (see below <a href="#quick-fix.reference.scope"><cite>Scope</cite></a>).</p><div class="exampleOuter"><p>Example for a <a href="#quick-fix.global-local"><cite>global</cite></a> QuickFix:</p><div class="exampleInner"><pre>&lt;sch:schema&gt; 
+     [...] 
+     &lt;sqf:fixes&gt;
+          &lt;sqf:fix id="fix2"&gt; [...] &lt;/sqf:fix&gt;
+     &lt;/sqf:fixes&gt;
+&lt;/sch:schema&gt;</pre></div></div><div class="exampleOuter"><p>Example for a <a href="#quick-fix.global-local"><cite>local</cite></a> QuickFix:</p><div class="exampleInner"><pre>&lt;sch:rule context="[...]"&gt;
+     [...] 
+     &lt;sqf:fix id="fix1"&gt; [...] &lt;/sqf:fix&gt;
+&lt;/sch:rule&gt;</pre></div></div></div><div class="div3">
+<h4><a name="quick-fix.reference" id="quick-fix.reference"></a>5.2.4 Reference to a QuickFix</h4><p><a title="" href="#sch-assertion">Schematron assertions</a> are able to refer to one or more QuickFixes or <a href="#quick-fix.group"><cite>QuickFix groups</cite></a> or a mix of QuickFixes and <a href="#quick-fix.group"><cite>QuickFix groups</cite></a>. Therefore the <code>sqf:fix</code> attribute contains a whitespace separated list of IDs. Each ID refers to an ID of a QuickFix or <a href="#quick-fix.group"><cite>QuickFix group</cite></a>. The amount of references are unbounded, but implementations are able to set a limit.</p><div class="exampleOuter"><p>The <code>sch:assert</code> element refers to the QuickFixes with the ID "fix1" and "fix2":</p><div class="exampleInner"><pre>&lt;sch:assert test="[...]" sqf:fix="fix1 fix2"&gt;[...]&lt;/sch:assert&gt;
 &lt;sqf:fix id="fix1"&gt; 
     [...] 
 &lt;/sqf:fix&gt; 
 &lt;sqf:fix id="fix2"&gt;
     [...] 
-&lt;/sqf:fix&gt;</pre></div></div><p>Is a <a title="" href="#sch-assertion">Schematron assertion</a> producing a <a title="" href="#sch-error">Schematron error</a> that refers to a QuickFix, a Schematron QuickFix implementation needs to provide the QuickFix as a choice for the user in connection to the occurred error.</p><p><em>Exceptions:</em>
-                    </p><ul><li><p>A QuickFix, which condition was not satisfied in the <a title="" href="#sch-error-context">context of the Schematron error</a>, should not be provided.</p></li><li><p>A <a href="#generic-fixes"><cite>generic QuickFix</cite></a> could be not provided in some cases (see <a href="#generic-fixes"><cite>Generic QuickFix section</cite></a>)</p></li><li><p>It is up to the implementation to provide QuickFixes which has no change commands or uses elements which are not supported by the implementation.</p></li></ul><p>The user should be able to execute each provided QuickFix.</p><div class="div4">
-<h5><a name="d0e644" id="d0e644"></a>5.2.3.1 Default fix</h5><p>Tbd.</p></div></div><div class="div3">
-<h4><a name="d0e649" id="d0e649"></a>5.2.4 Execution of a QuickFix</h4><p>During the execution process of a QuickFix each <a href="#change-commands"><cite>command changes</cite></a> will be executed in the <a title="" href="#sch-error-context">context node of the error</a>, if their condition was satisfied in this context.</p><div class="div4">
-<h5><a name="d0e660" id="d0e660"></a>5.2.4.1 Execution of more than one QuickFix</h5><p>It is free to the implementation to allow executions of more than one QuickFix at once. But an execution of more than one QuickFix of the same Schematron error at once are not permitted.</p><p>It is up to the implementation to warn the user against <a href="#conflicts"><cite>possible conflicts</cite></a> or to hide QuickFixes to avoid such conflicts.</p></div></div><div class="div3">
-<h4><a name="d0e670" id="d0e670"></a>5.2.5 QuickFix group</h4><p>A QuickFix group is a set of one or more QuickFixes. Additional it needs an ID, which is equal to the ID of a QuickFix. The QuickFix will be implemented with the <code>sqf:group</code> element.</p><p>A <a title="" href="#sch-assertion">Schematron assertion</a> is able to refer to a QuickFix group on the same way it refers to a QuickFix. A reference to a QuickFix groups is equal to references to all QuickFixes which the QuickFix group contains. </p><p><div class="exampleOuter"><p>The QuickFix group has the ID groupid and contains the QuickFixes with the IDs fix1 and fix2.</p><p>The first <code>sch:assert</code> element refers to the QuickFixes fix1 and fix2 per QuickFix ID. The second one refers to the same QuickFixes per ID of the QuickFix group.</p><div class="exampleInner"><pre>&lt;sch:assert test="[...]" sqf:fix="fix1 fix2"&gt;[...]&lt;/sch:assert&gt;
+&lt;/sqf:fix&gt;</pre></div></div><div class="div4">
+<h5><a name="quick-fix.reference.scope" id="quick-fix.reference.scope"></a>5.2.4.1 Scope</h5><p><a title="" href="#sch-assertion">Schematron assertions</a> are only able to refer to QuickFixes or <a href="#quick-fix.group"><cite>QuickFix groups</cite></a> wich are in scope of its <a title="" href="#sch-rule">Schematron rules</a>. </p><p>
+                            <ul><li><p>A <a href="#quick-fix.global-local"><cite>local</cite></a> QuickFix or <a href="#quick-fix.group"><cite>QuickFix group</cite></a> is in scope, if its <code>sqf:fix</code> or <code>sqf:group</code> element is a descendent element of the corresponding <code>sch:rule</code> element.</p></li><li><p>A <a href="#quick-fix.global-local"><cite>global</cite></a> QuickFix or <a href="#quick-fix.group"><cite>QuickFix group</cite></a> is in scope of any <a title="" href="#sch-rule">Schematron rules</a> of the Schematron Schema, except there is a <a href="#quick-fix.global-local"><cite>local</cite></a> QuickFix or <a href="#quick-fix.group"><cite>QuickFix group</cite></a> in the scope of the <a title="" href="#sch-rule">Schematron rules</a>.</p></li></ul>
+                        </p><p id="references_1" class="error-def">It is an error, if a <a title="" href="#sch-assertion">Schematron assertions</a> refers to a QuickFix or <a href="#quick-fix.group"><cite>QuickFix group</cite></a>, which is not in the scope of its <a title="" href="#sch-rule">Schematron rules</a>.</p></div><div class="div4">
+<h5><a name="d0e780" id="d0e780"></a>5.2.4.2 Providing conditions</h5><p>Is a <a title="" href="#sch-assertion">Schematron assertion</a> producing a <a title="" href="#sch-error">Schematron error</a> that refers to a QuickFix, a Schematron QuickFix implementation may provide the QuickFix as a choice for the user to execute the QuickFix in connection to the occurred error.</p><p><em>Exceptions:</em>
+                        </p><ul><li><p>A QuickFix, which condition was not satisfied in the <a title="" href="#sch-error-context">context of the Schematron error</a>, should not be provided.</p></li><li><p>A <a href="#generic-fixes"><cite>generic QuickFix</cite></a> may not able to be provided in some cases (see <a href="#generic-fixes"><cite>Generic QuickFix section</cite></a>)</p></li><li><p>It is up to the implementation to provide QuickFixes which has no change commands or uses elements which are not supported by the implementation.</p></li></ul></div><div class="div4">
+<h5><a name="d0e814" id="d0e814"></a>5.2.4.3 Default QuickFix</h5><p>The <code>sqf:default-fix</code> attribute is provided to set a default QuickFix for a <a title="" href="#sch-assertion">Schematron assertion</a>. The attribute value should be the id of a QuickFix.</p><p id="default-fix_1" class="error-def">It is an error, if the default QuickFix is not referred by the <a title="" href="#sch-assertion">Schematron assertion</a> (using the <code>sqf:fix</code> attribute).</p><p>An implementation is free, how to handle the default QuickFix.</p></div></div><div class="div3">
+<h4><a name="d0e835" id="d0e835"></a>5.2.5 Execution of a QuickFix</h4><p>During the execution process of a QuickFix each <a href="#change-commands"><cite>command changes</cite></a> will be executed in the <a title="" href="#sch-error-context">context node of the error</a>, if their condition was satisfied in this context.</p><div class="div4">
+<h5><a name="d0e846" id="d0e846"></a>5.2.5.1 Execution of more than one QuickFix</h5><p>It is free to the implementation to allow executions of more than one QuickFix at once. But an execution of more than one QuickFix of the same <a title="" href="#sch-error">Schematron error</a> at once are not permitted.</p><p>It is up to the implementation to warn the user against <a href="#conflicts"><cite>possible conflicts</cite></a> or to hide QuickFixes to avoid such conflicts.</p></div></div><div class="div3">
+<h4><a name="quick-fix.group" id="quick-fix.group"></a>5.2.6 QuickFix group</h4><p>A <a href="#quick-fix.group"><cite>QuickFix group</cite></a> is a set of one or more QuickFixes. The QuickFix will be implemented with the <code>sqf:group</code> element. Additional it needs an ID, specified by a mandatory <code>id</code> attribute.</p><p>A <a title="" href="#sch-assertion">Schematron assertion</a> is able to refer to a <a href="#quick-fix.group"><cite>QuickFix group</cite></a> on the same way it refers to a QuickFix. A reference to a <a href="#quick-fix.group"><cite>QuickFix group</cite></a> is equal to references to all QuickFixes which the <a href="#quick-fix.group"><cite>QuickFix group</cite></a> contains. </p><p><div class="exampleOuter"><p>The <a href="#quick-fix.group"><cite>QuickFix group</cite></a> has the ID groupid and contains the QuickFixes with the IDs fix1 and fix2.</p><p>The first <code>sch:assert</code> element refers to the QuickFixes fix1 and fix2 per QuickFix ID. The second one refers to the same QuickFixes per ID of the <a href="#quick-fix.group"><cite>QuickFix group</cite></a>.</p><div class="exampleInner"><pre>&lt;sch:assert test="[...]" sqf:fix="fix1 fix2"&gt;[...]&lt;/sch:assert&gt;
 &lt;sch:assert test="[...]" sqf:fix="groupid"&gt;[...]&lt;/sch:assert&gt;
 &lt;sqf:group id="groupid"&gt;
      &lt;sqf:fix id="fix1"&gt; [...] &lt;/sqf:fix&gt;
      &lt;sqf:fix id="fix2"&gt; [...] &lt;/sqf:fix&gt;
 &lt;/sqf:group&gt;</pre></div></div></p><p>For more information see the <a href="#sqf_group"><cite>sqf:group</cite></a> definition in the SQF reference.</p></div><div class="div3">
-<h4><a name="generic-fixes" id="generic-fixes"></a>5.2.6 Generic QuickFix</h4><p>A generic QuickFix is different from a regular QuickFix in that it is defined for an unbounded count of provided QuickFixes. The count of provided QuickFixes could be depending on the <a title="" href="#sch-error-context">context of the Schematron error</a>.</p><p>To create a generic QuickFix, the <code>sqf:fix</code> element gets a <code>use-for-each</code> attribute. The use-for-each attribute expects an XPath expression. For each returned value or item of the XPath expression a QuickFix should provided to the user. The XPath expression will be evaluated in the <a title="" href="#sch-error-context">context of the Schematron error</a>. </p><p>The XPath expression of the <code>use-for-each</code> attribute does not change the context of the generic QuickFix. To access to the currently returned item/value, a build-in XPath variable <code>$sqf:current</code> (in the SQF namespace) should be provided. The <code>sqf:current</code> variable should be available in each XPath expression inside of the <code>sqf:fix</code> element.</p><p><div class="exampleOuter"><p>Example:</p><div class="exampleInner"><pre>&lt;sqf:fix id="generic-fix" use-for-each="//*[@id]"&gt;
+<h4><a name="generic-fixes" id="generic-fixes"></a>5.2.7 Generic QuickFix</h4><p>A generic QuickFix is different from a regular QuickFix in that it is defined for an unbounded count of provided QuickFixes. The count of provided QuickFixes may depend on the <a title="" href="#sch-error-context">context of the Schematron error</a>.</p><p>To create a generic QuickFix, the <code>sqf:fix</code> element gets a <code>use-for-each</code> attribute. The use-for-each attribute expects an XPath expression. For each returned value or item of the XPath expression a QuickFix should provided to the user. The XPath expression will be evaluated in the <a title="" href="#sch-error-context">context of the Schematron error</a>. </p><p>The XPath expression of the
+                        <code>use-for-each</code>
+                        attribute does not change the context of the generic QuickFix. To access to the currently returned item/value, a build-in XPath variable <code>$sqf:current</code> (in the SQF namespace) should be provided. The <code>sqf:current</code> variable should be available in each XPath expression inside of the <code>sqf:fix</code> element.</p><p><div class="exampleOuter"><p>Example:</p><div class="exampleInner"><pre>&lt;sqf:fix id="generic-fix" use-for-each="//*[@id]"&gt;
       &lt;sqf:description&gt;
           &lt;sqf:title&gt;Delete element &lt;value-of select="$sqf:current/@id"/&gt;&lt;/sqf:title&gt;
      &lt;/sqf:description&gt;
      &lt;sqf:delete match="$sqf:current"/&gt;
 &lt;/sqf:fix&gt;</pre></div><p>For each element in the document which has an <code>id</code> attribute the implementation should provide one QuickFix. The title of those QuickFixes should be the fix string "Delete element " concatenated with the value of the corresponding <code>id</code> attribute. The change command will be, to delete the corresponding element.</p></div></p><div class="div4">
-<h5><a name="d0e746" id="d0e746"></a>5.2.6.1 Maximum number of provided QuickFixes</h5><p>Please note, that it will be easy to create a high number of QuickFixes for each Schematron error using this structure. To handle this, an implementation is free to set a limit of allowed providing QuickFixes for generic QuickFixes. If a generic QuickFix violates this limit, the implementation is free to do not provide any QuickFixes or to occurs an error. </p></div></div><div class="div3">
-<h4><a name="d0e751" id="d0e751"></a>5.2.7 Scope of QuickFixes and QuickFix groups</h4><p>A QuickFix or a QuickFix group can be defined global or local. Local QuickFixes or QuickFix groups are declared inside of the <a title="" href="#sch-rule">Schematron rule</a> and only the <a title="" href="#sch-assertion">assertions</a> of this rule are able to refer to the QuickFixes or QuickFix groups. Global QuickFixes or QuickFix groups are declared inside of the <code>sqf:fixes</code> element and available for all <a title="" href="#sch-assertion">Schematron assertions</a>.</p><div class="exampleOuter"><p>Example for a global QuickFix:</p><div class="exampleInner"><pre>&lt;sch:schema&gt; 
-     [...] 
-     &lt;sqf:fixes&gt;
-          &lt;sqf:fix id="fix2"&gt; [...] &lt;/sqf:fix&gt;
-     &lt;/sqf:fixes&gt;
-&lt;/sch:schema&gt;</pre></div></div><div class="exampleOuter"><p>Example for a local QuickFix:</p><div class="exampleInner"><pre>&lt;sch:rule context="[...]"&gt;
-     [...] 
-     &lt;sqf:fix id="fix1"&gt; [...] &lt;/sqf:fix&gt;
-&lt;/sch:rule&gt;</pre></div></div></div><div class="div3">
-<h4><a name="d0e778" id="d0e778"></a>5.2.8 Role</h4><p>Tbd.</p></div></div><div class="div2">
+<h5><a name="d0e962" id="d0e962"></a>5.2.7.1 Maximum number of provided QuickFixes</h5><p>Please note, that it will be easy to create a high number of QuickFixes for each <a title="" href="#sch-error">Schematron error</a> using this structure. To handle this, an implementation is free to set a limit of allowed providing QuickFixes for generic QuickFixes. If a generic QuickFix violates this limit, the implementation is free to do not provide any QuickFixes or to occurs an error. </p></div></div><div class="div3">
+<h4><a name="d0e970" id="d0e970"></a>5.2.8 Role</h4><p>The role is a meta data of the QuickFix. The role of a QuickFix describes the type of change which it makes. There are five types of changes:<ul><li><p>"add"</p><p>The QuickFix adds something to the <a title="" href="#sch-source-document">source document</a>.</p></li><li><p>"delete"</p><p>The QuickFix deletes something in the <a title="" href="#sch-source-document">source document</a>.</p></li><li><p>"replace"</p><p>The QuickFix replace nodes from the <a title="" href="#sch-source-document">source document</a> by new nodes.</p></li><li><p>"stringReplace"</p><p>The QuickFix replace parts of text nodes in the source document by new nodes.</p></li><li><p>"mix"</p><p>This is a fallback role type, if the QuickFix do more things or no type of change matches to the QuickFix.</p></li></ul></p><p>An implementation is free to support other additional roles. There are two ways do define the role of a QuickFix:</p><p>
+                        <ol class="enumar"><li><p>Automatically &#8211; the implementation detects the role by the contained Activity Elements. The implementation is free to detect the role type.</p></li><li><p>Manually &#8211; the developer overwrite the role manually using the <code>role</code> attribute:</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:fix id="replaceAtttribute" role="replace"&gt;
+     [...]
+     &lt;sqf:add match="*[@id]" target="id" node-type="attribute" select="generate-id()"/&gt;
+&lt;/sqf:fix&gt;</pre></div><p>The implementation may detect the role type "add", because the <code>sqf:add</code> element was used only. But the developer knows, that this QuickFix will replace the value of the <code>id</code> attribute anytime, so he set the role manually.</p></div></li></ol>
+                    </p></div></div><div class="div2">
 <h3><a name="change-commands" id="change-commands"></a>5.3 Change commands</h3><p>A QuickFix needs at least one change command. A change command is implemented by an activity element (see element group <a href="#sqf_activityElements"><cite><span><code>sqf:activityElements</code></span></cite></a>). A change command is processed relative to an <a href="#change-command-anchor-node"><cite>anchor node</cite></a>.</p><div class="div3">
-<h4><a name="change-command-anchor-node" id="change-command-anchor-node"></a>5.3.1 Anchor node</h4><p>The anchor node is the context of a change command. By default the <a title="" href="#sch-error-context">context of the Schematron error</a> is the anchor node.</p><p>To specify anchor nodes, the <code>match</code> attribute is provided to each activity element. If an activity element points to more than one anchor node, for each anchor node the change command will be executed. If an activity element points to no anchor node, no change command will be executed.</p><p>The <code>match</code> attribute expects an XPath expression. The context of relative expressions is the context of the Schematron error. It is recommended to allow expressions which can use the full functionality of XPath 2.0 (or newer) and additionally the XSLT 2.0 functions.</p><div class="div4">
+<h4><a name="change-command-anchor-node" id="change-command-anchor-node"></a>5.3.1 Anchor node</h4><p>The anchor node is the context of a change command. By default the <a title="" href="#sch-error-context">context of the Schematron error</a> is the anchor node.</p><p>To specify anchor nodes, the <code>match</code> attribute is provided to each activity element. If an activity element points to more than one anchor node, for each anchor node the change command will be executed. If an activity element points to no anchor node, no change command will be executed.</p><p>The <code>match</code> attribute expects an XPath expression. The context of relative expressions is the <a title="" href="#sch-error-context">context of the Schematron error</a>. It is recommended to allow expressions which can use the full functionality of XPath 2.0 (or newer) and additionally the XSLT 2.0 functions.</p><div class="div4">
 <h5><a name="anchor_node_restrictions" id="anchor_node_restrictions"></a>5.3.1.1 Requirements of the Anchor node / match attribute</h5><p>The only restriction to the XPath expression of the match attribute, is that the type of the return value needs to be <code>node()*</code>. Any return values which does not match to this type should occurs an error.</p><p>An implementation is free to set further restrictions to the XPath expressions. If a Change command violates this restrictions, the implementation is free to occurs an error, to hide the corresponding QuickFixes or to do not execute those Change commands, but any other of the corresponding QuickFix.</p><div class="note"><p class="prefix"><b>Note:</b></p><p>Please note, that supporting any XPath 2.0/XSLT 2.0 functionality could have affects to the workflow: If one of the returned nodes changes the document context, the <a href="#workflow_fix_process"><cite>fix process</cite></a> should respect this.</p></div></div></div><div class="div3">
-<h4><a name="d0e830" id="d0e830"></a>5.3.2 Conditions</h4><p>Each change command can have a condition to execute. Therefore the attribute <code>use-when</code> is provided to each activity element. The condition will be defined in the <a title="" href="#sch-error-context">context of the Schematron errors</a>. If the condition is not satisfied the change command should not be executed.</p></div><div class="div3">
-<h4><a name="fix_create_new_content" id="fix_create_new_content"></a>5.3.3 Create new content</h4><p>Depending of the <a href="#change-command-kind"><cite>kind</cite></a>, the change command may create new content to insert it into or replace nodes from the <a title="" href="#sch-document">source document</a>. There are three ways to create new content:</p><div class="div4">
-<h5><a name="create-by-sqf-att" id="create-by-sqf-att"></a>5.3.3.1 By the attributes <code>node-type</code> and <code>target</code></h5><p>To create a new node, the change command may provide the attributes <code>node-type</code> and <code>target</code>. This attributes create exact one node.</p><p>To create a new node the attribute <code>node-type</code> provides the following values:<ul><li><p>"keep"</p><p>To create a node from the same type as the anchor node.</p></li><li><p>"element"</p><p>To create an element.</p></li><li><p>"attribute"</p><p>To create an attribute</p></li><li><p>"processing-instruction" or "pi"</p><p>To create a processing instruction</p></li><li><p>"comment"</p><p>To create a comment</p></li></ul></p><p>Bellow a list of restrictions to use the node-type and target attribute:<ul><li><p>If the <code>node-type</code> attribute has not the value "comment", the attribute <code>target</code> is required. It sets the name of the created node. The value of the <code>target</code> attribute will be interpreted as an <a href="#attribute-value-template"><cite>attribute value template</cite></a>. The effective value should be valid to the XSD type xs:QName.</p></li><li><p>If an Activity Element has an target attribute, the <code>node-type</code> attribute is required.</p></li></ul></p><p>To create the value or content of the new node, you need to respect the following terms:<ul><li><p>If the <code>node-type</code> attribute has the value "element" (or "keep" and the anchor element is an element), the content of the new element will be created <a href="#create-by-xpath"><cite>by XPath</cite></a> or <a href="#create-by-content"><cite>by the content of the Activity Element</cite></a>.</p></li><li><p>If the <code>node-type</code> attribute has the values "attribute", "processing-instruction", "pi" or "comment" (or "keep" and the anchor node is not an element), the value of the new node will be created <a href="#create-by-xpath"><cite>by XPath</cite></a> or <a href="#create-by-content"><cite>by the content of the Activity Element</cite></a>. If this returns nodes, the value will be created by the values of this nodes. More than one node value will be joined to one node value separated by whitespace.</p></li></ul></p></div><div class="div4">
-<h5><a name="create-by-xpath" id="create-by-xpath"></a>5.3.3.2 By an XPath expression</h5><p>To define the new content by an XPath expression, the <code>select</code> attribute is provided. The select attribute can be combined with the attributes node-type and target. In this case the XPath expression of the select attribute detects the content or value of the new node. Otherwise the XPath expression creates new content in the following way:</p><ul><li><p>If the XPath expression returns an atomic value, the value will be transformed into an text node.</p></li><li><p>If the XPath expression returns a sequence of atomic values, all values will be transformed to a text node. The values will be separated by whitespace.</p></li><li><p>If the XPath expression returns one or more nodes, the nodes will be copied into the <a title="" href="#sch-document">source document</a>. The implementation is free to do a full copy of the returned nodes or to respect change commands caused by other (or the same) executed QuickFixes. (<a href="#example_apply_fixes"><cite>See example in Appendix</cite></a>)</p></li></ul><p>If the Activity Element has a <code>select</code> attribute, the element should be empty.</p></div><div class="div4">
-<h5><a name="create-by-content" id="create-by-content"></a>5.3.3.3 By the Activity Element content</h5><p>The content of the Activity Elements has the same functionality as the content of <code>xsl:template</code> elements from the <a href="http://www.w3.org/TR/xslt20"><cite>XSLT 2.0 Recommendation</cite></a>. This means:</p><ul><li><p>Elements from the XSLT namespace will be processed in the context of the change command. If XSLT elements are able to change the context in XSLT, this should have the same effect to there descendents in SQF.</p></li><li><p>Elements which not belong to the XSLT, SQF or Schematron namespace will be processed as <a href="http://www.w3.org/TR/xslt20/#dt-literal-result-element"><cite>Literal Result Elements</cite></a>.</p></li></ul><p>Extensions of the XSLT template behavior:</p><ul><li><p>Elements from the SQF namespace will be processed as it is defined in this specification. Permitted element is:<ul><li><p><code>sqf:keep</code></p></li></ul></p></li><li><p>Elements from the Schematron namespace will be processed as it is defined in the Schematron specification. Permitted elements are:<ul><li><p><code>sch:let</code></p></li><li><p><code>sch:value-of</code></p></li><li><p><code>sch:name</code></p></li></ul></p></li></ul></div><div class="div4">
-<h5><a name="create-by-sqf_keep" id="create-by-sqf_keep"></a>5.3.3.4 Special case: sqf:keep element</h5><p>tbd.</p></div></div><div class="div3">
+<h4><a name="d0e1094" id="d0e1094"></a>5.3.2 Conditions</h4><p>Each change command can have a condition to execute. Therefore the attribute <code>use-when</code> is provided to each activity element. The condition will be defined in the <a title="" href="#sch-error-context">context of the Schematron errors</a>. If the condition is not satisfied the change command should not be executed.</p></div><div class="div3">
+<h4><a name="fix_create_new_content" id="fix_create_new_content"></a>5.3.3 Create new content</h4><p>Depending of the <a href="#change-command-kind"><cite>kind</cite></a>, the change command may create new content to insert it into or replace nodes from the <a title="" href="#sch-source-document">source document</a>. There are three ways to create new content:</p><div class="div4">
+<h5><a name="create-by-sqf-att" id="create-by-sqf-att"></a>5.3.3.1 By the attributes <code>node-type</code> and <code>target</code></h5><p>To create a new node, the change command may provide the attributes <code>node-type</code> and <code>target</code>. This attributes create exact one node.</p><p>To create a new node the attribute <code>node-type</code> provides the following values:<ul><li><p>"keep"</p><p>To create a node from the same type as the anchor node.</p></li><li><p>"element"</p><p>To create an element.</p></li><li><p>"attribute"</p><p>To create an attribute</p></li><li><p>"processing-instruction" or "pi"</p><p>To create a processing instruction</p></li><li><p>"comment"</p><p>To create a comment</p></li></ul></p><p>Bellow a list of restrictions to use the node-type and target attribute:<ul><li><p>If the <code>node-type</code> attribute has not the value "comment", the attribute <code>target</code> is required. It sets the name of the created node. The value of the <code>target</code> attribute will be interpreted as an <a href="#attribute-value-template"><cite>attribute value template</cite></a>. The effective value should be valid to the XSD type xs:QName.</p></li><li><p>If an Activity Element has a target attribute, the <code>node-type</code> attribute is required.</p></li></ul></p><p>To create the value or content of the new node, you need to respect the following terms:<ul><li><p>If the <code>node-type</code> attribute has the value "element" (or "keep" and the anchor element is an element), the content of the new element will be created <a href="#create-by-xpath"><cite>by XPath</cite></a> or <a href="#create-by-content"><cite>by the content of the Activity Element</cite></a>.</p></li><li><p>If the <code>node-type</code> attribute has the values "attribute", "processing-instruction", "pi" or "comment" (or "keep" and the anchor node is not an element), the value of the new node will be created <a href="#create-by-xpath"><cite>by XPath</cite></a> or <a href="#create-by-content"><cite>by the content of the Activity Element</cite></a>. If this returns nodes, the value will be created by the values of this nodes. More than one node value will be joined to one node value separated by whitespace.</p></li></ul></p></div><div class="div4">
+<h5><a name="create-by-xpath" id="create-by-xpath"></a>5.3.3.2 By an XPath expression</h5><p>To define the new content by an XPath expression, the <code>select</code> attribute is provided. The select attribute can be combined with the attributes node-type and target. In this case the XPath expression of the select attribute detects the content or value of the new node. Otherwise the XPath expression creates new content in the following way:</p><ul><li><p>If the XPath expression returns an atomic value, the value will be transformed into an text node.</p></li><li><p>If the XPath expression returns a sequence of atomic values, all values will be transformed to a text node. The values will be separated by whitespace.</p></li><li><p>If the XPath expression returns one or more nodes, the nodes will be copied into the <a title="" href="#sch-source-document">source document</a> (see below <a href="#copy-nodes"><cite>Copy nodes</cite></a>). </p></li></ul><p>If the Activity Element has a <code>select</code> attribute, the element content should be empty.</p></div><div class="div4">
+<h5><a name="create-by-content" id="create-by-content"></a>5.3.3.3 By the Activity Element content</h5><p>The content of the Activity Elements has the same functionality as the content of <code>xsl:template</code> elements from the <a href="http://www.w3.org/TR/xslt20"><cite>XSLT 2.0 Recommendation</cite></a>. This means:</p><ul><li><p>Elements from the XSLT namespace will be processed in the context of the change command. If XSLT elements are able to change the context in XSLT, this should have the same effect to there descendents in SQF.</p></li><li><p>Elements which not belong to the XSLT, SQF or Schematron namespace will be processed as <a href="http://www.w3.org/TR/xslt20/#dt-literal-result-element"><cite>Literal Result Elements</cite></a>.</p></li></ul><p>Extensions of the XSLT template behavior:</p><ul><li><p>Elements from the SQF namespace will be processed as it is defined in this specification. Permitted element is:<ul><li><p><code>sqf:keep</code></p><p>To copy existing nodes into the <a title="" href="#sch-source-document">source document</a> (see below <a href="#copy-nodes"><cite>Copy nodes</cite></a>).</p></li></ul></p></li><li><p>Elements from the Schematron namespace will be processed as it is defined in the Schematron specification. Permitted elements are:<ul><li><p><code>sch:let</code></p></li><li><p><code>sch:value-of</code></p></li><li><p><code>sch:name</code></p></li></ul></p></li></ul></div><div class="div4">
+<h5><a name="copy-nodes" id="copy-nodes"></a>5.3.3.4 Copy nodes</h5><p>There are two ways to copy nodes:</p><p>
+                            <ul><li><p>If the XPath expression of the <code>select</code> attribute of an Activity Element returns one or more nodes, these nodes will be copied.</p></li><li><p>With the <code>sqf:keep</code> element (as content of an Activity Element) nodes can be copied. A <code>select</code> attribute defines by an XPath expression the nodes to be copied. The default value of the <code>select</code> attribute is "node()".</p></li></ul>
+                        </p><p>The implementation is free to do a full copy of the selected nodes or to respect change commands caused by other (or the same) executed QuickFixes. (<a href="#example_apply_fixes"><cite>See example in Appendix</cite></a>)</p></div></div><div class="div3">
 <h4><a name="conflicts" id="conflicts"></a>5.3.4 Conflicts</h4><p>A conflict is thrown, if there are more than one change command for the same anchor node, during an QuickFix execution. There are two kinds of conflicts:<ul><li><p>Resolvable conflict</p><p>If the conflict is between two or more change commands which belongs to the same QuickFix, the conflict is resolvable. In this case, the change command will be executed, whose activity element is defined at first inside of the <code>sqf:fix</code> element.</p></li><li><p>Warning raised conflict</p><p>If two or more change commands from different QuickFixes are in conflict, the conflict is not resolvable. A warning should be produced. The implementation is free to decide which QuickFix has higher priority. This kind of a conflict is just possible, if an implementation allows to execute more than one QuickFix at once.</p></li></ul></p></div><div class="div3">
-<h4><a name="d0e1083" id="d0e1083"></a>5.3.5 Kind of the change commands</h4><p>There are four predefined kinds of change commands:<ul><li><p>Add</p></li><li><p>Delete</p></li><li><p>Replace</p></li><li><p>StringReplace</p></li></ul></p><p>A Schematron QuickFix implementation is free to provide extending Change commands. The extending change commands should provide the attributes of the attribute group <a href="#sqf_activityBase"><cite><span><code>activityBase</code></span></cite></a> and respect the concepts to <a href="#fix_create_new_content"><cite>create new content</cite></a>.</p><div class="div4">
-<h5><a name="d0e1111" id="d0e1111"></a>5.3.5.1 Add</h5><p>Creates one or more nodes and insert it relative to the anchor node as new content. The new content could be created by the <a href="#create-by-sqf-att"><cite>SQF attributes</cite></a>, <a href="#create-by-xpath"><cite>by XPath</cite></a> or <a href="#create-by-content"><cite>by the content of the sqf:add element</cite></a>.</p><p>The position attribute detects the position relative to the anchor node, where the new content should be inserted. The following values are available:</p><p></p><dl><dt class="label">first-child</dt><dd><p>If the anchor node is an element the new content will be inserted after the start tag of the anchor node.</p><p>If the anchor node is an attribute, the new content will be inserted after the start tag of the parent element of the anchor node.</p><p>Otherwise: the new content will be inserted after the anchor node.</p><p>This value is the default value of the <code>position</code> attribute.</p></dd><dt class="label">last-child</dt><dd><p>If the anchor node is an element the new content will be inserted before the end tag of the anchor node.</p><p>If the anchor node is an attribute, the new content will be inserted before the end tag of the parent element of the anchor node.</p><p>Otherwise: the new content will be inserted after the anchor node.</p></dd><dt class="label">before</dt><dd><p>The new content will be inserted before the anchor node.</p><p>If the anchor node is an attribute, the new content will be inserted before the parent element of the anchor node.</p></dd><dt class="label">after</dt><dd><p>The new content will be inserted after the anchor node.</p><p>If the anchor node is an attribute, the new content will be inserted after the parent element of the anchor node.</p></dd></dl><p></p><p>The <code>position</code> attribute is useless, if the new content are one or more attributes. In this case, the new content should always be added as attribute(s) of the anchor node.</p><p>In the case, the new content is an attribute, it is an error if the anchor node is not an element. If the anchor node is an element and has an attribute with the same name as one of the new attributes, the new attributes should replace the existing attributes.</p></div><div class="div4">
-<h5><a name="d0e1177" id="d0e1177"></a>5.3.5.2 Delete</h5><p>This change command deletes the anchor node.</p></div><div class="div4">
-<h5><a name="d0e1182" id="d0e1182"></a>5.3.5.3 Replace</h5><p>The anchor node will be replaced by new content. The new content can be created by the <a href="#create-by-sqf-att"><cite>SQF attributes</cite></a>, <a href="#create-by-xpath"><cite>by XPath</cite></a> or <a href="#create-by-content"><cite>by the content of the sqf:replace element</cite></a>.</p><p>It is an error, if the new content is an attribute, but the anchor node not.</p></div><div class="div4">
-<h5><a name="d0e1198" id="d0e1198"></a>5.3.5.4 StringReplace</h5><p>The anchor node has to be a text node. To analyze the text node, the <code>regex</code> attribute is required. The attribute value of the regex attribute will be interpreted as an <a href="http://www.w3.org/TR/xslt20/#attribute-value-templates"><cite>attribute value template</cite></a>. The effective value should be a valid <a href="http://www.w3.org/TR/xslt20/#regular-expressions"><cite>Regular Expression</cite></a> corresponding to the XSLT 2.0 Recommendation.</p><p>Any substrings, which matches to this Regular Expression, will be replaced by new content. The new content can be created <a href="#create-by-xpath"><cite>by XPath</cite></a> or <a href="#create-by-content"><cite>by the content of the sqf:stringReplace element</cite></a>.</p></div></div></div><div class="div2">
-<h3><a name="d0e1220" id="d0e1220"></a>5.4 Variables</h3><div class="div3">
-<h4><a name="d0e1223" id="d0e1223"></a>5.4.1 Declaration</h4><p>The Schematron QuickFix specification does not provide an own structure to declare variables for the XPath expressions. There are two permitted ways do declare variables:</p><ul><li><p>Using Schematron variables (<code>sch:let</code>).</p></li><li><p>Using XSLT variables (<code>xsl:variable</code>).</p></li></ul><p>There is no difference between this ways, though the XSLT variables provides more functionality (as attribute, value by content). There should be no change of the original functionality by using these variable structures for Schematron QuickFix.</p><div class="div4">
-<h5><a name="d0e1243" id="d0e1243"></a>5.4.1.1 Places to declare variables</h5><p>There are two places (inside of the SQF elements) to declare variables:</p><p><ul><li><p>In a <code>sqf:fix</code> element</p></li><li><p>Inside of any activity element.</p></li></ul>
+<h4><a name="d0e1385" id="d0e1385"></a>5.3.5 Kind of the change commands</h4><p>There are four predefined kinds of change commands:<ul><li><p>Add</p></li><li><p>Delete</p></li><li><p>Replace</p></li><li><p>StringReplace</p></li></ul></p><p>A Schematron QuickFix implementation is free to provide extending Change commands. The extending change commands should provide the attributes of the attribute group <a href="#sqf_activityBase"><cite><span><code>activityBase</code></span></cite></a> and respect the concepts to <a href="#fix_create_new_content"><cite>create new content</cite></a>.</p><div class="div4">
+<h5><a name="d0e1413" id="d0e1413"></a>5.3.5.1 Add</h5><p>Creates one or more nodes and insert it relative to the anchor node as new content. The new content could be created by the <a href="#create-by-sqf-att"><cite>SQF attributes</cite></a>, <a href="#create-by-xpath"><cite>by XPath</cite></a> or <a href="#create-by-content"><cite>by the content of the sqf:add element</cite></a>.</p><p>The position attribute detects the position relative to the anchor node, where the new content should be inserted. The following values are available:</p><p></p><dl><dt class="label">first-child</dt><dd><p>If the anchor node is an element the new content will be inserted after the start tag of the anchor node.</p><p>If the anchor node is an attribute, the new content will be inserted after the start tag of the parent element of the anchor node.</p><p>Otherwise: the new content will be inserted after the anchor node.</p><p>This value is the default value of the <code>position</code> attribute.</p></dd><dt class="label">last-child</dt><dd><p>If the anchor node is an element the new content will be inserted before the end tag of the anchor node.</p><p>If the anchor node is an attribute, the new content will be inserted before the end tag of the parent element of the anchor node.</p><p>Otherwise: the new content will be inserted after the anchor node.</p></dd><dt class="label">before</dt><dd><p>The new content will be inserted before the anchor node.</p><p>If the anchor node is an attribute, the new content will be inserted before the parent element of the anchor node.</p></dd><dt class="label">after</dt><dd><p>The new content will be inserted after the anchor node.</p><p>If the anchor node is an attribute, the new content will be inserted after the parent element of the anchor node.</p></dd></dl><p></p><p>The <code>position</code> attribute is useless, if the new content are one or more attributes. In this case, the new content should always be added as attribute(s) of the anchor node.</p><p class="error-def">In the case, the new content is an attribute, it is an error if the anchor node is not an element.</p><p>If the anchor node is an element and has an attribute with the same name as one of the new attributes, the new attributes should replace the existing attributes.</p></div><div class="div4">
+<h5><a name="d0e1481" id="d0e1481"></a>5.3.5.2 Delete</h5><p>This change command deletes the anchor node.</p></div><div class="div4">
+<h5><a name="d0e1486" id="d0e1486"></a>5.3.5.3 Replace</h5><p>The anchor node will be replaced by new content. The new content can be created by the <a href="#create-by-sqf-att"><cite>SQF attributes</cite></a>, <a href="#create-by-xpath"><cite>by XPath</cite></a> or <a href="#create-by-content"><cite>by the content of the sqf:replace element</cite></a>.</p><p class="error-def">It is an error, if the new content is an attribute, but the anchor node not.</p></div><div class="div4">
+<h5><a name="d0e1502" id="d0e1502"></a>5.3.5.4 StringReplace</h5><p>The anchor node has to be a text node. To analyze the text node, the <code>regex</code> attribute is required. The attribute value of the regex attribute will be interpreted as an <a href="http://www.w3.org/TR/xslt20/#attribute-value-templates"><cite>attribute value template</cite></a>. The effective value should be a valid <a href="http://www.w3.org/TR/xslt20/#regular-expressions"><cite>Regular Expression</cite></a> corresponding to the XSLT 2.0 Recommendation.</p><p>Any substrings, which matches to this Regular Expression, will be replaced by new content. The new content can be created <a href="#create-by-xpath"><cite>by XPath</cite></a> or <a href="#create-by-content"><cite>by the content of the sqf:stringReplace element</cite></a>.</p></div></div></div><div class="div2">
+<h3><a name="d0e1524" id="d0e1524"></a>5.4 Variables</h3><div class="div3">
+<h4><a name="d0e1527" id="d0e1527"></a>5.4.1 Declaration</h4><p>The Schematron QuickFix specification does not provide an own structure to declare variables for the XPath expressions. There are two permitted ways do declare variables:</p><ul><li><p>Using Schematron variables (<code>sch:let</code>).</p></li><li><p>Using XSLT variables (<code>xsl:variable</code>).</p></li></ul><p>There is no difference between this ways, though the XSLT variables provides more functionality (as attribute, value by content). There should be no change of the original functionality by using these variable structures for Schematron QuickFix.</p><div class="div4">
+<h5><a name="d0e1547" id="d0e1547"></a>5.4.1.1 Places to declare variables</h5><p>There are two places (inside of the SQF elements) to declare variables:</p><p><ul><li><p>In a <code>sqf:fix</code> element</p></li><li><p>Inside of any activity element.</p></li></ul>
                         </p></div><div class="div4">
-<h5><a name="d0e1260" id="d0e1260"></a>5.4.1.2 Scope</h5><p>There should be no changes to the original scope behavior of the used variable concepts.</p></div></div><div class="div3">
-<h4><a name="d0e1265" id="d0e1265"></a>5.4.2 Usage</h4><p>Variables should be available in any XPath expressions, which are in the scope of the variable. This shall also apply to the variables which are declared outside of the Schematron QuickFix elements (global variables or variables in <code>sch:rule</code> elements).</p></div></div><div class="div2">
-<h3><a name="d0e1273" id="d0e1273"></a>5.5 Parameter</h3><div class="div3">
-<h4><a name="d0e1276" id="d0e1276"></a>5.5.1 Definition</h4><p>tbd.</p></div><div class="div3">
-<h4><a name="d0e1281" id="d0e1281"></a>5.5.2 Call a QuickFix</h4><p>tbd.</p></div><div class="div3">
-<h4><a name="d0e1286" id="d0e1286"></a>5.5.3 Usage</h4><p>tbd.</p></div><div class="div3">
-<h4><a name="d0e1291" id="d0e1291"></a>5.5.4 Default value</h4><p>tbd.</p></div><div class="div3">
-<h4><a name="d0e1296" id="d0e1296"></a>5.5.5 Abstract parameter</h4><p>tbd.</p></div></div><div class="div2">
-<h3><a name="d0e1301" id="d0e1301"></a>5.6 User Entry</h3><p>A User Entry is a parameter for the QuickFix which can be set by the user during the runtime of the QuickFix execution. </p><p>A QuickFix can have multiple User Entries. A User Entry requires the following properties:</p><ul><li><p>Title: A short description of the functionality of the User Entry</p></li><li><p>Name: To refer the User Entry value inside of the XPath expressions of the QuickFix</p></li></ul><p>A User Entry is able to have the following additional properties:</p><ul><li><p>Descriptions: More documentation information.</p></li><li><p>Default value: To suggest this value to the user.</p></li><li><p>Type: To restrict the possible values of the User Entry and get the value in the correct data type </p></li></ul><div class="div3">
-<h4><a name="d0e1327" id="d0e1327"></a>5.6.1 Definition of a User Entry</h4><p>User Entries have to be defined before any change commands in the sqf:fix element:</p><p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:fix id="fix1"&gt;
+<h5><a name="d0e1564" id="d0e1564"></a>5.4.1.2 Scope</h5><p>There should be no changes to the original scope behavior of the used variable concepts.</p></div></div><div class="div3">
+<h4><a name="d0e1569" id="d0e1569"></a>5.4.2 Usage</h4><p>Variables should be available in any XPath expressions, which are in the scope of the variable. This shall also apply to the variables which are declared outside of the Schematron QuickFix elements (global variables or variables in <code>sch:rule</code> elements).</p></div></div><div class="div2">
+<h3><a name="d0e1577" id="d0e1577"></a>5.5 Parameter</h3><p>There are two different ways to use parameters for QuickFixes:</p><p>
+                    <ul><li><p><em>Default parameter:</em> The default parameter is a common parameter to reuse and parametrize the QuickFix. Therefore the reused QuickFix may contains parameter(s) (see chapter <a href="#param.declaration"><cite>Declaration</cite></a>). Another QuickFix may call the reused QuickFix (see chapter <a href="#param.call-fix"><cite>Call a QuickFix</cite></a>). During the call, the calling QuickFix is able to set the value of the parameters of the reused QuickFix. </p></li><li><p><em>Abstract parameter:</em> This parameter is to declare the usage of Schematron parameters inside of the QuickFix, which should be defined by the <code>sch:param</code> element.</p></li></ul>
+                </p><p>The following chapter should discuss the default parameter. The abstract parameter will be discussed in the chapter <a href="#abstract-param"><cite>Abstract parameter</cite></a> only.</p><div class="div3">
+<h4><a name="param.declaration" id="param.declaration"></a>5.5.1 Declaration</h4><p>The declaration of a parameter has to be at the beginning of the <code>sqf:fix</code> element, before any other elements. The sqf:param element declares one parameter. To declare multiple parameter you need multiple <code>sqf:param</code> elements.</p><div class="div4">
+<h5><a name="d0e1621" id="d0e1621"></a>5.5.1.1 Name</h5><p>The <code>name</code> attribute is the only required attribute of the <code>sqf:param</code> element. It sets the name of the parameter.</p><p class="error-def">It is an error, if there is an other parameter inside of the <code>sqf:fix</code> element with the same name.</p><p>The value of the name attribute should to be valid to the type xs:QName.</p></div><div class="div4">
+<h5><a name="param.default-value" id="param.default-value"></a>5.5.1.2 Default value</h5><p>The default value of the parameter will be set by the <code>default</code> attribute. The attribute value needs to be a valid XPath expression. The parameter gets the returned value, if the value is not set by the call of this fix (see chapter <a href="#param.call-fix"><cite>Call a QuickFix</cite></a>). </p><p>If the <code>default</code> attribute is omitted, the default value is a zero length string. </p></div><div class="div4">
+<h5><a name="d0e1655" id="d0e1655"></a>5.5.1.3 Type</h5><p>If the <code>type</code> attribute is set, it specifies the required type of the parameter value. If the <code>type</code> attribute is omitted, the type of the parameter value is unspecified.</p></div><div class="div4">
+<h5><a name="d0e1666" id="d0e1666"></a>5.5.1.4 Required parameters</h5><p>A parameter is by default optional. If the call-fix do not specify a value for an optional parameter, the <a href="param.default-value"><cite>default value</cite></a> will be used. The required attribute with the value "yes" indicates that the parameter value needs to be specified by the call-fix. </p><p class="error-def">It is an error, if the <code>default</code> attribute is omitted, though the <code>required</code> attribute has the value "yes".</p></div></div><div class="div3">
+<h4><a name="param.call-fix" id="param.call-fix"></a>5.5.2 Call a QuickFix</h4><p>There are different use cases to call a QuickFix. In any case the <code>sqf:call-fix</code> element should be used:</p><p>
+                        <ul><li><p>A calling QuickFix may reuse a QuickFix, do not add any other functionality and reuse the description as well. The reused QuickFix may be specified by parameters.</p></li><li><p>A calling QuickFix may reuse the functionality of one ore more QuickFixes, do not add any other functionality but has a specific description.</p></li><li><p>A calling QuickFix may reuse the functionality of one or more QuickFixes, add specific functionality and contains a specific description.</p></li><li><p>A calling QuickFix may reuse a QuickFix and and the description as well, but add specific functionality.</p></li></ul>
+                    </p><p>To call a QuickFix, the <code>sqf:fix</code> element may contain a <code>sqf:call-fix</code> element at any position. The only condition is, that it is after any <code>sqf:param</code> and <code>sqf:description</code> elements. </p><p>The <code>sqf:call-fix</code> element should have a mandatory <code>ref</code> attribute. Its value should refer to an ID of any available QuickFix. If the calling QuickFix is a <a href="#quick-fix.global-local"><cite>global</cite></a> QuickFix, only other <a href="#quick-fix.global-local"><cite>global</cite></a> QuickFixes or QuickFixes of <a href="#quick-fix.global-local"><cite>global</cite></a>
+                        <a href="#quick-fix.group"><cite>QuickFix groups</cite></a> are available. If the calling QuickFix is <a href="#quick-fix.global-local"><cite>local</cite></a>, any QuickFix is available, which is available for any assertion in the scope of the calling QuickFix. Additionally if there is a <a href="#quick-fix.global-local"><cite>local</cite></a> QuickFix which has the same ID as a <a href="#quick-fix.global-local"><cite>global</cite></a> QuickFix, the <a href="#quick-fix.global-local"><cite>local</cite></a> QuickFix may contain a sqf:call-fix element with a ref attribute which refers to the ID of it self. </p><div class="div4">
+<h5><a name="d0e1758" id="d0e1758"></a>5.5.2.1 Specify a parameter</h5><p>A <code>sqf:call-fix</code> element may contain one or more <code>sqf:with-param</code> elements.</p></div><div class="div4">
+<h5><a name="d0e1769" id="d0e1769"></a>5.5.2.2 Adoption of properties</h5><p>Tbd.</p></div></div><div class="div3">
+<h4><a name="d0e1774" id="d0e1774"></a>5.5.3 Example</h4><p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:fix id="call-fix"&gt; [...] &lt;sqf:call-fix ref="reused-fix"&gt; &lt;sqf:with-param name="param1" select="10"/&gt; &lt;/sqf:call-fix&gt; &lt;/sqf:fix&gt; &lt;sqf:fix id="reused-fix"&gt; &lt;sqf:param name="param1" default="'defaultValue'" type="xs:string"/&gt; &lt;sqf:param name="param2" required="yes" type="xs:integer"/&gt; [...] &lt;/sqf:fix&gt;</pre></div></div></p></div><div class="div3">
+<h4><a name="abstract-param" id="abstract-param"></a>5.5.4 Abstract parameter</h4><p>tbd.</p></div></div><div class="div2">
+<h3><a name="d0e1786" id="d0e1786"></a>5.6 User Entry</h3><p>A User Entry is a parameter for the QuickFix which can be set by the user during the runtime of the QuickFix execution. </p><p>A QuickFix can have multiple User Entries. A User Entry requires the following properties:</p><ul><li><p>Title: A short description of the functionality of the User Entry</p></li><li><p>Name: To refer the User Entry value inside of the XPath expressions of the QuickFix</p></li></ul><p>A User Entry is able to have the following additional properties:</p><ul><li><p>Descriptions: More documentation information.</p></li><li><p>Default value: To suggest this value to the user.</p></li><li><p>Type: To restrict the possible values of the User Entry and get the value in the correct data type </p></li></ul><div class="div3">
+<h4><a name="d0e1812" id="d0e1812"></a>5.6.1 Definition of a User Entry</h4><p>User Entries have to be defined before any change commands in the sqf:fix element:</p><p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:fix id="fix1"&gt;
     &lt;sqf:description&gt;
         &lt;sqf:title&gt;Fix 1&lt;/sqf:title&gt;
     &lt;/sqf:description&gt;
@@ -396,40 +426,40 @@ B <a href="#d0e3817">Examples</a><br>
         &lt;/sqf:description&gt;
     &lt;/sqf:user-entry&gt;
     [Elements from the content model  (sqf:delete | sqf:add | sqf:replace | sqf:stringReplace)+]
-&lt;/sqf:fix&gt;</pre></div></div></p><p>Each sqf:user-entry element defines an User Entry. Consequently the QuickFix fix1 has two User Entries with the names ue1 and ue2.</p></div><div class="div3">
-<h4><a name="d0e1338" id="d0e1338"></a>5.6.2 Value usage</h4><p>To use the value, each User Entry can be used as an XPath variable. So the value of the User Entry can be used in each XPath expression of all Activity Elements in the User Entry. The name of the XPath variable is the name of User Entry.</p><p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:user-entry name="ue1"&gt; &lt;sqf:description&gt; &lt;sqf:title&gt;User Entry 1&lt;/sqf:title&gt; &lt;/sqf:description&gt; &lt;/sqf:user-entry&gt; &lt;sqf:replace target="{$ue1}" node-type="element" select="$ue1"/&gt;</pre></div></div></p><p>The Activity Element sqf:replace replaces the anchor node (context of the Schematron error) by a new element. The name will be set by the user by setting the User Entry ue1. The content of the new element will be also the value of the User Entry ue1. </p><div class="div4">
-<h5><a name="d0e1349" id="d0e1349"></a>5.6.2.1 Scope</h5><p>The User Entry value is available in all XPath expressions of all Activity Elements of the QuickFix. </p><p><em>Exceptions:</em></p><p>There could some restrictions of the implementation, which could restrict this (for instance, <a href="#anchor_node_restrictions"><cite>restrictions to the match attribute</cite></a>).</p></div></div><div class="div3">
-<h4><a name="d0e1362" id="d0e1362"></a>5.6.3 Implementation of User Entries</h4><p>A SQF implementation which supports User Entries should provide the user an interface to set User Entries after or while choosing the QuickFix. For this the titles of each User Entry should displayed in connection with the corresponding QuickFixes.</p></div><div class="div3">
-<h4><a name="d0e1367" id="d0e1367"></a>5.6.4 Default value</h4><p>The default attribute sets a default value for the User Entry, using an XPath expression. The result value can be used by the implementation to provide as default value to the user, when he set the User Entry. The default value should used like the default value of a parameter (e.g. sqf:param): </p><ul><li><p>There are no optional User Entries.</p></li><li><p>Each User Entry should be set by the user.</p></li><li><p>The default value is to provide it as possible value only.</p></li></ul></div></div><div class="div2">
-<h3><a name="d0e1382" id="d0e1382"></a>5.7 Embedding XPath</h3><p>Schematron QuickFix is based on the W3C Recommendation XPath 2.0. Any XPath expression of the Schematron schema needs to match the syntax allowed by the XPath grammar.</p><div class="div3">
-<h4><a name="d0e1387" id="d0e1387"></a>5.7.1 Attributes to embed XPath expressions</h4><p>The following table shows attributes, whose value will be parsed as XPath expressions, corresponding to the <a href="http://www.w3.org/TR/xpath20/"><cite>XPath 2.0</cite></a> Recommendation:</p><p>
-                        <table border="1" cellspacing="0" cellpadding="2"><thead><tr><th>Attribute</th><th>Element</th><th>Context</th><th>Description</th><th>Required return type</th></tr></thead><tbody><tr><td rowspan="2">default</td><td>sqf:param</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Default value for the parameter</td><td>no requirement</td></tr><tr><td>sqf:user-entry</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Default value for the User Entry</td><td>no requirement</td></tr><tr><td rowspan="4">match</td><td>sqf:add</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Contexts of the change commands</td><td>node()*</td></tr><tr><td>sqf:delete</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Contexts of the change commands</td><td>node()*</td></tr><tr><td>sqf:replace</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Contexts of the change commands</td><td>node()*</td></tr><tr><td>sqf:stringReplace</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Contexts of the change commands</td><td>text()*</td></tr><tr><td rowspan="5">select</td><td>sqf:add</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Nodes or atomic values, which should be inserted</td><td>no requirement</td></tr><tr><td>sqf:keep</td><td>Inherits from the parent node.</td><td>Nodes to copy or apply to other change commands</td><td>node()*</td></tr><tr><td>sqf:replace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Nodes or atomic values, which should be inserted</td><td>no requirement</td></tr><tr><td>sqf:stringReplace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Nodes or atomic values, which should be inserted</td><td>no requirement</td></tr><tr><td>sqf:with-param</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Value for the parameter</td><td>no requirement</td></tr><tr><td rowspan="6">use-when</td><td>sqf:add</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Condition to process the change command</td><td>no requirement, interpreted as boolean</td></tr><tr><td>sqf:delete</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Condition to process the change command</td><td>no requirement, interpreted as boolean</td></tr><tr><td>sqf:replace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Condition to process the change command</td><td>no requirement, interpreted as boolean</td></tr><tr><td>sqf:stringReplace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Condition to process the change command</td><td>no requirement, interpreted as boolean</td></tr><tr><td>sqf:fix</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Condition to provide the QuickFix</td><td>no requirement, interpreted as boolean</td></tr><tr><td>sqf:group</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Condition to provide all QuickFixes of this QuickFix group</td><td>no requirement, interpreted as boolean</td></tr></tbody></table>
+&lt;/sqf:fix&gt;</pre></div></div></p><p>Each sqf:user-entry element defines a User Entry. Consequently the QuickFix fix1 has two User Entries with the names ue1 and ue2.</p></div><div class="div3">
+<h4><a name="d0e1823" id="d0e1823"></a>5.6.2 Value usage</h4><p>To use the value, each User Entry can be used as an XPath variable. So the value of the User Entry can be used in each XPath expression of all Activity Elements in the User Entry. The name of the XPath variable is the name of User Entry.</p><p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:user-entry name="ue1"&gt; &lt;sqf:description&gt; &lt;sqf:title&gt;User Entry 1&lt;/sqf:title&gt; &lt;/sqf:description&gt; &lt;/sqf:user-entry&gt; &lt;sqf:replace target="{$ue1}" node-type="element" select="$ue1"/&gt;</pre></div></div></p><p>The Activity Element sqf:replace replaces the anchor node (<a title="" href="#sch-error-context">context of the Schematron errors</a>) by a new element. The name will be set by the user by setting the User Entry ue1. The content of the new element will be also the value of the User Entry ue1. </p><div class="div4">
+<h5><a name="d0e1837" id="d0e1837"></a>5.6.2.1 Scope</h5><p>The User Entry value is available in all XPath expressions of all Activity Elements of the QuickFix. </p><p><em>Exceptions:</em></p><p>There could some restrictions of the implementation, which could restrict this (for instance, <a href="#anchor_node_restrictions"><cite>restrictions to the match attribute</cite></a>).</p></div></div><div class="div3">
+<h4><a name="d0e1850" id="d0e1850"></a>5.6.3 Implementation of User Entries</h4><p>A SQF implementation which supports User Entries should provide the user an interface to set User Entries after or while choosing the QuickFix. For this the titles of each User Entry should displayed in connection with the corresponding QuickFixes.</p></div><div class="div3">
+<h4><a name="d0e1855" id="d0e1855"></a>5.6.4 Default value</h4><p>The default attribute sets a default value for the User Entry, using an XPath expression. The result value can be used by the implementation to provide a default value to the user, when he set the User Entry. The default value should used like the default value of a parameter (e.g. sqf:param): </p><ul><li><p>There are no optional User Entries.</p></li><li><p>Each User Entry should be set by the user.</p></li><li><p>The default value is to provide it as possible value only.</p></li></ul></div></div><div class="div2">
+<h3><a name="d0e1870" id="d0e1870"></a>5.7 Embedding XPath</h3><p>Schematron QuickFix is based on the W3C Recommendation XPath 2.0. Any XPath expression of the Schematron schema needs to match the syntax allowed by the XPath grammar.</p><div class="div3">
+<h4><a name="d0e1875" id="d0e1875"></a>5.7.1 Attributes to embed XPath expressions</h4><p>The following table shows attributes, whose value will be parsed as XPath expressions, corresponding to the <a href="http://www.w3.org/TR/xpath20/"><cite>XPath 2.0</cite></a> Recommendation:</p><p>
+                        <table border="1" cellspacing="0" cellpadding="2"><thead><tr><th>Attribute</th><th>Element</th><th>Context</th><th>Description</th><th>Required return type</th></tr></thead><tbody><tr><td rowspan="2">default</td><td>sqf:param</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Default value for the parameter</td><td>no requirement</td></tr><tr><td>sqf:user-entry</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Default value for the User Entry</td><td>no requirement</td></tr><tr><td rowspan="4">match</td><td>sqf:add</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Contexts of the change commands</td><td>node()*</td></tr><tr><td>sqf:delete</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Contexts of the change commands</td><td>node()*</td></tr><tr><td>sqf:replace</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Contexts of the change commands</td><td>node()*</td></tr><tr><td>sqf:stringReplace</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Contexts of the change commands</td><td>text()*</td></tr><tr><td rowspan="5">select</td><td>sqf:add</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Nodes or atomic values, which should be inserted</td><td>no requirement</td></tr><tr><td>sqf:keep</td><td>Inherits from the parent node.</td><td>Nodes to copy or apply to other change commands</td><td>node()*</td></tr><tr><td>sqf:replace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Nodes or atomic values, which should be inserted</td><td>no requirement</td></tr><tr><td>sqf:stringReplace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Nodes or atomic values, which should be inserted</td><td>no requirement</td></tr><tr><td>sqf:with-param</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Value for the parameter</td><td>no requirement</td></tr><tr><td rowspan="6">use-when</td><td>sqf:add</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Condition to process the change command</td><td>no requirement, interpreted as boolean</td></tr><tr><td>sqf:delete</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Condition to process the change command</td><td>no requirement, interpreted as boolean</td></tr><tr><td>sqf:replace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Condition to process the change command</td><td>no requirement, interpreted as boolean</td></tr><tr><td>sqf:stringReplace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Condition to process the change command</td><td>no requirement, interpreted as boolean</td></tr><tr><td>sqf:fix</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Condition to provide the QuickFix</td><td>no requirement, interpreted as boolean</td></tr><tr><td>sqf:group</td><td><a title="" href="#sch-error-context">context of the Schematron error</a></td><td>Condition to provide all QuickFixes of this <a href="#quick-fix.group"><cite>QuickFix group</cite></a></td><td>no requirement, interpreted as boolean</td></tr></tbody></table>
                     </p></div><div class="div3">
 <h4><a name="attribute-value-template" id="attribute-value-template"></a>5.7.2 Attribute Value Template</h4><p>The following table shows attributes, whose value is interpreted as <a href="http://www.w3.org/TR/xslt20/#attribute-value-templates"><cite>attribute value template</cite></a> corresponding to the XSLT 2.0 Recommendation:</p><p>
                         <table border="1" cellspacing="0" cellpadding="2"><thead><tr><th>Attribute</th><th>Element</th><th>Context</th><th>Effective value requirements</th></tr></thead><tbody><tr><td>regex</td><td>sqf:stringReplace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Valid <a href="http://www.w3.org/TR/xslt20/#regular-expressions"><cite>Regular Expression</cite></a> corresponding to the XSLT 2.0 Recommendation.</td></tr><tr><td rowspan="2">target</td><td>sqf:add</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>xs:QName</td></tr><tr><td>sqf:replace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>xs:QName</td></tr></tbody></table>
                     </p><p>The effective value requirements should be satisfied after interpreting the attribute value template.</p></div></div><div class="div2">
-<h3><a name="d0e1645" id="d0e1645"></a>5.8 Localization</h3><p>The SQF localisation concept is based on the <a href="http://www.w3.org/TR/xml/#sec-lang-tag"><cite>XML concept to detect the natural language</cite></a>, using the <code>xml:lang</code> attribute. Consequently SQF elements are able to inherit the language property of all ancestors.</p><div class="div3">
-<h4><a name="d0e1656" id="d0e1656"></a>5.8.1 Locatable elements</h4><p>The following list shows SQF elements, which are locatable with the attribute <code>xml:lang</code>:</p><p>
+<h3><a name="localization" id="localization"></a>5.8 Localization</h3><p>The SQF localisation concept is based on the <a href="http://www.w3.org/TR/xml/#sec-lang-tag"><cite>XML concept to detect the natural language</cite></a>, using the <code>xml:lang</code> attribute. Consequently SQF elements are able to inherit the language property of all ancestors.</p><div class="div3">
+<h4><a name="d0e2146" id="d0e2146"></a>5.8.1 Locatable elements</h4><p>The following list shows SQF elements, which are locatable with the attribute <code>xml:lang</code>:</p><p>
                         <ul><li><p><code>sqf:description</code></p></li><li><p><code>sqf:fix</code></p></li><li><p><code>sqf:fixes</code></p></li><li><p><code>sqf:group</code></p></li><li><p><code>sqf:p</code></p></li><li><p><code>sqf:title</code></p></li><li><p><code>sqf:user-entry</code></p></li></ul>
                     </p></div><div class="div3">
-<h4><a name="d0e1696" id="d0e1696"></a>5.8.2 Localisation of a QuickFix</h4><p>To define multiple descriptions for one QuickFix, but in different languages, the <code>sqf:fix</code> element is permitted to contain multiple <code>sqf:description</code> elements. It is restricted, that a <code>sqf:fix</code> element should not contain two <code>sqf:description</code> elements with the same <code>xml:lang</code> attribute value (or both with no <code>xml:lang</code> attribute).</p><p>In case there are multiple <code>sqf:description</code> elements, the first <code>sqf:description</code> should be the default description. In case the implementation does not support the localisation or there is no language given, it should use this default description.</p></div></div></div><div class="div1">
-<h2><a name="d0e1727" id="d0e1727"></a>6 Implementation modes</h2><p>A QuickFix can be implemented in two different modes:<ul><li><p>XML save mode</p></li><li><p>XSLT only mode</p></li></ul></p><p>An implementation is free to implement only one or both modes.</p><div class="div2">
-<h3><a name="d0e1744" id="d0e1744"></a>6.1 XML save mode</h3><p>The XML save mode requires that no changes will be applied to the <a title="" href="#sch-document">source document</a>, which are not defined by the executed QuickFix. Changes which are caused by an XSLT processor (skip the XML declaration, resolving default attributes, CDATA sections, etc.) any time, should not influence the document. That is why it is not possible to implement the XML save mode with only XSLT processes.</p></div><div class="div2">
-<h3><a name="d0e1752" id="d0e1752"></a>6.2 XSLT only mode</h3><p>If an implementation is based only on XSLT processes, this is called the XSLT only mode. In this case, it is allowed to change the <a title="" href="#sch-document">source document</a> on any QuickFix execution in the following ways, though it is not defined in the QuickFix:<ul><li><p>Skip the XML declaration</p></li><li><p>Skip the DOCTYPE declaration</p></li><li><p>Skip whitespace:<ul><li><p>which are outside of the root element and not in processing instructions and comments.</p></li><li><p>non significant whitespace</p></li></ul></p></li><li><p>Normalize whitespace<ul><li><p>Leading whitespace of content in processing instructions in prolog</p></li><li><p>between attributes</p></li></ul></p></li><li><p>Resolve default attributes to encoded attributes</p></li><li><p>Resolve CDATA sections</p></li><li><p>Resolve Character entities.</p></li></ul></p></div></div><div class="div1">
-<h2><a name="d0e1796" id="d0e1796"></a>7 Schematron QuickFix reference</h2><div class="div2">
-<h3><a name="d0e1799" id="d0e1799"></a>7.1 Elements</h3><div class="div3">
+<h4><a name="d0e2186" id="d0e2186"></a>5.8.2 Localisation of a QuickFix</h4><p>To define multiple descriptions for one QuickFix, but in different languages, the <code>sqf:fix</code> element is permitted to contain multiple <code>sqf:description</code> elements. It is restricted, that a <code>sqf:fix</code> element should not contain two <code>sqf:description</code> elements with the same <code>xml:lang</code> attribute value (or both with no <code>xml:lang</code> attribute).</p><p>In case there are multiple <code>sqf:description</code> elements, the first <code>sqf:description</code> should be the default description. In case the implementation does not support the localisation or there is no language given, it should use this default description.</p></div></div></div><div class="div1">
+<h2><a name="d0e2217" id="d0e2217"></a>6 Implementation modes</h2><p>A QuickFix can be implemented in two different modes:<ul><li><p>XML save mode</p></li><li><p>XSLT only mode</p></li></ul></p><p>An implementation is free to implement only one or both modes.</p><div class="div2">
+<h3><a name="d0e2234" id="d0e2234"></a>6.1 XML save mode</h3><p>The XML save mode requires that no changes will be applied to the <a title="" href="#sch-source-document">source document</a>, which are not defined by the executed QuickFix. Changes which are caused by an XSLT processor (skip the XML declaration, resolving default attributes, CDATA sections, etc.) any time, should not influence the document. That is why it is not possible to implement the XML save mode with only XSLT processes.</p></div><div class="div2">
+<h3><a name="d0e2242" id="d0e2242"></a>6.2 XSLT only mode</h3><p>If an implementation is based only on XSLT processes, this is called the XSLT only mode. In this case, it is allowed to change the <a title="" href="#sch-source-document">source document</a> on any QuickFix execution in the following ways, though it is not defined in the QuickFix:<ul><li><p>Skip the XML declaration</p></li><li><p>Skip the DOCTYPE declaration</p></li><li><p>Skip whitespace:<ul><li><p>which are outside of the root element and not in processing instructions and comments.</p></li><li><p>non significant whitespace</p></li></ul></p></li><li><p>Normalize whitespace<ul><li><p>Leading whitespace of content in processing instructions in prolog</p></li><li><p>between attributes</p></li></ul></p></li><li><p>Resolve default attributes to encoded attributes</p></li><li><p>Resolve CDATA sections</p></li><li><p>Resolve Character entities.</p></li></ul></p></div></div><div class="div1">
+<h2><a name="d0e2286" id="d0e2286"></a>7 Schematron QuickFix reference</h2><div class="div2">
+<h3><a name="d0e2289" id="d0e2289"></a>7.1 Elements</h3><div class="div3">
 <h4><a name="sqf_add" id="sqf_add"></a>7.1.1 &lt;sqf:add&gt;</h4><p>This activity element adds a node to one or more nodes of the XML instance.</p><p>The attributes <code>match</code> and <code>position</code> define the position where the nodes will be added. The position is determined by the anchor node(s) (<a href="#activityBase_match"><cite>@match</cite></a>) and the insertion direction (<a href="#add_position"><cite>@position</cite></a>).</p><p>The attributes <code>node-type</code>, <code>select</code> and <code>target</code> and the content of the element define the nodes to be added.</p><div class="div4">
-<h5><a name="d0e1832" id="d0e1832"></a>7.1.1.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e2322" id="d0e2322"></a>7.1.1.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_activityElements"><cite>
                            sqf:activityElements
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e1842" id="d0e1842"></a>7.1.1.2 Child elements</h5><ul><li><p>
+<h5><a name="d0e2332" id="d0e2332"></a>7.1.1.2 Child elements</h5><ul><li><p>
                         <a href="#sqf_templateElements"><cite>
                            sqf:templateElements
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e1852" id="d0e1852"></a>7.1.1.3 Attributes</h5><div class="div5">
+<h5><a name="d0e2342" id="d0e2342"></a>7.1.1.3 Attributes</h5><div class="div5">
 <h6><a name="add_position" id="add_position"></a>7.1.1.3.1 @position</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
@@ -457,24 +487,24 @@ B <a href="#d0e3817">Examples</a><br>
                                        </p><p>The nodes to be added will be inserted as the last child of the anchor node.</p></li></ul>
                               
                            </td></tr></tbody></table></div><div class="div5">
-<h6><a name="d0e1934" id="d0e1934"></a>7.1.1.3.2 </h6><p>See attribute group 
+<h6><a name="d0e2424" id="d0e2424"></a>7.1.1.3.2 </h6><p>See attribute group 
                         <a href="#sqf_activityManipulate"><cite>sqf:activityManipulate</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e1941" id="d0e1941"></a>7.1.1.4 Content model</h5><img src="img/svg/sqf_add.svg"></div></div><div class="div3">
+<h5><a name="d0e2431" id="d0e2431"></a>7.1.1.4 Content model</h5><img src="img/svg/sqf_add.svg"></div></div><div class="div3">
 <h4><a name="sqf_call-fix" id="sqf_call-fix"></a>7.1.2 &lt;sqf:call-fix&gt;</h4><p>This element calls another QuickFix within a QuickFix. The called QuickFix must be defined globally or for the same Schematron rule as the calling QuickFix. A calling QuickFix should not have other activity elements.</p><p>The calling QuickFix adopts the activity elements of the called QuickFix. With the help of parameters, these can be specified (see <a href="#sqf_with-param"><cite>
                   sqf:with-param
                </cite></a>).</p><p>The description and other characteristics (e.g. @use-when) of the called QuickFix will not be adopted.</p><div class="div4">
-<h5><a name="d0e1957" id="d0e1957"></a>7.1.2.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e2447" id="d0e2447"></a>7.1.2.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_fix"><cite>
                            sqf:fix
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e1967" id="d0e1967"></a>7.1.2.2 Child elements</h5><ul><li><p>
+<h5><a name="d0e2457" id="d0e2457"></a>7.1.2.2 Child elements</h5><ul><li><p>
                         <a href="#sqf_with-param"><cite>
                            sqf:with-param
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e1977" id="d0e1977"></a>7.1.2.3 Attributes</h5><div class="div5">
+<h5><a name="d0e2467" id="d0e2467"></a>7.1.2.3 Attributes</h5><div class="div5">
 <h6><a name="call-fix_ref" id="call-fix_ref"></a>7.1.2.3.1 @ref</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
@@ -490,23 +520,23 @@ B <a href="#d0e3817">Examples</a><br>
                                  <code>xs:string</code>
                               
                            </td></tr></tbody></table></div><div class="div5">
-<h6><a name="d0e2005" id="d0e2005"></a>7.1.2.3.2 </h6><p>See attribute group 
+<h6><a name="d0e2495" id="d0e2495"></a>7.1.2.3.2 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e2012" id="d0e2012"></a>7.1.2.4 Content model</h5><img src="img/svg/sqf_call-fix.svg"></div></div><div class="div3">
+<h5><a name="d0e2502" id="d0e2502"></a>7.1.2.4 Content model</h5><img src="img/svg/sqf_call-fix.svg"></div></div><div class="div3">
 <h4><a name="sqf_delete" id="sqf_delete"></a>7.1.3 &lt;sqf:delete&gt;</h4><p>This activity element deletes one or more nodes of the XML instance.</p><p>The <code>match</code> attribute defines the nodes to be deleted.</p><div class="div4">
-<h5><a name="d0e2026" id="d0e2026"></a>7.1.3.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e2516" id="d0e2516"></a>7.1.3.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_activityElements"><cite>
                            sqf:activityElements
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2036" id="d0e2036"></a>7.1.3.2 Attributes</h5><div class="div5">
-<h6><a name="d0e2039" id="d0e2039"></a>7.1.3.2.1 </h6><p>See attribute group 
+<h5><a name="d0e2526" id="d0e2526"></a>7.1.3.2 Attributes</h5><div class="div5">
+<h6><a name="d0e2529" id="d0e2529"></a>7.1.3.2.1 </h6><p>See attribute group 
                         <a href="#sqf_activityBase"><cite>sqf:activityBase</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e2046" id="d0e2046"></a>7.1.3.3 Content model</h5><img src="img/svg/sqf_delete.svg"></div></div><div class="div3">
+<h5><a name="d0e2536" id="d0e2536"></a>7.1.3.3 Content model</h5><img src="img/svg/sqf_delete.svg"></div></div><div class="div3">
 <h4><a name="sqf_description" id="sqf_description"></a>7.1.4 &lt;sqf:description&gt;</h4><p>Adds a human readable description to the parent element.</p><div class="div4">
-<h5><a name="d0e2055" id="d0e2055"></a>7.1.4.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e2545" id="d0e2545"></a>7.1.4.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_fix"><cite>
                            sqf:fix
                         </cite></a>
@@ -515,7 +545,7 @@ B <a href="#d0e3817">Examples</a><br>
                            sqf:user-entry
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2071" id="d0e2071"></a>7.1.4.2 Child elements</h5><ul><li><p>
+<h5><a name="d0e2561" id="d0e2561"></a>7.1.4.2 Child elements</h5><ul><li><p>
                         <a href="#sqf_p"><cite>
                            sqf:p
                         </cite></a>
@@ -524,14 +554,14 @@ B <a href="#d0e3817">Examples</a><br>
                            sqf:title
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2087" id="d0e2087"></a>7.1.4.3 Attributes</h5><div class="div5">
-<h6><a name="d0e2090" id="d0e2090"></a>7.1.4.3.1 @xml:lang (optional)</h6></div><div class="div5">
-<h6><a name="d0e2093" id="d0e2093"></a>7.1.4.3.2 </h6><p>See attribute group 
+<h5><a name="d0e2577" id="d0e2577"></a>7.1.4.3 Attributes</h5><div class="div5">
+<h6><a name="d0e2580" id="d0e2580"></a>7.1.4.3.1 @xml:lang (optional)</h6></div><div class="div5">
+<h6><a name="d0e2583" id="d0e2583"></a>7.1.4.3.2 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e2100" id="d0e2100"></a>7.1.4.4 Content model</h5><img src="img/svg/sqf_description.svg"></div></div><div class="div3">
+<h5><a name="d0e2590" id="d0e2590"></a>7.1.4.4 Content model</h5><img src="img/svg/sqf_description.svg"></div></div><div class="div3">
 <h4><a name="sqf_fix" id="sqf_fix"></a>7.1.5 &lt;sqf:fix&gt;</h4><p>Defines a Schematron QuickFix with its content. All commands will be processed if the QuickFix is activated by the user.</p><div class="div4">
-<h5><a name="d0e2109" id="d0e2109"></a>7.1.5.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e2599" id="d0e2599"></a>7.1.5.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_group"><cite>
                            sqf:group
                         </cite></a>
@@ -540,7 +570,7 @@ B <a href="#d0e3817">Examples</a><br>
                            sqf:fixElements
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2125" id="d0e2125"></a>7.1.5.2 Child elements</h5><ul><li><p>
+<h5><a name="d0e2615" id="d0e2615"></a>7.1.5.2 Child elements</h5><ul><li><p>
                         <a href="#sqf_call-fix"><cite>
                            sqf:call-fix
                         </cite></a>
@@ -569,7 +599,7 @@ B <a href="#d0e3817">Examples</a><br>
                            <a href="http://www.data2type.de/en/xml-xslt-xslfo/schematron/schematron-reference/#let">sch:let</a>
                         
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2171" id="d0e2171"></a>7.1.5.3 Attributes</h5><div class="div5">
+<h5><a name="d0e2661" id="d0e2661"></a>7.1.5.3 Attributes</h5><div class="div5">
 <h6><a name="fix_id" id="fix_id"></a>7.1.5.3.1 @id</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
@@ -632,18 +662,18 @@ B <a href="#d0e3817">Examples</a><br>
                                  <code>xs:string</code>
                               
                            </td></tr></tbody></table></div><div class="div5">
-<h6><a name="d0e2286" id="d0e2286"></a>7.1.5.3.4 @xml:lang (optional)</h6></div><div class="div5">
-<h6><a name="d0e2289" id="d0e2289"></a>7.1.5.3.5 </h6><p>See attribute group 
+<h6><a name="d0e2776" id="d0e2776"></a>7.1.5.3.4 @xml:lang (optional)</h6></div><div class="div5">
+<h6><a name="d0e2779" id="d0e2779"></a>7.1.5.3.5 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e2296" id="d0e2296"></a>7.1.5.4 Content model</h5><img src="img/svg/sqf_fix.svg"></div></div><div class="div3">
+<h5><a name="d0e2786" id="d0e2786"></a>7.1.5.4 Content model</h5><img src="img/svg/sqf_fix.svg"></div></div><div class="div3">
 <h4><a name="sqf_fixes" id="sqf_fixes"></a>7.1.6 &lt;sqf:fixes&gt;</h4><p>Contains globally useable Schematron QuickFixes and QuickFix groups.</p><div class="div4">
-<h5><a name="d0e2305" id="d0e2305"></a>7.1.6.1 Child elements</h5><ul><li><p>
+<h5><a name="d0e2795" id="d0e2795"></a>7.1.6.1 Child elements</h5><ul><li><p>
                         <a href="#sqf_fixElements"><cite>
                            sqf:fixElements
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2315" id="d0e2315"></a>7.1.6.2 Attributes</h5><div class="div5">
+<h5><a name="d0e2805" id="d0e2805"></a>7.1.6.2 Attributes</h5><div class="div5">
 <h6><a name="fixes_id" id="fixes_id"></a>7.1.6.2.1 @id</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Use
                            </th><td>
@@ -655,23 +685,23 @@ B <a href="#d0e3817">Examples</a><br>
                                  <code>xs:ID</code>
                               
                            </td></tr></tbody></table></div><div class="div5">
-<h6><a name="d0e2338" id="d0e2338"></a>7.1.6.2.2 @xml:lang (optional)</h6></div><div class="div5">
-<h6><a name="d0e2341" id="d0e2341"></a>7.1.6.2.3 </h6><p>See attribute group 
+<h6><a name="d0e2828" id="d0e2828"></a>7.1.6.2.2 @xml:lang (optional)</h6></div><div class="div5">
+<h6><a name="d0e2831" id="d0e2831"></a>7.1.6.2.3 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e2348" id="d0e2348"></a>7.1.6.3 Content model</h5><img src="img/svg/sqf_fixes.svg"></div></div><div class="div3">
+<h5><a name="d0e2838" id="d0e2838"></a>7.1.6.3 Content model</h5><img src="img/svg/sqf_fixes.svg"></div></div><div class="div3">
 <h4><a name="sqf_group" id="sqf_group"></a>7.1.7 &lt;sqf:group&gt;</h4><p>Defines a Schematron QuickFix group. If the group is linked by an assert or report, all QuickFixes of this group will be accosieted with the assert/report.</p><div class="div4">
-<h5><a name="d0e2357" id="d0e2357"></a>7.1.7.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e2847" id="d0e2847"></a>7.1.7.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_fixElements"><cite>
                            sqf:fixElements
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2367" id="d0e2367"></a>7.1.7.2 Child elements</h5><ul><li><p>
+<h5><a name="d0e2857" id="d0e2857"></a>7.1.7.2 Child elements</h5><ul><li><p>
                         <a href="#sqf_fix"><cite>
                            sqf:fix
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2377" id="d0e2377"></a>7.1.7.3 Attributes</h5><div class="div5">
+<h5><a name="d0e2867" id="d0e2867"></a>7.1.7.3 Attributes</h5><div class="div5">
 <h6><a name="group_id" id="group_id"></a>7.1.7.3.1 @id</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
@@ -708,13 +738,13 @@ B <a href="#d0e3817">Examples</a><br>
                                  <code>xs:string</code>
                               
                            </td></tr></tbody></table></div><div class="div5">
-<h6><a name="d0e2438" id="d0e2438"></a>7.1.7.3.3 @xml:lang (optional)</h6></div><div class="div5">
-<h6><a name="d0e2441" id="d0e2441"></a>7.1.7.3.4 </h6><p>See attribute group 
+<h6><a name="d0e2928" id="d0e2928"></a>7.1.7.3.3 @xml:lang (optional)</h6></div><div class="div5">
+<h6><a name="d0e2931" id="d0e2931"></a>7.1.7.3.4 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e2448" id="d0e2448"></a>7.1.7.4 Content model</h5><img src="img/svg/sqf_group.svg"></div></div><div class="div3">
+<h5><a name="d0e2938" id="d0e2938"></a>7.1.7.4 Content model</h5><img src="img/svg/sqf_group.svg"></div></div><div class="div3">
 <h4><a name="sqf_keep" id="sqf_keep"></a>7.1.8 &lt;sqf:keep&gt;</h4><p>This element is available within activity elements. The function is to copy nodes selected by the <code>select</code> attribute. Unlike a deep copy function, with this function the copied nodes can be manipulated by the current or other activity elements.</p><div class="div4">
-<h5><a name="d0e2460" id="d0e2460"></a>7.1.8.1 Attributes</h5><div class="div5">
+<h5><a name="d0e2950" id="d0e2950"></a>7.1.8.1 Attributes</h5><div class="div5">
 <h6><a name="keep_select" id="keep_select"></a>7.1.8.1.1 @select</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
@@ -737,14 +767,14 @@ B <a href="#d0e3817">Examples</a><br>
                               
                               XPath expression.
                            </td></tr></tbody></table></div></div><div class="div4">
-<h5><a name="d0e2496" id="d0e2496"></a>7.1.8.2 Content model</h5><img src="img/svg/sqf_keep.svg"></div></div><div class="div3">
+<h5><a name="d0e2986" id="d0e2986"></a>7.1.8.2 Content model</h5><img src="img/svg/sqf_keep.svg"></div></div><div class="div3">
 <h4><a name="sqf_p" id="sqf_p"></a>7.1.9 &lt;sqf:p&gt;</h4><p>Paragraph within a description.</p><div class="div4">
-<h5><a name="d0e2505" id="d0e2505"></a>7.1.9.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e2995" id="d0e2995"></a>7.1.9.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_description"><cite>
                            sqf:description
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2515" id="d0e2515"></a>7.1.9.2 Child elements</h5><ul><li><p>
+<h5><a name="d0e3005" id="d0e3005"></a>7.1.9.2 Child elements</h5><ul><li><p>
                         
                            <a href="http://www.data2type.de/en/xml-xslt-xslfo/schematron/schematron-reference/#dir">sch:dir</a>
                         
@@ -767,22 +797,22 @@ B <a href="#d0e3817">Examples</a><br>
                      </p></li><li><p>
                         <code>sch:foreign</code>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2555" id="d0e2555"></a>7.1.9.3 Attributes</h5><div class="div5">
-<h6><a name="d0e2558" id="d0e2558"></a>7.1.9.3.1 @xml:lang (optional)</h6></div><div class="div5">
-<h6><a name="d0e2561" id="d0e2561"></a>7.1.9.3.2 </h6><p>See attribute group 
+<h5><a name="d0e3045" id="d0e3045"></a>7.1.9.3 Attributes</h5><div class="div5">
+<h6><a name="d0e3048" id="d0e3048"></a>7.1.9.3.1 @xml:lang (optional)</h6></div><div class="div5">
+<h6><a name="d0e3051" id="d0e3051"></a>7.1.9.3.2 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e2568" id="d0e2568"></a>7.1.9.4 Content model</h5><img src="img/svg/sqf_p.svg"></div></div><div class="div3">
+<h5><a name="d0e3058" id="d0e3058"></a>7.1.9.4 Content model</h5><img src="img/svg/sqf_p.svg"></div></div><div class="div3">
 <h4><a name="sqf_param" id="sqf_param"></a>7.1.10 &lt;sqf:param&gt;</h4><p>This element defines a parameter for a QuickFix. The parameter can be used like a variable within the QuickFix. The value can be set by the <a href="#sqf_with-param"><cite>
                   sqf:with-param
                </cite></a> element.</p><p>The content defines a default value for the parameter.</p><div class="div4">
-<h5><a name="d0e2582" id="d0e2582"></a>7.1.10.1 Exception</h5><p>Abstract parameters (see attribute <code>abstract</code>) can not used as normal XPath variables. An abstract parameter declares, that the current QuickFix uses a parameter of an abstract pattern. A QuickFix with one or more abstract parameters can just used by abstract patterns. The value of the parameter will be set by the instantiation of the abstract pattern according to the Schematron specification. The instantiation of the abstract pattern must specify a value for every abstract parameter of the QuickFix.</p></div><div class="div4">
-<h5><a name="d0e2590" id="d0e2590"></a>7.1.10.2 Parent elements</h5><ul><li><p>
+<h5><a name="d0e3072" id="d0e3072"></a>7.1.10.1 Exception</h5><p>Abstract parameters (see attribute <code>abstract</code>) can not used as normal XPath variables. An abstract parameter declares, that the current QuickFix uses a parameter of an abstract pattern. A QuickFix with one or more abstract parameters can just used by abstract patterns. The value of the parameter will be set by the instantiation of the abstract pattern according to the Schematron specification. The instantiation of the abstract pattern must specify a value for every abstract parameter of the QuickFix.</p></div><div class="div4">
+<h5><a name="d0e3080" id="d0e3080"></a>7.1.10.2 Parent elements</h5><ul><li><p>
                         <a href="#sqf_fix"><cite>
                            sqf:fix
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2600" id="d0e2600"></a>7.1.10.3 Attributes</h5><div class="div5">
+<h5><a name="d0e3090" id="d0e3090"></a>7.1.10.3 Attributes</h5><div class="div5">
 <h6><a name="param_abstract" id="param_abstract"></a>7.1.10.3.1 @abstract</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
@@ -834,41 +864,41 @@ B <a href="#d0e3817">Examples</a><br>
                               
                               The value "yes" is used for required, "no" for optional.
                            </td></tr></tbody></table></div><div class="div5">
-<h6><a name="d0e2704" id="d0e2704"></a>7.1.10.3.3 </h6><p>See attribute group 
+<h6><a name="d0e3194" id="d0e3194"></a>7.1.10.3.3 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
                      .</p></div><div class="div5">
-<h6><a name="d0e2711" id="d0e2711"></a>7.1.10.3.4 </h6><p>See attribute group 
+<h6><a name="d0e3201" id="d0e3201"></a>7.1.10.3.4 </h6><p>See attribute group 
                         <a href="#sqf_parameterAttributes"><cite>sqf:parameterAttributes</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e2718" id="d0e2718"></a>7.1.10.4 Content model</h5><img src="img/svg/sqf_param.svg"></div></div><div class="div3">
+<h5><a name="d0e3208" id="d0e3208"></a>7.1.10.4 Content model</h5><img src="img/svg/sqf_param.svg"></div></div><div class="div3">
 <h4><a name="sqf_replace" id="sqf_replace"></a>7.1.11 &lt;sqf:replace&gt;</h4><p>This activity element replaces one or more nodes of the XML instance by a node. The activity command combines the delete and the add command.</p><p>The nodes to be deleted are defined by the <code>match</code> attribute. The nodes to be added are defined by the the attributes <code>node-type</code> and <code>select</code> and the content of the <code>sqf:replace</code> element.</p><p>The position of the nodes to be added is the position of the nodes to be deleted.</p><div class="div4">
-<h5><a name="d0e2743" id="d0e2743"></a>7.1.11.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e3233" id="d0e3233"></a>7.1.11.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_activityElements"><cite>
                            sqf:activityElements
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2753" id="d0e2753"></a>7.1.11.2 Child elements</h5><ul><li><p>
+<h5><a name="d0e3243" id="d0e3243"></a>7.1.11.2 Child elements</h5><ul><li><p>
                         <a href="#sqf_templateElements"><cite>
                            sqf:templateElements
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2763" id="d0e2763"></a>7.1.11.3 Attributes</h5><div class="div5">
-<h6><a name="d0e2766" id="d0e2766"></a>7.1.11.3.1 </h6><p>See attribute group 
+<h5><a name="d0e3253" id="d0e3253"></a>7.1.11.3 Attributes</h5><div class="div5">
+<h6><a name="d0e3256" id="d0e3256"></a>7.1.11.3.1 </h6><p>See attribute group 
                         <a href="#sqf_activityManipulate"><cite>sqf:activityManipulate</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e2773" id="d0e2773"></a>7.1.11.4 Content model</h5><img src="img/svg/sqf_replace.svg"></div></div><div class="div3">
+<h5><a name="d0e3263" id="d0e3263"></a>7.1.11.4 Content model</h5><img src="img/svg/sqf_replace.svg"></div></div><div class="div3">
 <h4><a name="sqf_stringReplace" id="sqf_stringReplace"></a>7.1.12 &lt;sqf:stringReplace&gt;</h4><p>This activity element replaces substrings of text nodes by other nodes. The text nodes are defined by the <code>match</code> attribute. The <code>regex</code> attribute defines the substrings of the text nodes.</p><p>The nodes to be inserted are defined by the content of the <code>sqf:stringReplace</code> element or the <code>select</code> attribute. <em>Note:</em> The context within the <code>sqf:stringReplace</code> element is set to the substrings. So, it is an atomic value.</p><div class="div4">
-<h5><a name="d0e2802" id="d0e2802"></a>7.1.12.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e3292" id="d0e3292"></a>7.1.12.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_activityElements"><cite>
                            sqf:activityElements
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2812" id="d0e2812"></a>7.1.12.2 Child elements</h5><ul><li><p>
+<h5><a name="d0e3302" id="d0e3302"></a>7.1.12.2 Child elements</h5><ul><li><p>
                         <a href="#sqf_templateElements"><cite>
                            sqf:templateElements
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2822" id="d0e2822"></a>7.1.12.3 Attributes</h5><div class="div5">
+<h5><a name="d0e3312" id="d0e3312"></a>7.1.12.3 Attributes</h5><div class="div5">
 <h6><a name="stringReplace_regex" id="stringReplace_regex"></a>7.1.12.3.1 @regex</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Use
                            </th><td>
@@ -904,17 +934,17 @@ B <a href="#d0e3817">Examples</a><br>
                               
                                  <em>Note:</em> The context will be always an atomic value. To select nodes from the XML instance, the use of variables outside of the <code>sqf:stringReplace</code> element is necessary.
                            </td></tr></tbody></table></div><div class="div5">
-<h6><a name="d0e2899" id="d0e2899"></a>7.1.12.3.3 </h6><p>See attribute group 
+<h6><a name="d0e3389" id="d0e3389"></a>7.1.12.3.3 </h6><p>See attribute group 
                         <a href="#sqf_activityBase"><cite>sqf:activityBase</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e2906" id="d0e2906"></a>7.1.12.4 Content model</h5><img src="img/svg/sqf_stringReplace.svg"></div></div><div class="div3">
+<h5><a name="d0e3396" id="d0e3396"></a>7.1.12.4 Content model</h5><img src="img/svg/sqf_stringReplace.svg"></div></div><div class="div3">
 <h4><a name="sqf_title" id="sqf_title"></a>7.1.13 &lt;sqf:title&gt;</h4><p>Name of a QuickFix or a user entry.</p><div class="div4">
-<h5><a name="d0e2915" id="d0e2915"></a>7.1.13.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e3405" id="d0e3405"></a>7.1.13.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_description"><cite>
                            sqf:description
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2925" id="d0e2925"></a>7.1.13.2 Child elements</h5><ul><li><p>
+<h5><a name="d0e3415" id="d0e3415"></a>7.1.13.2 Child elements</h5><ul><li><p>
                         
                            <a href="http://www.data2type.de/en/xml-xslt-xslfo/schematron/schematron-reference/#name">sch:name</a>
                         
@@ -925,39 +955,39 @@ B <a href="#d0e3817">Examples</a><br>
                      </p></li><li><p>
                         <code>sch:foreign</code>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2947" id="d0e2947"></a>7.1.13.3 Attributes</h5><div class="div5">
-<h6><a name="d0e2950" id="d0e2950"></a>7.1.13.3.1 @xml:lang (optional)</h6></div><div class="div5">
-<h6><a name="d0e2953" id="d0e2953"></a>7.1.13.3.2 </h6><p>See attribute group 
+<h5><a name="d0e3437" id="d0e3437"></a>7.1.13.3 Attributes</h5><div class="div5">
+<h6><a name="d0e3440" id="d0e3440"></a>7.1.13.3.1 @xml:lang (optional)</h6></div><div class="div5">
+<h6><a name="d0e3443" id="d0e3443"></a>7.1.13.3.2 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e2960" id="d0e2960"></a>7.1.13.4 Content model</h5><img src="img/svg/sqf_title.svg"></div></div><div class="div3">
+<h5><a name="d0e3450" id="d0e3450"></a>7.1.13.4 Content model</h5><img src="img/svg/sqf_title.svg"></div></div><div class="div3">
 <h4><a name="sqf_user-entry" id="sqf_user-entry"></a>7.1.14 &lt;sqf:user-entry&gt;</h4><p>Defines an user entry. With the help of the user entry, the user can interact with the QuickFix. The user entry refers to a <code>sqf:param</code> element. The value of the parameter is set manually by the user. The implementation should provide the user entry when the user selects the QuickFix.</p><div class="div4">
-<h5><a name="d0e2972" id="d0e2972"></a>7.1.14.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e3462" id="d0e3462"></a>7.1.14.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_fix"><cite>
                            sqf:fix
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2982" id="d0e2982"></a>7.1.14.2 Child elements</h5><ul><li><p>
+<h5><a name="d0e3472" id="d0e3472"></a>7.1.14.2 Child elements</h5><ul><li><p>
                         <a href="#sqf_description"><cite>
                            sqf:description
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e2992" id="d0e2992"></a>7.1.14.3 Attributes</h5><div class="div5">
-<h6><a name="d0e2995" id="d0e2995"></a>7.1.14.3.1 @xml:lang (optional)</h6></div><div class="div5">
-<h6><a name="d0e2998" id="d0e2998"></a>7.1.14.3.2 </h6><p>See attribute group 
+<h5><a name="d0e3482" id="d0e3482"></a>7.1.14.3 Attributes</h5><div class="div5">
+<h6><a name="d0e3485" id="d0e3485"></a>7.1.14.3.1 @xml:lang (optional)</h6></div><div class="div5">
+<h6><a name="d0e3488" id="d0e3488"></a>7.1.14.3.2 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
                      .</p></div><div class="div5">
-<h6><a name="d0e3005" id="d0e3005"></a>7.1.14.3.3 </h6><p>See attribute group 
+<h6><a name="d0e3495" id="d0e3495"></a>7.1.14.3.3 </h6><p>See attribute group 
                         <a href="#sqf_parameterAttributes"><cite>sqf:parameterAttributes</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e3012" id="d0e3012"></a>7.1.14.4 Content model</h5><img src="img/svg/sqf_user-entry.svg"></div></div><div class="div3">
+<h5><a name="d0e3502" id="d0e3502"></a>7.1.14.4 Content model</h5><img src="img/svg/sqf_user-entry.svg"></div></div><div class="div3">
 <h4><a name="sqf_with-param" id="sqf_with-param"></a>7.1.15 &lt;sqf:with-param&gt;</h4><p>With the help of this element, QuickFix calls can be specified. A <code>sqf:with-param</code> element refers to a parameter of the called QuickFix.</p><p>The content or the <code>select</code> attribute define the value of the parameter. If there is content, the <code>sqf:with-param</code> element should not have a <code>select</code> attribute.</p><div class="div4">
-<h5><a name="d0e3035" id="d0e3035"></a>7.1.15.1 Parent elements</h5><ul><li><p>
+<h5><a name="d0e3525" id="d0e3525"></a>7.1.15.1 Parent elements</h5><ul><li><p>
                         <a href="#sqf_call-fix"><cite>
                            sqf:call-fix
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3045" id="d0e3045"></a>7.1.15.2 Attributes</h5><div class="div5">
+<h5><a name="d0e3535" id="d0e3535"></a>7.1.15.2 Attributes</h5><div class="div5">
 <h6><a name="with-param_name" id="with-param_name"></a>7.1.15.2.1 @name</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Use
                            </th><td>
@@ -986,18 +1016,18 @@ B <a href="#d0e3817">Examples</a><br>
                               
                               Must be a valid XPath expression.
                            </td></tr></tbody></table></div><div class="div5">
-<h6><a name="d0e3096" id="d0e3096"></a>7.1.15.2.3 </h6><p>See attribute group 
+<h6><a name="d0e3586" id="d0e3586"></a>7.1.15.2.3 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e3103" id="d0e3103"></a>7.1.15.3 Content model</h5><img src="img/svg/sqf_with-param.svg"></div></div></div><div class="div2">
-<h3><a name="d0e3107" id="d0e3107"></a>7.2 Element groups</h3><div class="div3">
+<h5><a name="d0e3593" id="d0e3593"></a>7.1.15.3 Content model</h5><img src="img/svg/sqf_with-param.svg"></div></div></div><div class="div2">
+<h3><a name="d0e3597" id="d0e3597"></a>7.2 Element groups</h3><div class="div3">
 <h4><a name="sqf_activityElements" id="sqf_activityElements"></a>7.2.1 sqf:activityElements</h4><p>An activity element defines a change command for one or more nodes of the instance element. This change command is specified by the kind of activity element, the content and several attributes.</p><div class="div4">
-<h5><a name="d0e3115" id="d0e3115"></a>7.2.1.1 Used by</h5><ul><li><p>
+<h5><a name="d0e3605" id="d0e3605"></a>7.2.1.1 Used by</h5><ul><li><p>
                         <a href="#sqf_fix"><cite>
                            sqf:fix
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3125" id="d0e3125"></a>7.2.1.2 Elements</h5><ul><li><p>
+<h5><a name="d0e3615" id="d0e3615"></a>7.2.1.2 Elements</h5><ul><li><p>
                         <a href="#sqf_add"><cite>
                            sqf:add
                         </cite></a>
@@ -1014,14 +1044,14 @@ B <a href="#d0e3817">Examples</a><br>
                            sqf:stringReplace
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3153" id="d0e3153"></a>7.2.1.3 Content model</h5><img src="img/svg/sqf_activityElements.svg"></div></div><div class="div3">
+<h5><a name="d0e3643" id="d0e3643"></a>7.2.1.3 Content model</h5><img src="img/svg/sqf_activityElements.svg"></div></div><div class="div3">
 <h4><a name="sqf_fixElements" id="sqf_fixElements"></a>7.2.2 sqf:fixElements</h4><p>Elements to define QuickFixes or QuickFix groups inside of a Schematron schema.</p><div class="div4">
-<h5><a name="d0e3162" id="d0e3162"></a>7.2.2.1 Used by</h5><ul><li><p>
+<h5><a name="d0e3652" id="d0e3652"></a>7.2.2.1 Used by</h5><ul><li><p>
                         <a href="#sqf_fixes"><cite>
                            sqf:fixes
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3172" id="d0e3172"></a>7.2.2.2 Elements</h5><ul><li><p>
+<h5><a name="d0e3662" id="d0e3662"></a>7.2.2.2 Elements</h5><ul><li><p>
                         <a href="#sqf_fix"><cite>
                            sqf:fix
                         </cite></a>
@@ -1030,30 +1060,30 @@ B <a href="#d0e3817">Examples</a><br>
                            sqf:group
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3188" id="d0e3188"></a>7.2.2.3 Content model</h5><img src="img/svg/sqf_fixElements.svg"></div></div><div class="div3">
+<h5><a name="d0e3678" id="d0e3678"></a>7.2.2.3 Content model</h5><img src="img/svg/sqf_fixElements.svg"></div></div><div class="div3">
 <h4><a name="sqf_foreign" id="sqf_foreign"></a>7.2.3 sqf:foreign</h4><div class="div4">
-<h5><a name="d0e3195" id="d0e3195"></a>7.2.3.1 Used by</h5><ul><li><p>
+<h5><a name="d0e3685" id="d0e3685"></a>7.2.3.1 Used by</h5><ul><li><p>
                         <a href="#sqf_fix"><cite>
                            sqf:fix
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3205" id="d0e3205"></a>7.2.3.2 Elements</h5><ul><li><p>
+<h5><a name="d0e3695" id="d0e3695"></a>7.2.3.2 Elements</h5><ul><li><p>
                         <a href="#sqf_foreign-element"><cite>
                            sqf:foreign-element
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3215" id="d0e3215"></a>7.2.3.3 Content model</h5><img src="img/svg/sqf_foreign.svg"></div></div><div class="div3">
+<h5><a name="d0e3705" id="d0e3705"></a>7.2.3.3 Content model</h5><img src="img/svg/sqf_foreign.svg"></div></div><div class="div3">
 <h4><a name="sqf_foreign-element" id="sqf_foreign-element"></a>7.2.4 sqf:foreign-element</h4><div class="div4">
-<h5><a name="d0e3222" id="d0e3222"></a>7.2.4.1 Used by</h5><ul><li><p>
+<h5><a name="d0e3712" id="d0e3712"></a>7.2.4.1 Used by</h5><ul><li><p>
                         <a href="#sqf_foreign"><cite>
                            sqf:foreign
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3232" id="d0e3232"></a>7.2.4.2 Content model</h5><img src="img/svg/sqf_foreign-element.svg"></div></div><div class="div3">
+<h5><a name="d0e3722" id="d0e3722"></a>7.2.4.2 Content model</h5><img src="img/svg/sqf_foreign-element.svg"></div></div><div class="div3">
 <h4><a name="sqf_templateElements" id="sqf_templateElements"></a>7.2.5 sqf:templateElements</h4><p>This element group describes the content of the activity elements. The behaviour is similar to the content of the <code>xsl:template</code> element. Additionally, the elements <code>sch:value-of</code> and <code>sch:let</code> are treated as <code>xsl:value-of</code> and <code>xsl:variable</code>. Also the <a href="#sqf_keep"><cite>
                   sqf:keep
                </cite></a> element is available.</p><div class="div4">
-<h5><a name="d0e3259" id="d0e3259"></a>7.2.5.1 Used by</h5><ul><li><p>
+<h5><a name="d0e3749" id="d0e3749"></a>7.2.5.1 Used by</h5><ul><li><p>
                         <a href="#sqf_add"><cite>
                            sqf:add
                         </cite></a>
@@ -1066,10 +1096,10 @@ B <a href="#d0e3817">Examples</a><br>
                            sqf:stringReplace
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3281" id="d0e3281"></a>7.2.5.2 Content model</h5><img src="img/svg/sqf_templateElements.svg"></div></div></div><div class="div2">
-<h3><a name="d0e3285" id="d0e3285"></a>7.3 Attribute groups</h3><div class="div3">
+<h5><a name="d0e3771" id="d0e3771"></a>7.2.5.2 Content model</h5><img src="img/svg/sqf_templateElements.svg"></div></div></div><div class="div2">
+<h3><a name="d0e3775" id="d0e3775"></a>7.3 Attribute groups</h3><div class="div3">
 <h4><a name="sqf_activityBase" id="sqf_activityBase"></a>7.3.1 activityBase</h4><div class="div4">
-<h5><a name="d0e3291" id="d0e3291"></a>7.3.1.1 Used by</h5><ul><li><p>
+<h5><a name="d0e3781" id="d0e3781"></a>7.3.1.1 Used by</h5><ul><li><p>
                         <a href="#sqf_delete"><cite>
                            sqf:delete
                         </cite></a>
@@ -1082,7 +1112,7 @@ B <a href="#d0e3817">Examples</a><br>
                            sqf:activityManipulate
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3313" id="d0e3313"></a>7.3.1.2 Attributes</h5><div class="div5">
+<h5><a name="d0e3803" id="d0e3803"></a>7.3.1.2 Attributes</h5><div class="div5">
 <h6><a name="activityBase_match" id="activityBase_match"></a>7.3.1.2.1 @match</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
@@ -1131,12 +1161,12 @@ B <a href="#d0e3817">Examples</a><br>
                                  <code>xs:string</code>
                               
                            </td></tr></tbody></table></div><div class="div5">
-<h6><a name="d0e3391" id="d0e3391"></a>7.3.1.2.3 </h6><p>See attribute group 
+<h6><a name="d0e3881" id="d0e3881"></a>7.3.1.2.3 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e3398" id="d0e3398"></a>7.3.1.3 Content model</h5><img src="img/svg/sqf_activityBase.svg"></div></div><div class="div3">
+<h5><a name="d0e3888" id="d0e3888"></a>7.3.1.3 Content model</h5><img src="img/svg/sqf_activityBase.svg"></div></div><div class="div3">
 <h4><a name="sqf_activityManipulate" id="sqf_activityManipulate"></a>7.3.2 activityManipulate</h4><div class="div4">
-<h5><a name="d0e3405" id="d0e3405"></a>7.3.2.1 Used by</h5><ul><li><p>
+<h5><a name="d0e3895" id="d0e3895"></a>7.3.2.1 Used by</h5><ul><li><p>
                         <a href="#sqf_add"><cite>
                            sqf:add
                         </cite></a>
@@ -1145,7 +1175,7 @@ B <a href="#d0e3817">Examples</a><br>
                            sqf:replace
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3421" id="d0e3421"></a>7.3.2.2 Attributes</h5><div class="div5">
+<h5><a name="d0e3911" id="d0e3911"></a>7.3.2.2 Attributes</h5><div class="div5">
 <h6><a name="activityManipulate_node-type" id="activityManipulate_node-type"></a>7.3.2.2.1 @node-type</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
@@ -1212,12 +1242,12 @@ B <a href="#d0e3817">Examples</a><br>
                               A string to define a node name. The string can be specified by XPath expressions which are marked by curly brackets. After processing, the name must be valid to the XML Schema type xs:QName.
                               Prefixes must be attached to a namespace in the current context of the Schematron schema. Names without prefixes will be attached to the namespace declared by the <code>sqf:default-namespace</code> element or to the null namespace.
                            </td></tr></tbody></table></div><div class="div5">
-<h6><a name="d0e3593" id="d0e3593"></a>7.3.2.2.4 </h6><p>See attribute group 
+<h6><a name="d0e4083" id="d0e4083"></a>7.3.2.2.4 </h6><p>See attribute group 
                         <a href="#sqf_activityBase"><cite>sqf:activityBase</cite></a>
                      .</p></div></div><div class="div4">
-<h5><a name="d0e3600" id="d0e3600"></a>7.3.2.3 Content model</h5><img src="img/svg/sqf_activityManipulate.svg"></div></div><div class="div3">
+<h5><a name="d0e4090" id="d0e4090"></a>7.3.2.3 Content model</h5><img src="img/svg/sqf_activityManipulate.svg"></div></div><div class="div3">
 <h4><a name="sqf_messageAttributes" id="sqf_messageAttributes"></a>7.3.3 messageAttributes</h4><p>Attributes to assign one or more QuickFixes to a Schematron assert or report.</p><div class="div4">
-<h5><a name="d0e3609" id="d0e3609"></a>7.3.3.1 Attributes</h5><div class="div5">
+<h5><a name="d0e4099" id="d0e4099"></a>7.3.3.1 Attributes</h5><div class="div5">
 <h6><a name="messageAttributes_default-fix" id="messageAttributes_default-fix"></a>7.3.3.1.1 @default-fix</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
@@ -1251,9 +1281,9 @@ B <a href="#d0e3817">Examples</a><br>
                               
                               A list of IDs of the referred QuickFixes separated by white space.
                            </td></tr></tbody></table></div></div><div class="div4">
-<h5><a name="d0e3668" id="d0e3668"></a>7.3.3.2 Content model</h5><img src="img/svg/sqf_messageAttributes.svg"></div></div><div class="div3">
+<h5><a name="d0e4158" id="d0e4158"></a>7.3.3.2 Content model</h5><img src="img/svg/sqf_messageAttributes.svg"></div></div><div class="div3">
 <h4><a name="sqf_parameterAttributes" id="sqf_parameterAttributes"></a>7.3.4 parameterAttributes</h4><div class="div4">
-<h5><a name="d0e3675" id="d0e3675"></a>7.3.4.1 Used by</h5><ul><li><p>
+<h5><a name="d0e4165" id="d0e4165"></a>7.3.4.1 Used by</h5><ul><li><p>
                         <a href="#sqf_param"><cite>
                            sqf:param
                         </cite></a>
@@ -1262,7 +1292,7 @@ B <a href="#d0e3817">Examples</a><br>
                            sqf:user-entry
                         </cite></a>
                      </p></li></ul></div><div class="div4">
-<h5><a name="d0e3691" id="d0e3691"></a>7.3.4.2 Attributes</h5><div class="div5">
+<h5><a name="d0e4181" id="d0e4181"></a>7.3.4.2 Attributes</h5><div class="div5">
 <h6><a name="parameterAttributes_default" id="parameterAttributes_default"></a>7.3.4.2.1 @default</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
@@ -1311,9 +1341,9 @@ B <a href="#d0e3817">Examples</a><br>
                               
                               The value should be a valid XML Schema type.
                            </td></tr></tbody></table></div></div><div class="div4">
-<h5><a name="d0e3772" id="d0e3772"></a>7.3.4.3 Content model</h5><img src="img/svg/sqf_parameterAttributes.svg"></div></div><div class="div3">
+<h5><a name="d0e4262" id="d0e4262"></a>7.3.4.3 Content model</h5><img src="img/svg/sqf_parameterAttributes.svg"></div></div><div class="div3">
 <h4><a name="sqf_rootAttributes" id="sqf_rootAttributes"></a>7.3.5 rootAttributes</h4><div class="div4">
-<h5><a name="d0e3779" id="d0e3779"></a>7.3.5.1 Attributes</h5><div class="div5">
+<h5><a name="d0e4269" id="d0e4269"></a>7.3.5.1 Attributes</h5><div class="div5">
 <h6><a name="rootAttributes_version" id="rootAttributes_version"></a>7.3.5.1.1 @version</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
@@ -1329,8 +1359,8 @@ B <a href="#d0e3817">Examples</a><br>
                                  <code>xs:token</code>
                               
                            </td></tr></tbody></table></div></div><div class="div4">
-<h5><a name="d0e3807" id="d0e3807"></a>7.3.5.2 Content model</h5><img src="img/svg/sqf_rootAttributes.svg"></div></div></div></div></div><div class="back"><div class="div1">
-<h2><a name="d0e3812" id="d0e3812"></a>A Schematron Quick Fixes schema</h2><div class="exampleInner"><pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+<h5><a name="d0e4297" id="d0e4297"></a>7.3.5.2 Content model</h5><img src="img/svg/sqf_rootAttributes.svg"></div></div></div></div></div><div class="back"><div class="div1">
+<h2><a name="d0e4302" id="d0e4302"></a>A Schematron Quick Fixes schema</h2><div class="exampleInner"><pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 
 &lt;!--  
     Copyright (c) 2014 Nico Kutscherauer
@@ -1509,21 +1539,11 @@ B <a href="#d0e3817">Examples</a><br>
                 &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
                     &lt;xs:group ref="sqf:foreign"/&gt;
                     &lt;xs:element ref="sch:let"/&gt;
-                &lt;/xs:choice&gt;
-                &lt;xs:element ref="sqf:description" maxOccurs="unbounded"/&gt;
-                &lt;xs:group ref="sqf:foreign"/&gt;
-                &lt;xs:choice&gt;
-                    &lt;xs:sequence&gt;
-                        &lt;xs:element ref="sqf:call-fix"/&gt;
-                    &lt;/xs:sequence&gt;
-                    &lt;xs:sequence&gt;
-                        &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
-                            &lt;xs:element ref="sch:let"/&gt;
-                            &lt;xs:element ref="sqf:user-entry"/&gt;
-                        &lt;/xs:choice&gt;
-                        &lt;xs:group ref="sqf:activityElements"/&gt;
-                    &lt;/xs:sequence&gt;
-                &lt;/xs:choice&gt;
+                    &lt;xs:element ref="sqf:description"/&gt;
+                &lt;xs:element ref="sqf:user-entry"/&gt;
+                &lt;xs:element ref="sqf:call-fix"/&gt;
+                            &lt;xs:group ref="sqf:activityElements"/&gt;
+                    &lt;/xs:choice&gt;
             &lt;/xs:sequence&gt;
             &lt;xs:attribute name="id" use="required" type="xs:NCName"&gt;
                 &lt;xs:annotation&gt;
@@ -1537,6 +1557,7 @@ B <a href="#d0e3817">Examples</a><br>
                     &lt;xs:documentation source="value"&gt;XPath expression. It expects as return value an xs:boolean.&lt;/xs:documentation&gt;
                 &lt;/xs:annotation&gt;
             &lt;/xs:attribute&gt;
+            &lt;xs:attribute name="use-for-each" use="optional" type="xs:string" default="."/&gt;
             &lt;xs:attribute name="role" use="optional"&gt;
                 &lt;xs:annotation&gt;
                     &lt;xs:documentation&gt;With this attribute the role of the QuickFix can be set manually.&lt;/xs:documentation&gt;
@@ -1897,6 +1918,6 @@ B <a href="#d0e3817">Examples</a><br>
     &lt;/xs:group&gt;
 &lt;/xs:schema&gt;
 </pre></div></div><div class="div1">
-<h2><a name="d0e3817" id="d0e3817"></a>B Examples</h2><div class="div2">
+<h2><a name="d0e4307" id="d0e4307"></a>B Examples</h2><div class="div2">
 <h3><a name="example_apply_fixes" id="example_apply_fixes"></a>B.1 QuickFix which applies to itself</h3><p>Tbd.</p></div><div class="div2">
 <h3><a name="example_external_doc" id="example_external_doc"></a>B.2 QuickFixes for external documents</h3><p>Tbd.</p></div></div></div></body></html>

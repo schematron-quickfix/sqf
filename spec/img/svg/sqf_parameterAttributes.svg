@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" width="612" height="285" class="element_group" sqf:width="612" sqf:height="285">
-                     <g transform="translate(130, 5)" id="modeld9e115_group_d9e115" sqf:width="574" sqf:height="195.5">
+                     <g transform="translate(130, 5)" id="modeld10e116_group_d10e116" sqf:width="574" sqf:height="195.5">
                         <rect width="152.5" height="120" rx="7" ry="7" fill="white" stroke="#F5844C" stroke-width="1"/>
                         <rect width="152.5" height="120" rx="7" ry="7" fill="white" stroke="#F5844C" stroke-width="1"/>
                         <path fill="#F5844C" opacity="0.1" d="M 0 25 L 0 7 Q 0 0 7 0 L 145.5 0 Q 152.5 0 152.5 7 L 152.5 25 Z"/>
@@ -22,9 +22,9 @@
                               <path stroke="#F5844C" stroke-width="1" fill="none" d="M 0 45 L 25 45"/>
                               <path stroke="#F5844C" stroke-width="1" fill="none" d="M 50 75 L 32 75 Q 25 75 25 68 L 25 45" stroke-dasharray="5,5"/>
                               <g transform="translate(50,                                         60)" sqf:width="432" sqf:height="161">
-                                 <svg width="382" height="101" class="attribute" id="modeld9e115_attribute_sqf_type" sqf:width="382" sqf:height="101">
+                                 <svg width="382" height="101" class="attribute" id="modeld10e116_attribute_sqf_type" sqf:width="382" sqf:height="101">
                                     <desc/>
-                                    <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld9e115_attributName_d9e144" sqf:width="0" sqf:height="2.5">
+                                    <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld10e116_attributName_d10e145" sqf:width="0" sqf:height="2.5">
                                        <g>
                                           <rect height="25" width="50" rx="10" ry="10" stroke="#F5844C" stoke-width="1" fill="white" stroke-dasharray="5,5"/>
                                        </g>
@@ -33,7 +33,7 @@
                                     <g transform="translate(50, 0)" sqf:width="382" sqf:height="101">
                                        <svg width="332" height="101" class="annotation" sqf:width="332" sqf:height="101">
                                           <g visibility="hidden" style="z-index:1000">
-                                             <set attributeName="visibility" to="visible" begin="modeld9e115_attributName_d9e144.mouseover" end="modeld9e115_attributName_d9e144.mouseout"/>
+                                             <set attributeName="visibility" to="visible" begin="modeld10e116_attributName_d10e145.mouseover" end="modeld10e116_attributName_d10e145.mouseout"/>
                                              <g transform="translate(1,1)" sqf:width="321" sqf:height="90">
                                                 <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 84 Q 10 94 20 94 L 320 94 Q 330 94 330 84 L 330 10 Q 330 0 320 0 Z" fill="white" opacity="1" stroke="#F5844C" stroke-width="1"/>
                                                 <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 84 Q 10 94 20 94 L 320 94 Q 330 94 330 84 L 330 10 Q 330 0 320 0 Z" fill="#F5844C" opacity="0.1" stroke="#F5844C" stroke-width="1"/>
@@ -93,9 +93,9 @@
                               <path stroke="#F5844C" stroke-width="1" fill="none" d="M 25 45 L 50 45" stroke-dasharray="5,5"/>
                               <path stroke="#F5844C" stroke-width="1" fill="none" d="M 25 45 L 25 45" stroke-dasharray="5,5"/>
                               <g transform="translate(50,                                         30)" sqf:width="444" sqf:height="163">
-                                 <svg width="394" height="133" class="attribute" id="modeld9e115_attribute_sqf_default" sqf:width="394" sqf:height="133">
+                                 <svg width="394" height="133" class="attribute" id="modeld10e116_attribute_sqf_default" sqf:width="394" sqf:height="133">
                                     <desc/>
-                                    <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld9e115_attributName_d9e129" sqf:width="0" sqf:height="2.5">
+                                    <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld10e116_attributName_d10e130" sqf:width="0" sqf:height="2.5">
                                        <g>
                                           <rect height="25" width="62" rx="10" ry="10" stroke="#F5844C" stoke-width="1" fill="white" stroke-dasharray="5,5"/>
                                        </g>
@@ -104,7 +104,7 @@
                                     <g transform="translate(62, 0)" sqf:width="394" sqf:height="133">
                                        <svg width="332" height="133" class="annotation" sqf:width="332" sqf:height="133">
                                           <g visibility="hidden" style="z-index:1000">
-                                             <set attributeName="visibility" to="visible" begin="modeld9e115_attributName_d9e129.mouseover" end="modeld9e115_attributName_d9e129.mouseout"/>
+                                             <set attributeName="visibility" to="visible" begin="modeld10e116_attributName_d10e130.mouseover" end="modeld10e116_attributName_d10e130.mouseout"/>
                                              <g transform="translate(1,1)" sqf:width="321" sqf:height="122">
                                                 <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 116 Q 10 126 20 126 L 320 126 Q 330 126 330 116 L 330 10 Q 330 0 320 0 Z" fill="white" opacity="1" stroke="#F5844C" stroke-width="1"/>
                                                 <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 116 Q 10 126 20 126 L 320 126 Q 330 126 330 116 L 330 10 Q 330 0 320 0 Z" fill="#F5844C" opacity="0.1" stroke="#F5844C" stroke-width="1"/>
@@ -180,9 +180,9 @@
                               </g>
                               <path stroke="#F5844C" stroke-width="1" fill="none" d="M 50 15 L 32 15 Q 25 15 25 22 L 25 45"/>
                               <g transform="translate(50,                                         0)" sqf:width="437" sqf:height="117">
-                                 <svg width="387" height="117" class="attribute" id="modeld9e115_attribute_sqf_name" sqf:width="387" sqf:height="117">
+                                 <svg width="387" height="117" class="attribute" id="modeld10e116_attribute_sqf_name" sqf:width="387" sqf:height="117">
                                     <desc/>
-                                    <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld9e115_attributName_d9e117" sqf:width="0" sqf:height="2.5">
+                                    <g alignment-baseline="baseline" transform="translate(0, 2.5)" id="modeld10e116_attributName_d10e118" sqf:width="0" sqf:height="2.5">
                                        <g>
                                           <rect height="25" width="55" rx="10" ry="10" stroke="#F5844C" stoke-width="1" fill="white"/>
                                        </g>
@@ -191,7 +191,7 @@
                                     <g transform="translate(55, 0)" sqf:width="387" sqf:height="117">
                                        <svg width="332" height="117" class="annotation" sqf:width="332" sqf:height="117">
                                           <g visibility="hidden" style="z-index:1000">
-                                             <set attributeName="visibility" to="visible" begin="modeld9e115_attributName_d9e117.mouseover" end="modeld9e115_attributName_d9e117.mouseout"/>
+                                             <set attributeName="visibility" to="visible" begin="modeld10e116_attributName_d10e118.mouseover" end="modeld10e116_attributName_d10e118.mouseout"/>
                                              <g transform="translate(1,1)" sqf:width="321" sqf:height="106">
                                                 <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 100 Q 10 110 20 110 L 320 110 Q 330 110 330 100 L 330 10 Q 330 0 320 0 Z" fill="white" opacity="1" stroke="#F5844C" stroke-width="1"/>
                                                 <path d="M 20 0 Q 10 0 10 10 L 10 10 L 0 15 L 10 20 L 10 100 Q 10 110 20 110 L 320 110 Q 330 110 330 100 L 330 10 Q 330 0 320 0 Z" fill="#F5844C" opacity="0.1" stroke="#F5844C" stroke-width="1"/>
@@ -254,7 +254,7 @@
                            <path stroke="#007" stroke-width="1" fill="none" d="M 80 45 L 98 45 Q 105 45 105 38 L 105 30"/>
                            <g transform="translate(21,                                         30)" sqf:width="612" sqf:height="237.5">
                               <svg width="591" height="207.5" sqf:width="591" sqf:height="207.5">
-                                 <g alignment-baseline="baseline" id="modeld9e115_d9e556_parentOf_" transform="translate( 0, 2.5)" sqf:width="0" sqf:height="2.5">
+                                 <g alignment-baseline="baseline" id="modeld10e116_d10e554_parentOf_" transform="translate( 0, 2.5)" sqf:width="0" sqf:height="2.5">
                                     <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sqf_param" target="_top">
                                        <g>
                                           <rect width="59" height="25" rx="10" ry="10" stroke="#007" stoke-width="1" fill="white"/>
@@ -265,7 +265,7 @@
                                  <g transform="translate(59, 2.5)" sqf:width="591" sqf:height="207.5">
                                     <svg width="532" height="205" class="annotation" sqf:width="532" sqf:height="205">
                                        <g visibility="hidden" style="z-index:1000">
-                                          <set attributeName="visibility" to="visible" begin="modeld9e115_d9e556_parentOf_.mouseover" end="modeld9e115_d9e556_parentOf_.mouseout"/>
+                                          <set attributeName="visibility" to="visible" begin="modeld10e116_d10e554_parentOf_.mouseover" end="modeld10e116_d10e554_parentOf_.mouseout"/>
                                           <g transform="translate(1,1)" sqf:width="521" sqf:height="194">
                                              <path d="M 17.5 0 Q 10 0 10 7.5 L 10 7.5 L 0 12.5 L 10 17.5 L 10 190.5 Q 10 198 17.5 198 L 522.5 198 Q 530 198 530 190.5 L 530 7.5 Q 530 0 522.5 0 Z" fill="white" opacity="1" stroke="#007" stroke-width="1"/>
                                              <path d="M 17.5 0 Q 10 0 10 7.5 L 10 7.5 L 0 12.5 L 10 17.5 L 10 190.5 Q 10 198 17.5 198 L 522.5 198 Q 530 198 530 190.5 L 530 7.5 Q 530 0 522.5 0 Z" fill="#007" opacity="0.1" stroke="#007" stroke-width="1"/>
@@ -342,8 +342,8 @@
                                                       <tspan y="16">(see </tspan>
                                                       <tspan y="16">attribute </tspan>
                                                       <tspan y="16">abstract) </tspan>
-                                                      <tspan y="16">can </tspan>
-                                                      <tspan y="16">not </tspan>
+                                                      <tspan y="16">cannot </tspan>
+                                                      <tspan y="16">be </tspan>
                                                       <tspan y="16">used </tspan>
                                                       <tspan y="16">as </tspan>
                                                       <tspan y="16">normal </tspan>
@@ -373,8 +373,9 @@
                                                       <tspan y="48">abstract </tspan>
                                                       <tspan y="48">parameters </tspan>
                                                       <tspan y="48">can </tspan>
-                                                      <tspan y="48">just </tspan>
+                                                      <tspan y="48">be </tspan>
                                                       <tspan y="48">used </tspan>
+                                                      <tspan y="48">just </tspan>
                                                       <tspan y="48">by </tspan>
                                                       <tspan y="48">abstract </tspan>
                                                       <tspan y="48">patterns. </tspan>
@@ -383,8 +384,8 @@
                                                       <tspan y="48">of </tspan>
                                                       <tspan y="48">the </tspan>
                                                       <tspan y="48">parameter </tspan>
-                                                      <tspan y="48">will </tspan>
-                                                      <tspan y="64" x="0">be </tspan>
+                                                      <tspan y="64" x="0">will </tspan>
+                                                      <tspan y="64">be </tspan>
                                                       <tspan y="64">set </tspan>
                                                       <tspan y="64">by </tspan>
                                                       <tspan y="64">the </tspan>
@@ -427,7 +428,7 @@
                            <path stroke="#007" stroke-width="1" fill="none" d="M 80 15 L 98 15 Q 105 15 105 22 L 105 30"/>
                            <g transform="translate(0,                                         0)" sqf:width="412" sqf:height="125.5">
                               <svg width="412" height="125.5" sqf:width="412" sqf:height="125.5">
-                                 <g alignment-baseline="baseline" id="modeld9e115_d9e433_parentOf_" transform="translate( 0, 2.5)" sqf:width="0" sqf:height="2.5">
+                                 <g alignment-baseline="baseline" id="modeld10e116_d10e431_parentOf_" transform="translate( 0, 2.5)" sqf:width="0" sqf:height="2.5">
                                     <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sqf_user-entry" target="_top">
                                        <g>
                                           <rect width="80" height="25" rx="10" ry="10" stroke="#007" stoke-width="1" fill="white"/>
@@ -438,7 +439,7 @@
                                  <g transform="translate(80, 2.5)" sqf:width="412" sqf:height="125.5">
                                     <svg width="332" height="123" class="annotation" sqf:width="332" sqf:height="123">
                                        <g visibility="hidden" style="z-index:1000">
-                                          <set attributeName="visibility" to="visible" begin="modeld9e115_d9e433_parentOf_.mouseover" end="modeld9e115_d9e433_parentOf_.mouseout"/>
+                                          <set attributeName="visibility" to="visible" begin="modeld10e116_d10e431_parentOf_.mouseover" end="modeld10e116_d10e431_parentOf_.mouseout"/>
                                           <g transform="translate(1,1)" sqf:width="321" sqf:height="112">
                                              <path d="M 17.5 0 Q 10 0 10 7.5 L 10 7.5 L 0 12.5 L 10 17.5 L 10 108.5 Q 10 116 17.5 116 L 322.5 116 Q 330 116 330 108.5 L 330 7.5 Q 330 0 322.5 0 Z" fill="white" opacity="1" stroke="#007" stroke-width="1"/>
                                              <path d="M 17.5 0 Q 10 0 10 7.5 L 10 7.5 L 0 12.5 L 10 17.5 L 10 108.5 Q 10 116 17.5 116 L 322.5 116 Q 330 116 330 108.5 L 330 7.5 Q 330 0 322.5 0 Z" fill="#007" opacity="0.1" stroke="#007" stroke-width="1"/>
@@ -454,7 +455,7 @@
                                                 <svg width="300" height="88" class="text_box" sqf:width="300" sqf:height="88">
                                                    <text fill="black" font-family="arial, helvetica, sans-serif" font-size="11">
                                                       <tspan y="16" x="0">Defines </tspan>
-                                                      <tspan y="16">an </tspan>
+                                                      <tspan y="16">a </tspan>
                                                       <tspan y="16">user </tspan>
                                                       <tspan y="16">entry. </tspan>
                                                       <tspan y="16">With </tspan>

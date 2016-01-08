@@ -466,6 +466,51 @@
                      </tbody>
                   </table>
                </div5>
+               <div5 id="fix_use-for-each">
+                  <head>@use-for-each</head>
+                  <table cellspacing="0">
+                     <col width="15%"/>
+                     <col width="85%"/>
+                     <tbody>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Description
+                           </th>
+                           <td>
+                              QuickFixes with use-for-each attribute are generic. Each return value of the evaluated XPath expression should create an own QuickFix. To access to the current return value, the XPath variable $sqf:current should be provided.
+                           </td>
+                        </tr>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Use
+                           </th>
+                           <td>
+                              optional
+                           </td>
+                        </tr>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Default
+                           </th>
+                           <td>
+                              
+                                 <attval>.</attval>
+                              
+                           </td>
+                        </tr>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Value
+                           </th>
+                           <td>
+                              
+                                 <code>xs:string</code>
+                              
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div5>
                <div5 id="fix_use-when">
                   <head>@use-when</head>
                   <table cellspacing="0">
@@ -591,7 +636,7 @@
          </div3>
          <div3 id="sqf_group">
             <head>&lt;sqf:group&gt;</head>
-            <p>Defines a Schematron QuickFix group. If the group is linked by an assert or report, all QuickFixes of this group will be accosieted with the assert/report.</p>
+            <p>Defines a Schematron QuickFix group. If the group is linked by an assert or report, all QuickFixes of this group will be associated with the assert/report.</p>
             <div4>
                <head>Parent elements</head>
                <ulist>
@@ -862,7 +907,7 @@
             <div4>
                <head>Exception</head>
                
-                  <p>Abstract parameters (see attribute <att>abstract</att>) can not used as normal XPath variables. An abstract parameter declares, that the current QuickFix uses a parameter of an abstract pattern. A QuickFix with one or more abstract parameters can just used by abstract patterns. The value of the parameter will be set by the instantiation of the abstract pattern according to the Schematron specification. The instantiation of the abstract pattern must specify a value for every abstract parameter of the QuickFix.</p>
+                  <p>Abstract parameters (see attribute <att>abstract</att>) cannot be used as normal XPath variables. An abstract parameter declares, that the current QuickFix uses a parameter of an abstract pattern. A QuickFix with one or more abstract parameters can be used just by abstract patterns. The value of the parameter will be set by the instantiation of the abstract pattern according to the Schematron specification. The instantiation of the abstract pattern must specify a value for every abstract parameter of the QuickFix.</p>
                
             </div4>
             <div4>
@@ -1008,7 +1053,7 @@
          <div3 id="sqf_replace">
             <head>&lt;sqf:replace&gt;</head>
             <p>This activity element replaces one or more nodes of the XML instance by a node. The activity command combines the delete and the add command.</p>
-            <p>The nodes to be deleted are defined by the <att>match</att> attribute. The nodes to be added are defined by the the attributes <att>node-type</att> and <att>select</att> and the content of the <el>sqf:replace</el> element.</p>
+            <p>The nodes to be deleted are defined by the <att>match</att> attribute. The nodes to be added are defined by the attributes <att>node-type</att> and <att>select</att> and the content of the <el>sqf:replace</el> element.</p>
             <p>The position of the nodes to be added is the position of the nodes to be deleted.</p>
             <div4>
                <head>Parent elements</head>
@@ -1229,7 +1274,7 @@
          </div3>
          <div3 id="sqf_user-entry">
             <head>&lt;sqf:user-entry&gt;</head>
-            <p>Defines an user entry. With the help of the user entry, the user can interact with the QuickFix. The user entry refers to a <el>sqf:param</el> element. The value of the parameter is set manually by the user. The implementation should provide the user entry when the user selects the QuickFix.</p>
+            <p>Defines a user entry. With the help of the user entry, the user can interact with the QuickFix. The user entry refers to a <el>sqf:param</el> element. The value of the parameter is set manually by the user. The implementation should provide the user entry when the user selects the QuickFix.</p>
             <div4>
                <head>Parent elements</head>
                <ulist>
@@ -1530,7 +1575,7 @@
          </div3>
          <div3 id="sqf_templateElements">
             <head>sqf:templateElements</head>
-            <p>This element group describes the content of the activity elements. The behaviour is similar to the content of the <el>xsl:template</el> element. Additionally, the elements <el>sch:value-of</el> and <el>sch:let</el> are treated as <el>xsl:value-of</el> and <el>xsl:variable</el>. Also the <titleref href="#sqf_keep">
+            <p>This element group describes the content of the activity elements. The behavior is similar to the content of the <el>xsl:template</el> element. Additionally, the elements <el>sch:value-of</el> and <el>sch:let</el> are treated as <el>xsl:value-of</el> and <el>xsl:variable</el>. Also the <titleref href="#sqf_keep">
                   sqf:keep
                </titleref> element is available.</p>
             <div4>
@@ -1743,7 +1788,7 @@
                               Description
                            </th>
                            <td>
-                              The <att>node-type</att> attribute defines the node type of the nodes to be added. The attribute is required, if the target attribut is set.
+                              The <att>node-type</att> attribute defines the node type of the nodes to be added. The attribute is required, if the target attribute is set.
                               If the <att>node-type</att> value is missing, the activity element should not have a <att>target</att> attribute. In this case the nodes to be added will be defined by the activity elements content or <att>select</att> attribute.
                            </td>
                         </tr>
@@ -1953,7 +1998,7 @@
                               Description
                            </th>
                            <td>
-                              This attribute refers to one or more QuickFixes wich should be assigned to the Schematron assert or report. Each referred QuickFix must be defined globally or locally for the same Schematron rule.
+                              This attribute refers to one or more QuickFixes which should be assigned to the Schematron assert or report. Each referred QuickFix must be defined globally or locally for the same Schematron rule.
                               The reference works with the ID of the QuickFix. If there is a local and a global QuickFix having the same ID, the local QuickFix will be selected.
                            </td>
                         </tr>
