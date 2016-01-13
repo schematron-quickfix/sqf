@@ -20,13 +20,14 @@
     
     -->
 
-<schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" queryBinding="xslt2" see="http://www.schematron-quickfix.com/quickFix/reference.html" xml:lang="en">
+<schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" queryBinding="xslt2" see="http://www.schematron-quickfix.com/quickFix/reference.html" xml:lang="en">
     <ns uri="http://purl.oclc.org/dsdl/schematron" prefix="sch"/>
     <ns uri="http://www.schematron-quickfix.com/validator/process" prefix="sqf"/>
-
-    <pattern>
+    <ns uri="http://www.escali.schematron-quickfix.com/" prefix="es"/>
+    
+    <pattern id="query.binding">
         <title>Query binding</title>
-        <rule context="sch:schema">
+        <rule context="sch:schema" id="query.binding_1">
             <assert test="not(namespace::sqf) or @queryBinding = 'xslt2'" sqf:fix="setQueryBinding"> Schematron Quick Fixes are only available within Schematron schemas based on XSLT 2.0.</assert>
 
             <sqf:fix id="setQueryBinding" role="replace">
@@ -39,9 +40,9 @@
         </rule>
     </pattern>
 
-    <pattern>
+    <pattern id="embedding">
         <title>Correct Embedding</title>
-        <rule context="sch:*/sqf:fixes">
+        <rule context="sch:*/sqf:fixes" id="embedding_1">
             <let name="fixes" value="."/>
             <assert test="parent::sch:schema" sqf:fix="move delete unwrap moveAfter">The <name/> must be inserted just inside of the sch:schema element.</assert>
             <sqf:fix id="move">
@@ -52,7 +53,7 @@
                 </sqf:description>
                 <sqf:delete/>
                 <sqf:add match="/sch:schema" position="last-child">
-                    <xsl:copy-of select="$fixes"/>
+                    <xsl:copy-of select="$fixes" copy-namespaces="no"/>
                 </sqf:add>
             </sqf:fix>
             <sqf:fix id="unwrap" use-when="parent::sch:rule">
@@ -71,19 +72,19 @@
                 </sqf:description>
                 <sqf:delete/>
                 <sqf:add match="parent::*" position="after">
-                    <xsl:copy-of select="$fixes"/>
+                    <xsl:copy-of select="$fixes" copy-namespaces="no"/>
                 </sqf:add>
             </sqf:fix>
         </rule>
-        <rule context="sch:*/sqf:fix | sch:*/sqf:group">
+        <rule context="sch:*/sqf:fix | sch:*/sqf:group" id="embedding_2">
             <let name="fixOrGroup" value="."/>
             <let name="corr" value="//sch:rule[sch:*/@sqf:fix/tokenize(., '\s+') = $fixOrGroup/@id]"/>
-            <assert test="parent::sch:rule" sqf:fix="wrap delete moveToTopLevel moveToRule moveToCorr">The <name/> element must be inserted just inside of a sch:rule element.</assert>
             <let name="desc" value="
                     if (name() = 'sqf:group') then
                         ('QuickFix group')
                     else
                         ('QuickFix')"/>
+            <assert test="parent::sch:rule" sqf:fix="wrap delete moveToTopLevel moveToRule moveToCorr">The <name/> element must be inserted just inside of a sch:rule element.</assert>
             <sqf:fix id="wrap" use-when="parent::sch:schema">
                 <sqf:description>
                     <sqf:title>Wrap the <name/> element into a sqf:fixes container.</sqf:title>
@@ -116,7 +117,9 @@
                 <sqf:add match="/sch:schema/sqf:fixes[1]" position="last-child">
                     <xsl:copy-of select="$fixOrGroup" copy-namespaces="no"/>
                 </sqf:add>
-                <sqf:add match="/sch:schema" position="last-child" target="sqf:fixes" node-type="element" select="$fixOrGroup" use-when="not(/sch:schema/sqf:fixes)"/>
+                <sqf:add match="/sch:schema" position="last-child" target="sqf:fixes" node-type="element" use-when="not(/sch:schema/sqf:fixes)">
+                    <xsl:copy-of select="$fixOrGroup" copy-namespaces="no"/>
+                </sqf:add>
             </sqf:fix>
             <sqf:fix id="moveToCorr" use-when="count($corr) = 1">
                 <sqf:description>
@@ -125,13 +128,15 @@
                     <sqf:p>This fix will be move the <name/> element at the end of the sch:rule element, where it was referenced.</sqf:p>
                 </sqf:description>
                 <sqf:delete/>
-                <sqf:add match="$corr" position="last-child" select="$fixOrGroup"/>
+                <sqf:add match="$corr" position="last-child">
+                    <xsl:copy-of select="$fixOrGroup" copy-namespaces="no"/>
+                </sqf:add>
             </sqf:fix>
         </rule>
-        <rule context="sch:*/sqf:*">
+        <rule context="sch:*/sqf:*" id="embedding_3">
             <report test="true()" sqf:fix="delete">The <name/> element is not allowed inside of the element <name path="parent::node()"/>.</report>
         </rule>
-        <rule context="sch:assert | sch:report">
+        <rule context="sch:assert | sch:report" id="embedding_4">
             <let name="missplaced" value="@sqf:* except (@sqf:fix | @sqf:default-fix)"/>
             <let name="similarToDefaultFix" value="$missplaced[matches(name(), 'default', 'i')][1]"/>
             <let name="similarToFix" value="($missplaced except $similarToDefaultFix)[matches(name(), 'fix', 'i')][1]"/>
@@ -162,23 +167,40 @@
                 </sqf:replace>
             </sqf:fix>
         </rule>
-        <rule context="sch:*[@sqf:*]">
-            <report test="true()" sqf:fix="deleteAtts">The <value-of select="string-join(@sqf:*/name(), ', ')"/> attribute(s) is/are not allowed for the element <name/>.</report>
+        <rule context="sch:*[@sqf:*]" id="embedding_5">
+            <let name="missplaced" value="string-join(@sqf:*/name(), ', ')"/>
+            <report test="true()" sqf:fix="deleteAtts addToChilds">The <value-of select="$missplaced"/> attribute(s) is/are not allowed for the element <name/>.</report>
             <sqf:fix id="deleteAtts">
                 <sqf:description>
-                    <sqf:title>Delete the misplaced <name/> element.</sqf:title>
-                    <sqf:p>The <name/> element was misplaced.</sqf:p>
-                    <sqf:p>Local QuickFixes or QuickFix groups should be contained in a sch:rule element.</sqf:p>
-                    <sqf:p>Global QuickFixes or QuickFix groups should be contained in a top-level element sqf:fixes.</sqf:p>
-                    <sqf:p>The misplaced <name/> element will be deleted.</sqf:p>
+                    <sqf:title>Delete the misplaced attributes.</sqf:title>
+                    <sqf:p>The <value-of select="$missplaced"/> attributes was misplaced.</sqf:p>
+                    <sqf:p>Only sch:assert or sch:report elements should have attributes in the SQF namespace.</sqf:p>
+                    <sqf:p>The attributes in the SQF namespace will be deleted.</sqf:p>
                 </sqf:description>
                 <sqf:delete match="@sqf:*"/>
             </sqf:fix>
+            <sqf:fix id="addToChilds" use-when="(@sqf:fix|@sqf:default-fix) and self::sch:rule/(sch:assert|sch:report)">
+                <sqf:description>
+                    <sqf:title>Add the sqf:fix/sqf:default-fix attributes to all sch:assert/sch:report elements of this rule.</sqf:title>
+                    <sqf:p>The sqf:fix and/or sqf:default-fix attributes are missplaced. The correct position is on the sch:assert/sch:report elements.</sqf:p>
+                    <sqf:p>This fix moves the missplaced elements ot all sch:assert/sch:report elements, whose are included by this rule.</sqf:p>
+                    <sqf:p>Any other missplaced attribute will be deleted</sqf:p>
+                </sqf:description>
+                <let name="default-fix" value="@sqf:default-fix"/>
+                <let name="fix" value="@sqf:fix"/>
+                <sqf:delete match="@sqf:*"/>
+                <sqf:add match="sch:assert|sch:report" target="sqf:default-fix" use-when="$default-fix" node-type="attribute">
+                    <value-of select="$default-fix"/>
+                </sqf:add>
+                <sqf:add match="sch:assert|sch:report" target="sqf:fix" use-when="$fix" node-type="attribute">
+                    <value-of select="$fix"/>
+                </sqf:add>
+            </sqf:fix>
         </rule>
     </pattern>
-    <pattern>
+    <pattern id="references">
         <title>Fix references</title>
-        <rule context="sch:assert[@sqf:fix] | sch:report[@sqf:fix]">
+        <rule context="sch:assert[@sqf:fix] | sch:report[@sqf:fix]" id="references_1">
             <let name="fixes" value="tokenize(@sqf:fix, '\s')"/>
             <let name="availableFixIds" value="sqf:getAvailableFixOrGroups(ancestor::sch:rule)/@id"/>
             <let name="notAvailableFixes" value="$fixes[not(. = $availableFixIds)]"/>
@@ -189,7 +211,7 @@
                     <sqf:title>Delete the references</sqf:title>
                 </sqf:description>
                 <sqf:replace match="@sqf:fix" target="sqf:fix" node-type="attribute" select="string-join($fixes[. = $availableFixIds], ' ')" use-when="count($fixes[. = $availableFixIds]) gt 0"/>
-                <sqf:delete match="@sqf:fix" use-when="not($fixes[. = $availableFixIds])"/>
+                <sqf:delete match="@sqf:fix" use-when="count($fixes[. = $availableFixIds]) eq 0"/>
                 <sqf:delete match="@sqf:default-fix" use-when="@sqf:default-fix = $notAvailableFixes"/>
             </sqf:fix>
             <sqf:fix id="createLocal">
@@ -212,7 +234,7 @@
             </sqf:fix>
         </rule>
 
-        <rule context="sch:rule/sqf:fix | sch:rule/sqf:group">
+        <rule context="sch:rule/sqf:fix | sch:rule/sqf:group" id="references_2">
             <let name="id" value="@id"/>
             <let name="asserts" value="../(sch:assert | sch:report)"/>
             <let name="fixRefs" value="
@@ -284,9 +306,9 @@
             </sqf:group>
         </rule>
     </pattern>
-    <pattern>
+    <pattern id="quickfix-id">
         <title>QuickFix IDs</title>
-        <rule context="sch:rule//sqf:fix | sch:rule/sqf:group | sch:schema/sqf:fixes//sqf:fix | sch:schema/sqf:fixes/sqf:group">
+        <rule context="sch:rule//sqf:fix | sch:rule/sqf:group | sch:schema/sqf:fixes//sqf:fix | sch:schema/sqf:fixes/sqf:group" id="quickfix-id_1">
             <let name="anc" value="ancestor::sch:rule | ancestor::sqf:fixes"/>
             <let name="otherFix" value="$anc//(sqf:fix | sqf:group) except ."/>
             <let name="id" value="@id"/>
@@ -303,9 +325,9 @@
             </sqf:fix>
         </rule>
     </pattern>
-    <pattern>
+    <pattern id="default-fix">
         <title>Default fix</title>
-        <rule context="sch:assert[@sqf:default-fix] | sch:report[@sqf:default-fix]">
+        <rule context="sch:assert[@sqf:default-fix] | sch:report[@sqf:default-fix]" id="default-fix_1">
             <let name="defaultFix" value="@sqf:default-fix"/>
             <let name="fixes" value="tokenize(@sqf:fix, '\s')"/>
             <let name="availableFixIds" value="sqf:getAvailableFixOrGroups(ancestor::sch:rule)/@id"/>
@@ -321,7 +343,7 @@
             </sqf:fix>
             <sqf:fix id="addReference">
                 <sqf:description>
-                    <sqf:title>add reference</sqf:title>
+                    <sqf:title>Add the missing reference in the sqf:fix attribute</sqf:title>
                 </sqf:description>
                 <sqf:add match="." target="sqf:fix" node-type="attribute" select="
                         string-join((@sqf:fix,
@@ -335,18 +357,50 @@
             </sqf:fix>
         </rule>
     </pattern>
-    <pattern>
+    <pattern id="activity-elements">
         <title>Activity elements</title>
-        <rule context="sqf:add[@select] | sqf:replace[@select]">
+        <rule context="sqf:fix" id="activity-elements_1">
+            <assert test="sqf:add | sqf:replace | sqf:stringReplace | sqf:delete | sqf:call-fix" role="warn" sqf:fix="createAE">A QuickFix without an activity element has no effect.</assert>
+        </rule>
+        <rule context="sqf:add[not(@select)] | sqf:replace[not(@select)]" id="activity-elements_2">
+            <report test="not(* | text()[normalize-space() != ''] | @target | @node-type) and local-name() = 'replace'" role="warn" sqf:fix="addSelect addTarget addNodetype changeToDelete">A <name/> element without content or target attribute acts like a sqf:delete element.</report>
+            <report test="not(* | text()[normalize-space() != ''] | @target | @node-type) and local-name() = 'add'" role="warn" sqf:fix="addSelect addTarget addNodetype delete">A <name/> element without content or target attribute has no effect.</report>
+            <sqf:fix id="addSelect">
+                <sqf:description>
+                    <sqf:title>Add select attribute</sqf:title>
+                </sqf:description>
+                <sqf:add node-type="attribute" target="select"/>
+            </sqf:fix>
+            <sqf:fix id="addTarget">
+                <sqf:description>
+                    <sqf:title>Add target and node-type attribute</sqf:title>
+                </sqf:description>
+                <sqf:add target="target" node-type="attribute"/>
+                <sqf:add target="node-type" node-type="attribute"/>
+            </sqf:fix>
+            <sqf:fix id="addNodetype">
+                <sqf:description>
+                    <sqf:title>Add node-type attribute (just for comments)</sqf:title>
+                </sqf:description>
+                <sqf:add target="node-type" node-type="attribute" select="'comment'"/>
+            </sqf:fix>
+            <sqf:fix id="changeToDelete">
+                <sqf:description>
+                    <sqf:title>Change the sqf:replace element to sqf:delete.</sqf:title>
+                </sqf:description>
+                <sqf:replace target="sqf:delete" node-type="element">
+                    <xsl:copy-of select="@match"/>
+                </sqf:replace>
+            </sqf:fix>
+        </rule>
+        <rule context="sqf:add[@select] | sqf:replace[@select]" id="activity-elements_3">
             <report test="* or normalize-space(.) != ''" see="http://www.schematron-quickfix.com/quickFix/reference.html#activityManipulate_select" sqf:fix="contentOrSelect">If the select attribute is setted the <name/> element should be empty.</report>
-
-
         </rule>
     </pattern>
-    <pattern>
+    <pattern id="activity-elements2">
         <title>Activity elements 2</title>
-        <rule context="sqf:add[@node-type = 'attribute']">
-            <assert test="not(@position)" see="http://www.schematron-quickfix.com/quickFix/reference.html#add_position" sqf:fix="set.node-type deletePosition" sqf:default-fix="deletePosition">If the node-type attribute has the value "attribute" the position attribute should not be set.</assert>
+        <rule context="sqf:add[@node-type = 'attribute']" id="activity-elements2_1">
+            <report test="@position" see="http://www.schematron-quickfix.com/quickFix/reference.html#add_position" sqf:fix="set.node-type deletePosition" sqf:default-fix="deletePosition">If the node-type attribute has the value "attribute" the position attribute should not be set.</report>
 
             <sqf:fix id="deletePosition">
                 <sqf:description>
@@ -355,7 +409,10 @@
                 <sqf:delete match="@position"/>
             </sqf:fix>
         </rule>
-        <rule context="sqf:add[@node-type != 'comment'] | sqf:replace[@node-type != 'comment']" role="error">
+    </pattern>
+    <pattern id="activity-elements3">
+        <title>Activity elements 3</title>
+        <rule context="sqf:add[@node-type != 'comment'] | sqf:replace[@node-type != 'comment']" role="error" id="activity-elements3_1">
             <assert test="@target" see="http://www.schematron-quickfix.com/quickFix/reference.html#activityManipulate_node-type" sqf:fix="set.node-type.comment set.node-type.delete addTarget">The attribute target has to be set if the node-type attribute has not the value "comment".</assert>
 
             <sqf:fix id="addTarget">
@@ -366,9 +423,9 @@
                 <sqf:add target="target" node-type="attribute" select="$target"/>
             </sqf:fix>
         </rule>
-        <rule context="sqf:add[@target] | sqf:replace[@target]" role="fatal">
+        <rule context="sqf:add[@target] | sqf:replace[@target]" role="fatal" id="activity-elements3_2">
             <assert test="@node-type" see="http://www.schematron-quickfix.com/quickFix/reference.html#activityManipulate_target" sqf:fix="set.node-type deleteTarget">The attribute node-type is required if the target attribute has been set.</assert>
-            <report test="@node-type='comment'" role="warn" sqf:fix="set.node-type deleteTarget">The attribute target is useless if the node-type attribute has the value comment.</report>
+            <report test="@node-type = 'comment'" role="warn" sqf:fix="set.node-type deleteTarget">The attribute target is useless if the node-type attribute has the value comment.</report>
 
             <sqf:fix id="deleteTarget">
                 <sqf:description>
@@ -379,9 +436,9 @@
         </rule>
     </pattern>
 
-    <pattern>
+    <pattern id="generic-fixes">
         <title>Generic fixes</title>
-        <rule context="sqf:call-fix">
+        <rule context="sqf:call-fix" id="generic-fixes_1">
             <let name="ref" value="@ref"/>
             <let name="ancFix" value="ancestor::sqf:fix"/>
             <let name="availableFixIds" value="sqf:getAvailableFixOrGroups(.)/@id"/>
@@ -419,7 +476,7 @@
             </sqf:fix>
 
         </rule>
-        <rule context="sqf:with-param">
+        <rule context="sqf:with-param" id="generic-fixes_2">
             <let name="paramName" value="@name"/>
             <let name="refFixId" value="../@ref"/>
             <let name="localRefFix" value="sqf:getAvailableFixOrGroups(., $LOCAL_ONLY)[@id = $refFixId]"/>
@@ -445,7 +502,7 @@
 
 
         </rule>
-        <rule context="sqf:param[@abstract = 'true']">
+        <rule context="sqf:param[@abstract = 'true']" id="generic-fixes_3">
             <let name="forbiddenAttr" value="
                     @* except (@abstract,
                     @name)"/>
@@ -468,16 +525,47 @@
         </rule>
     </pattern>
 
-    <pattern>
+    <pattern id="descriptions">
         <title>Descriptions</title>
-        <rule context="sqf:description">
-            <report test="string-join(sqf:title/normalize-space(.), '') = ''" sqf:fix="delete deleteParent" role="warn">The description should have a title.</report>
-            <sqf:fix id="delete" use-when="../sqf:description">
+        <rule context="sqf:description" id="descriptions_1">
+            <let name="badPrecedings" value="preceding-sibling::*/(self::sqf:user-entry | self::sqf:call-fix | self::sqf:add | self::sqf:replace | self::sqf:stringReplace | self::sqf:delete)"/>
+            <let name="description" value="."/>
+            <report test="$badPrecedings" sqf:fix="deletePrec deleteCond moveToTop moveBefore">This description is missplaced. Only the elements sqf:param or any variable elements should be precedings of the description.</report>
+            <sqf:fix id="deletePrec">
+                <sqf:description>
+                    <sqf:title>Delete the preceding <value-of select="string-join($badPrecedings/name(), ', ')"/>.</sqf:title>
+                </sqf:description>
+                <sqf:delete match="$badPrecedings"/>
+            </sqf:fix>
+            <let name="refFixWithDesc" value="../sqf:call-fix/sqf:getRefFix(.)[sqf:hasDescription(.)]"/>
+            <sqf:fix id="deleteCond" use-when="../sqf:description | $refFixWithDesc">
                 <sqf:description>
                     <sqf:title>Delete the description element</sqf:title>
                 </sqf:description>
                 <sqf:delete/>
             </sqf:fix>
+            <sqf:fix id="moveToTop">
+                <sqf:description>
+                    <sqf:title>Move the <name/> element at the beginn of the fix.</sqf:title>
+                </sqf:description>
+                <sqf:delete match="$description"/>
+                <sqf:add match=".." position="first-child" use-when="not(../sqf:param)">
+                    <xsl:copy-of select="$description" copy-namespaces="no"/>
+                </sqf:add>
+                <sqf:add match="../sqf:param[last()]" position="after">
+                    <xsl:copy-of select="$description" copy-namespaces="no"/>
+                </sqf:add>
+            </sqf:fix>
+            <sqf:fix id="moveBefore">
+                <sqf:description>
+                    <sqf:title>Move before the first <name path="$badPrecedings[1]"/> element.</sqf:title>
+                </sqf:description>
+                <sqf:delete match="$description"/>
+                <sqf:add match="$badPrecedings[1]" position="before">
+                    <xsl:copy-of select="$description" copy-namespaces="no"/>
+                </sqf:add>
+            </sqf:fix>
+            <report test="string-join(sqf:title/normalize-space(.), '') = ''" sqf:fix="deleteCond deleteParent setTitle" role="warn">The description should have a title.</report>
             <sqf:fix id="deleteParent" role="delete">
                 <let name="parent" value="parent::*"/>
                 <sqf:description>
@@ -488,15 +576,57 @@
 
                 <sqf:replace match="$parent/ancestor::sch:rule/(sch:assert | sch:report)/@sqf:fix[matches(., $pattern)]" use-when="$parent/self::sqf:fix" target="sqf:fix" node-type="attribute" select="replace(., $pattern, ' ')"/>
             </sqf:fix>
+            <sqf:fix id="setTitle">
+                <sqf:description>
+                    <sqf:title>Set the title</sqf:title>
+                </sqf:description>
+                <sqf:user-entry name="title">
+                    <sqf:description>
+                        <sqf:title>Enter the title for the description</sqf:title>
+                    </sqf:description>
+                </sqf:user-entry>
+                <sqf:replace match="sqf:title" node-type="element" target="sqf:title" select="$title"/>
+                <sqf:add target="sqf:title" node-type="element" select="$title" use-when="not(sqf:title)"/>
+            </sqf:fix>
+        </rule>
+        <rule context="sqf:fix[sqf:isReferered(.)][not(sqf:description)]" id="descriptions_2">
+            <let name="callsWithDesc" value="for $c in sqf:call-fix return sqf:getRefFix($c)[sqf:hasDescription(.)]"/>
+            <report test="count($callsWithDesc) gt 1" role="warn" sqf:fix="createDescription createTitledDescription delete deleteCallFixes">A QuickFix without description should not call more than one QuickFix with a description.</report>
+            <assert test="$callsWithDesc" sqf:fix="createDescription createTitledDescription delete">This QuickFix should have a description. </assert>
+            <sqf:fix id="deleteCallFixes">
+                <sqf:description>
+                    <sqf:title>Delete calls of the fixes <value-of select="string-join($callsWithDesc[position() gt 1], ', ')"/></sqf:title>
+                </sqf:description>
+                <sqf:delete match="$callsWithDesc[position() gt 1]"/>
+            </sqf:fix>
+            <sqf:fix id="createDescription">
+                <sqf:description>
+                    <sqf:title>Create an empty description</sqf:title>
+                </sqf:description>
+                <sqf:add match="." target="sqf:description" node-type="element" use-when="not(sqf:param)"><xsl:element name="sqf:title"/></sqf:add>
+                <sqf:add match="(sqf:param)[last()]" target="sqf:description" node-type="element" position="after"><xsl:element name="sqf:title"/></sqf:add>
+            </sqf:fix>
+            <sqf:fix id="createTitledDescription">
+                <sqf:description>
+                    <sqf:title>Create a titled description</sqf:title>
+                </sqf:description>
+                <sqf:user-entry name="title">
+                    <sqf:description>
+                        <sqf:title>Enter the new title.</sqf:title>
+                    </sqf:description>
+                </sqf:user-entry>
+                <sqf:add match="." target="sqf:description" node-type="element" use-when="not(sqf:param)"><xsl:element name="sqf:title"><value-of select="$title"/></xsl:element></sqf:add>
+                <sqf:add match="(sqf:param)[last()]" target="sqf:description" node-type="element" position="after"><xsl:element name="sqf:title"><value-of select="$title"/></xsl:element></sqf:add>
+            </sqf:fix>
         </rule>
     </pattern>
 
-    <pattern>
+    <pattern id="localisation">
         <title>Localisation tests</title>
         <let name="root" value="/"/>
         <let name="languages" value="distinct-values((//@xml:lang))"/>
         <let name="countLang" value="count($languages)"/>
-        <rule context="/sch:schema" role="info">
+        <rule context="/sch:schema" role="info" id="localisation_1">
             <report test="$countLang gt 0 and not(@xml:lang)" flag="location" sqf:fix="addXmlLang removeAllXmlLang">Localisation failed. If you use the xml:lang attribute you should set a root language.</report>
             <sqf:group id="addXmlLang">
                 <sqf:fix id="addXmlLang_0" use-when="$countLang gt 3">
@@ -531,7 +661,7 @@
                 <sqf:delete match="//@xml:lang"/>
             </sqf:fix>
         </rule>
-        <rule context="sch:assert | sch:report" role="info">
+        <rule context="sch:assert | sch:report" role="info" id="localisation_2">
             <let name="msgLang" value="
                     if (node())
                     then
@@ -586,7 +716,7 @@
                         $diagnNew), ' ')"/>
             </sqf:fix>
         </rule>
-        <rule context="sqf:*[sqf:description]" role="info">
+        <rule context="sqf:*[sqf:description]" role="info" id="localisation_3">
             <let name="usedLangs" value="(sqf:description/sqf:getLang(.))"/>
             <report test="count($languages[not(. = $usedLangs)]) gt 0" sqf:fix="createMissingLang">Localisation failed. Missing a description for the language(s) <value-of select="$languages[not(. = $usedLangs)]"/>.</report>
             <sqf:fix id="createMissingLang">
@@ -604,9 +734,9 @@
                 </sqf:add>
             </sqf:fix>
         </rule>
-        <rule context="sqf:description[preceding-sibling::sqf:description]">
+        <rule context="sqf:description[preceding-sibling::sqf:description]" id="localisation_4">
             <let name="lang" value="sqf:getLang(.)"/>
-            <report test="$lang = preceding-sibling::sqf:description/sqf:getLang(.)" sqf:fix="delete translate">Double description for the language <value-of select="$lang"/> and <name path="parent::*"/> element.</report>
+            <report test="$lang = preceding-sibling::sqf:description/sqf:getLang(.)" sqf:fix="delete translate">More than one description for the language <value-of select="$lang"/> for the same <name path="parent::*"/> element.</report>
 
             <let name="usedLangs" value="(../sqf:description/sqf:getLang(.))"/>
             <let name="missingLangs" value="$languages[not(. = $usedLangs)]"/>
@@ -618,14 +748,14 @@
                     </sqf:description>
                     <sqf:add target="xml:lang" node-type="attribute" select="$missingLang"/>
                 </sqf:fix>
-                <sqf:fix id="translate2" use-when="count($missingLangs) gt 0">
+                <sqf:fix id="translate2" use-when="count($missingLangs) gt 1">
                     <let name="missingLang" value="$missingLangs[2]"/>
                     <sqf:description>
                         <sqf:title>Switch the language to <value-of select="$missingLang"/></sqf:title>
                     </sqf:description>
                     <sqf:add target="xml:lang" node-type="attribute" select="$missingLang"/>
                 </sqf:fix>
-                <sqf:fix id="translate3" use-when="count($missingLangs) gt 0">
+                <sqf:fix id="translate3" use-when="count($missingLangs) gt 2">
                     <let name="missingLang" value="$missingLangs[3]"/>
                     <sqf:description>
                         <sqf:title>Switch the language to <value-of select="$missingLang"/></sqf:title>
@@ -642,6 +772,13 @@
     <xsl:variable name="LOCAL_ONLY" select="'LOCAL_ONLY'" as="xs:string"/>
     <xsl:variable name="GLOBAL_ONLY" select="'GLOBAL_ONLY'" as="xs:string"/>
     <xsl:variable name="GLOBAL_AND_LOCAL" select="'GLOBAL_AND_LOCAL'" as="xs:string"/>
+
+    <xsl:function name="sqf:getRoots" as="document-node()*">
+        <xsl:param name="context" as="element()*"/>
+        <xsl:variable name="contextRoot" select="$context/root(.)"/>
+        <xsl:variable name="includeImports" select="$contextRoot/(sch:schema/es:import | .//sch:include)/doc(resolve-uri(@href, base-uri(.)))/*"/>
+        <xsl:sequence select="$contextRoot, $includeImports/sqf:getRoots(.)"/>
+    </xsl:function>
 
     <xsl:function name="sqf:getAvailableFixOrGroups" as="element()*">
         <xsl:param name="context" as="element()*"/>
@@ -660,7 +797,7 @@
         <xsl:variable name="global" select="
                 if (not($localOrGlobal = $LOCAL_ONLY))
                 then
-                    (root($context)/sch:schema/sqf:fixes)
+                    (sqf:getRoots($context)/(sch:schema|.)/sqf:fixes)
                 else
                     ()"/>
         <xsl:variable name="availableFixes" select="
@@ -681,6 +818,58 @@
                 else
                     ('#DEFAULT')"/>
     </xsl:function>
+
+
+
+    <xsl:function name="sqf:getRefFix" as="element(sqf:fix)*">
+        <xsl:param name="call-fix" as="element(sqf:call-fix)"/>
+        <xsl:variable name="fix" select="$call-fix/parent::sqf:fix"/>
+        <xsl:variable name="localAvailableFix" select="sqf:getAvailableFixOrGroups($fix, $LOCAL_ONLY)"/>
+        <xsl:variable name="refFix" select="
+                for $ref in $call-fix/@ref
+                return
+                    (
+                    if ($localAvailableFix[@id = $ref])
+                    then
+                        ($localAvailableFix[@id = $ref])
+                    else
+                        (sqf:getAvailableFixOrGroups($fix, $GLOBAL_ONLY)[@id = $ref])
+                    )[self::sqf:fix]
+                "/>
+        <xsl:sequence select="$refFix"/>
+    </xsl:function>
+    <xsl:function name="sqf:hasDescription" as="xs:boolean">
+        <xsl:param name="fix" as="element(sqf:fix)"/>
+        <xsl:variable name="refFix" select="$fix/sqf:call-fix/sqf:getRefFix(.)"/>
+        <xsl:sequence select="
+                if ($fix/sqf:description)
+                then
+                    true()
+                else
+                    if ($refFix[sqf:hasDescription(.)])
+                    then
+                        true()
+                    else
+                        false()
+                "/>
+
+    </xsl:function>
+    
+    <xsl:key name="asserts-fixIds" match="sch:assert|sch:report" use="@sqf:fix/tokenize(., '\s')"/>
+    
+    <xsl:function name="sqf:isReferered" as="xs:boolean">
+        <xsl:param name="fix" as="element(sqf:fix)"/>
+        <xsl:variable name="id" select="$fix/@id, $fix/parent::sqf:group/@id"/>
+        <xsl:variable name="localAsserts" select="$fix/ancestor::sch:rule/(sch:assert|sch:report)"/>
+        <xsl:variable name="referedAsserts" select="key('asserts-fixIds', $id, root($fix))"/>
+        <xsl:sequence select="
+            exists(if ($localAsserts) then
+                ($localAsserts intersect $referedAsserts)
+                else
+                    ($referedAsserts))"/>
+    </xsl:function>
+
+
 
     <!--   
     Global fixes
@@ -716,7 +905,7 @@
             <sqf:param name="global" type="xs:boolean" default="false()"/>
             <sqf:param name="params" type="xs:string*" default="()"/>
             <sqf:description>
-                <sqf:title/>
+                <sqf:title>Depreciated fix: should used by sqf:call-fix only.</sqf:title>
             </sqf:description>
             <xsl:variable name="newFixes">
                 <xsl:for-each select="$ids">
@@ -772,11 +961,37 @@
             </sqf:fix>
             <sqf:fix id="set.node-type.delete" use-when="not(@target) and @node-type">
                 <sqf:description>
-                    <sqf:title>Delete node-type </sqf:title>
+                    <sqf:title>Delete the node-type attribute.</sqf:title>
                 </sqf:description>
                 <sqf:delete match="@node-type"/>
             </sqf:fix>
         </sqf:group>
 
+        <sqf:group id="createAE">
+            <sqf:fix id="createAE.delete">
+                <sqf:description>
+                    <sqf:title>Add sqf:delete element</sqf:title>
+                </sqf:description>
+                <sqf:add target="sqf:delete" position="last-child" node-type="element"/>
+            </sqf:fix>
+            <sqf:fix id="createAE.add">
+                <sqf:description>
+                    <sqf:title>Add sqf:add element</sqf:title>
+                </sqf:description>
+                <sqf:add target="sqf:add" position="last-child" node-type="element"/>
+            </sqf:fix>
+            <sqf:fix id="createAE.replace">
+                <sqf:description>
+                    <sqf:title>Add sqf:replace element</sqf:title>
+                </sqf:description>
+                <sqf:add target="sqf:replace" position="last-child" node-type="element"/>
+            </sqf:fix>
+            <sqf:fix id="createAE.stringReplace">
+                <sqf:description>
+                    <sqf:title>Add sqf:stringReplace element</sqf:title>
+                </sqf:description>
+                <sqf:add target="sqf:stringReplace" position="last-child" node-type="element"/>
+            </sqf:fix>
+        </sqf:group>
     </sqf:fixes>
 </schema>

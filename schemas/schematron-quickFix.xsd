@@ -177,20 +177,10 @@
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                     <xs:group ref="sqf:foreign"/>
                     <xs:element ref="sch:let"/>
-                </xs:choice>
-                <xs:element ref="sqf:description" maxOccurs="unbounded"/>
-                <xs:group ref="sqf:foreign"/>
-                <xs:choice>
-                    <xs:sequence>
-                        <xs:element ref="sqf:call-fix"/>
-                    </xs:sequence>
-                    <xs:sequence>
-                        <xs:choice minOccurs="0" maxOccurs="unbounded">
-                            <xs:element ref="sch:let"/>
-                            <xs:element ref="sqf:user-entry"/>
-                        </xs:choice>
-                        <xs:group ref="sqf:activityElements"/>
-                    </xs:sequence>
+                    <xs:element ref="sqf:description"/>
+                    <xs:element ref="sqf:user-entry"/>
+                    <xs:element ref="sqf:call-fix"/>
+                    <xs:group ref="sqf:activityElements"/>
                 </xs:choice>
             </xs:sequence>
             <xs:attribute name="id" use="required" type="xs:NCName">
