@@ -4,6 +4,7 @@ This sample if just meant as a minimal sample how to use the Saxon extension ins
 
 ## Special Preconditions
 To make this sample work the following preconditions need to be met:
+
 1. XSLT Processor
 The processing of the XSLT code within the quick fix needs to be processed by Saxon EE
 
