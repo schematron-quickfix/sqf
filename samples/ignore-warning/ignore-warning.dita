@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:reference.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:reference.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="ignore-warning.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<reference id="reference_wfl_tpq_z5">
+  <title>One Reference Topic</title>
+	<shortdesc>This short description is far too long (and repetitive).
+		This short description is far too long (and repetitive). This short description is far too
+		long (and repetitive). This short description is far too long (and repetitive). This short
+		description is far too long (and repetitive). This short description is far too long (and
+		repetitive). This short description is far too long (and repetitive). This short description
+		is far too long (and repetitive).</shortdesc>
+  <refbody>
+		<section id="i5l_wpq_z5">
+			<p>Some body text...</p>
+		</section>
+	</refbody>
+	<reference id="imr_vsq_z5">
+		<title>Another Reference Topic</title>
+		<shortdesc>This short description is far too long (and repetitive). This short description is far
+			too long (and repetitive). This short description is far too long (and repetitive). This
+			short description is far too long (and repetitive). This short description is far too
+			long (and repetitive). This short description is far too long (and repetitive). This
+			short description is far too long (and repetitive). This short description is far too
+			long (and repetitive).</shortdesc>
+		<refbody>
+			<section id="jmr_vsq_z5">
+				<p>Some body text...</p>
+			</section>
+		</refbody>
+	</reference>
+	<reference id="gr3_gyx_z5">
+		<title>Another Reference Topic</title>
+		<shortdesc><?suppress-warning shortdesc-too-long?>This short description is far too long (and
+			repetitive). This short description is far too long (and repetitive). This short
+			description is far too long (and repetitive). This short description is far too long
+			(and repetitive). This short description is far too long (and repetitive). This short
+			description is far too long (and repetitive). This short description is far too long
+			(and repetitive). This short description is far too long (and repetitive).</shortdesc>
+		<refbody>
+			<section id="hr3_gyx_z5">
+				<note>The <codeph>shortdesc</codeph> element of this reference is explicitly marked
+					to ignore the too long content.</note>
+			</section>
+		</refbody>
+	</reference>
+	<reference id="pgk_gyx_z5"><?suppress-warning shortdesc-too-long?>
+		<title>Another Reference Topic</title>
+		<shortdesc>This short description is far too long (and repetitive). This short description
+			is far too long (and repetitive). This short description is far too long (and
+			repetitive). This short description is far too long (and repetitive). This short
+			description is far too long (and repetitive). This short description is far too long
+			(and repetitive). This short description is far too long (and repetitive). This short
+			description is far too long (and repetitive).</shortdesc>
+		<refbody>
+			<section id="qgk_gyx_z5">
+				<note>This topic is explicitly marked to ignore too long content in all
+						<codeph>shortdesc</codeph> elements below.</note>
+			</section>
+		</refbody>
+		<reference id="nxx_zyx_z5">
+			<title>Another Reference Topic</title>
+			<shortdesc>This short description is far too long (and repetitive). This short
+				description is far too long (and repetitive). This short description is far too long
+				(and repetitive). This short description is far too long (and repetitive). This
+				short description is far too long (and repetitive). This short description is far
+				too long (and repetitive). This short description is far too long (and repetitive).
+				This short description is far too long (and repetitive).</shortdesc>
+			<refbody>
+				<section id="oxx_zyx_z5">
+					<p>Some body text...</p>
+				</section>
+			</refbody>
+		</reference>
+	</reference>
+</reference>
