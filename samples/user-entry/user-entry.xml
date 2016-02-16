@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="user-entry.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Root>
+	<Element id="xyz">Tooooo looooooooooong Teeeeeext</Element>
+</Root>
