@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:topic.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:topic.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="add-id.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic id="topic_wfl_tpq_z5">
+	<title>Add ID</title>
+	<body>
+		<section>
+			<title>A Section</title>
+			<p>A paragraph.</p>
+			<p>Another paragraph.</p>
+		</section>
+		<section>
+			<title>Another Section</title>
+			<p>A paragraph.</p>
+			<p>Another paragraph.</p>
+		</section>
+	</body>
+</topic>
