@@ -149,7 +149,10 @@
                 <title>Conclusion</title>
                 <itemizedlist>
                     <listitem>
-                        <para><code>sqf:description</code> is optional and unbounded, but the language (<code>@xml:lang</code>) needs to be unique in one <code>sqf:fix</code> element</para>
+                        <para><code>sqf:description</code> is optional
+                            <?oxy_comment_start author="Octavian" timestamp="20160217T105621+0200" comment="Depending on the localization concept the description can be unbounded or not. If we will agree to have a description element with an attribute @ref to refer other descriptions defined globally (that will have different xml:lang attributes values), then we can have 0 or 1 description element."?>and
+                            unbounded<?oxy_comment_end?>, but the language (<code>@xml:lang</code>)
+                            needs to be unique in one <code>sqf:fix</code> element</para>
                         <para>(if possible, auto completion should add it autocratically when creating <code>sqf:fix</code> elements)</para>
                     </listitem>
                     <listitem>
