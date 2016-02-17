@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="register-key.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-stylesheet type="text/css" href="register-key.css"?>
+<ConditionList>
+	<Condition>
+		<Key>Condition.001</Key>
+		<Text>Some text...</Text>
+	</Condition>
+	<Condition>
+		<Key>Condition.002</Key>
+		<Text>Some text...</Text>
+	</Condition>
+	<Condition>
+		<Key>Condition.003</Key>
+		<Text>Some text...</Text>
+	</Condition>
+	<Condition>
+		<Key>Condition.004</Key>
+		<Text>Some text...</Text>
+	</Condition>
+</ConditionList>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JAR Builder" default="jar" basedir=".">
+
+	<property name="archivename" value="SqfOxyUtil" />
+	<property name="src.dir" value="src"/>
+	<property name="oxygen.lib.dir" value="${OXYGENXML}/lib"/>
+
+	<path id="classpath">
+		<fileset dir="${oxygen.lib.dir}" 		includes="**/*.jar"/>
+	</path>
+			
+	<target name="clean">
+		<delete dir="bin"/>
+	</target>
+
+	<target name="compile">
+		<mkdir dir="bin"/>
+		<javac srcdir="src" target="1.8" source="1.8" destdir="bin" classpathref="classpath" debug="true" debuglevel="lines,source" includeantruntime="no"/>
+	</target>
+
+	<target name="jar" description="Kreieren eines JAR Archives Project
+		Builder)"
+		depends="clean, compile">
+
+		<delete file="${archivename}.jar"/>
+		<delete file="MANIFEST.MF"/>
+		<manifest file="MANIFEST.MF">
+			<attribute name="Built-By" value="PST"/>
+			<attribute name="Class-Path" value=". ${archivename}"/>
+		</manifest>
+
+		<jar jarfile="${archivename}.jar" manifest="MANIFEST.MF">
+			<fileset  dir="bin"  includes="**/*.class"/>
+		</jar>
+
+		<delete file="${OXYGENXML}/lib/${archivename}.jar"/>
+		<copy file="${archivename}.jar" todir="${OXYGENXML}/lib"/>
+	</target>
+</project>

@@ -1,0 +1,17 @@
+ConditionList {
+	display: block;
+}
+
+Condition {
+	display: 		list-item;
+	list-style:		disc;
+	margin-left: 	1em;
+}
+
+Condition > *{
+	display: 	block;
+}
+
+Key {
+	font-weight: bold;
+}
