@@ -150,7 +150,7 @@
                 <itemizedlist>
                     <listitem>
                         <para><code>sqf:description</code> is optional and unbounded, but the language (<code>@xml:lang</code>) needs to be unique in one <code>sqf:fix</code> element</para>
-                        <para>(if posible, autocompletion should add it automatical when creating <code>sqf:fix</code> elements)</para>
+                        <para>(if possible, auto completion should add it autocratically when creating <code>sqf:fix</code> elements)</para>
                     </listitem>
                     <listitem>
                         <para>The <code>sqf:fix</code> must have a description, if there is no or more than one <code>sqf:call-fix</code> inside.</para>
@@ -193,7 +193,7 @@
                         </itemizedlist>
                     </listitem>
                     <listitem>
-                        <para>There is no concept for refering to descriptions, which are stored in an external file (library).</para>
+                        <para>There is no concept for referring to descriptions, which are stored in an external file (library).</para>
                     </listitem>
                 </itemizedlist>
             </sect3>
@@ -214,7 +214,7 @@
                                 <para>Add <code>@diagnostic</code> to <code>sqf:description</code> with maybe multiple ids for localisation.</para>
                             </listitem>
                             <listitem>
-                                <para>Multiple <code>sqf:tilte</code> with <code>@xml:lang</code>.</para>
+                                <para>Multiple <code>sqf:title</code> with <code>@xml:lang</code>.</para>
                             </listitem>
                             <listitem>
                                 <para>Only one <code>sqf:description</code> per <code>sqf:fix</code> element.</para>
@@ -240,7 +240,7 @@
                                 <para>Add <code>ref</code> and <code>id</code> attribute to <code>sqf:description</code>.</para>
                             </listitem>
                             <listitem>
-                                <para>An empty <code>sqf:descripton</code> element with a <code>ref</code> attribute refers to a global <code>sch:description</code> element with an <code>id</code> attribute.</para>
+                                <para>An empty <code>sqf:description</code> element with a <code>ref</code> attribute refers to a global <code>sch:description</code> element with an <code>id</code> attribute.</para>
                             </listitem>
                         </itemizedlist>
                     </listitem>
@@ -312,7 +312,7 @@
             </sect3>
             <sect3>
                 <title>Open Issues</title>
-                <para>This issue poped up, after the session: <link xlink:href="https://github.com/schematron-quickfix/sqf/issues/9">https://github.com/schematron-quickfix/sqf/issues/9</link></para>
+                <para>This issue popped up, after the session: <link xlink:href="https://github.com/schematron-quickfix/sqf/issues/9">https://github.com/schematron-quickfix/sqf/issues/9</link></para>
             </sect3>
         </sect2>
     </sect1>
