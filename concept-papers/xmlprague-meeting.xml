@@ -39,7 +39,8 @@
         <abstract>
             <para>During the XMLPrague, we discussed in a small group current issues of the Schematron QuickFix language to prepare the second draft version of the specification.</para>
             <para>In the following we want to update you by a summary of the discussed issues and our conclusions.</para>
-            <para>This article is based on some short notes, which was made during the session.</para>
+            <para>This article is based on some short notes which were made during the
+                session.</para>
         </abstract>
         <date>2016-02-12</date>
     </info>
@@ -134,7 +135,9 @@
                         <para>The <code>use-for-each</code> attribute has an XPath as value. For each return value one fix should be generated.</para>
                     </listitem>
                     <listitem>
-                        <para>Context is still the same, with <code>$sqf:current</code> (build-in variable) you can have access to the current returned value. </para>
+                        <para>Context is still the same, with <code>$sqf:current</code> (build-in
+                            <?oxy_comment_start author="Heino Schmull" timestamp="20160217T232443+0200" comment="shouldn&apos;t this be a function? sqf:current() like current() in XPath?"?>variable<?oxy_comment_end?>)
+                            you can have access to the current returned value. </para>
                     </listitem>
                 </itemizedlist>
             </sect3>
@@ -143,7 +146,9 @@
             <title>Call fix elements</title>
             <sect3>
                 <title>Issues Summary</title>
-                <para>The current problem, was already described in this issue: <link xlink:href="https://github.com/schematron-quickfix/sqf/issues/2">https://github.com/schematron-quickfix/sqf/issues/2</link></para>
+                <para>The current problem was already described in this issue: <link
+                        xlink:href="https://github.com/schematron-quickfix/sqf/issues/2"
+                        >https://github.com/schematron-quickfix/sqf/issues/2</link></para>
             </sect3>
             <sect3>
                 <title>Conclusion</title>
@@ -156,7 +161,9 @@
                         <para>(if possible, auto completion should add it autocratically when creating <code>sqf:fix</code> elements)</para>
                     </listitem>
                     <listitem>
-                        <para>The <code>sqf:fix</code> must have a description, if there is no or more than one <code>sqf:call-fix</code> inside.</para>
+                        <para>The <code>sqf:fix</code> must have a description, if there is no or
+                            more than one <code>sqf:call-fix</code> with a description
+                            inside.</para>
                     </listitem>
                     <listitem>
                         <para>If you have exactly one <code>sqf:call-fix</code> and no <code>sqf:description</code> element, the called fix must have a <code>sqf:description</code> or inherit one.</para>
@@ -223,7 +230,9 @@
                                 <para>Only one <code>sqf:description</code> per <code>sqf:fix</code> element.</para>
                             </listitem>
                         </itemizedlist>
-                        <para>Main goal would be, to could have all <code>sqf:title</code>/<code>sqf:p</code> in one external document.</para>
+                        <para>Main goal would be to have all
+                                <code>sqf:title</code>/<code>sqf:p</code> in one external
+                            document.</para>
                     </listitem>
                     <listitem>
                         <para>Design an own referencing concept for descriptions.</para>
