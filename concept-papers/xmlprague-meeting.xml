@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    <info>
+        <title>Schematron QuickFix concept session during XMLPrague 2016</title>
+        <author>
+            <personname><firstname>Heino</firstname>
+                <surname>Schmull</surname></personname>
+            <affiliation>
+                <orgname>pagina GmbH</orgname>
+            </affiliation>
+            <email>heino.schmull@pagina-tuebingen.de</email>
+        </author>
+        <author>
+            <personname><firstname>Nico</firstname>
+                <surname>Kutscherauer</surname></personname>
+            <affiliation>
+                <orgname>data2type GmbH</orgname>
+            </affiliation>
+            <email>kutscherauer@schematron-quickfix.com</email>
+        </author>
+        <author>
+            <personname><firstname>Octavian</firstname>
+                <surname>Nadolu</surname></personname>
+            <affiliation>
+                <orgname>oXygen XML Editor</orgname>
+            </affiliation>
+            <email>octavian_nadolu@sync.ro</email>
+        </author>
+        <author>
+            <personname><firstname>Patrik</firstname>
+                <surname>Stellmann</surname></personname>
+            <affiliation>
+                <orgname>GDV Dienstleistungs-GmbH &amp; Co. KG</orgname>
+            </affiliation>
+            <email>Patrik.Stellmann@gdv-dl.de</email>
+        </author>
+        <abstract>
+            <para>During the XMLPrague, we discussed in a small group current issues of the Schematron QuickFix language to prepare the second draft version of the specification.</para>
+            <para>In the following we want to update you by a summary of the discussed issues and our conclusions.</para>
+            <para>This article is based on some short notes, which was made during the session.</para>
+        </abstract>
+        <date>2016-02-12</date>
+    </info>
+    <sect1>
+        <title>Setting</title>
+        <sect2>
+            <title>Participant List (Alphabetical Order)</title>
+            <itemizedlist>
+                <listitem>
+                    <para><author>
+                            <personname><firstname>Heino</firstname>
+                                <surname>Schmull</surname></personname>
+                            <affiliation>
+                                <orgname>pagina GmbH</orgname>
+                            </affiliation>
+                            <email>heino.schmull@pagina-tuebingen.de</email>
+                        </author></para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <author>
+                            <personname><firstname>Nico</firstname>
+                                <surname>Kutscherauer</surname></personname>
+                            <affiliation>
+                                <orgname>data2type GmbH</orgname>
+                            </affiliation>
+                            <email>kutscherauer@schematron-quickfix.com</email>
+                        </author></para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <author>
+                            <personname><firstname>Octavian</firstname>
+                                <surname>Nadolu</surname></personname>
+                            <affiliation>
+                                <orgname>oXygen XML Editor</orgname>
+                            </affiliation>
+                            <email>octavian_nadolu@sync.ro</email>
+                        </author></para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <author>
+                            <personname><firstname>Patrik</firstname>
+                                <surname>Stellmann</surname></personname>
+                            <affiliation>
+                                <orgname>GDV Dienstleistungs-GmbH &amp; Co. KG</orgname>
+                            </affiliation>
+                            <email>Patrik.Stellmann@gdv-dl.de</email>
+                        </author></para>
+                </listitem>
+            </itemizedlist>
+        </sect2>
+        <sect2>
+            <title>Issue Overview</title>
+            <itemizedlist>
+                <listitem>
+                    <para><link xlink:href="#dynamic_fixes">Dynamic fixes</link></para>
+                </listitem>
+                <listitem>
+                    <para><link xlink:href="#call_fix">Call fix concepts</link></para>
+                </listitem>
+                <listitem>
+                    <para><link xlink:href="#localisation">Localisation concepts</link></para>
+                </listitem>
+                <listitem>
+                    <para><link xlink:href="#sqf_keep">Nested processing of nodes by Activity Elements</link></para>
+                </listitem>
+                <listitem>
+                    <para><link xlink:href="#sqf_copy">Additional substitution for common XSLT elements</link></para>
+                </listitem>
+            </itemizedlist>
+        </sect2>
+    </sect1>
+    <sect1>
+        <title>Details</title>
+        <sect2 xml:id="dynamic_fixes">
+            <title>Dynamic fixes</title>
+            <sect3>
+                <title>Issues Summary</title>
+                <para><link xlink:href="https://github.com/schematron-quickfix/sqf/issues/3">https://github.com/schematron-quickfix/sqf/issues/3</link></para>
+            </sect3>
+            <sect3>
+                <title>Conclusion</title>
+                <para>Everyone was satisfied by using Patrik's example.</para>
+                <para>Short summary:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Dynamic fixes will be created by <code>sqf:fix</code> elements with an <code>use-for-each</code> attribute.</para>
+                    </listitem>
+                    <listitem>
+                        <para>The <code>use-for-each</code> attribute has an XPath as value. For each return value one fix should be generated.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Context is still the same, with <code>$sqf:current</code> (build-in variable) you can have access to the current returned value. </para>
+                    </listitem>
+                </itemizedlist>
+            </sect3>
+        </sect2>
+        <sect2 xml:id="call_fix">
+            <title>Call fix elements</title>
+            <sect3>
+                <title>Issues Summary</title>
+                <para>The current problem, was already described in this issue: <link xlink:href="https://github.com/schematron-quickfix/sqf/issues/2">https://github.com/schematron-quickfix/sqf/issues/2</link></para>
+            </sect3>
+            <sect3>
+                <title>Conclusion</title>
+                <itemizedlist>
+                    <listitem>
+                        <para><code>sqf:description</code> is optional and unbounded, but the language (<code>@xml:lang</code>) needs to be unique in one <code>sqf:fix</code> element</para>
+                        <para>(if posible, autocompletion should add it automatical when creating <code>sqf:fix</code> elements)</para>
+                    </listitem>
+                    <listitem>
+                        <para>The <code>sqf:fix</code> must have a description, if there is no or more than one <code>sqf:call-fix</code> inside.</para>
+                    </listitem>
+                    <listitem>
+                        <para>If you have exactly one <code>sqf:call-fix</code> and no <code>sqf:description</code> element, the called fix must have a <code>sqf:description</code> or inherit one.</para>
+                    </listitem>
+                    <listitem>
+                        <para>The languages of the descriptions of the called fix and the calling fix could be different:</para>
+                        <para>Use case: Use <code>sqf:call-fix</code> to add a different language to an existing fix.</para>
+                    </listitem>
+                </itemizedlist>
+            </sect3>
+            <sect3>
+                <title>Open Issues</title>
+                <orderedlist>
+                    <listitem>
+                        <para>This concept ignores the localisation proposal below.</para>
+                    </listitem>
+                    <listitem>
+                        <para>XSD has limitations, so the <link xlink:href="https://github.com/schematron-quickfix/sqf/blob/master/schemas/schematron-quickFix.xsd">schematron-quickfix.xsd</link> would be very lax. The order of the <code>sqf:fix</code> content would be checked by Schematron (<link xlink:href="https://github.com/schematron-quickfix/sqf/blob/master/schemas/sqf.sch">sqf.sch</link>). One suggestion was, to switch the basic schema (<link xlink:href="https://github.com/schematron-quickfix/sqf/blob/master/schemas/schematron-quickFix.xsd">schematron-quickfix.xsd</link>) to RELAX NG</para>
+                    </listitem>
+                </orderedlist>
+            </sect3>
+        </sect2>
+        <sect2 xml:id="localisation">
+            <title>Localisation concepts</title>
+            <sect3>
+                <title>Issues Summary</title>
+                <itemizedlist>
+                    <listitem>
+                        <para>The concept above includes a localisation concept: </para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Multiple descriptions which have to be in different languages.</para>
+                            </listitem>
+                            <listitem>
+                                <para>Concept for adding a description to an existing fix.</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>There is no concept for refering to descriptions, which are stored in an external file (library).</para>
+                    </listitem>
+                </itemizedlist>
+            </sect3>
+            <sect3>
+                <title>Conclusion</title>
+                <para>There was no final concept for this issue, just a couple of proposals:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Use Schematron localisation concept.</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Add <code>@diagnostic</code> to <code>sqf:title</code> and <code>sqf:p</code>.</para>
+                            </listitem>
+                            <listitem>
+                                <para>Remove the <code>@xml:lang</code> from the <code>sqf:description</code>.</para>
+                            </listitem>
+                            <listitem>
+                                <para>Add <code>@diagnostic</code> to <code>sqf:description</code> with maybe multiple ids for localisation.</para>
+                            </listitem>
+                            <listitem>
+                                <para>Multiple <code>sqf:tilte</code> with <code>@xml:lang</code>.</para>
+                            </listitem>
+                            <listitem>
+                                <para>Only one <code>sqf:description</code> per <code>sqf:fix</code> element.</para>
+                            </listitem>
+                        </itemizedlist>
+                        <para>Main goal would be, to could have all <code>sqf:title</code>/<code>sqf:p</code> in one external document.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Design an own referencing concept for descriptions.</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Something like <code>sqf:diagnostic</code>, but there was no further discussion about that. </para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                    <listitem>
+                        <para>Allow to specify global descriptions and refer them.</para>
+                        <itemizedlist>
+                            <listitem>
+                                <para>Allow <code>sqf:description</code> in <code>sqf:fixes</code>.</para>
+                            </listitem>
+                            <listitem>
+                                <para>Add <code>ref</code> and <code>id</code> attribute to <code>sqf:description</code>.</para>
+                            </listitem>
+                            <listitem>
+                                <para>An empty <code>sqf:descripton</code> element with a <code>ref</code> attribute refers to a global <code>sch:description</code> element with an <code>id</code> attribute.</para>
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </itemizedlist>
+            </sect3>
+            <sect3>
+                <title>Open Issues</title>
+                <itemizedlist>
+                    <listitem>
+                        <para>The different proposals should be discussed.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Maybe a localisation specialist should be called in. </para>
+                    </listitem>
+                </itemizedlist>
+            </sect3>
+        </sect2>
+        <sect2 xml:id="sqf_keep">
+            <title>Nested processing of nodes by Activity Elements</title>
+            <sect3>
+                <title>Issue Summary</title>
+                <para>The first question was after a use case for the <code>sqf:keep</code> element:</para>
+                <para>The following example shows an Activity Element, which transforms all child elements of an specific namespace in the <code>NULL</code> namespace: </para>
+                <programlisting>&lt;sqf:replace match=&quot;.//sqf:*&quot; target=&quot;{local-name()}&quot; node-type=&quot;element&quot;&gt;
+    &lt;sqf:keep/&gt;
+&lt;/sqf:replace&gt;</programlisting>
+            </sect3>
+            <sect3>
+                <title>Conclusion</title>
+                <itemizedlist>
+                    <listitem>
+                        <para>The group agreed, that this is a reasonable use case of <code>sqf:keep</code> and it is impossible to do this with other SQF structures.</para>
+                    </listitem>
+                    <listitem>
+                        <para>But because this is a very special case, we proposed to remove the <code>sqf:keep</code> element from the specification.</para>
+                    </listitem>
+                    <listitem>
+                        <para>The use cases are also realizable by embedded XSLT.</para>
+                    </listitem>
+                </itemizedlist>
+            </sect3>
+        </sect2>
+        <sect2 xml:id="sqf_copy">
+            <title>Additional substitution for common XSLT elements</title>
+            <sect3>
+                <title>Issue Summary</title>
+                <itemizedlist>
+                    <listitem>
+                        <para>The issue resulted by removing the <code>sqf:keep</code> element.</para>
+                    </listitem>
+                    <listitem>
+                        <para>It was noticed, that there is a huge usage of the <code>xsl:copy-of</code> element (instead of <code>sqf:keep</code>).</para>
+                    </listitem>
+                </itemizedlist>
+            </sect3>
+            <sect3>
+                <title>Conclusion</title>
+                <itemizedlist>
+                    <listitem>
+                        <para>Introduction of a <code>sqf:copy-of</code> element, because it (<code>xsl:copy-of</code>) will be used really often to copy existing nodes.</para>
+                    </listitem>
+                    <listitem>
+                        <para>For non-XSLT user, it is more understandable, if he don't have to change the namespace to copy nodes (like <code>xsl:value-of</code> -> <code>sch:value-of</code>).</para>
+                    </listitem>
+                    <listitem>
+                        <para>No default for the <code>select</code> attribute, because there are two reasonable options (<code>.</code> and <code>node()</code>).</para>
+                    </listitem>
+                </itemizedlist>
+            </sect3>
+            <sect3>
+                <title>Open Issues</title>
+                <para>This issue poped up, after the session: <link xlink:href="https://github.com/schematron-quickfix/sqf/issues/9">https://github.com/schematron-quickfix/sqf/issues/9</link></para>
+            </sect3>
+        </sect2>
+    </sect1>
+</article>
