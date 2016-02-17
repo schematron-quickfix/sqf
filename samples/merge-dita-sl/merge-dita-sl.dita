@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:topic.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:topic.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="merge-dita-sl.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic id="reference_wfl_tpq_z5">
+  <title>Merge DITA <codeph>sl</codeph></title>
+	<body>
+		<p>Two consecutive <codeph>sl</codeph> elements:</p>
+		<sl>
+			<sli>1st Entry</sli>
+			<sli>2nd Entry</sli>
+		</sl>
+		<sl>
+			<sli>3rd Entry</sli>
+			<sli>4th Entry</sli>
+		</sl>
+	</body>
+</topic>

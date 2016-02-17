@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="topic-with-space-preserve.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="topic-with-space-preserve.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="correct-spacing.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic id="reference_wfl_tpq_z5">
+  <title>Correct Spacing in Space Preserved Paragraphs</title>
+	<body>
+		<section id="fzm_dcz_z5">
+			<title>Leading Spaces</title>
+			<p xml:space="preserve"> This text starts with a whitespace.</p>
+		</section>
+		<section id="hfv_fcz_z5">
+			<title>Trailing Spaces</title>
+			<p xml:space="preserve">Text with space at the end – often a sign that the next is not completed and the author wanted to </p>
+		</section>
+		<section id="tjv_fcz_z5">
+			<title>Multiple Space</title>
+			<p xml:space="preserve">Text with multiple whitespaces might indicate that the author planned to insert an element there. E.g. an <codeph>xref</codeph> in "Click  for more details."</p>
+		</section>
+		<section id="fnv_fcz_z5">
+			<title>Line Breaks</title>
+			<p xml:space="preserve">First paragraph.
+Second paragraph.
+Third paragraph.</p>
+		</section>
+		<section id="wrv_fcz_z5">
+			<title>Mixture</title>
+			<p xml:space="preserve"> This text contains leading, trailing and  multiple whitespaces as well as a 
+ linebreak. </p>
+		</section>
+	</body>
+</topic>
