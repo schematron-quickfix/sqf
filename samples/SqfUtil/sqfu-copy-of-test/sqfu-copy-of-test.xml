@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="sqfu-copy-of-test.xsd">
+	<Element>Element1</Element>
+	<Element attribute="default-value">Element2</Element>
+	<Element attribute="special-value">Element3</Element>
+</Root>
