@@ -14,6 +14,7 @@ This can be done using the configuration file saxon-xsltgui-config.xml.
 
 3. External Java Library
 The java library DitaSemiaXsltGui.jar needs to be within the class path of Saxon. The file can be downloaded from https://github.com/dita-semia/XsltGui.
+Of oXygen is used it needs to be restarted after copying the file.
 
 When using the oXygen project html-dialog-sch.xpr or sqf-samples.xpr the configuration has already been set in the project settings.
 Still the jar file needs to be put to the oxygen lib folder. 
