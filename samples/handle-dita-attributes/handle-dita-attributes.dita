@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:topic.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:topic.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="handle-dita-attributes.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic id="reference_wfl_tpq_z5">
+	<title>Handle DITA Attributes</title>
+	<body>
+		<section id="hbw_vkb_bv">
+			<title>Some Example section</title>
+			<p>Some text here...</p>
+			<codeblock>&lt;Root>
+  &lt;Element/>
+&lt;/Root></codeblock>
+			<p>Some more text here...</p>
+		</section>
+	</body>
+</topic>
