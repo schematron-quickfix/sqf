@@ -4,13 +4,11 @@ import java.net.URI;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.sax.SAXSource;
 
 import org.apache.log4j.Logger;
 
 import net.sf.saxon.Configuration;
 import net.sf.saxon.expr.XPathContext;
-import net.sf.saxon.lib.Validation;
 import net.sf.saxon.om.NodeInfo;
 import net.sf.saxon.s9api.DocumentBuilder;
 import net.sf.saxon.s9api.Processor;
@@ -25,8 +23,6 @@ public class StaticFct {
 	
 	public static NodeInfo loadDocRaw(XPathContext context, URI uri) {
 		
-		logger.info("loadDocRaw: " + uri);
-		
 		// create new, compatible configuration
 		final Configuration baseConfig	= context.getConfiguration(); 
 		final Configuration newConfig	= new Configuration();
@@ -35,6 +31,7 @@ public class StaticFct {
 
 		// don't resolve attribute defaults!
 		newConfig.setExpandAttributeDefaults(false);
+		newConfig.setXIncludeAware(false);
 
 		try {
 			
