@@ -23,9 +23,7 @@
 			<xsl:choose>
 				<xsl:when test="exists($docRaw)">
 					<xsl:variable name="raw" as="item()?" select="sqfu:getFromRaw(., $docRaw)"/>
-					<xsl:if test="exists($raw)">
-						<xsl:copy-of select="if (exists($raw)) then $raw else ." copy-namespaces="no"/>
-					</xsl:if>
+					<xsl:copy-of select="if (exists($raw)) then $raw else ." copy-namespaces="no"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<!-- no base-uri or it could not be loaded -> pass through content -->
@@ -34,6 +32,28 @@
 			</xsl:choose>
 		</xsl:for-each>
 	</xsl:function>
+	
+	<!--
+		Basically the same of sqfu:copy-of but it does not copy the node itself but only all of its content items.
+	-->
+	<xsl:function name="sqfu:copy-content-of" as="item()*">
+		<xsl:param name="node" as="node()"/>
+		
+		<xsl:variable name="baseUri"	as="xs:anyURI?" 		select="base-uri($node)"/>
+		<xsl:variable name="docRaw" 	as="document-node()?" 	select="if (exists($baseUri)) then java:loadDocRaw($baseUri) else ()"/>
+		<xsl:choose>
+			<xsl:when test="exists($docRaw)">
+				<xsl:variable name="raw" as="node()?" select="sqfu:getFromRaw($node, $docRaw)"/>
+				<xsl:copy-of select="if (exists($raw)) then ($raw/attribute(), $raw/node()) else ($node/attribute(), $node/node())" copy-namespaces="no"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<!-- no base-uri or it could not be loaded -> pass through content -->
+				<xsl:copy-of select="$node/attribute(), $node/node()"/>
+			</xsl:otherwise>
+		</xsl:choose>
+		
+	</xsl:function>
+	
 	
 	<xsl:function name="sqfu:getFromRaw" as="item()?">
 		<xsl:param name="content" 	as="item()"/>
