@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="handle-docbook-xincludes.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0">
+	<title>Handle DocBook XIncludes</title>
+	<chapter>
+		<title>Appendix A: Some Samples</title>
+		<section>
+			<title>An Internal Child Section</title>
+			<para>Some text here...</para>
+			<programlisting>&lt;Root>
+  &lt;Element/>
+&lt;/Root></programlisting>
+			<para>Some more text here...</para>
+		</section>
+		<xi:include href="child.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+			<xi:fallback/>	<!-- no content on fallback -->
+		</xi:include>
+	</chapter>
+</book>
