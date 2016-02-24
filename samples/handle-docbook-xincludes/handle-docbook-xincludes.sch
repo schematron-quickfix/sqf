@@ -46,7 +46,8 @@
 				<sqf:description>
 					<sqf:title>Convert chapter to appendix element. (Extension)</sqf:title>
 					<sqf:p>An XSLT solution that uses a Saxon extension instruction to use the original file as source without attribute defaults being expanded at all.</sqf:p>
-					<sqf:p>For an unknown reason, when being applied in oXygen an error and several warnings occur.</sqf:p>
+					<sqf:p>When being applied in oXygen the XIncludes seems to be resolved - so no xi:include element is present there.</sqf:p>
+					<sqf:p>Furthermore, the whitespaces in the programlisting element are modified.</sqf:p>
 				</sqf:description>
 				<sqf:replace match="." node-type="keep" target="appendix" select="sqfu:copy-content-of(.)"/>
 			</sqf:fix>

@@ -15,7 +15,7 @@
 			<para>Some more text here...</para>
 		</section>
 		<xi:include href="child.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
-			<xi:fallback/>	<!-- no content on fallback -->
+			<xi:fallback>##FALLBACK##</xi:fallback>	<!-- no content on fallback -->
 		</xi:include>
 	</chapter>
 </book>

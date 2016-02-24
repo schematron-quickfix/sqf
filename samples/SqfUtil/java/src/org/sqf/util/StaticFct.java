@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import net.sf.saxon.Configuration;
 import net.sf.saxon.expr.XPathContext;
 import net.sf.saxon.om.NodeInfo;
+//import net.sf.saxon.query.QueryResult;
 import net.sf.saxon.s9api.DocumentBuilder;
 import net.sf.saxon.s9api.Processor;
 import net.sf.saxon.s9api.SaxonApiException;
@@ -29,20 +30,18 @@ public class StaticFct {
 		newConfig.setNamePool(baseConfig.getNamePool());
 		newConfig.setDocumentNumberAllocator(baseConfig.getDocumentNumberAllocator());
 
-		// don't resolve attribute defaults!
+		// don't resolve attribute defaults and XIncludes!
 		newConfig.setExpandAttributeDefaults(false);
 		newConfig.setXIncludeAware(false);
 
 		try {
 			
 			final Source 			source 		= baseConfig.getURIResolver().resolve(uri.getPath(), null);
-			/*if (source instanceof SAXSource) {
-				((SAXSource)source).setXMLReader(null);
-			}*/
-			
 			final Processor 		processor 	= new Processor(newConfig);
 			final DocumentBuilder 	builder 	= processor.newDocumentBuilder();
 			final XdmNode 			doc 		= builder.build(source);
+			
+			//logger.info("loadDocRaw: " + QueryResult.serialize(doc.getUnderlyingNode()));
 			
 			return doc.getUnderlyingNode();
 			
