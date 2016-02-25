@@ -25,7 +25,7 @@
 					<sqf:title>Convert section to example element. (minimal)</sqf:title>
 					<sqf:p>Version with minimal code. It has the drawback that the class attribute of the section will be copied as well overwriting the default for the new example element.</sqf:p>
 				</sqf:description>
-				<sqf:replace match="." node-type="keep" target="example" select="attribute() | node()"/>
+				<sqf:replace match="." node-type="keep" target="example" select="attribute() | node()" xml:space="preserve"/>
 			</sqf:fix>
 			
 			<sqf:fix id="sectionToExample2">
@@ -33,7 +33,7 @@
 					<sqf:title>Convert section to example element. (minimal fixed)</sqf:title>
 					<sqf:p>Version with minimal but correct code. It does not copy the @class of the section element but still expands all other attribute defaults.</sqf:p>
 				</sqf:description>
-				<sqf:replace match="." node-type="keep" target="example" select="attribute() except @class, node()"/>
+				<sqf:replace match="." node-type="keep" target="example" select="attribute() except @class, node()" xml:space="preserve"/>
 			</sqf:fix>
 			
 			<sqf:fix id="sectionToExample3">
@@ -42,7 +42,7 @@
 					<sqf:p>An XSLT solution that recursively processes the content and keeps @class and namespace declarations from being copied.</sqf:p>
 					<sqf:p>Since the @type attribute might be set explicitly it can't be hidden completely and, thus, is expanded always.</sqf:p>
 				</sqf:description>
-				<sqf:replace match="." node-type="keep" target="example">
+				<sqf:replace match="." node-type="keep" target="example" xml:space="preserve">
 					<xsl:apply-templates select="attribute() | node()" mode="copyDita"/>
 				</sqf:replace>
 			</sqf:fix>
@@ -52,7 +52,7 @@
 					<sqf:title>Convert section to example element. (Extension)</sqf:title>
 					<sqf:p>An XSLT solution that uses a Saxon extension instruction to use the original file as source without attribute defaults being expanded at all.</sqf:p>
 				</sqf:description>
-				<sqf:replace match="." node-type="keep" target="example" select="sqfu:copy-of(attribute() | node())"/>
+				<sqf:replace match="." node-type="keep" target="example" select="sqfu:copy-content-of(.)" xml:space="preserve"/>
 			</sqf:fix>
 
 		</sch:rule>
