@@ -28,7 +28,7 @@
 					<sqf:title>Convert chapter to appendix element. (minimal)</sqf:title>
 					<sqf:p>Version with minimal code. It has the drawback that the xincludes are resolved and the spaces within programlisting are not preserved.</sqf:p>
 				</sqf:description>
-				<sqf:replace match="." node-type="keep" target="appendix" select="attribute() | node()"/>
+				<sqf:replace match="." node-type="keep" target="appendix" select="attribute() | node()" xml:space="preserve"/>
 			</sqf:fix>
 			
 			<sqf:fix id="chapterToAppendix2">
@@ -37,7 +37,7 @@
 					<sqf:p>An XSLT solution that recursively processes the content and recreates the xInclude, but without any xi:fallback.</sqf:p>
 					<sqf:p>For an unknown reason, when being applied in oXygen an error and several warnings occur.</sqf:p>
 				</sqf:description>
-				<sqf:replace match="." node-type="keep" target="appendix">
+				<sqf:replace match="." node-type="keep" target="appendix" xml:space="preserve">
 					<xsl:apply-templates select="attribute() | node()" mode="copyDocBook"/>
 				</sqf:replace>
 			</sqf:fix>
@@ -49,7 +49,7 @@
 					<sqf:p>When being applied in oXygen the XIncludes seems to be resolved - so no xi:include element is present there.</sqf:p>
 					<sqf:p>Furthermore, the whitespaces in the programlisting element are modified.</sqf:p>
 				</sqf:description>
-				<sqf:replace match="." node-type="keep" target="appendix" select="sqfu:copy-content-of(.)"/>
+				<sqf:replace match="." node-type="keep" target="appendix" select="sqfu:copy-content-of(.)" xml:space="preserve"/>
 			</sqf:fix>
 
 		</sch:rule>
