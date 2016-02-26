@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:topic.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:topic.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="outsource-dita-topics.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic id="reference_wfl_tpq_z5">
+	<title>Outsource DITA Topics</title>
+	<body>
+		<p>Some text here...</p>
+		<codeblock>&lt;Root>
+  &lt;Element/>
+&lt;/Root></codeblock>
+		<p>Some more text here...</p>
+	</body>
+	<topic id="rh4_svz_cv">
+		<title>Child Topic</title>
+		<body>
+			<p>Some text here...</p>
+			<codeblock>&lt;Root>
+  &lt;Element/>
+&lt;/Root></codeblock>
+			<p>Some more text here...</p>
+		</body>
+	</topic>
+</topic>
