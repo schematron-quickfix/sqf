@@ -29,7 +29,7 @@
 				
 				<sqf:description>
 					<sqf:title>Outsource all remaining chapters in individual files. (real)</sqf:title>
-					<sqf:p>Generates a new file for each chapter and .</sqf:p>
+					<sqf:p>Generates a new file for each chapter and repaces the content by an XInclude element.</sqf:p>
 					<sqf:p>This version is not working in oXygen, since it currently can't handle XIncludes within SQF correctly.</sqf:p>
 				</sqf:description>
 				
@@ -44,7 +44,7 @@
 				
 				<sqf:description>
 					<sqf:title>Outsource all remaining chapters in individual files. (fake)</sqf:title>
-					<sqf:p>Generates a new file for each chapter and .</sqf:p>
+					<sqf:p>Generates a new file for each chapter and repaces the content by an XInclude element.</sqf:p>
 					<sqf:p>This version does not generate xi:include elements but xi:Include instead to demonstrate it in oXygen as well.</sqf:p>
 				</sqf:description>
 				
