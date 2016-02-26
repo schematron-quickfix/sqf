@@ -23,7 +23,14 @@
 
 		<xsl:result-document href="{resolve-uri($filename)}" method="xml">
 			<xsl:text>&#x0A;</xsl:text>
-			<xsl:sequence select="sqfu:copy-of(.)"/>
+			<xsl:for-each select="/processing-instruction('xml-model')">
+				<xsl:copy-of select="."/>
+				<xsl:text>&#x0A;</xsl:text>
+			</xsl:for-each>
+			<xsl:copy copy-namespaces="no">
+				<xsl:copy-of select="/*/@version"/>
+				<xsl:sequence select="sqfu:copy-content-of(.)"/>
+			</xsl:copy>
 		</xsl:result-document>
 
 		<xsl:choose>
