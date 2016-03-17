@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs		= "http://www.w3.org/2001/XMLSchema" 
+	xmlns:ditaarch	= "http://dita.oasis-open.org/architecture/2005/"
+	xmlns:cba		= "http://www.dita-semia.org/conbat"
+	elementFormDefault="qualified">
+	
+	<xs:import namespace="http://dita.oasis-open.org/architecture/2005/"
+		schemaLocation="urn:oasis:names:tc:dita:xsd:ditaarch.xsd:1.2"/>
+	
+	<xs:import namespace="http://www.dita-semia.org/conbat"
+		schemaLocation="urn:dita-semia:conbat:schema:conbat-attr.xsd"/>
+	
+	<!-- ================ TOPIC DOMAINS ===================== -->
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:abbreviateDomain.xsd:1.2"/>
+	
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd:1.2"/>
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:indexingDomain.xsd:1.2"/>
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:programmingDomain.xsd:1.2"/>
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:softwareDomain.xsd:1.2"/>
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:uiDomain.xsd:1.2"/>
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd:1.2"/>
+	
+	<!-- ================ GROUP DEFINITIONS ===================== -->
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:tblDeclGrp.xsd:1.2"/>
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:topicGrp.xsd:1.2"/>
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:referenceGrp.xsd:1.2"/>
+	
+	<!-- =================  MODULE INCLUDE DEFINITION  ================== -->
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:commonElementMod.xsd:1.2"/>
+	
+	<!-- ======== Table elements ======== -->
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:tblDeclMod.xsd:1.2"/>
+	
+	<!-- ======= MetaData elements, plus keyword and indexterm ======= -->
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:metaDeclMod.xsd:1.2"/>
+	
+	<xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:commonElementGrp.xsd:1.2">
+		<xs:group name="dl">
+			<xs:choice>
+				<xs:group ref="dl"/>
+				<xs:group ref="pr-d-dl"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="fig">
+			<xs:choice>
+				<xs:group ref="fig"/>
+				<xs:group ref="pr-d-fig"/>
+				<xs:group ref="ut-d-fig"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="pre">
+			<xs:choice>
+				<xs:group ref="pre"/>
+				<xs:group ref="pr-d-pre"/>
+				<xs:group ref="sw-d-pre"/>
+				<xs:group ref="ui-d-pre"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="keyword">
+			<xs:choice>
+				<xs:group ref="keyword"/>
+				<xs:group ref="pr-d-keyword"/>
+				<xs:group ref="sw-d-keyword"/>
+				<xs:group ref="ui-d-keyword"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="term">
+			<xs:choice>
+				<xs:group ref="term"/>
+				<xs:group ref="abbrev-d-term"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="ph">
+			<xs:choice>
+				<xs:group ref="ph"/>
+				<xs:group ref="hi-d-ph"/>
+				<xs:group ref="pr-d-ph"/>
+				<xs:group ref="sw-d-ph"/>
+				<xs:group ref="ui-d-ph"/>
+			</xs:choice>
+		</xs:group>
+		<xs:group name="index-base">
+			<xs:choice>
+				<xs:group ref="index-base"/>
+				<xs:group ref="indexing-d-index-base"/>
+			</xs:choice>
+		</xs:group>
+		<xs:attributeGroup name="props-attribute-extensions">
+			<xs:attributeGroup ref="props-attribute-extensions"/>
+		</xs:attributeGroup>
+	</xs:redefine>
+	<xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:metaDeclGrp.xsd:1.2">
+		<xs:group name="metadata">
+			<xs:choice>
+				<xs:group ref="metadata"/>
+			</xs:choice>
+		</xs:group>
+	</xs:redefine>
+	
+	
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:topicMod.xsd:1.2"/>
+	<xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:referenceMod.xsd:1.2"/>
+	<!--  ================ INFO-TYPES DEFINITION =====================  -->
+	<xs:group name="info-types">
+		<xs:annotation>
+			<xs:documentation>
+				This group is referenced in all topic modules but not defined there.
+				It must be declared in topic-type shells.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="software-component"/>
+			<!--<xs:element ref="topic"/>-->
+			<!--<xs:group ref="reference"/>
+			<xs:group ref="info-types"/>-->
+			<!--<xs:element ref="no-topic-nesting" maxOccurs="0" minOccurs="0"/>-->
+		</xs:choice>
+	</xs:group>
+	
+	<xs:attributeGroup name="domains-att">
+		<xs:attribute name="domains"
+			type="xs:string"
+			default="(topic abbrev-d) (topic equation-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d xml-d) (topic markup-d) (topic mathml-d) (topic pr-d) (topic reference) (topic relmgmt-d) (topic svg-d) (topic sw-d) (topic ui-d) (topic ut-d) (topic software-component-d) a(props deliveryTarget)"/>
+	</xs:attributeGroup>
+	
+	<!--  ================ Specialization =====================  -->
+	
+	<xs:element name="software-component">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="software-component.class">
+					<xs:attribute ref="class" default="- topic/topic reference/reference software-component-d/software-component "/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="software-component.class">
+		<xs:sequence>
+			<xs:group ref="software-component.content"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="software-component.attributes"/>
+	</xs:complexType>
+	<xs:group name="software-component.content">
+		<xs:sequence>
+			<xs:element name="title" type="software-component-title-type"/>
+			<xs:element ref="shortdesc"/>
+			<xs:element	name="body"	type="software-component-body-type"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:attributeGroup name="software-component.attributes">
+		<xs:attribute name="id" use="required" type="xs:ID"/>
+		<xs:attributeGroup ref="conref-atts"/>
+		<xs:attributeGroup ref="select-atts"/>
+		<xs:attributeGroup ref="localization-atts"/>
+		<xs:attribute name="outputclass" type="xs:string"/>
+		<xs:attribute ref="ditaarch:DITAArchVersion"/>
+		<xs:attributeGroup ref="domains-att"/>
+		<xs:attributeGroup ref="global-atts"/>
+	</xs:attributeGroup>
+	
+	
+	
+	<xs:complexType name="software-component-title-type" mixed="true">
+		<xs:complexContent>
+			<xs:extension base="title.class">
+				<xs:attribute ref="class" 		default="- topic/title software-component-d/title "/>
+				<xs:attribute ref="cba:prefix"  fixed="Software Component: "/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="software-component-body-type">
+		<xs:complexContent>
+			<xs:extension base="software-component-body.class">
+				<xs:attribute ref="class" default="- topic/body reference/refbody software-component-d/body "/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="software-component-body.class">
+		<xs:sequence>
+			<xs:group ref="software-component-body.content"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="refbody.attributes"/>
+	</xs:complexType>
+	<xs:group name="software-component-body.content">
+		<xs:sequence>
+			<xs:element name="header" type="software-component-header-type"/>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="flowchart" type="software-component-flowchart-type"/>
+				<xs:group ref="data.elements.incl"/>
+				<xs:group ref="example"/>
+				<xs:group ref="foreign.unknown.incl"/>
+				<xs:group ref="refbodydiv"/>
+				<xs:group ref="refsyn"/>
+				<xs:group ref="properties"/>
+				<xs:group ref="section"/>
+				<xs:group ref="simpletable"/>
+				<xs:group ref="table"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	
+	<xs:complexType name="software-component-header-type">
+		<xs:complexContent>
+			<xs:extension base="software-component-header.class">
+				<xs:attribute ref="class" 			default="- topic/dl software-component-d/header "/>
+				<xs:attribute name="outputclass" 	fixed="cba-table"/>
+				<xs:attribute name="audience" 		fixed="internal"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="software-component-header.class">
+		<xs:sequence>
+			<xs:group ref="software-component-header.content"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:group name="software-component-header.content">
+		<xs:sequence>
+			<xs:element name="id" 			type="software-component-id-type"/>
+			<xs:element name="db-access" 	type="software-component-dbaccess-type"/>
+		</xs:sequence>
+	</xs:group>
+	
+	
+	<xs:complexType name="software-component-id-type">
+		<xs:complexContent>
+			<xs:extension base="software-component-id.class">
+				<xs:attribute ref="class" 	default="- topic/dd software-component-d/id "/>
+				<xs:attribute ref="cba:dt" 	fixed="ID"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="software-component-id.class" mixed="true"/>
+	
+	
+	<xs:complexType name="software-component-dbaccess-type">
+		<xs:complexContent>
+			<xs:extension base="software-component-dbaccess.class">
+				<xs:attribute ref="class" default="- topic/dd software-component-d/dbaccess "/>
+				<xs:attribute ref="cba:dt" 	fixed="Database Access"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="software-component-dbaccess.class">
+		<xs:sequence>
+			<xs:group ref="software-component-dbaccess.content"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:group name="software-component-dbaccess.content">
+		<xs:choice>
+			<xs:element name="table" type="software-component-dbtable-type" minOccurs="0" maxOccurs="unbounded"/>
+			<!--<xs:element ref="none" minOccurs="0"/>-->
+		</xs:choice>
+	</xs:group>
+	
+	
+	<xs:complexType name="software-component-dbtable-type">
+		<xs:complexContent>
+			<xs:extension base="software-component-id.class">
+				<xs:attribute ref="class" 	default="- topic/sli software-component-d/dbaccess/table "/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="software-component-dbtable.class" mixed="true"/>
+	
+	
+	<xs:complexType name="software-component-flowchart-type">
+		<xs:complexContent>
+			<xs:extension base="software-component-flowchart.class">
+				<xs:attribute ref="class" default="- topic/fig software-component-d/flowchart "/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="software-component-flowchart.class">
+		<xs:sequence>
+			<xs:group ref="software-component-flowchart.content"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="fig.attributes"/>
+	</xs:complexType>
+	<xs:group name="software-component-flowchart.content">
+		<xs:sequence>
+			<xs:element name="title" type="software-component-flowchart-title-type"/>
+			<xs:group ref="desc" minOccurs="0"/>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:group ref="figgroup"/>
+				<xs:group ref="fig.cnt"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	
+	
+	<xs:complexType name="software-component-flowchart-title-type">
+		<xs:complexContent>
+			<xs:extension base="title.class">
+				<xs:attribute ref="class" 		default="- topic/title software-component-d/flowchart/title "/>
+				<xs:attribute ref="cba:content" fixed="Flowchart of Software Component {ancestor::software-component/title}"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	
+</xs:schema>

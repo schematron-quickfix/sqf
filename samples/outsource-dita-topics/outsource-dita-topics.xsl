@@ -25,6 +25,7 @@
 				<xsl:text>&#x0A;</xsl:text>
 			</xsl:for-each>
 			<xsl:sequence select="sqfu:copy-of(.)"/>
+			<xsl:message>XXXXXXXXXXXXXXXXX</xsl:message>
 		</xsl:result-document>
 
 	</xsl:template>

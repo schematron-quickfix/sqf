@@ -6,6 +6,16 @@
             <serialized version="17.1" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
+                        <String>catalogs.v5</String>
+                        <String-array>
+                            <String>${configured.ditaot.dirl}/catalog-dita.xml</String>
+                        </String-array>
+                    </entry>
+                    <entry>
+                        <String>key.xml.catalog.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
                         <String>key.xslt.saxon8.option.pane</String>
                         <Boolean>true</Boolean>
                     </entry>
@@ -16,6 +26,10 @@
                     <entry>
                         <String>saxon.latest.use.config.file</String>
                         <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>saxon8.schema.based.validation</String>
+                        <String>saxon.source.lax.schema.based.validation</String>
                     </entry>
                     <entry>
                         <String>scenario.associations</String>

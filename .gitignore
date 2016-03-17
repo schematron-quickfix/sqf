@@ -3,3 +3,5 @@ samples/SqfUtil/java/MANIFEST.MF
 samples/outsource-docbook-chapters/another-chapter.xml
 samples/outsource-docbook-chapters/one-chapter.xml
 samples/outsource-dita-topics/child-topic.dita
+samples/outsource-dita-topics/description.dita
+samples/outsource-dita-topics/dosomething.dita

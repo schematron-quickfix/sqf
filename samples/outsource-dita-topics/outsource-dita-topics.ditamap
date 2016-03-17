@@ -5,4 +5,5 @@
         <mainbooktitle>DITA Map</mainbooktitle>
     </booktitle>
 	<chapter href="outsource-dita-topics.dita"/>
+	<chapter href="oursource-dita-topics-dita-semia.dita"/>
 </bookmap>

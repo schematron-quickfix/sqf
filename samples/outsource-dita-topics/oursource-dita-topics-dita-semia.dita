@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="outsource-dita-topics.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="oursource-dita-topics-dita-semia.xsd" id="topic_t4s_vvs_4t">
+	<title>Outsource DITA Topics (DITA-SEMIA)</title>
+	<software-component id="ipb_lpl_v5">
+		<title>DoSomething</title>
+		<shortdesc>This software component does something...</shortdesc>
+		<body>
+			<header>
+				<id>SC0357</id>
+				<db-access>
+					<table>LOGGING</table>
+					<table>DATA</table>
+				</db-access>
+			</header>
+			<section>
+				<p>Text...</p>
+				<note audience="internal">Some internal text...</note>
+			</section>
+			<flowchart>
+				<title/>
+				<desc>Graphic...</desc>
+			</flowchart>
+		</body>
+	</software-component>
+	<topic id="wpl_vtw_25">
+		<title>Description</title>
+		<body>
+			<p>Specialized <codeph audience="x">software-component</codeph>
+				element with a specialized content:</p>
+			<ul id="a13_yql_v5">
+				<li id="b13_yql_v5">
+					<p>A title with the prefix "Software Component".</p>
+				</li>
+				<li id="or3_thv_hv">
+					<p>A header with some internal information about the software component.</p>
+				</li>
+				<li id="or3_zql_v5">
+					<p>A <codeph>flowchart</codeph> element (derived from <codeph>fig</codeph>) with a fixed title
+						using the title of the software component.</p>
+				</li>
+			</ul>
+			<p>A special CSS has been added to highlight content marked as
+					<codeph>@audience</codeph> = "internal".</p>
+		</body>
+	</topic>
+</topic>

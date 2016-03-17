@@ -12,8 +12,10 @@
      interface for editing this configuration file  
 -->
 <configuration edition="EE" xmlns="http://saxon.sf.net/ns/configuration">
-	<xslt>
+	<xslt schemaAware="true">
 		<extensionElement factory="org.DitaSemia.XsltGui.SaxonFactory"
 			namespace="http://www.dita-semia.org/xslt-gui"/>
 	</xslt>
+	<global expandAttributeDefaults="true" schemaValidation="lax"/>
+	<xsd/>
 </configuration>
