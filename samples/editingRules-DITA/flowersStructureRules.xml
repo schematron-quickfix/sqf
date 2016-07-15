@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<?xml-model href="Schemas/flowersStructureRules.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic id="growing_flowers">
+  <title>Growing <b>Flowers</b></title>
+  <body>
+    <section>
+      <title>Care and Preparation</title>
+      <p>When caring for your flower garden you want to feed your plants properly, control pests and
+        weeds. Good soil is a must to successful gardening, landscaping, and healthy flowers. You
+        have to balance the soil structure with nutrients and regulate the pH to cover your plants'
+        needs. And above all, remember that many flower gardens fail because they just don't get
+        enough of your attention.</p>
+      <table frame="all" rowsep="1" colsep="1" id="flowers_table">
+        <tgroup cols="3">
+          <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+          <colspec colname="c3" colnum="3" colwidth="1.0*"/>
+          <thead>
+            <row>
+              <entry>Flower</entry>
+              <entry>Type</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Chrysanthemum</entry>
+              <entry>perennial</entry>
+              <entry>well drained</entry>
+            </row>
+            <row>
+              <entry>Gardenia</entry>
+              <entry>perennial</entry>
+            </row>
+            <row>
+              <entry>Gerbera</entry>
+              <entry>annual</entry>
+              <entry>sandy, well-drained</entry>
+            </row>
+            <row>
+              <entry>Iris</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>Flowers by Season</title>
+      <p>The various climatic changes that occur in cyclic pattern are termed as 'Seasons'. There
+        are four general seasons occurring on Earth - Spring, Summer, Autumn and Winter.</p>
+      <ul id="flowers_by_season_list">
+        <li>Spring Flowers<ul id="spring_flowers_list">
+            <li>
+              <p>Iris - is a genus of between 200-300 species of flowering plants with showy
+                flowers.</p>
+              <ul id="spring_flowers_others_list">
+                <li>
+                  <p>Irises are extensively grown as ornamental plants in home and botanical
+                    gardens.</p>
+                </li>
+                <li>
+                  <p>Some rhizomes are traded as orris root and are used in perfume and medicine,
+                    though more common in ancient times than today.</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>Snowdrop - is the common name for members of the genus Galanthus, a small genus of
+                about 20 species in the family Amaryllidaceae.</p>
+            </li>
+          </ul></li>
+        <li>Summer Flowers<ul id="summer_flowers_list">
+            <li>
+              <p>Gardenia - is a genus of about 250 species of flowering plants in the coffee
+                family, Rubiaceae, native to the tropical and subtropical regions of Africa,
+                southern Asia, Australasia and Oceania.</p>
+            </li>
+          </ul></li>
+      </ul>
+    </section>
+  </body>
+</topic>

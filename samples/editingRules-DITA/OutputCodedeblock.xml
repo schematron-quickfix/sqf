@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<?xml-model href="Schemas/flowersOutputRules.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic id="growing_flowers">
+  <title>Sample</title>
+  <body>
+    <section>
+      <p>On <b>Linux</b>, the Java command should look like this: </p>
+      <codeblock><ph product="editor">java -Xmx600m -XX:MaxPermSize=256m "-Dcom.oxygenxml.editor.plugins.dir=$OXYGEN_HOME/plugins"</ph> 
+
+<ph product="author">java -Xmx600m -XX:MaxPermSize=256m\
+ "-Dcom.oxygenxml.editor.plugins.dir=$AUTHOR_HOME/plugins"</ph>
+
+<ph product="developer">java -Xmx600m -XX:MaxPermSize=256m\
+ "-Dcom.oxygenxml.editor.plugins.dir=$DEVELOPER_HOME/plugins"</ph></codeblock>
+    </section>
+  </body>
+</topic>

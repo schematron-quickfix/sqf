@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<?xml-model href="Schemas/flowersSimpleStylingRules.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic id="growing_flowers">
+  <title>Growing <b>Flowers</b></title>
+  <body>
+    <section>
+      <title>Introduction</title>
+      <p>With just a little bit of care and preparation, any flower garden can be a vibrantly
+        colored environment. Flowers can be selected for specific blooming seasons, colors and
+        shapes. Both annual and perennial flower gardens can be planted depending on climate and
+        specific needs.</p>
+      <p>Read more about growing flowers here:</p>
+      <ul id="read_more_list">
+        <li><xref href="http://en.wikipedia.org/wiki/Flower_garden" format="html" scope="external"
+            >Flower garden</xref></li>
+        <li><xref href="http://en.wikipedia.org/wiki/Raised-bed_gardening" format="html"
+            scope="external">Raised-bed gardening</xref></li>
+        <li><xref href="http://en.wikipedia.org/wiki/Compost" format="html" scope="external"
+            >Compost</xref>;</li></ul>
+      <p>Most of the information was taken from <xref href="http://www.wikipedia.org" format="html"
+          scope="external">http://www.wikipedia.org</xref>, the free encyclopedia.</p>
+    </section>
+  </body>
+</topic>

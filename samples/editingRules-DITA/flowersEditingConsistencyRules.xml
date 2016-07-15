@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<?xml-model href="Schemas/flowersEditingConsistencyRules.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic id="id_kvj_bwn_fw">
+  <title>Growing Flowers</title>
+  <body>
+    <section>
+      <title>Introduction</title>
+      <p>With just a little bit of care and preparation, any flower garden can be a vibrantly
+        colored environment. Flowers can be selected for specific blooming seasons, colors and
+        shapes. Both annual and perennial flower gardens can be planted depending on climate and
+        specific needs.</p>
+    </section>
+    <section>
+      <title>Flowers by Season</title>
+      <p>The various climatic changes that occur in cyclic pattern are termed as 'Seasons'. There
+        are four general seasons occurring on Earth - Spring, Summer, Autumn and Winter.</p>
+      <ul>
+        <li>Spring Time, the time of growth and renewal of new plant and animal life. Spring comes
+          at different times in the North and South Hemispheres. Spring time in the Northern
+          hemisphere is between March - May, and between September - November in the Southern
+          hemisphere. </li>
+      </ul>
+      <ul>
+        <li>Summer is the time of hot and warm weather. Floral growth is the best in the summer
+          season. The Northern hemisphere experiences summer during June, July, August, while in
+          Southern hemisphere during December - February.</li>
+        <li>Autumn is the season of the primary harvest. Autumn falls during September - November in
+          the Northern hemisphere, and during March - June in the Southern hemisphere. Crops are
+          harvested during Autumn. Leaves change color are at their beautiful best.</li>
+        <li>Winter is the season of cold weather. The season occurs during December - February in
+          Northern hemisphere. In the Southern hemisphere winter occurs during June - August. </li>
+      </ul>
+    </section>
+  </body>
+</topic>
