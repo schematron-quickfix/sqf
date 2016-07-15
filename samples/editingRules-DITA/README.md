@@ -1,6 +1,6 @@
 # Editing Rules and Fixes for DITA Documents
 
-Various types of rules for DITA documents:
+### Various types of rules for DITA documents:
 - Simple editing rules
   - Styling is not allowed in titles
   - Semicolon is not allowed at the end of a list item
@@ -16,7 +16,9 @@ Various types of rules for DITA documents:
 - Output related rules
   - Lines in codeblocks should not exceed 80 characters.
   
+-----
+
   See how you can implement this rules and fixes in the following presentations: 
-  http://www.slideshare.net/nottavy/guided-authoring-enforcing-editing-rules
-  http://www.slideshare.net/nottavy/business-rules-fixes-automatic-fixes
+  - http://www.slideshare.net/nottavy/guided-authoring-enforcing-editing-rules
+  - http://www.slideshare.net/nottavy/business-rules-fixes-automatic-fixes
 
