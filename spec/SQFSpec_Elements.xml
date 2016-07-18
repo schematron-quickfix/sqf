@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><div1 id="schematron_quickfix_reference">
+<div1 id="schematron_quickfix_reference">
       <head>Schematron QuickFix reference</head>
       
       
-      <div2>
+      <div2 id="elements">
          <head>Elements</head>
          <div3 id="sqf_add">
             <head>&lt;sqf:add&gt;</head>
             <p>This activity element adds a node to one or more nodes of the XML instance.</p>
             <p>The attributes <att>match</att> and <att>position</att> define the position where the nodes will be added. The position is determined by the anchor node(s) (<titleref href="#activityBase_match">@match</titleref>) and the insertion direction (<titleref href="#add_position">@position</titleref>).</p>
             <p>The attributes <att>node-type</att>, <att>select</att> and <att>target</att> and the content of the element define the nodes to be added.</p>
-            <div4>
+            <div4 id="sqf_add_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -21,7 +21,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_add_child_elements">
                <head>Child elements</head>
                <ulist>
                   <item>
@@ -33,7 +33,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_add_attributes">
                <head>Attributes</head>
                <div5 id="add_position">
                   <head>@position</head>
@@ -110,7 +110,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_add_content_model">
                <head>Content model</head>
                
                
@@ -124,7 +124,7 @@
                   sqf:with-param
                </titleref>).</p>
             <p>The description and other characteristics (e.g. @use-when) of the called QuickFix will not be adopted.</p>
-            <div4>
+            <div4 id="sqf_callfix_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -136,7 +136,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_callfix_child_elements">
                <head>Child elements</head>
                <ulist>
                   <item>
@@ -148,7 +148,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_callfix_attributes">
                <head>Attributes</head>
                <div5 id="call-fix_ref">
                   <head>@ref</head>
@@ -192,7 +192,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_callfix_content_model">
                <head>Content model</head>
                
                
@@ -203,7 +203,7 @@
             <head>&lt;sqf:delete&gt;</head>
             <p>This activity element deletes one or more nodes of the XML instance.</p>
             <p>The <att>match</att> attribute defines the nodes to be deleted.</p>
-            <div4>
+            <div4 id="sqf_delete_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -215,7 +215,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_delete_attributes">
                <head>Attributes</head>
                <div5>
                   <head/>
@@ -224,7 +224,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_delete_content_model">
                <head>Content model</head>
                
                
@@ -234,7 +234,7 @@
          <div3 id="sqf_description">
             <head>&lt;sqf:description&gt;</head>
             <p>Adds a human readable description to the parent element.</p>
-            <div4>
+            <div4 id="sqf_description_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -253,7 +253,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_description_child_elements">
                <head>Child elements</head>
                <ulist>
                   <item>
@@ -272,7 +272,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_description_attributes">
                <head>Attributes</head>
                <div5>
                   <head>@xml:lang (optional)</head>
@@ -284,7 +284,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_description_content_model">
                <head>Content model</head>
                
                
@@ -294,7 +294,7 @@
          <div3 id="sqf_fix">
             <head>&lt;sqf:fix&gt;</head>
             <p>Defines a Schematron QuickFix with its content. All commands will be processed if the QuickFix is activated by the user.</p>
-            <div4>
+            <div4 id="sqf_fix_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -313,7 +313,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_fix_child_elements">
                <head>Child elements</head>
                <ulist>
                   <item>
@@ -367,7 +367,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_fix_attributes">
                <head>Attributes</head>
                <div5 id="fix_id">
                   <head>@id</head>
@@ -566,7 +566,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_fix_content_model">
                <head>Content model</head>
                
                
@@ -576,7 +576,7 @@
          <div3 id="sqf_fixes">
             <head>&lt;sqf:fixes&gt;</head>
             <p>Contains globally useable Schematron QuickFixes and QuickFix groups.</p>
-            <div4>
+            <div4 id="sqf_fixes_child_elements">
                <head>Child elements</head>
                <ulist>
                   <item>
@@ -588,7 +588,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_fixes_attributes">
                <head>Attributes</head>
                <div5 id="fixes_id">
                   <head>@id</head>
@@ -627,7 +627,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_fixes_content_model">
                <head>Content model</head>
                
                
@@ -637,7 +637,7 @@
          <div3 id="sqf_group">
             <head>&lt;sqf:group&gt;</head>
             <p>Defines a Schematron QuickFix group. If the group is linked by an assert or report, all QuickFixes of this group will be associated with the assert/report.</p>
-            <div4>
+            <div4 id="sqf_group_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -649,7 +649,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_group_child_elements">
                <head>Child elements</head>
                <ulist>
                   <item>
@@ -661,7 +661,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_group_attributes">
                <head>Attributes</head>
                <div5 id="group_id">
                   <head>@id</head>
@@ -753,7 +753,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_group_content_model">
                <head>Content model</head>
                
                
@@ -763,7 +763,7 @@
          <div3 id="sqf_keep">
             <head>&lt;sqf:keep&gt;</head>
             <p>This element is available within activity elements. The function is to copy nodes selected by the <att>select</att> attribute. Unlike a deep copy function, with this function the copied nodes can be manipulated by the current or other activity elements.</p>
-            <div4>
+            <div4 id="sqf_keep_attributes">
                <head>Attributes</head>
                <div5 id="keep_select">
                   <head>@select</head>
@@ -812,7 +812,7 @@
                   </table>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_keep_content_model">
                <head>Content model</head>
                
                
@@ -822,7 +822,7 @@
          <div3 id="sqf_p">
             <head>&lt;sqf:p&gt;</head>
             <p>Paragraph within a description.</p>
-            <div4>
+            <div4 id="sqf_p_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -834,7 +834,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_p_child_elements">
                <head>Child elements</head>
                <ulist>
                   <item>
@@ -879,7 +879,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_p_attributes">
                <head>Attributes</head>
                <div5>
                   <head>@xml:lang (optional)</head>
@@ -891,7 +891,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_p_content_model">
                <head>Content model</head>
                
                
@@ -904,13 +904,13 @@
                   sqf:with-param
                </titleref> element.</p>
             <p>The content defines a default value for the parameter.</p>
-            <div4>
+            <div4 id="sqf_param_exception">
                <head>Exception</head>
                
                   <p>Abstract parameters (see attribute <att>abstract</att>) cannot be used as normal XPath variables. An abstract parameter declares, that the current QuickFix uses a parameter of an abstract pattern. A QuickFix with one or more abstract parameters can be used just by abstract patterns. The value of the parameter will be set by the instantiation of the abstract pattern according to the Schematron specification. The instantiation of the abstract pattern must specify a value for every abstract parameter of the QuickFix.</p>
                
             </div4>
-            <div4>
+            <div4 id="sqf_param_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -922,7 +922,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_param_attributes">
                <head>Attributes</head>
                <div5 id="param_abstract">
                   <head>@abstract</head>
@@ -1043,7 +1043,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_param_content_model">
                <head>Content model</head>
                
                
@@ -1055,7 +1055,7 @@
             <p>This activity element replaces one or more nodes of the XML instance by a node. The activity command combines the delete and the add command.</p>
             <p>The nodes to be deleted are defined by the <att>match</att> attribute. The nodes to be added are defined by the attributes <att>node-type</att> and <att>select</att> and the content of the <el>sqf:replace</el> element.</p>
             <p>The position of the nodes to be added is the position of the nodes to be deleted.</p>
-            <div4>
+            <div4 id="sqf_replace_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -1067,7 +1067,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_replace_child_elements">
                <head>Child elements</head>
                <ulist>
                   <item>
@@ -1079,7 +1079,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_replace_attributes">
                <head>Attributes</head>
                <div5>
                   <head/>
@@ -1088,7 +1088,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_replace_content_model">
                <head>Content model</head>
                
                
@@ -1099,7 +1099,7 @@
             <head>&lt;sqf:stringReplace&gt;</head>
             <p>This activity element replaces substrings of text nodes by other nodes. The text nodes are defined by the <att>match</att> attribute. The <att>regex</att> attribute defines the substrings of the text nodes.</p>
             <p>The nodes to be inserted are defined by the content of the <el>sqf:stringReplace</el> element or the <att>select</att> attribute. <emph>Note:</emph> The context within the <el>sqf:stringReplace</el> element is set to the substrings. So, it is an atomic value.</p>
-            <div4>
+            <div4 id="sqf_stringreplace_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -1111,7 +1111,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_stringreplace_child_elements">
                <head>Child elements</head>
                <ulist>
                   <item>
@@ -1123,7 +1123,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_stringreplace_attributes">
                <head>Attributes</head>
                <div5 id="stringReplace_regex">
                   <head>@regex</head>
@@ -1207,7 +1207,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_stringreplace_content_model">
                <head>Content model</head>
                
                
@@ -1217,7 +1217,7 @@
          <div3 id="sqf_title">
             <head>&lt;sqf:title&gt;</head>
             <p>Name of a QuickFix or a user entry.</p>
-            <div4>
+            <div4 id="sqf_title_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -1229,7 +1229,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_title_child_elements">
                <head>Child elements</head>
                <ulist>
                   <item>
@@ -1253,7 +1253,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_title_attributes">
                <head>Attributes</head>
                <div5>
                   <head>@xml:lang (optional)</head>
@@ -1265,7 +1265,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_title_content_model">
                <head>Content model</head>
                
                
@@ -1275,7 +1275,7 @@
          <div3 id="sqf_user-entry">
             <head>&lt;sqf:user-entry&gt;</head>
             <p>Defines a user entry. With the help of the user entry, the user can interact with the QuickFix. The user entry refers to a <el>sqf:param</el> element. The value of the parameter is set manually by the user. The implementation should provide the user entry when the user selects the QuickFix.</p>
-            <div4>
+            <div4 id="sqf_userentry_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -1287,7 +1287,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_userentry_child_elements">
                <head>Child elements</head>
                <ulist>
                   <item>
@@ -1299,7 +1299,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_userentry_attributes">
                <head>Attributes</head>
                <div5>
                   <head>@xml:lang (optional)</head>
@@ -1317,7 +1317,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_userentry_content_model">
                <head>Content model</head>
                
                
@@ -1328,7 +1328,7 @@
             <head>&lt;sqf:with-param&gt;</head>
             <p>With the help of this element, QuickFix calls can be specified. A <el>sqf:with-param</el> element refers to a parameter of the called QuickFix.</p>
             <p>The content or the <att>select</att> attribute define the value of the parameter. If there is content, the <el>sqf:with-param</el> element should not have a <att>select</att> attribute.</p>
-            <div4>
+            <div4 id="sqf_withparam_parent_elements">
                <head>Parent elements</head>
                <ulist>
                   <item>
@@ -1340,7 +1340,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_withparam_attributes">
                <head>Attributes</head>
                <div5 id="with-param_name">
                   <head>@name</head>
@@ -1413,7 +1413,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_withparam_content_model">
                <head>Content model</head>
                
                
@@ -1421,12 +1421,12 @@
             </div4>
          </div3>
       </div2>
-      <div2>
+      <div2 id="element_groups">
          <head>Element groups</head>
          <div3 id="sqf_activityElements">
             <head>sqf:activityElements</head>
             <p>An activity element defines a change command for one or more nodes of the instance element. This change command is specified by the kind of activity element, the content and several attributes.</p>
-            <div4>
+            <div4 id="sqf_activityelements_used_by">
                <head>Used by</head>
                <ulist>
                   <item>
@@ -1438,7 +1438,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_activityelements_elements">
                <head>Elements</head>
                <ulist>
                   <item>
@@ -1471,7 +1471,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_activityelements_content_model">
                <head>Content model</head>
                
                
@@ -1481,7 +1481,7 @@
          <div3 id="sqf_fixElements">
             <head>sqf:fixElements</head>
             <p>Elements to define QuickFixes or QuickFix groups inside of a Schematron schema.</p>
-            <div4>
+            <div4 id="sqf_fixelements_used_by">
                <head>Used by</head>
                <ulist>
                   <item>
@@ -1493,7 +1493,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_fixelements_elements">
                <head>Elements</head>
                <ulist>
                   <item>
@@ -1512,7 +1512,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_fixelements_content_model">
                <head>Content model</head>
                
                
@@ -1521,7 +1521,7 @@
          </div3>
          <div3 id="sqf_foreign">
             <head>sqf:foreign</head>
-            <div4>
+            <div4 id="sqf_foreign_used_by">
                <head>Used by</head>
                <ulist>
                   <item>
@@ -1533,7 +1533,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_foreign_elements">
                <head>Elements</head>
                <ulist>
                   <item>
@@ -1545,7 +1545,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_foreign_content_model">
                <head>Content model</head>
                
                
@@ -1554,7 +1554,7 @@
          </div3>
          <div3 id="sqf_foreign-element">
             <head>sqf:foreign-element</head>
-            <div4>
+            <div4 id="sqf_foreignelement_used_by">
                <head>Used by</head>
                <ulist>
                   <item>
@@ -1566,7 +1566,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_foreignelement_content_model">
                <head>Content model</head>
                
                
@@ -1578,7 +1578,7 @@
             <p>This element group describes the content of the activity elements. The behavior is similar to the content of the <el>xsl:template</el> element. Additionally, the elements <el>sch:value-of</el> and <el>sch:let</el> are treated as <el>xsl:value-of</el> and <el>xsl:variable</el>. Also the <titleref href="#sqf_keep">
                   sqf:keep
                </titleref> element is available.</p>
-            <div4>
+            <div4 id="sqf_templateelements_used_by">
                <head>Used by</head>
                <ulist>
                   <item>
@@ -1604,7 +1604,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_templateelements_content_model">
                <head>Content model</head>
                
                
@@ -1612,11 +1612,11 @@
             </div4>
          </div3>
       </div2>
-      <div2>
+      <div2 id="attribute_groups">
          <head>Attribute groups</head>
          <div3 id="sqf_activityBase">
             <head>activityBase</head>
-            <div4>
+            <div4 id="sqf_activitybase_used_by">
                <head>Used by</head>
                <ulist>
                   <item>
@@ -1642,7 +1642,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_activitybase_attributes">
                <head>Attributes</head>
                <div5 id="activityBase_match">
                   <head>@match</head>
@@ -1747,7 +1747,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_activitybase_content_model">
                <head>Content model</head>
                
                
@@ -1756,7 +1756,7 @@
          </div3>
          <div3 id="sqf_activityManipulate">
             <head>activityManipulate</head>
-            <div4>
+            <div4 id="sqf_activitymanipulate_used_by">
                <head>Used by</head>
                <ulist>
                   <item>
@@ -1775,7 +1775,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_activitymanipulate_attributes">
                <head>Attributes</head>
                <div5 id="activityManipulate_node-type">
                   <head>@node-type</head>
@@ -1939,7 +1939,7 @@
                      .</p>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_activitymanipulate_content_model">
                <head>Content model</head>
                
                
@@ -1949,7 +1949,7 @@
          <div3 id="sqf_messageAttributes">
             <head>messageAttributes</head>
             <p>Attributes to assign one or more QuickFixes to a Schematron assert or report.</p>
-            <div4>
+            <div4 id="sqf_messageattributes_attributes">
                <head>Attributes</head>
                <div5 id="messageAttributes_default-fix">
                   <head>@default-fix</head>
@@ -2025,7 +2025,7 @@
                   </table>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_messageattributes_content_model">
                <head>Content model</head>
                
                
@@ -2034,7 +2034,7 @@
          </div3>
          <div3 id="sqf_parameterAttributes">
             <head>parameterAttributes</head>
-            <div4>
+            <div4 id="sqf_parameterattributes_used_by">
                <head>Used by</head>
                <ulist>
                   <item>
@@ -2053,7 +2053,7 @@
                   </item>
                </ulist>
             </div4>
-            <div4>
+            <div4 id="sqf_parameterattributes_attributes">
                <head>Attributes</head>
                <div5 id="parameterAttributes_default">
                   <head>@default</head>
@@ -2164,7 +2164,7 @@
                   </table>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_parameterattributes_content_model">
                <head>Content model</head>
                
                
@@ -2173,7 +2173,7 @@
          </div3>
          <div3 id="sqf_rootAttributes">
             <head>rootAttributes</head>
-            <div4>
+            <div4 id="sqf_rootattributes_attributes">
                <head>Attributes</head>
                <div5 id="rootAttributes_version">
                   <head>@version</head>
@@ -2211,7 +2211,7 @@
                   </table>
                </div5>
             </div4>
-            <div4>
+            <div4 id="sqf_rootattributes_content_model">
                <head>Content model</head>
                
                
