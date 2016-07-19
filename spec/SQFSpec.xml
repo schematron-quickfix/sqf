@@ -964,7 +964,17 @@
                 </div3>
                 <div3 id="abstract-param">
                     <head>Abstract parameter</head>
-                    <p>To be done.</p>
+                    <div4 id="abstract_parameter_declaration">
+                        <head>Declaration</head>
+                        <p>A <titleref href="#sqf_param">sch:param</titleref> element from a QuickFix with the value of the <att>abstract</att> attribute set to <attval>true</attval> is defined as an abstract parameter of the QuickFix. As the <titleref href="#parameter">default parameter</titleref>, the abstract parameter declaration must be at the beginning of an <el>sqf:fix</el> element.</p>
+                        <p>A QuickFix referred from an abstract pattern must declare all abstract pattern parameters used by it. A <titleref href="#sqf_with-param">sch:param</titleref> element, with the value of the <att>abstract</att> attribute set to <attval>true</attval>, must be added for all abstract pattern parameters used in the QuickFix.</p>
+                        <p>An abstract parameter defined in a QuickFix declares that the QuickFix uses a parameter of an abstract pattern. The QuickFix can be instantiate only from an abstract pattern that defines the abstract parameter. A QuickFix with one or more abstract parameters can be used only from abstract patterns. </p>
+                        <p>If a QuickFix <titleref href="#parameter">parameter</titleref> that is defined as abstract it cannot have the <att>type</att>, <att>required</att> and <att>default</att> attributes. Its value will be set form the abstract pattern instantiation.</p>
+                    </div4>
+                    <div4 id="abstract_parameter_usage">
+                        <head>Usage</head>
+                        <p>Abstract parameters cannot be used as normal XPath variables. The reference of the abstract parameter will be replaced at instantiation by the value specified in the abstract pattern. The replacing value will be set by the instantiation of the abstract pattern according to the <titleref href="http://www.schematron.com/iso/P8.html#GEN11">Schematron specification</titleref>. The instantiation of the abstract pattern must specify a value for every abstract parameter of the QuickFix.</p>
+                    </div4>
                 </div3>
             </div2>
             <div2 id="user_entry">
@@ -1018,7 +1028,12 @@
                     <head>Value usage</head>
                     <p>To use the value, each User Entry can be used as an XPath variable. So the value of the User Entry can be used in each XPath expression of all Activity Elements in the User Entry. The name of the XPath variable is the name of User Entry.</p>
                     <p><example>
-                            <eg>&lt;sqf:user-entry name="ue1"> &lt;sqf:description> &lt;sqf:title>User Entry 1&lt;/sqf:title> &lt;/sqf:description> &lt;/sqf:user-entry> &lt;sqf:replace target="{$ue1}" node-type="element" select="$ue1"/></eg>
+                            <eg>&lt;sqf:user-entry name="ue1"> 
+    &lt;sqf:description> 
+        &lt;sqf:title>User Entry 1&lt;/sqf:title>
+      &lt;/sqf:description>
+ &lt;/sqf:user-entry>
+ &lt;sqf:replace target="{$ue1}" node-type="element" select="$ue1"/></eg>
                         </example></p>
                     <p>The Activity Element sqf:replace replaces the anchor node (<termref def="sch-error-context">context of the Schematron errors</termref>) by a new element. The name will be set by the user by setting the User Entry ue1. The content of the new element will be also the value of the User Entry ue1. </p>
                     <div4 id="user_entry_scope">
