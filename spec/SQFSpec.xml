@@ -1338,12 +1338,74 @@
         </div1>
         <div1 id="examples">
             <head>Examples</head>
-            <div2 id="example_apply_fixes">
-                <head>QuickFix which applies to itself</head>
-                <p>Tbd.</p>
-            </div2>
             <div2 id="example_external_doc">
                 <head>QuickFixes for external documents</head>
+                <p>A QuickFix can be applied also over other documents than the one where the fix is executed. Therefore, external documents can be modified using a QuickFix operations.</p>
+                <p>There are two types of external documents:<ulist>
+                        <item>
+                            <p>Documents referred with XInclude and external entities. You can access them as the nodes in the current document, as in the following example: </p>
+                            <example>
+                                <p>Main document on which the quick if is applied:</p>
+                                <eg>&lt;Root xmlns:xi="http://www.w3.org/2001/XInclude">
+    &lt;xi:include href="included.xml"/>
+    &lt;Element>2&lt;/Element>
+&lt;/Root></eg>
+                                <p>Included document <quote>included.xml</quote>:</p>
+                                <eg>&lt;Element>3&lt;/Element></eg>
+                                <p>QuickFix that modifies the value of the element from the XIncluded file.</p>
+                                <eg>&lt;sch:rule context="Element[preceding-sibling::Element]">
+    &lt;sch:assert test="number(.) > number(preceding-sibling::Element[1])" sqf:fix="AdjustPrevValue">
+        The current element value should be greater then the previous value.
+    &lt;/sch:assert>
+    
+    &lt;sqf:fix id="AdjustPrevValue">
+        &lt;sch:let name="NewValue" value="number(.) - 1"/>
+        &lt;sqf:description>
+            &lt;sqf:title>Adjust previous value to &lt;sch:value-of select="$NewValue"/>&lt;/sqf:title>
+        &lt;/sqf:description>
+        &lt;sqf:replace match="preceding-sibling::Element[1]/text()" select="$NewValue"/>
+    &lt;/sqf:fix>
+&lt;/sch:rule></eg>
+                            </example>
+                        </item>
+                        <item>
+                            <p>Documents referred using other type of references. You can apply the quick fixes over other documents using the <function>doc()</function> function in the value of the <att>match</att> attribute. For example, you can add a new key in the <code>keylist.xml</code> file using the following operation:</p>
+                            <example>
+                                <eg>&lt;sqf:add match="doc('keylist.xml')/KeyList" target="Key" node-type="element" select="Key2"></eg>
+                            </example>
+                        </item>
+                    </ulist></p>
+            </div2>
+            <div2 id="formatting_and_indenting_inserted_content">
+                <head>Formatting and Indenting Inserted Content</head>
+                <p>The content that is inserted by the Add, Replace, or String Replace operations can be formatted. There are several methods available to format the content that is inserted:<ulist>
+                        <item>
+                            <p><term>xsl:text</term> - You can use an <el>xsl:text</el> element to format the inserted content, as in the following example:<example>
+                                    <eg>&lt;sqf:add position="last-child">
+    &lt;row>&lt;xsl:text>
+    &lt;/xsl:text>
+        &lt;entry>First column&lt;/entry>&lt;xsl:text>
+        &lt;/xsl:text>
+        &lt;entry>Second column&lt;/entry>&lt;xsl:text>
+        &lt;/xsl:text>
+    &lt;/row>&lt;xsl:text>
+    &lt;/xsl:text>
+&lt;/sqf:add></eg>
+                                </example></p>
+                        </item>
+                        <item>
+                            <p><term>xml:space</term> - Use the <att>xml:space</att> attribute and set its value to <attval>preserve</attval> to format the content and specify the spacing between elements, as in the following example:<example>
+                                    <eg>&lt;sqf:add node-type="element" target="codeblock" xml:space="preserve">
+    /* a long sample program */
+    Do forever
+     Say "Hello, World"
+    End&lt;/sqf:add></eg>
+                                </example></p>
+                        </item>
+                    </ulist></p>
+            </div2>
+            <div2 id="example_apply_fixes">
+                <head>QuickFix which applies to itself</head>
                 <p>Tbd.</p>
             </div2>
         </div1>
