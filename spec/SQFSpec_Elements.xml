@@ -103,7 +103,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5>
+               <div5 id="see_attribute_group">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_activityManipulate">sqf:activityManipulate</titleref>
@@ -185,7 +185,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5>
+               <div5 id="callFix_see_attribute_group">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -217,7 +217,7 @@
             </div4>
             <div4 id="sqf_delete_attributes">
                <head>Attributes</head>
-               <div5>
+               <div5 id="delete_see_attribute_group">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_activityBase">sqf:activityBase</titleref>
@@ -274,10 +274,10 @@
             </div4>
             <div4 id="sqf_description_attributes">
                <head>Attributes</head>
-               <div5>
+               <div5 id="sqf_description_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5>
+               <div5 id="description_see_attribute_group">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -556,10 +556,10 @@
                      </tbody>
                   </table>
                </div5>
-               <div5>
+               <div5 id="sqf_fix_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5>
+               <div5 id="d2e884">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -617,10 +617,10 @@
                      </tbody>
                   </table>
                </div5>
-               <div5>
+               <div5 id="sqf_fixes_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5>
+               <div5 id="d2e980">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -743,10 +743,10 @@
                      </tbody>
                   </table>
                </div5>
-               <div5>
+               <div5 id="sqf_group_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5>
+               <div5 id="d2e1160">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -881,10 +881,10 @@
             </div4>
             <div4 id="sqf_p_attributes">
                <head>Attributes</head>
-               <div5>
+               <div5 id="sqf_p_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5>
+               <div5 id="d2e1367">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -1030,13 +1030,13 @@
                      </tbody>
                   </table>
                </div5>
-               <div5>
+               <div5 id="d2e1597">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
                      .</p>
                </div5>
-               <div5>
+               <div5 id="d2e1608">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_parameterAttributes">sqf:parameterAttributes</titleref>
@@ -1081,7 +1081,7 @@
             </div4>
             <div4 id="sqf_replace_attributes">
                <head>Attributes</head>
-               <div5>
+               <div5 id="d2e1698">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_activityManipulate">sqf:activityManipulate</titleref>
@@ -1200,7 +1200,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5>
+               <div5 id="d2e1906">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_activityBase">sqf:activityBase</titleref>
@@ -1255,10 +1255,10 @@
             </div4>
             <div4 id="sqf_title_attributes">
                <head>Attributes</head>
-               <div5>
+               <div5 id="sqf_title_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5>
+               <div5 id="d2e2000">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -1301,16 +1301,16 @@
             </div4>
             <div4 id="sqf_userentry_attributes">
                <head>Attributes</head>
-               <div5>
+               <div5 id="sqf_userentry_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5>
+               <div5 id="d2e2080">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
                      .</p>
                </div5>
-               <div5>
+               <div5 id="d2e2091">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_parameterAttributes">sqf:parameterAttributes</titleref>
@@ -1406,7 +1406,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5>
+               <div5 id="d2e2245">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -1740,7 +1740,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5>
+               <div5 id="d2e2747">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -1932,7 +1932,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5>
+               <div5 id="d2e3067">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_activityBase">sqf:activityBase</titleref>
