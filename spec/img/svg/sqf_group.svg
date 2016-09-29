@@ -10,16 +10,16 @@
                      <g transform="translate(191, 0)" sqf:width="702" sqf:height="334.5">
                         <svg width="511" height="334.5" class="objectPaths" sqf:width="511" sqf:height="334.5">
                            <path stroke="#007" stroke-width="1" fill="none" d="M 0 181.75 L 25 181.75"/>
-                           <path stroke="#007" stroke-width="1" fill="none" d="M 50 257 L 32 257 Q 26.5 257 26.5 251.5 L 26.5 181.75" stroke-dasharray="5,5"/>
-                           <path stroke="#007" stroke-width="1" fill="none" d="M 50 260 L 32 260 Q 23.5 260 23.5 251.5 L 23.5 181.75" stroke-dasharray="5,5"/>
+                           <path stroke="#007" stroke-width="1" fill="none" d="M 50 257 L 32 257 Q 26.5 257 26.5 251.5 L 26.5 181.75"/>
+                           <path stroke="#007" stroke-width="1" fill="none" d="M 50 260 L 32 260 Q 23.5 260 23.5 251.5 L 23.5 181.75"/>
                            <g transform="translate(50,                                         243.5)" sqf:width="458" sqf:height="334.5">
                               <svg width="408" height="91" class="choice" sqf:width="408" sqf:height="91">
                                  <g transform="translate(0,5)" sqf:width="20" sqf:height="28.5">
                                     <svg width="20" height="23.5" sqf:width="20" sqf:height="23.5">
                                        <g>
-                                          <circle r="9.5" stroke="#007" stroke-width="0.33" cx="10" cy="13.5" fill="white" stroke-dashoffset="2" stroke-dasharray="2"/>
-                                          <circle r="9.5" stroke="#007" stroke-width="0.66" cx="10" cy="12" fill="white" stroke-dashoffset="2" stroke-dasharray="2"/>
-                                          <circle r="9.5" stroke="#007" stroke-width="1" cx="10" cy="10" fill="white" stroke-dashoffset="2" stroke-dasharray="2"/>
+                                          <circle r="9.5" stroke="#007" stroke-width="0.33" cx="10" cy="13.5" fill="white"/>
+                                          <circle r="9.5" stroke="#007" stroke-width="0.66" cx="10" cy="12" fill="white"/>
+                                          <circle r="9.5" stroke="#007" stroke-width="1" cx="10" cy="10" fill="white"/>
                                           <g>
                                              <path d="M 0 10                          L 3 10                          L 3 6                          L 6 6                         M 3 10                         L 3 14                         L 6 14" stroke="#007" fill="none" stroke-width="0.75"/>
                                              <g transform="translate(6, 4)" sqf:width="6" sqf:height="4">

@@ -343,7 +343,7 @@
                 <p>A QuickFix requires the following properties:</p>
                 <ulist>
                     <item>
-                        <p>Title</p>
+                        <p>Description with at least a title</p>
                     </item>
                     <item>
                         <p>ID</p>
@@ -355,7 +355,7 @@
                 <p>A QuickFix is able to have the following additional properties:</p>
                 <ulist>
                     <item>
-                        <p>Additional description</p>
+                        <p>Additional documentation as a part of the description</p>
                     </item>
                     <item>
                         <p>Condition to provide the QuickFix</p>
@@ -367,6 +367,9 @@
                         <p>User Entry to parametrise the QuickFix (see <titleref href="#user-entry">User Entries</titleref>)</p>
                     </item>
                 </ulist>
+                <note>
+                    <p>Please note that the properties does not need to be declared directly in the coresponding <el>sqf:fix</el> element, but could also be adopted of other QuickFixes by calling them (<el>sqf:call-fix</el> element).</p>
+                </note>
                 <div3 id="definition_of_a_quickfix">
                     <head>Definition of a QuickFix</head>
                     <p>The QuickFix is defined by the <el>sqf:fix</el> element. The requirements will be satisfied with the following base structure:</p>
@@ -375,14 +378,14 @@
     &lt;sqf:description>
         &lt;sqf:title>Fix 1&lt;/sqf:title>
     &lt;/sqf:description>
-    [Elements from the content model  (sqf:delete | sqf:add | sqf:replace | sqf:stringReplace)+]
+    [Elements from the content model  (sqf:delete | sqf:add | sqf:replace | sqf:stringReplace | sqf:call-fix)+]
 &lt;/sqf:fix></eg>
                         </example></p>
                     <p>The defined QuickFix above has the following properties:</p>
                     <p>
                         <ulist>
                             <item>
-                                <p>Title: Fix 1</p>
+                                <p>Description / title: Fix 1</p>
                             </item>
                             <item>
                                 <p>ID: fix1</p>
@@ -395,7 +398,7 @@
                 </div3>
                 <div3 id="quickfixes_id">
                     <head>QuickFixes ID</head>
-                    <p>The ID of the QuickFix and the <titleref href="#quick-fix.group">QuickFix groups</titleref> is the Identifier for references to QuickFixes and <titleref href="#quick-fix.group">QuickFix groups</titleref>.</p>
+                    <p>The ID of the QuickFix and the <titleref href="#quick-fix.group">QuickFix groups</titleref> is the Identifier to reference QuickFixes and <titleref href="#quick-fix.group">QuickFix groups</titleref>.</p>
                     <p>Requirements to set the ID:<ulist>
                             <item>
                                 <p>The ID has to correspond with the XSD type xs:NCName.</p>
@@ -439,7 +442,7 @@
                 </div3>
                 <div3 id="quick-fix.reference">
                     <head>Reference to a QuickFix</head>
-                    <p><termref def="sch-assertion">Schematron assertions</termref> are able to refer to one or more QuickFixes or <titleref href="#quick-fix.group">QuickFix groups</titleref> or a mix of QuickFixes and <titleref href="#quick-fix.group">QuickFix groups</titleref>. Therefore the <att>sqf:fix</att> attribute contains a whitespace separated list of IDs. Each ID refers to an ID of a QuickFix or <titleref href="#quick-fix.group">QuickFix group</titleref>. The amount of references are unbounded, but implementations are able to set a limit.</p>
+                    <p><termref def="sch-assertion">Schematron assertions</termref> are able to refer to one or more QuickFixes or <titleref href="#quick-fix.group">QuickFix groups</titleref> or a mix of QuickFixes and <titleref href="#quick-fix.group">QuickFix groups</titleref>. Therefore the <att>sqf:fix</att> attribute contains a whitespace separated list of IDs. Each ID has to refer to an ID of a QuickFix or <titleref href="#quick-fix.group">QuickFix group</titleref>. The amount of references are unbounded, but implementations are able to set a limit.</p>
                     <example>
                         <p>The <el>sch:assert</el> element refers to the QuickFixes with the ID <attval>fix1</attval> and <attval>fix2</attval>:</p>
                         <eg xml:space="preserve">&lt;sch:assert test="[...]" sqf:fix="fix1 fix2">[...]&lt;/sch:assert>
@@ -491,7 +494,7 @@
                 </div3>
                 <div3 id="execution_of_a_quickfix">
                     <head>Execution of a QuickFix</head>
-                    <p>During the execution process of a QuickFix each <titleref href="#change-commands">command changes</titleref> will be executed in the <termref def="sch-error-context">context node of the error</termref>, if their condition was satisfied in this context.</p>
+                    <p>During the execution process of a QuickFix each <titleref href="#change-commands">change command</titleref> will be executed in the <termref def="sch-error-context">context node of the error</termref>, if their condition was satisfied in this context.</p>
                     <div4 id="execution_of_more_than_one_quickfix">
                         <head>Execution of more than one QuickFix</head>
                         <p>It is free to the implementation to allow executions of more than one QuickFix at once. But an execution of more than one QuickFix of the same <termref def="sch-error">Schematron error</termref> at once are not permitted.</p>
@@ -517,10 +520,11 @@
                 <div3 id="generic-fixes">
                     <head>Generic QuickFix</head>
                     <p>A generic QuickFix is different from a regular QuickFix in that it is defined for an unbounded count of provided QuickFixes. The count of provided QuickFixes may depend on the <termref def="sch-error-context">context of the Schematron error</termref>.</p>
-                    <p>To create a generic QuickFix, the <el>sqf:fix</el> element gets a <att>use-for-each</att> attribute. The use-for-each attribute expects an XPath expression. For each returned value or item of the XPath expression a QuickFix should provided to the user. The XPath expression will be evaluated in the <termref def="sch-error-context">context of the Schematron error</termref>. </p>
+                    <p>To create a generic QuickFix, the <el>sqf:fix</el> element gets a <att>use-for-each</att> attribute. The <att>use-for-each</att> attribute expects an XPath expression. For each returned value or item of the XPath expression a QuickFix should be provided to the user. The XPath expression will be evaluated in the <termref def="sch-error-context">context of the Schematron error</termref>. </p>
                     <p>The XPath expression of the<?oxy_comment_start author="octavian_nadolu" timestamp="20151015T140641+0300" comment="We should update also the XML Schema."?>
-                        <att>use-for-each</att><?oxy_comment_end?><?oxy_comment_start author="Nico Kutscherauer" timestamp="20151024T101342+0200" comment="Added always in revision 44"?>
-                        <?oxy_comment_end?>attribute does not change the context of the generic QuickFix. To access to the currently returned item/value, a build-in XPath variable <code>$sqf:current</code> (in the SQF namespace) should be provided. The <code>sqf:current</code> variable should be available in each XPath expression inside of the <el>sqf:fix</el> element.</p>
+                        <att>use-for-each</att><?oxy_comment_end?><?oxy_comment_start author="Nico Kutscherauer" timestamp="20151024T101342+0200" comment="Added already in revision 44"?>
+                        <?oxy_comment_end?>attribute does not change the context of the generic QuickFix. To access to the currently returned item/value, a build-in XPath variable <code>$sqf:current</code> (in the SQF namespace) should be provided. The <code>$sqf:current</code> variable should be available in each XPath expression inside of the <el>sqf:fix</el> element, which has an <att>use-for-each</att> attribute.</p>
+                    <p>It should be an error, if the <code>$sqf:current</code> variable was used in a <el>sqf:fix</el> element, which does not have an <att>use-for-each</att> attribute.</p>
                     <p><example>
                             <p>Example:</p>
                             <eg xml:space="preserve">&lt;sqf:fix id="generic-fix" use-for-each="//*[@id]">
@@ -533,7 +537,7 @@
                         </example></p>
                     <div4 id="maximum_number_of_provided_quickfixes">
                         <head>Maximum number of provided QuickFixes</head>
-                        <p>Please note, that it will be easy to create a high number of QuickFixes for each <termref def="sch-error">Schematron error</termref> using this structure. To handle this, an implementation is free to set a limit of allowed providing QuickFixes for generic QuickFixes. If a generic QuickFix violates this limit, the implementation is free to do not provide any QuickFixes or to occurs an error. </p>
+                        <p>Please note, that it will be easy to create a high number of QuickFixes for each <termref def="sch-error">Schematron error</termref> using this structure. To handle this, an implementation is free to set a limit of allowed providing QuickFixes for generic QuickFixes. If a generic QuickFix violates this limit, the implementation is free to do not provide any QuickFixes or to occur an error. </p>
                     </div4>
                 </div3>
                 <div3 id="role">
@@ -564,7 +568,7 @@
                     <p>
                         <olist>
                             <item>
-                                <p>Automatically &#x2013; the implementation detects the role by the contained Activity Elements. The implementation is free to detect the role type.</p>
+                                <p>Automatically &#x2013; the implementation detects the role by the contained Activity Elements. The implementation is free to define own criteria to detect the role type.</p>
                             </item>
                             <item>
                                 <p>Manually &#x2013; the developer overwrite the role manually using the <att>role</att> attribute:</p>
@@ -678,7 +682,7 @@
                             <item>
                                 <p>Elements from the SQF namespace will be processed as it is defined in this specification. Permitted element is:<ulist>
                                         <item>
-                                            <p><el>sqf:keep</el></p>
+                                            <p><el>sqf:copy-of</el></p>
                                             <p>To copy existing nodes into the <termref def="sch-source-document">source document</termref> (see below <titleref href="#copy-nodes">Copy nodes</titleref>).</p>
                                         </item>
                                     </ulist></p>
@@ -696,22 +700,27 @@
                                         </item>
                                     </ulist></p>
                             </item>
+                            <item>
+                                <p>The XSLT instruction <el>xsl:apply-templates</el> should be handled as if there is a copy templates defined (see below <titleref href="#copy-nodes">Copy nodes</titleref>).</p>
+                        </item>
                         </ulist>
                     </div4>
                     <div4 id="copy-nodes">
                         <head>Copy nodes</head>
-                        <p>There are two ways to copy nodes:</p>
+                        <p>There are three ways to copy nodes:</p>
                         <p>
                             <ulist>
                                 <item>
                                     <p>If the XPath expression of the <att>select</att> attribute of an Activity Element returns one or more nodes, these nodes will be copied.</p>
                                 </item>
                                 <item>
-                                    <p>With the <el>sqf:keep</el> element (as content of an Activity Element) nodes can be copied. A <att>select</att> attribute defines by an XPath expression the nodes to be copied. The default value of the <att>select</att> attribute is <attval>node()</attval>.</p>
+                                    <p>With the <el>sqf:copy-of</el> element (as content of an Activity Element) nodes can be copied. A <att>select</att> attribute defines by an XPath expression the nodes to be copied. The default value of the <att>select</att> attribute is <attval>node()</attval>.</p>
                                 </item>
+                        <item>
+                                    <p>If the XSLT instruction <el>xsl:apply-templates</el> is used as content of an Activity Element, the applied nodes should also be copied. The implementation is free to do a full copy of the applied nodes or to respect change commands caused by other (or the same) executed QuickFixes. (<titleref href="#example_apply_fixes">See example in Appendix</titleref>)</p>
+                    </item>
                             </ulist>
                         </p>
-                        <p>The implementation is free to do a full copy of the selected nodes or to respect change commands caused by other (or the same) executed QuickFixes. (<titleref href="#example_apply_fixes">See example in Appendix</titleref>)</p>
                     </div4>
                 </div3>
                 <div3 id="conflicts">
@@ -797,6 +806,7 @@
                     <div4 id="stringreplace">
                         <head>StringReplace</head>
                         <p>The anchor node has to be a text node. To analyze the text node, the <att>regex</att> attribute is required. The attribute value of the regex attribute will be interpreted as an <titleref href="http://www.w3.org/TR/xslt20/#attribute-value-templates">attribute value template</titleref>. The effective value should be a valid <titleref href="http://www.w3.org/TR/xslt20/#regular-expressions">Regular Expression</titleref> corresponding to the XSLT 2.0 Recommendation.</p>
+                        <p>To control the interpretation of the Regular Expression, a <att>flag</att> attribute should be available. Also the given <att>flag</att> attribute value should be handled the same way as the XSLT 2.0 Recommendation handles the <att>flag</att> attribute of the <titleref href="http://www.w3.org/TR/xslt20/#analyze-string">xsl:analyze-string instruction</titleref>.</p>
                         <p>Any substrings, which matches to this Regular Expression, will be replaced by new content. The new content can be created <titleref href="#create-by-xpath">by XPath</titleref> or <titleref href="#create-by-content">by the content of the sqf:stringReplace element</titleref>.</p>
                     </div4>
                 </div3>
@@ -814,7 +824,7 @@
                             <p>Using XSLT variables (<el>xsl:variable</el>).</p>
                         </item>
                     </ulist>
-                    <p>There is no difference between this ways, though the XSLT variables provides more functionality (as attribute, value by content). There should be no change of the original functionality by using these variable structures for Schematron QuickFix.</p>
+                    <p>There is no difference between this ways, though the XSLT variables provides more functionality (e.g. <att>as</att> attribute, value by content). There should be no change of the original functionality by using these variable structures for Schematron QuickFix.</p>
                     <div4 id="places_to_declare_variables">
                         <head>Places to declare variables</head>
                         <p>There are two places (inside of the SQF elements) to declare variables:</p>
@@ -882,24 +892,25 @@
                     <p>
                         <ulist>
                             <item>
-                                <p>A calling QuickFix may reuse a QuickFix, do not add any other functionality and reuse the description as well. The reused QuickFix may be specified by parameters.</p>
+                                <p>Reuse the change commands of one QuickFix, specified by parameters.</p>
                             </item>
                             <item>
-                                <p>A calling QuickFix may reuse the functionality of one ore more QuickFixes, do not add any other functionality but has a specific description.</p>
+                                <p>Combine the change commands of QuickFixes by multiple QuickFix calls.</p>
                             </item>
                             <item>
-                                <p>A calling QuickFix may reuse the functionality of one or more QuickFixes, add specific functionality and contains a specific description.</p>
+                                <p>Add specific change commands to a QuickFix by mixing Activity Elements with one or more QuickFix calls.</p>
                             </item>
                             <item>
-                                <p>A calling QuickFix may reuse a QuickFix and the description as well, but add specific functionality.</p>
+                                <p>Specify a description(s) to the called QuickFixes or reuse the description of the called QuickFix.</p>
                             </item>
                         </ulist>
                     </p>
+                            <p>All use cases could be combined as well. If a QuickFix has multiple QuickFix calls or a mix of one QuickFix call and one or more Activity Elements, a specific descriptions (sqf:description element) is mandatory. The reuse of the description of a called QuickFix is only permitted, if the calling QuickFix contains exactly one QuickFix call.</p>
                     <p>To call a QuickFix, the <el>sqf:fix</el> element of the calling QuickFix may contain a <el>sqf:call-fix</el> element at any position. The only condition is, that it is after any <el>sqf:param</el> and <el>sqf:description</el> elements. The <el>sqf:call-fix</el> element should have a mandatory <att>ref</att> attribute. Its value should refer to an ID of any available QuickFix. The referred QuickFix will be called.</p>
                     <p>If the calling QuickFix is a <titleref href="#quick-fix.global-local">global</titleref> QuickFix, only other <titleref href="#quick-fix.global-local">global</titleref> QuickFixes or QuickFixes of <titleref href="#quick-fix.global-local">global</titleref>
                         <titleref href="#quick-fix.group">QuickFix groups</titleref> are available. If the calling QuickFix is <titleref href="#quick-fix.global-local">local</titleref>, any QuickFix is available, which is available for any assertion in the scope of the calling QuickFix. Additionally if there is a <titleref href="#quick-fix.global-local">local</titleref> QuickFix which has the same ID as a <titleref href="#quick-fix.global-local">global</titleref> QuickFix, the <titleref href="#quick-fix.global-local">local</titleref> QuickFix may refer to the global QuickFix by containing a <el>sqf:call-fix</el> element with a <att>ref</att> attribute which refers to the ID of it self.</p>
                     <p>It is permitted, to call a QuickFix inside of a <titleref href="#generic-fixes">generic QuickFix</titleref>.</p>
-                    <p>It is an error, if the called QuickFix is a <titleref href="#generic-fixes">generic QuickFix</titleref>.</p>
+                    <p>It should be occured an error, if the called QuickFix is a <titleref href="#generic-fixes">generic QuickFix</titleref>.</p>
                     <div4 id="specify_a_parameter">
                         <head>Specify a parameter</head>
                         <p>A <el>sqf:call-fix</el> element may contain one or more <el>sqf:with-param</el> elements. Each <el>sqf:with-param</el> element set a value of one parameter of the called QuickFix. The mandatory <att>name</att> attribute determines which parameter of the called QuickFix will be specified. The type of the <att>name</att> attribute needs to be a valid xs:QName.</p>
@@ -911,7 +922,7 @@
                         <p>If a QuickFix calls another QuickFix, the calling QuickFix will adopt some kind of properties in any case, some properties only if there is no property from the same kind set for the calling QuickFix and other properties will be never adopted. If a QuickFix adopt a property, it is, as if the calling QuickFix obtained this property by itself. If the order of the property elements is significant (for instance the order of the activity elements), the effective position will be determinated by replacing all <el>sqf:call-fix</el> elements by the adopted property elements.</p>
                         <p>The following properties of the called QuickFix will be adopted in any case:<ulist>
                                 <item>
-                                    <p>Any change command</p>
+                                    <p>Any change command (defined by Activity Elements)</p>
                                 </item>
                                 <item>
                                     <p>User Entry to parametrise the QuickFix (see <titleref href="#user-entry">User Entries</titleref>)</p>
@@ -920,30 +931,33 @@
                                     <p>Any other property of the above kinds, which may be adopted by another QuickFix call.</p>
                                 </item>
                             </ulist></p>
-                        <p>The following properties will be adopted, if the calling QuickFix has no property from the same kind:<ulist>
+                        <p>The following properties will be adopted conditionally:<ulist>
                                 <item>
-                                    <p>Title</p>
+                                    <p>Description:: title and additional documentation</p>
+                                    <p>An adoption of the description is permitted only, if the calling QuickFix calls exactly one QuickFix and does not contains any Activity Element. Otherwise a specific description for the calling QuickFix is mandatory.</p>
+                                    <p>The descriptions of the called QuickFix will be adopted, if the calling QuickFix has no description from the same language. If the calling QuickFix has a description in a specific language, but the called QuickFix has or adopt multiple descriptions, the calling QuickFix adopts all descriptions which has a different language, then its own description(s) (see also <titleref href="#localization">Localisation</titleref>).</p>
                                 </item>
                                 <item>
-                                    <p>Additional description</p>
+                                    <p>Condition to provide the QuickFix</p>
+                                <p>The condition to provide will be adopted only, if the calling QuickFix calls exactly one QuickFix, does not contain any Activity Element and has no specific <att>use-when</att> attribute.</p>
                                 </item>
                                 <item>
-                                    <p>Any other property of the above kinds, which may be adopted by another QuickFix call and was not set for the calling QuickFix.</p>
+                                    <p>Any other property of the above kinds, which may be adopted by another QuickFix call and satisfies the conditions described above.</p>
                                 </item>
                             </ulist></p>
                         <p>The following properties will not be adopted in any case:<ulist>
                                 <item>
                                     <p>ID</p>
                                 </item>
-                                <item>
-                                    <p>Condition to provide the QuickFix</p>
-                                </item>
-                            </ulist></p>
+                                </ulist></p>
                         <p>It is an error, if the called QuickFix has the following property:<ulist>
                                 <item>
                                     <p>Loop to make the QuickFix generic (see <titleref href="#generic-fixes">Generic QuickFix</titleref>)</p>
                                 </item>
                             </ulist></p>
+                        <note>
+                            <p>Please note, that it is permitted, to call a QuickFix inside of a generic QuickFix.</p>
+                    </note>
                     </div4>
                 </div3>
                 <div3 id="example">
@@ -1003,7 +1017,7 @@
                 </ulist>
                 <div3 id="definition_of_a_user_entry">
                     <head>Definition of a User Entry</head>
-                    <p>User Entries have to be defined before any change commands in the sqf:fix element:</p>
+                    <p>User Entries have to be defined before any change commands in the <el>sqf:fix</el> element:</p>
                     <p><example>
                             <eg xml:space="preserve">&lt;sqf:fix id="fix1">
     &lt;sqf:description>
@@ -1022,7 +1036,7 @@
     [Elements from the content model  (sqf:delete | sqf:add | sqf:replace | sqf:stringReplace)+]
 &lt;/sqf:fix></eg>
                         </example></p>
-                    <p>Each sqf:user-entry element defines a User Entry. Consequently, the QuickFix fix1 has two User Entries with the names ue1 and ue2.</p>
+                    <p>Each <el>sqf:user-entry</el> element defines an User Entry. Consequently, the QuickFix <code>fix1</code> has two User Entries with the names <code>ue1</code> and <code>ue2</code>.</p>
                 </div3>
                 <div3 id="value_usage">
                     <head>Value usage</head>
@@ -1035,7 +1049,7 @@
  &lt;/sqf:user-entry>
  &lt;sqf:replace target="{$ue1}" node-type="element" select="$ue1"/></eg>
                         </example></p>
-                    <p>The Activity Element sqf:replace replaces the anchor node (<termref def="sch-error-context">context of the Schematron errors</termref>) by a new element. The name will be set by the user by setting the User Entry ue1. The content of the new element will be also the value of the User Entry ue1. </p>
+                    <p>The Activity Element <el>sqf:replace</el> replaces the anchor node (<termref def="sch-error-context">context of the Schematron errors</termref>) by a new element. The name will be set by the user by setting the User Entry <code>ue1</code>. The content of the new element will be also the value of the User Entry <code>ue1</code>. </p>
                     <div4 id="user_entry_scope">
                         <head>Scope</head>
                         <p>The User Entry value is available in all XPath expressions of all Activity Elements of the QuickFix. </p>
@@ -1045,11 +1059,11 @@
                 </div3>
                 <div3 id="implementation_of_user_entries">
                     <head>Implementation of User Entries</head>
-                    <p>A SQF implementation which supports User Entries should provide the user an interface to set User Entries after or while choosing the QuickFix. For this the titles of each User Entry should displayed in connection with the corresponding QuickFixes.</p>
+                    <p>A SQF implementation which supports User Entries should provide the user an interface to set User Entries after or while choosing the QuickFix. For this the titles of each User Entry should be displayed in connection with the corresponding QuickFixes.</p>
                 </div3>
                 <div3 id="default_value">
                     <head>Default value</head>
-                    <p>The default attribute sets a default value for the User Entry, using an XPath expression. The result value can be used by the implementation to provide a default value to the user, when he set the User Entry. The default value should used like the default value of a parameter (e.g. sqf:param): </p>
+                    <p>The default attribute sets a default value for the User Entry, using an XPath expression. The result value can be used by the implementation to provide a default value to the user, when he set the User Entry. The default value should used like the default value of a parameter (see <el>sqf:param</el> element): </p>
                     <ulist>
                         <item>
                             <p>There are no optional User Entries.</p>
@@ -1127,9 +1141,9 @@
                                     <td>no requirement</td>
                                 </tr>
                                 <tr>
-                                    <td>sqf:keep</td>
+                                    <td>sqf:copy-of</td>
                                     <td>Inherits from the parent node.</td>
-                                    <td>Nodes to copy or apply to other change commands</td>
+                                    <td>Nodes to copy</td>
                                     <td>node()*</td>
                                 </tr>
                                 <tr>
@@ -1249,12 +1263,6 @@
                                 <p><el>sqf:group</el></p>
                             </item>
                             <item>
-                                <p><el>sqf:p</el></p>
-                            </item>
-                            <item>
-                                <p><el>sqf:title</el></p>
-                            </item>
-                            <item>
                                 <p><el>sqf:user-entry</el></p>
                             </item>
                         </ulist>
@@ -1264,23 +1272,28 @@
                     <head>Localisation of a QuickFix</head>
                     <p>To define multiple descriptions for one QuickFix, but in different languages, the <el>sqf:fix</el> element is permitted to contain multiple <el>sqf:description</el> elements. It is restricted, that a <el>sqf:fix</el> element should not contain two <el>sqf:description</el> elements with the same <att>xml:lang</att> attribute value (or both with no <att>xml:lang</att> attribute).</p>
                     <p>In case there are multiple <el>sqf:description</el> elements, the first <el>sqf:description</el> should be the default description. In case the implementation does not support the localisation or there is no language given, it should use this default description.</p>
+                    <div4>
+                        <head>Localisation using QuickFix calls</head>
+                        <p>The section <titleref href="#param.call-fix">Call a QuickFix</titleref> describes, that the calling QuickFix is able to adopts the property Description (title and additional documentation) of the called QuickFix conditionally, depending on the language.</p>
+                        <p>One use case of a QuickFix call is, to localize existing QuickFixes. If an existing QuickFix should localize, because it has a description in only one language or a description for a language is missing, the QuickFix could be called by a new calling QuickFix. The calling QuickFix may specify - beside the QuickFix call - only additional descriptions in the missing languages. The calling QuickFix will adopt all change commands of the existing QuickFix and all descriptions, if the calling QuickFix does not contain any in the same language. Additionally the calling QuickFIx is so able to specify descriptions for different languages.</p>
+                </div4>
                 </div3>
             </div2>
         </div1>
         <div1 id="implementation_modes">
-            <head>Implementation <?oxy_comment_start author="Nico Kutscherauer" timestamp="20150511T141452+0200" comment="move this chapter to appendix?"?>modes<?oxy_comment_end?></head>
-            <p>A QuickFix can be implemented in two different modes:<ulist>
+            <head>Implementation modes</head>
+            <p>A QuickFix can be implemented generally in two different modes:<ulist>
                     <item>
-                        <p>XML save mode</p>
+                        <p>Unparsed Process Mode</p>
                     </item>
                     <item>
                         <p>XSLT only mode</p>
                     </item>
                 </ulist></p>
-            <p>An implementation is free to implement only one or both modes.</p>
+            <p>An implementation is free to support only one or both modes. If a implementation supports both modes, it should be a general configurarion to switch between the two modes.</p>
             <div2 id="xml_save_mode">
-                <head>XML save mode</head>
-                <p>The XML save mode requires that no changes will be applied to the <termref def="sch-source-document">source document</termref>, which are not defined by the executed QuickFix. Changes which are caused by an XSLT processor (skip the XML declaration, resolving default attributes, CDATA sections, etc.) any time, should not influence the document. That is why it is not possible to implement the XML save mode with only XSLT processes.</p>
+                <head>Unparsed Process Mode</head>
+                <p>The Unparsed Process Mode requires that no changes will be applied to the <termref def="sch-source-document">source document</termref>, which are not defined by the executed QuickFix. Changes which are caused by parsing the document and creating a new, XML identical document (skip the XML declaration, resolving default attributes, CDATA sections, etc.), should not influence the document. That is why it is not possible to implement the Unparsed Process Mode with only XSLT processes.</p>
             </div2>
             <div2 id="xslt_only_mode">
                 <head>XSLT only mode</head>
@@ -1315,10 +1328,10 @@
                             <p>Resolve default attributes to encoded attributes</p>
                         </item>
                         <item>
-                            <p>Resolve CDATA sections</p>
+                            <p>Resolve CDATA sections to text nodes.</p>
                         </item>
                         <item>
-                            <p>Resolve Character entities.</p>
+                            <p>Resolve entity references.</p>
                         </item>
                     </ulist></p>
             </div2>
@@ -1404,7 +1417,7 @@
                         </item>
                     </ulist></p>
             </div2>
-            <div2 id="example_apply_fixes">
+            <div2 id="example_apply_fixes" role="unfinished">
                 <head>QuickFix which applies to itself</head>
                 <p>Tbd.</p>
             </div2>

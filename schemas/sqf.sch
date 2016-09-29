@@ -444,7 +444,7 @@
             <let name="availableFixIds" value="sqf:getAvailableFixOrGroups(.)/@id"/>
 
             <assert test="$ref = $availableFixIds" see="http://www.schematron-quickfix.com/quickFix/reference.html#sqf:call-fix" sqf:fix="createLocal createGlobal">The QuickFix with the id <value-of select="$ref"/> is not available in this rule.</assert>
-            <report test="$ancFix/@id = $ref" see="http://www.schematron-quickfix.com/quickFix/reference.html#sqf:call-fix" sqf:fix="delete renameFix">The fix should not call its self. It will produce an endless loop.</report>
+            <report test="$ancFix/@id = $ref" see="http://www.schematron-quickfix.com/quickFix/reference.html#sqf:call-fix" sqf:fix="delete createGlobal">The fix should not call its self. It will produce an endless loop.</report>
 
 
             <sqf:fix id="renameFix">
@@ -530,6 +530,7 @@
         <rule context="sqf:description" id="descriptions_1">
             <let name="badPrecedings" value="preceding-sibling::*/(self::sqf:user-entry | self::sqf:call-fix | self::sqf:add | self::sqf:replace | self::sqf:stringReplace | self::sqf:delete)"/>
             <let name="description" value="."/>
+            <let name="refFixWithDesc" value="../sqf:call-fix/sqf:getRefFix(.)[sqf:hasDescription(.)]"/>
             <report test="$badPrecedings" sqf:fix="deletePrec deleteCond moveToTop moveBefore">This description is missplaced. Only the elements sqf:param or any variable elements should be precedings of the description.</report>
             <sqf:fix id="deletePrec">
                 <sqf:description>
@@ -537,7 +538,6 @@
                 </sqf:description>
                 <sqf:delete match="$badPrecedings"/>
             </sqf:fix>
-            <let name="refFixWithDesc" value="../sqf:call-fix/sqf:getRefFix(.)[sqf:hasDescription(.)]"/>
             <sqf:fix id="deleteCond" use-when="../sqf:description | $refFixWithDesc">
                 <sqf:description>
                     <sqf:title>Delete the description element</sqf:title>
@@ -590,7 +590,8 @@
             </sqf:fix>
         </rule>
         <rule context="sqf:fix[sqf:isReferered(.)][not(sqf:description)]" id="descriptions_2">
-            <let name="callsWithDesc" value="for $c in sqf:call-fix return sqf:getRefFix($c)[sqf:hasDescription(.)]"/>
+            <let name="callsWithDesc" value="for $c in sqf:call-fix
+                    return sqf:getRefFix($c)[sqf:hasDescription(.)]"/>
             <report test="count($callsWithDesc) gt 1" role="warn" sqf:fix="createDescription createTitledDescription delete deleteCallFixes">A QuickFix without description should not call more than one QuickFix with a description.</report>
             <assert test="$callsWithDesc" sqf:fix="createDescription createTitledDescription delete">This QuickFix should have a description. </assert>
             <sqf:fix id="deleteCallFixes">
@@ -736,10 +737,10 @@
         </rule>
         <rule context="sqf:description[preceding-sibling::sqf:description]" id="localisation_4">
             <let name="lang" value="sqf:getLang(.)"/>
-            <report test="$lang = preceding-sibling::sqf:description/sqf:getLang(.)" sqf:fix="delete translate">More than one description for the language <value-of select="$lang"/> for the same <name path="parent::*"/> element.</report>
-
             <let name="usedLangs" value="(../sqf:description/sqf:getLang(.))"/>
             <let name="missingLangs" value="$languages[not(. = $usedLangs)]"/>
+            <report test="$lang = preceding-sibling::sqf:description/sqf:getLang(.)" sqf:fix="delete translate">More than one description for the language <value-of select="$lang"/> for the same <name path="parent::*"/> element.</report>
+            
             <sqf:group id="translate">
                 <sqf:fix id="translate1" use-when="count($missingLangs) gt 0">
                     <let name="missingLang" value="$missingLangs[1]"/>

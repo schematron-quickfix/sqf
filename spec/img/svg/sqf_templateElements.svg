@@ -71,7 +71,8 @@
                                              <tspan y="64">xsl:variable. </tspan>
                                              <tspan y="64">Also </tspan>
                                              <tspan y="80" x="0">the </tspan>
-                                             <tspan y="80">sqf:keep </tspan>
+                                             <tspan y="80">sqf:copy-</tspan>
+                                             <tspan y="80">of </tspan>
                                              <tspan y="80">element </tspan>
                                              <tspan y="80">is </tspan>
                                              <tspan y="80">available.</tspan>

@@ -1,4 +1,4 @@
-<div1 id="schematron_quickfix_reference">
+<?xml version="1.0" encoding="UTF-8"?><div1 id="schematron_quickfix_reference">
       <head>Schematron QuickFix reference</head>
       
       
@@ -103,7 +103,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5 id="see_attribute_group">
+               <div5 id="sqf_add_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_activityManipulate">sqf:activityManipulate</titleref>
@@ -185,7 +185,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5 id="callFix_see_attribute_group">
+               <div5 id="sqf_callfix_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -197,6 +197,65 @@
                
                
                <graphic source="img/svg/sqf_call-fix.svg"/>
+            </div4>
+         </div3>
+         <div3 id="sqf_copy-of">
+            <head>&lt;sqf:copy-of&gt;</head>
+            <p>This element is available within activity elements. The function is to copy nodes selected by the <att>select</att> attribute. The element with its attribute is treated as <el>xsl:copy-of</el> with <att>select</att> attribute as it is defined in the XSLT requirement. </p>
+            <div4 id="sqf_copyof_attributes">
+               <head>Attributes</head>
+               <div5 id="copy-of_select">
+                  <head>@select</head>
+                  <table cellspacing="0">
+                     <col width="15%"/>
+                     <col width="85%"/>
+                     <tbody>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Description
+                           </th>
+                           <td>
+                              The attribute selects nodes to be copied.
+                           </td>
+                        </tr>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Use
+                           </th>
+                           <td>
+                              optional
+                           </td>
+                        </tr>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Default
+                           </th>
+                           <td>
+                              
+                                 <attval>node()</attval>
+                              
+                           </td>
+                        </tr>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Value
+                           </th>
+                           <td>
+                              
+                                 <code>xs:string</code>
+                              
+                              XPath expression.
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div5>
+            </div4>
+            <div4 id="sqf_copyof_content_model">
+               <head>Content model</head>
+               
+               
+               <graphic source="img/svg/sqf_copy-of.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_delete">
@@ -217,7 +276,7 @@
             </div4>
             <div4 id="sqf_delete_attributes">
                <head>Attributes</head>
-               <div5 id="delete_see_attribute_group">
+               <div5 id="sqf_delete_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_activityBase">sqf:activityBase</titleref>
@@ -277,7 +336,7 @@
                <div5 id="sqf_description_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5 id="description_see_attribute_group">
+               <div5 id="sqf_description_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -559,7 +618,7 @@
                <div5 id="sqf_fix_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5 id="d2e884">
+               <div5 id="sqf_fix_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -620,7 +679,7 @@
                <div5 id="sqf_fixes_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5 id="d2e980">
+               <div5 id="sqf_fixes_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -746,7 +805,7 @@
                <div5 id="sqf_group_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5 id="d2e1160">
+               <div5 id="sqf_group_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -758,65 +817,6 @@
                
                
                <graphic source="img/svg/sqf_group.svg"/>
-            </div4>
-         </div3>
-         <div3 id="sqf_keep">
-            <head>&lt;sqf:keep&gt;</head>
-            <p>This element is available within activity elements. The function is to copy nodes selected by the <att>select</att> attribute. Unlike a deep copy function, with this function the copied nodes can be manipulated by the current or other activity elements.</p>
-            <div4 id="sqf_keep_attributes">
-               <head>Attributes</head>
-               <div5 id="keep_select">
-                  <head>@select</head>
-                  <table cellspacing="0">
-                     <col width="15%"/>
-                     <col width="85%"/>
-                     <tbody>
-                        <tr>
-                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
-                              Description
-                           </th>
-                           <td>
-                              The attribute selects nodes to be copied.
-                           </td>
-                        </tr>
-                        <tr>
-                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
-                              Use
-                           </th>
-                           <td>
-                              optional
-                           </td>
-                        </tr>
-                        <tr>
-                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
-                              Default
-                           </th>
-                           <td>
-                              
-                                 <attval>node()</attval>
-                              
-                           </td>
-                        </tr>
-                        <tr>
-                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
-                              Value
-                           </th>
-                           <td>
-                              
-                                 <code>xs:string</code>
-                              
-                              XPath expression.
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </div5>
-            </div4>
-            <div4 id="sqf_keep_content_model">
-               <head>Content model</head>
-               
-               
-               <graphic source="img/svg/sqf_keep.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_p">
@@ -884,7 +884,7 @@
                <div5 id="sqf_p_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5 id="d2e1367">
+               <div5 id="sqf_p_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -1030,13 +1030,13 @@
                      </tbody>
                   </table>
                </div5>
-               <div5 id="d2e1597">
+               <div5 id="sqf_param_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
                      .</p>
                </div5>
-               <div5 id="d2e1608">
+               <div5 id="sqf_param_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_parameterAttributes">sqf:parameterAttributes</titleref>
@@ -1081,7 +1081,7 @@
             </div4>
             <div4 id="sqf_replace_attributes">
                <head>Attributes</head>
-               <div5 id="d2e1698">
+               <div5 id="sqf_replace_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_activityManipulate">sqf:activityManipulate</titleref>
@@ -1125,6 +1125,34 @@
             </div4>
             <div4 id="sqf_stringreplace_attributes">
                <head>Attributes</head>
+               <div5 id="stringReplace_flag">
+                  <head>@flag</head>
+                  <table cellspacing="0">
+                     <col width="15%"/>
+                     <col width="85%"/>
+                     <tbody>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Use
+                           </th>
+                           <td>
+                              optional
+                           </td>
+                        </tr>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Value
+                           </th>
+                           <td>
+                              
+                                 <code>xs:string</code>
+                              
+                              Flags to control the interpretation of the regular expression (given in the <att>regex</att> attribute). The flags can be specified by XPath expressions which are marked by curly brackets. After processing, the flags must meet the requirements of the <att>flags</att> attribute of the <el>xsl:analyze-string</el> element.
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div5>
                <div5 id="stringReplace_regex">
                   <head>@regex</head>
                   <table cellspacing="0">
@@ -1200,7 +1228,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5 id="d2e1906">
+               <div5 id="sqf_stringreplace_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_activityBase">sqf:activityBase</titleref>
@@ -1258,7 +1286,7 @@
                <div5 id="sqf_title_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5 id="d2e2000">
+               <div5 id="sqf_title_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -1304,13 +1332,13 @@
                <div5 id="sqf_userentry_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5 id="d2e2080">
+               <div5 id="sqf_userentry_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
                      .</p>
                </div5>
-               <div5 id="d2e2091">
+               <div5 id="sqf_userentry_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_parameterAttributes">sqf:parameterAttributes</titleref>
@@ -1406,7 +1434,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5 id="d2e2245">
+               <div5 id="sqf_withparam_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -1575,8 +1603,8 @@
          </div3>
          <div3 id="sqf_templateElements">
             <head>sqf:templateElements</head>
-            <p>This element group describes the content of the activity elements. The behavior is similar to the content of the <el>xsl:template</el> element. Additionally, the elements <el>sch:value-of</el> and <el>sch:let</el> are treated as <el>xsl:value-of</el> and <el>xsl:variable</el>. Also the <titleref href="#sqf_keep">
-                  sqf:keep
+            <p>This element group describes the content of the activity elements. The behavior is similar to the content of the <el>xsl:template</el> element. Additionally, the elements <el>sch:value-of</el> and <el>sch:let</el> are treated as <el>xsl:value-of</el> and <el>xsl:variable</el>. Also the <titleref href="#sqf_copy-of">
+                  sqf:copy-of
                </titleref> element is available.</p>
             <div4 id="sqf_templateelements_used_by">
                <head>Used by</head>
@@ -1740,7 +1768,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5 id="d2e2747">
+               <div5 id="sqf_activitybase_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
@@ -1932,7 +1960,7 @@
                      </tbody>
                   </table>
                </div5>
-               <div5 id="d2e3067">
+               <div5 id="sqf_activitymanipulate_attributes_attrgroupref">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sqf_activityBase">sqf:activityBase</titleref>
