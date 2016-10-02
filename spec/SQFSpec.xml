@@ -805,8 +805,8 @@
                     </div4>
                     <div4 id="stringreplace">
                         <head>StringReplace</head>
-                        <p>The anchor node has to be a text node. To analyze the text node, the <att>regex</att> attribute is required. The attribute value of the regex attribute will be interpreted as an <titleref href="http://www.w3.org/TR/xslt20/#attribute-value-templates">attribute value template</titleref>. The effective value should be a valid <titleref href="http://www.w3.org/TR/xslt20/#regular-expressions">Regular Expression</titleref> corresponding to the XSLT 2.0 Recommendation.</p>
-                        <p>To control the interpretation of the Regular Expression, a <att>flag</att> attribute should be available. Also the given <att>flag</att> attribute value should be handled the same way as the XSLT 2.0 Recommendation handles the <att>flag</att> attribute of the <titleref href="http://www.w3.org/TR/xslt20/#analyze-string">xsl:analyze-string instruction</titleref>.</p>
+                        <p>The anchor node has to be a text node. To analyze the text node, the <att>regex</att> attribute is required. The value of the <att>regex</att> attribute will be interpreted as an <titleref href="http://www.w3.org/TR/xslt20/#attribute-value-templates">attribute value template</titleref>. The effective value should be a valid <titleref href="http://www.w3.org/TR/xslt20/#regular-expressions">Regular Expression</titleref> corresponding to the XSLT 2.0 Recommendation.</p>
+                        <p>To control the interpretation of the Regular Expression, a <att>flags</att> attribute should be available. The value of the <att>flags</att> attribute will be interpreted as an <titleref href="http://www.w3.org/TR/xslt20/#attribute-value-templates">attribute value template</titleref>. The effective value should be interpreted the same way, as the <titleref href="https://www.w3.org/TR/xpath-functions/#flags">XQuery 1.0 and XPath 2.0 Functions and Operators Recommendation</titleref> specifies the <code>$flags</code> parameter of Regular Expression functions.</p>
                         <p>Any substrings, which matches to this Regular Expression, will be replaced by new content. The new content can be created <titleref href="#create-by-xpath">by XPath</titleref> or <titleref href="#create-by-content">by the content of the sqf:stringReplace element</titleref>.</p>
                     </div4>
                 </div3>
@@ -1224,6 +1224,12 @@
                                     <td>sqf:stringReplace</td>
                                     <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
                                     <td>Valid <titleref href="http://www.w3.org/TR/xslt20/#regular-expressions">Regular Expression</titleref> corresponding to the XSLT 2.0 Recommendation.</td>
+                                </tr>
+                                <tr>
+                                    <td>flags</td>
+                                    <td>sqf:stringReplace</td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
+                                    <td>Should match to the requirements of the $flags parameter, specified in the <titleref href="https://www.w3.org/TR/xpath-functions/#flags">XQuery 1.0 and XPath 2.0 Functions and Operators</titleref> Recommendation</td>
                                 </tr>
                                 <tr>
                                     <td rowspan="2">target</td>

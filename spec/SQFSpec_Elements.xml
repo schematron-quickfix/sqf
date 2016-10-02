@@ -1125,8 +1125,8 @@
             </div4>
             <div4 id="sqf_stringreplace_attributes">
                <head>Attributes</head>
-               <div5 id="stringReplace_flag">
-                  <head>@flag</head>
+               <div5 id="stringReplace_flags">
+                  <head>@flags</head>
                   <table cellspacing="0">
                      <col width="15%"/>
                      <col width="85%"/>

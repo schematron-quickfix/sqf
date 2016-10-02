@@ -434,7 +434,7 @@
                     <xs:documentation source="Default">There is no default value. If the <icode type="attribute">select</icode> attribute is not set, the content of the activity element defines the nodes to be inserted.</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
-        <xs:attribute name="flag" type="xs:string">
+        <xs:attribute name="flags" type="xs:string">
                 <xs:annotation>
                     <xs:documentation source="Value">Flags to control the interpretation of the regular expression (given in the <icode type="attribute">regex</icode> attribute). The flags can be specified by XPath expressions which are marked by curly brackets. After processing, the flags must meet the requirements of the <icode type="attribute">flags</icode> attribute of the <icode type="element">xsl:analyze-string</icode> element.</xs:documentation>
                 </xs:annotation>
