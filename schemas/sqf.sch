@@ -28,7 +28,7 @@
     <pattern id="query.binding">
         <title>Query binding</title>
         <rule context="sch:schema" id="query.binding_1">
-            <assert test="not(namespace::sqf) or @queryBinding = 'xslt2'" sqf:fix="setQueryBinding"> Schematron Quick Fixes are only available within Schematron schemas based on XSLT 2.0.</assert>
+            <assert test="not(namespace::sqf) or @queryBinding = ('xslt2', 'xslt3')" sqf:fix="setQueryBinding"> Schematron Quick Fixes are only available within Schematron schemas based on XSLT 2.0.</assert>
 
             <sqf:fix id="setQueryBinding" role="replace">
                 <sqf:description>
