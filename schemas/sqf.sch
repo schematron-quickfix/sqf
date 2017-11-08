@@ -565,7 +565,8 @@
                     <xsl:copy-of select="$description" copy-namespaces="no"/>
                 </sqf:add>
             </sqf:fix>
-            <report test="string-join(sqf:title/normalize-space(.), '') = ''" sqf:fix="deleteCond deleteParent setTitle" role="warn">The description should have a title.</report>
+            <report test="count(sqf:title/child::*) = 0 and 
+                string-join(sqf:title/normalize-space(.), '') = ''" sqf:fix="deleteCond deleteParent setTitle" role="warn">The description should have a title.</report>
             <sqf:fix id="deleteParent" role="delete">
                 <let name="parent" value="parent::*"/>
                 <sqf:description>
