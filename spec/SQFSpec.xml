@@ -1281,7 +1281,7 @@
                     <div4>
                         <head>Localisation using QuickFix calls</head>
                         <p>The section <titleref href="#param.call-fix">Call a QuickFix</titleref> describes, that the calling QuickFix is able to adopts the property Description (title and additional documentation) of the called QuickFix conditionally, depending on the language.</p>
-                        <p>One use case of a QuickFix call is, to localize existing QuickFixes. If an existing QuickFix should localize, because it has a description in only one language or a description for a language is missing, the QuickFix could be called by a new calling QuickFix. The calling QuickFix may specify - beside the QuickFix call - only additional descriptions in the missing languages. The calling QuickFix will adopt all change commands of the existing QuickFix and all descriptions, if the calling QuickFix does not contain any in the same language. Additionally the calling QuickFIx is so able to specify descriptions for different languages.</p>
+                        <p>One use case of a QuickFix call is, to localize existing QuickFixes. If an existing QuickFix should localize, because it has a description in only one language or a description for a language is missing, the QuickFix could be called by a new calling QuickFix. The calling QuickFix may specify - beside the QuickFix call - only additional descriptions in the missing languages. The calling QuickFix will adopt all change commands of the existing QuickFix and all descriptions, if the calling QuickFix does not contain any in the same language. Additionally the calling QuickFix is so able to specify descriptions for different languages.</p>
                 </div4>
                 </div3>
             </div2>
@@ -1296,7 +1296,7 @@
                         <p>XSLT only mode</p>
                     </item>
                 </ulist></p>
-            <p>An implementation is free to support only one or both modes. If a implementation supports both modes, it should be a general configurarion to switch between the two modes.</p>
+            <p>An implementation is free to support only one or both modes. If an implementation supports both modes, it should be a general configurarion to switch between the two modes.</p>
             <div2 id="xml_save_mode">
                 <head>Unparsed Process Mode</head>
                 <p>The Unparsed Process Mode requires that no changes will be applied to the <termref def="sch-source-document">source document</termref>, which are not defined by the executed QuickFix. Changes which are caused by parsing the document and creating a new, XML identical document (skip the XML declaration, resolving default attributes, CDATA sections, etc.), should not influence the document. That is why it is not possible to implement the Unparsed Process Mode with only XSLT processes.</p>
