@@ -901,11 +901,11 @@
                                 <p>Add specific change commands to a QuickFix by mixing Activity Elements with one or more QuickFix calls.</p>
                             </item>
                             <item>
-                                <p>Specify a description(s) to the called QuickFixes or reuse the description of the called QuickFix.</p>
+                                <p>Specify a description to the called QuickFixes or reuse the description of the called QuickFix.</p>
                             </item>
                         </ulist>
                     </p>
-                            <p>All use cases could be combined as well. If a QuickFix has multiple QuickFix calls or a mix of one QuickFix call and one or more Activity Elements, a specific descriptions (sqf:description element) is mandatory. The reuse of the description of a called QuickFix is only permitted, if the calling QuickFix contains exactly one QuickFix call.</p>
+                            <p>All use cases could be combined as well. If a QuickFix has multiple QuickFix calls or a mix of one QuickFix call and one or more Activity Elements, a specific description (sqf:description element) is mandatory. The reuse of the description of a called QuickFix is only permitted, if the calling QuickFix contains exactly one QuickFix call.</p>
                     <p>To call a QuickFix, the <el>sqf:fix</el> element of the calling QuickFix may contain a <el>sqf:call-fix</el> element at any position. The only condition is, that it is after any <el>sqf:param</el> and <el>sqf:description</el> elements. The <el>sqf:call-fix</el> element should have a mandatory <att>ref</att> attribute. Its value should refer to an ID of any available QuickFix. The referred QuickFix will be called.</p>
                     <p>If the calling QuickFix is a <titleref href="#quick-fix.global-local">global</titleref> QuickFix, only other <titleref href="#quick-fix.global-local">global</titleref> QuickFixes or QuickFixes of <titleref href="#quick-fix.global-local">global</titleref>
                         <titleref href="#quick-fix.group">QuickFix groups</titleref> are available. If the calling QuickFix is <titleref href="#quick-fix.global-local">local</titleref>, any QuickFix is available, which is available for any assertion in the scope of the calling QuickFix. Additionally if there is a <titleref href="#quick-fix.global-local">local</titleref> QuickFix which has the same ID as a <titleref href="#quick-fix.global-local">global</titleref> QuickFix, the <titleref href="#quick-fix.global-local">local</titleref> QuickFix may refer to the global QuickFix by containing a <el>sqf:call-fix</el> element with a <att>ref</att> attribute which refers to the ID of it self.</p>
@@ -919,7 +919,7 @@
                     </div4>
                     <div4 id="adoption_of_properties">
                         <head>Adoption of properties</head>
-                        <p>If a QuickFix calls another QuickFix, the calling QuickFix will adopt some kind of properties in any case, some properties only if there is no property from the same kind set for the calling QuickFix and other properties will be never adopted. If a QuickFix adopt a property, it is, as if the calling QuickFix obtained this property by itself. If the order of the property elements is significant (for instance the order of the activity elements), the effective position will be determinated by replacing all <el>sqf:call-fix</el> elements by the adopted property elements.</p>
+                        <p>If a QuickFix calls another QuickFix, the calling QuickFix will adopt some kind of properties in any case, some properties only if there is no property from the same kind set for the calling QuickFix and other properties will be never adopted. If a QuickFix adopt a property, it is, as if the calling QuickFix obtained this property by itself. If the order of the property elements is significant (for instance the order of the Activity Elements), the effective position will be determinated by replacing all <el>sqf:call-fix</el> elements by the adopted property elements.</p>
                         <p>The following properties of the called QuickFix will be adopted in any case:<ulist>
                                 <item>
                                     <p>Any change command (defined by Activity Elements)</p>
@@ -935,7 +935,7 @@
                                 <item>
                                     <p>Description:: title and additional documentation</p>
                                     <p>An adoption of the description is permitted only, if the calling QuickFix calls exactly one QuickFix and does not contains any Activity Element. Otherwise a specific description for the calling QuickFix is mandatory.</p>
-                                    <p>The descriptions of the called QuickFix will be adopted, if the calling QuickFix has no description from the same language. If the calling QuickFix has a description in a specific language, but the called QuickFix has or adopt multiple descriptions, the calling QuickFix adopts all descriptions which has a different language, then its own description(s) (see also <titleref href="#localization">Localisation</titleref>).</p>
+                                    <p>The description of the called QuickFix will be adopted, if the calling QuickFix has no description.</p>
                                 </item>
                                 <item>
                                     <p>Condition to provide the QuickFix</p>
@@ -1269,20 +1269,45 @@
                                 <p><el>sqf:group</el></p>
                             </item>
                             <item>
+                                <p><el>sqf:p</el></p>
+                            </item>
+                            <item>
+                                <p><el>sqf:title</el></p>
+                            </item>
+                            <item>
                                 <p><el>sqf:user-entry</el></p>
                             </item>
                         </ulist>
                     </p>
                 </div3>
                 <div3 id="localisation_of_a_quickfix">
-                    <head>Localisation of a QuickFix</head>
-                    <p>To define multiple descriptions for one QuickFix, but in different languages, the <el>sqf:fix</el> element is permitted to contain multiple <el>sqf:description</el> elements. It is restricted, that a <el>sqf:fix</el> element should not contain two <el>sqf:description</el> elements with the same <att>xml:lang</att> attribute value (or both with no <att>xml:lang</att> attribute).</p>
-                    <p>In case there are multiple <el>sqf:description</el> elements, the first <el>sqf:description</el> should be the default description. In case the implementation does not support the localisation or there is no language given, it should use this default description.</p>
-                    <div4>
-                        <head>Localisation using QuickFix calls</head>
-                        <p>The section <titleref href="#param.call-fix">Call a QuickFix</titleref> describes, that the calling QuickFix is able to adopts the property Description (title and additional documentation) of the called QuickFix conditionally, depending on the language.</p>
-                        <p>One use case of a QuickFix call is, to localize existing QuickFixes. If an existing QuickFix should localize, because it has a description in only one language or a description for a language is missing, the QuickFix could be called by a new calling QuickFix. The calling QuickFix may specify - beside the QuickFix call - only additional descriptions in the missing languages. The calling QuickFix will adopt all change commands of the existing QuickFix and all descriptions, if the calling QuickFix does not contain any in the same language. Additionally the calling QuickFix is so able to specify descriptions for different languages.</p>
-                </div4>
+                    <head>Localisation of a QuickFix or User Entry</head>
+                    <p>The natural language parts of a QuickFix or User Entry are defined by the elements <el>sqf:title</el> and <el>sqf:p</el>. To provide an alternative text phrase for localisation (effective localisation value), these elements are permitted to obtain a <att>ref</att> attribute. The <att>ref</att> attribute may refer (by reference values) to IDs or key values of one or more text phrases in the same or separate document. Mulitple reference values should be separated by whitespaces. </p>
+                    <p>The minimal implementation of the <att>ref</att> attribute should support a reference to an ID of a Schematron <el>sch:diagnostic</el> element. An implementation is free to support references to other text phrase formats. A recommended but not required supported text phrase format is the <?oxy_comment_start author="Nico" timestamp="20171204T170056+0100" comment="Is there a w3c/ISO specification?"?><loc href="https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html">XML Java properity file format</loc><?oxy_comment_end?>.</p>
+                    <p>If a <att>ref</att> attribute contains one or more reference values which can not be resolved by the implementation, these values should be ignored. No error or warning should occurred.</p>
+                    <p>A <att>ref</att> attrubute may refer to multipe text phrases in different languages by multiple reference values or may refer by one reference value which leads to different text phrases. In any case, the implementation needs to detect the requested language, the language code of the element which obtains the <att>ref</att> attribute (initial language) and all language codes of the referenced text phrases. The following four cases should be supported:</p>
+                    <p>
+                        <ulist>
+                            <item>
+                                <p>The requested language matches to the initial language.</p>
+                                <p>In this case, the references should be ignored and the initial value of the element should be used as effective localisation value.</p>
+                            </item>
+                            <item>
+                                <p>The requested language matches to one of the referenced text phrase</p>
+                                <p>In this case, the referenced text phrase, which is asigned to the requested language should be used as effective localisation value. </p>
+                            </item>
+                            <item>
+                                <p>The requested language matches to none of the given languages. </p>
+                                <p>In this case, the references should be ignored and the initial value of the element should be used as effective localisation value.</p>
+                                <p>This case is a localisation issue and should not occurre. The implementation is free to throw a warning.</p>
+                            </item>
+                            <item>
+                                <p>Special case: The <att>ref</att> attribute may refer to multiple text phrases wich are asigned to the requested language. In this case each text node which represents a part of the initial value should be replaced by one refered text phrase to get the effective localised value. The replace assignment should be determined by the order of the text nodes and the order of the references inside of the <att>ref</att> attribute. </p>
+                                <p>The number of references may unequal to the number of text node. In case of more references as text nodes, the remaining refered text phrases should be insterted at the end of the effective localised value. Multiple remaining values should be concatinated by zero-length strings. In case of more text nodes as referenced text phrases, the remaining text nodes should be ignored during determing the effective localised value.</p>
+                                <p>The text nodes may separated by Schematron or SQF elements. They should be proceeded as usually and also be used to determ the effective localised value. </p>
+                            </item>
+                        </ulist>
+                    </p>
                 </div3>
             </div2>
         </div1>
