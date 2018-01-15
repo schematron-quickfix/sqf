@@ -106,7 +106,6 @@
         </xs:attribute>
     </xs:attributeGroup>
 
-
     <xs:group name="templateElements">
         <xs:annotation>
             <xs:documentation>This element group describes the content of the activity elements. The behavior is similar to the content of the <icode type="element">xsl:template</icode> element. Additionally, the elements <icode type="element">sch:value-of</icode> and <icode type="element">sch:let</icode> are treated as <icode type="element">xsl:value-of</icode> and <icode type="element">xsl:variable</icode>. Also the <a ref="#sqf_copy-of"><icode type="element">sqf:copy-of</icode></a> element is available.</xs:documentation>
@@ -250,7 +249,7 @@
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="sqf:description" maxOccurs="unbounded"/>
+                <xs:element ref="sqf:description"/>
             </xs:sequence>
             <xs:attributeGroup ref="sqf:parameterAttributes"/>
             <xs:attribute ref="xml:lang"/>
