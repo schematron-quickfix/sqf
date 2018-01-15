@@ -96,6 +96,16 @@
         </xs:attribute>
     </xs:attributeGroup>
 
+    <xs:attributeGroup name="refAttribute">
+        <xs:attribute name="ref" type="xs:NMTOKENS">
+            <xs:annotation>
+                <xs:documentation>References to alternative text phrases (e.g. for localisation).</xs:documentation>
+                <xs:documentation>A minimum implementation for this attribute should support a reference to an ID of a <icode type="attribute">sch:diagnostic</icode> element. Alternativly an implementation is free to support references to other localisation files (e.g. Java properties files). A reference token which does not reference to a known target should not occure an error but should be ignored.</xs:documentation>
+                <xs:documentation source="Value">A whitespace separated list of tokens which represents a reference.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:attributeGroup>
+
 
     <xs:group name="templateElements">
         <xs:annotation>
@@ -336,11 +346,8 @@
                     <xs:element ref="sch:value-of"/>
                 </xs:choice>
             </xs:choice>
-            <xs:attribute ref="xml:lang">
-                <xs:annotation>
-                    <xs:documentation>This is deprecated. The language should be specified on description level.</xs:documentation>
-                </xs:annotation>
-            </xs:attribute>
+            <xs:attribute ref="xml:lang"/>
+            <xs:attributeGroup ref="sqf:refAttribute"/>
             <xs:attributeGroup ref="sch:foreign"/>
         </xs:complexType>
     </xs:element>
@@ -359,11 +366,8 @@
                     <xs:element ref="sch:span"/>
                 </xs:choice>
             </xs:choice>
-            <xs:attribute ref="xml:lang">
-                <xs:annotation>
-                    <xs:documentation>This is deprecated. The language should be specified on description level.</xs:documentation>
-                </xs:annotation>
-            </xs:attribute>
+            <xs:attribute ref="xml:lang"/>
+            <xs:attributeGroup ref="sqf:refAttribute"/>
             <xs:attributeGroup ref="sch:foreign"/>
         </xs:complexType>
     </xs:element>
@@ -434,7 +438,7 @@
                     <xs:documentation source="Default">There is no default value. If the <icode type="attribute">select</icode> attribute is not set, the content of the activity element defines the nodes to be inserted.</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
-        <xs:attribute name="flags" type="xs:string">
+            <xs:attribute name="flags" type="xs:string">
                 <xs:annotation>
                     <xs:documentation source="Value">Flags to control the interpretation of the regular expression (given in the <icode type="attribute">regex</icode> attribute). The flags can be specified by XPath expressions which are marked by curly brackets. After processing, the flags must meet the requirements of the <icode type="attribute">flags</icode> attribute of the <icode type="element">xsl:analyze-string</icode> element.</xs:documentation>
                 </xs:annotation>
