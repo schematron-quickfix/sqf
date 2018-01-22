@@ -24,7 +24,7 @@
     <ns uri="http://purl.oclc.org/dsdl/schematron" prefix="sch"/>
     <ns uri="http://www.schematron-quickfix.com/validator/process" prefix="sqf"/>
     <ns uri="http://www.escali.schematron-quickfix.com/" prefix="es"/>
-    
+
     <pattern id="query.binding">
         <title>Query binding</title>
         <rule context="sch:schema" id="query.binding_1">
@@ -573,7 +573,7 @@
             </sqf:fix>
             <report test="
                     count(sqf:title/child::*) = 0 and
-                string-join(sqf:title/normalize-space(.), '') = ''" sqf:fix="deleteCond deleteParent setTitle" role="warn" id="descriptions_1-2">The description should have a title.</report>
+                    string-join(sqf:title/normalize-space(.), '') = ''" sqf:fix="deleteCond deleteParent setTitle" role="warn" id="descriptions_1-2">The description should have a title.</report>
             <sqf:fix id="deleteParent" role="delete">
                 <let name="parent" value="parent::*"/>
                 <sqf:description>
@@ -726,10 +726,10 @@
         </rule>
         <rule context="sqf:description/sqf:title | sqf:description/sqf:p" role="info" id="localisation_3">
             <let name="usedLangs" value="sqf:getSQFDescrLangs(.)"/>
-            
+
             <report test="count($languages[not(. = $usedLangs)]) gt 0 and not($usedLangs = '#UNKNOWN')" id="localisation_3-1">Localisation failed. Missing a description for the language(s) <value-of select="$languages[not(. = $usedLangs)]"/>.</report>
-            
-            
+
+
         </rule>
         <rule context="sqf:description[preceding-sibling::sqf:description]" id="localisation_4">
             <let name="current" value="."/>
@@ -738,35 +738,35 @@
             <let name="missingLangs" value="$languages[not(. = $usedLangs)]"/>
             <let name="precDesc" value="preceding-sibling::sqf:description"/>
             <report test="$lang = $precDesc/sqf:getLang(.)" sqf:fix="delete" id="localisation_4-1">More than one description for the language <value-of select="$lang"/> for the same <name path="parent::*"/> element.</report>
-            
+
             <assert test="$lang = $precDesc/sqf:getLang(.)" role="warn" sqf:fix="translate" id="localisation_4-2">Multiple descriptions for localisation are deprecated. Please use the ref attribute for each sqf:title or sqf:p to reference diagnostic elements.</assert>
             <sqf:fix id="translate">
-                    <sqf:description>
+                <sqf:description>
                     <sqf:title>Transform the descritpion to sch:diagnostic elements</sqf:title>
-                    </sqf:description>
-                <sqf:add match="$precDesc/(sqf:title|sqf:p)" target="ref" node-type="attribute" select="string-join((@ref, concat(generate-id(), '_', $lang)))"/>
+                </sqf:description>
+                <sqf:add match="$precDesc/(sqf:title | sqf:p)" target="ref" node-type="attribute" select="string-join((@ref, concat(generate-id(), '_', $lang)))"/>
                 <sqf:add match="root(.)/sch:schema/sch:diagnostics" position="last-child">
-                    <xsl:for-each select="$precDesc/(sqf:title|sqf:p)">
+                    <xsl:for-each select="$precDesc/(sqf:title | sqf:p)">
                         <xsl:variable name="pos" select="position()"/>
                         <xsl:element name="sch:diagnostic">
                             <xsl:attribute name="id" select="generate-id(), '_', $lang"/>
                             <xsl:attribute name="xml:lang" select="$lang"/>
-                            <xsl:copy-of select="$current/(sqf:title|sqf:p)[position() = $pos]/node()"/>
+                            <xsl:copy-of select="$current/(sqf:title | sqf:p)[position() = $pos]/node()"/>
                         </xsl:element>
                     </xsl:for-each>
                 </sqf:add>
                 <sqf:add match="root(.)/sch:schema[not(sch:diagnostics)]" position="last-child" node-type="element" target="sch:diagnostics">
-                    <xsl:for-each select="$precDesc/(sqf:title|sqf:p)">
+                    <xsl:for-each select="$precDesc/(sqf:title | sqf:p)">
                         <xsl:variable name="pos" select="position()"/>
                         <xsl:element name="sch:diagnostic">
                             <xsl:attribute name="id" select="generate-id(), '_', $lang"/>
                             <xsl:attribute name="xml:lang" select="$lang"/>
-                            <xsl:copy-of select="$current/(sqf:title|sqf:p)[position() = $pos]/node()"/>
+                            <xsl:copy-of select="$current/(sqf:title | sqf:p)[position() = $pos]/node()"/>
                         </xsl:element>
                     </xsl:for-each>
                 </sqf:add>
                 <sqf:delete match="."/>
-                </sqf:fix>
+            </sqf:fix>
         </rule>
     </pattern>
 
@@ -817,19 +817,19 @@
         <xsl:param name="descriptionEl" as="element()"/>
         <xsl:variable name="elementLang" select="sqf:getLang($descriptionEl)"/>
         <xsl:variable name="refs" select="$descriptionEl/@ref/tokenize(., '\s')"/>
-        
+
         <xsl:variable name="diagnostics" select="root($descriptionEl)/sch:schema/sch:diagnostics/sch:diagnostic[@id = $refs]"/>
-        
+
         <xsl:variable name="unknownRefs" select="$refs[not($diagnostics/@id = .)]"/>
-        
+
         <xsl:sequence select="
                 $elementLang,
-            $diagnostics/sqf:getLang(.),
-            '#UNKNOWN'[count($unknownRefs) gt 0]
-            "/>
-        
+                $diagnostics/sqf:getLang(.),
+                '#UNKNOWN'[count($unknownRefs) gt 0]
+                "/>
+
     </xsl:function>
-    
+
     <xsl:function name="sqf:getLang" as="xs:string">
         <xsl:param name="node" as="node()"/>
         <xsl:variable name="lang" select="($node/ancestor-or-self::*/@xml:lang)[last()]"/>
@@ -871,25 +871,25 @@
                     then
                         false()
                     else
-                    if ($refFix[sqf:hasDescription(.)])
-                    then
-                        true()
-                    else
-                        false()
+                        if ($refFix[sqf:hasDescription(.)])
+                        then
+                            true()
+                        else
+                            false()
                 "/>
 
     </xsl:function>
-    
+
     <xsl:key name="asserts-fixIds" match="sch:assert | sch:report" use="@sqf:fix/tokenize(., '\s')"/>
-    
+
     <xsl:function name="sqf:isReferered" as="xs:boolean">
         <xsl:param name="fix" as="element(sqf:fix)"/>
         <xsl:variable name="id" select="$fix/@id, $fix/parent::sqf:group/@id"/>
         <xsl:variable name="localAsserts" select="$fix/ancestor::sch:rule/(sch:assert | sch:report)"/>
         <xsl:variable name="referedAsserts" select="key('asserts-fixIds', $id, root($fix))"/>
         <xsl:sequence select="
-            exists(if ($localAsserts) then
-                ($localAsserts intersect $referedAsserts)
+                exists(if ($localAsserts) then
+                    ($localAsserts intersect $referedAsserts)
                 else
                     ($referedAsserts))"/>
     </xsl:function>
