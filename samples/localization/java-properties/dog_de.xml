@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="sample.dog.addBone.title">Füge einen Knochen hinzu</entry>
+    <entry key="sample.dog.addBone.p">Der Hund wird einen Knochen erhalten.</entry>
+</properties>

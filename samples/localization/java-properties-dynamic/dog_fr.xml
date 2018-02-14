@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="sample.dog.addBone.title">Appelle le chien {1}</entry>
+    <entry key="sample.dog.addBone.p">Le chien portera toujours le nom de {1} mais maintenant avec le suffixe " {2}".</entry>
+</properties>

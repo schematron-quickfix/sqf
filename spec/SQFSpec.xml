@@ -36,7 +36,7 @@
             <p>Second Draft</p>
         </status>
         <abstract>
-            <p>Schematron QuickFix is an extension of Schematron (standard ISO/IEC 19757-3:2006). Schematron QuickFix enables developers to define QuickFixes for Schematron errors. QuickFix implementations should present these QuickFixes for the reported Schematron errors to the user. The user can then decide which QuickFix fixes the error in an acceptable way.</p>
+            <p>Schematron QuickFix is an extension of Schematron (standard <?oxy_comment_start author="Nico" timestamp="20180210T141817+0100" comment="Note: Link to spec"?>ISO/IEC 19757-3:2006<?oxy_comment_end?>). Schematron QuickFix enables developers to define QuickFixes for Schematron errors. QuickFix implementations should present these QuickFixes for the reported Schematron errors to the user. The user can then decide which QuickFix fixes the error in an acceptable way.</p>
         </abstract>
         <langusage>
             <language>English</language>
@@ -1250,7 +1250,7 @@
             </div2>
             <div2 id="localization">
                 <head>Localization</head>
-                <p>The SQF localisation concept is based on the <titleref href="http://www.w3.org/TR/xml/#sec-lang-tag">XML concept to detect the natural language</titleref>, using the <att>xml:lang</att> attribute. Consequently, SQF elements are able to inherit the language property of all ancestors.</p>
+                <p>The SQF localization concept is based on the <titleref href="http://www.w3.org/TR/xml/#sec-lang-tag">XML concept to detect the natural language</titleref>, using the <att>xml:lang</att> attribute. Consequently, SQF elements are able to inherit the language property of all ancestors.</p>
                 <div3 id="locatable_elements">
                     <head>Locatable elements</head>
                     <p>The following list shows SQF elements, which are locatable with the attribute <att>xml:lang</att>:</p>
@@ -1280,31 +1280,29 @@
                         </ulist>
                     </p>
                 </div3>
-                <div3 id="localisation_of_a_quickfix">
-                    <head>Localisation of a QuickFix or User Entry</head>
-                    <p>The natural language parts of a QuickFix or User Entry are defined by the elements <el>sqf:title</el> and <el>sqf:p</el>. To provide an alternative text phrase for localisation (effective localisation value), these elements are permitted to obtain a <att>ref</att> attribute. The <att>ref</att> attribute may refer (by reference values) to IDs or key values of one or more text phrases in the same or separate document. Mulitple reference values should be separated by whitespaces. </p>
-                    <p>The minimal implementation of the <att>ref</att> attribute should support a reference to an ID of a Schematron <el>sch:diagnostic</el> element. An implementation is free to support references to other text phrase formats. A recommended but not required supported text phrase format is the <?oxy_comment_start author="Nico" timestamp="20171204T170056+0100" comment="Is there a w3c/ISO specification?"?><loc href="https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html">XML Java properity file format</loc><?oxy_comment_end?>.</p>
+                <div3 id="localization_of_a_quickfix">
+                    <?oxy_comment_start author="Nico" timestamp="20180210T142017+0100" comment="Small link to @xml:lang
+" id="d4n_jfb_wcb"?>
+                    <?oxy_comment_start author="Nico" timestamp="20180214T082901+0100" comment="There is already one, few lines above at the beginning of 5.8 Localization section" parentID="d4n_jfb_wcb" mid="6"?>
+                    <head>Localization of a QuickFix or User Entry<?oxy_comment_end mid="6"?><?oxy_comment_end?></head>
+                    <p>The natural language parts of a QuickFix or User Entry are defined by the elements <el>sqf:title</el> and <el>sqf:p</el>. To provide an alternative text phrase for localization (effective localization value), these elements are permitted to obtain a <att>ref</att> attribute. The <att>ref</att> attribute may refer (by reference values) to IDs or key values of one or more text phrases in the same or separate document. Mulitple reference values should be separated by whitespaces. </p>
+                    <p>The minimal implementation of the <att>ref</att> attribute should support a reference to an ID of a Schematron <el>sch:diagnostic</el> element. An implementation is free to support references to other text phrase formats (<titleref href="#example_external_doc">See example in Appendix</titleref>). </p>
                     <p>If a <att>ref</att> attribute contains one or more reference values which can not be resolved by the implementation, these values should be ignored. No error or warning should occurred.</p>
                     <p>A <att>ref</att> attrubute may refer to multipe text phrases in different languages by multiple reference values or may refer by one reference value which leads to different text phrases. In any case, the implementation needs to detect the requested language, the language code of the element which obtains the <att>ref</att> attribute (initial language) and all language codes of the referenced text phrases. The following four cases should be supported:</p>
                     <p>
                         <ulist>
                             <item>
                                 <p>The requested language matches to the initial language.</p>
-                                <p>In this case, the references should be ignored and the initial value of the element should be used as effective localisation value.</p>
+                                <p>In this case, the references should be ignored and the initial value of the element should be used as effective localization value.</p>
                             </item>
                             <item>
                                 <p>The requested language matches to one of the referenced text phrase</p>
-                                <p>In this case, the referenced text phrase, which is asigned to the requested language should be used as effective localisation value. </p>
+                                <p>In this case, the referenced text phrase, which is asigned to the requested language should be used as effective localization value. </p>
                             </item>
                             <item>
                                 <p>The requested language matches to none of the given languages. </p>
-                                <p>In this case, the references should be ignored and the initial value of the element should be used as effective localisation value.</p>
-                                <p>This case is a localisation issue and should not occurre. The implementation is free to throw a warning.</p>
-                            </item>
-                            <item>
-                                <p>Special case: The <att>ref</att> attribute may refer to multiple text phrases wich are asigned to the requested language. In this case each text node which represents a part of the initial value should be replaced by one refered text phrase to get the effective localised value. The replace assignment should be determined by the order of the text nodes and the order of the references inside of the <att>ref</att> attribute. </p>
-                                <p>The number of references may unequal to the number of text node. In case of more references as text nodes, the remaining refered text phrases should be insterted at the end of the effective localised value. Multiple remaining values should be concatinated by zero-length strings. In case of more text nodes as referenced text phrases, the remaining text nodes should be ignored during determing the effective localised value.</p>
-                                <p>The text nodes may separated by Schematron or SQF elements. They should be proceeded as usually and also be used to determ the effective localised value. </p>
+                                <p>In this case, the references should be ignored and the initial value of the element should be used as effective localization value.</p>
+                                <p>This case is a localization issue and should not occurre. The implementation is free to throw a warning.</p>
                             </item>
                         </ulist>
                     </p>
@@ -1451,6 +1449,153 @@
             <div2 id="example_apply_fixes" role="unfinished">
                 <head>QuickFix which applies to itself</head>
                 <p>Tbd.</p>
+            </div2>
+            <div2 id="example_localization_1">
+                <head>Localization with Schematron Diagnostic Elements</head>
+                <p>This example shows how to use the <att>ref</att> attribute of a <el>sqf:title</el> or <el>sqf:p</el> element to refer to a <el>sch:diagnostic</el> element. This example is restricted to a static title and description. See the following example for dynamic human readable localization.</p>
+                <p>The Schematron <loc href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</loc> contains the following test:</p>
+                <example>
+                    <eg>&lt;sch:rule context=&quot;dog&quot;&gt;
+    &lt;sch:assert test=&quot;bone&quot; sqf:fix=&quot;addBone&quot;&gt; A dog should have a bone &lt;/sch:assert&gt;</eg>
+                </example>
+                <p>The test refers to the QuickFix "addBone":</p>
+                <example>
+                    <eg>&lt;sqf:fix id=&quot;addBone&quot;&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref=&quot;sample.dog.addBone.title_de sample.dog.addBone.title_fr&quot;&gt;Add a bone&lt;/sqf:title&gt;
+        &lt;sqf:p ref=&quot;sample.dog.addBone.p_de sample.dog.addBone.p_fr&quot;&gt;The dog will get a bone.&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:add node-type=&quot;element&quot; target=&quot;bone&quot;/&gt;
+&lt;/sqf:fix&gt;</eg>
+                </example>
+                <p>The references <attval>sample.dog.addBone.title_de</attval>, <attval>sample.dog.addBone.title_fr</attval>, <attval>sample.dog.addBone.p_de</attval> and <attval>sample.dog.addBone.p_fr</attval> refers to the following <el>sch:diagnostic</el> elements:</p>
+                <example>
+                    <eg>&lt;sch:diagnostics&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.title_de&quot; xml:lang=&quot;de&quot;&gt;Füge einen Knochen hinzu&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.p_de&quot; xml:lang=&quot;de&quot;&gt;Der Hund wird einen Knochen erhalten.&lt;/sch:diagnostic&gt;
+    
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.title_fr&quot; xml:lang=&quot;fr&quot;&gt;Ajouter un os&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.p_fr&quot; xml:lang=&quot;fr&quot;&gt;Le chien aura un os.&lt;/sch:diagnostic&gt;
+&lt;/sch:diagnostics&gt;</eg>
+                </example>
+            </div2>
+            <div2 id="example_localization_2">
+                <head>Dynamic Localization with Schematron Diagnostic Elements</head>
+                <p>This example shows how to use the <att>ref</att> attribute of a <el>sqf:title</el> or <el>sqf:p</el> element with dynamic content to refer to a <el>sch:diagnostic</el> element.</p>
+                <p>The Schematron <loc href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</loc> contains the following test:</p>
+                <example>
+                    <eg>&lt;sch:rule context=&quot;dog&quot;&gt;
+    &lt;sch:let name=&quot;name&quot; value=&quot;@name&quot;/&gt;
+    &lt;sch:let name=&quot;otherDogs&quot; value=&quot;../dog[@name/tokenize(., &apos;\s&apos;)[1] = $name/tokenize(., &apos;\s&apos;)[1]]&quot;/&gt;
+    &lt;sch:let name=&quot;number&quot; value=&quot;count($otherDogs) + 1&quot;/&gt;
+    &lt;sch:let name=&quot;newName&quot; value=&quot;concat(@name, &apos; &apos;, $number)&quot;/&gt;
+    &lt;sch:report test=&quot;../dog[@name = $name]&quot; sqf:fix=&quot;addSuffix&quot;&gt; You should not have two dogs with the same name! &lt;/sch:report&gt;</eg>
+                </example>
+                <p>The test refers to the QuickFix "addSuffix":</p>
+                <example>
+                    <eg>&lt;sqf:fix id=&quot;addSuffix&quot;&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref=&quot;sample.dog.addBone.title_de sample.dog.addBone.title_fr&quot;&gt;Call the dog &lt;sch:value-of select=&quot;$newName&quot;/&gt;&lt;/sqf:title&gt;
+        &lt;sqf:p ref=&quot;sample.dog.addBone.p_de sample.dog.addBone.p_fr&quot;&gt;The dog will still have the name &lt;sch:value-of select=&quot;$name/tokenize(., &apos;\s&apos;)[1]&quot;/&gt; but now with the suffix &quot; &lt;sch:value-of select=&quot;$number&quot;/&gt;&quot;.&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:replace match=&quot;@name&quot; node-type=&quot;attribute&quot; target=&quot;name&quot; select=&quot;$newName&quot;/&gt;
+&lt;/sqf:fix&gt;</eg>
+                </example>
+                <p>The references <attval>sample.dog.addBone.title_de</attval>, <attval>sample.dog.addBone.title_fr</attval>, <attval>sample.dog.addBone.p_de</attval> and <attval>sample.dog.addBone.p_fr</attval> refers to the following <el>sch:diagnostic</el> elements:</p>
+                <example>
+                    <eg>&lt;sch:diagnostics&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.title_de&quot; xml:lang=&quot;de&quot;&gt;Nenne den Hund &lt;sch:value-of select=&quot;$newName&quot;/&gt;&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.p_de&quot; xml:lang=&quot;de&quot;&gt;Der Hund wird weiterhin &lt;sch:value-of select=&quot;$name/tokenize(., &apos;\s&apos;)[1]&quot;/&gt; heißen, nun aber mit dem Zusatz &quot; &lt;sch:value-of select=&quot;$number&quot;/&gt;&quot;.&lt;/sch:diagnostic&gt;
+    
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.title_fr&quot; xml:lang=&quot;fr&quot;&gt;Appelle le chien &lt;sch:value-of select=&quot;$newName&quot;/&gt;&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.p_fr&quot; xml:lang=&quot;fr&quot;&gt;Le chien portera toujours le nom de &lt;sch:value-of select=&quot;$name/tokenize(., &apos;\s&apos;)[1]&quot;/&gt; mais maintenant avec le suffixe &quot; &lt;sch:value-of select=&quot;$number&quot;/&gt;&quot;.&lt;/sch:diagnostic&gt;
+&lt;/sch:diagnostics&gt;</eg>
+                </example>
+            </div2>
+            <div2 id="example_localization_3">
+                <head>Localization with Java Property Files</head>
+                <p>This example shows how to use the <att>ref</att> attribute of a <el>sqf:title</el> or <el>sqf:p</el> element to refer to a Java property XML file. This example is restricted to a static title and description. See the following example for dynamic human readable localization.</p>
+                <p>The example contains the Schematron schema <loc href="../samples/localization/java-properties/dog.sch">dog.sch</loc> and the Java property files <loc href="../samples/localization/java-properties/dog_de.xml">dog_de.xml</loc> and <loc href="../samples/localization/java-properties/dog_fr.xml">dog_fr.xml</loc>.</p>
+                <p>The Schematron <loc href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</loc> contains the following test:</p>
+                <example>
+                    <eg>&lt;sch:rule context=&quot;dog&quot;&gt;
+&lt;sch:assert test=&quot;bone&quot; sqf:fix=&quot;addBone&quot;&gt;
+    A dog should have a bone
+&lt;/sch:assert&gt;</eg>
+                </example>
+                <p>The test refers to the QuickFix "addBone":</p>
+                <example>
+                    <eg>&lt;sqf:fix id=&quot;addBone&quot;&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref=&quot;sample.dog.addBone.title&quot;&gt;Add a bone&lt;/sqf:title&gt;
+        &lt;sqf:p ref=&quot;sample.dog.addBone.p&quot;&gt;The dog will get a bone.&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:add node-type=&quot;element&quot; target=&quot;bone&quot;/&gt;
+&lt;/sqf:fix&gt;</eg>
+                </example>
+                <p>The file <loc href="../samples/localization/java-properties/dog_de.xml">dog_de.xml</loc> contains all german translations for the <el>sqf:title</el> and the <el>sqf:p</el> element:</p>
+                <example>
+                    <eg>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+&lt;properties&gt;
+    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Füge einen Knochen hinzu&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Der Hund wird einen Knochen erhalten.&lt;/entry&gt;
+&lt;/properties&gt;</eg>
+                </example>
+                <p>The same applies to the file <loc href="../samples/localization/java-properties/dog_fr.xml">dog_fr.xml</loc> and the france translations:</p>
+                <example>
+                    <eg>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+&lt;properties&gt;
+    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Ajouter un os&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Le chien aura un os.&lt;/entry&gt;
+&lt;/properties&gt;</eg>
+                </example>
+                
+            </div2>
+            <div2 id="example_localization_4">
+                <head>Dynamic Localization with Java Propery Files</head>
+                <p>This example shows how to use the <att>ref</att> attribute of a <el>sqf:title</el> or <el>sqf:p</el> element with dynamic content to refer to a Java property XML file. </p>
+                <p>The example contains the Schematron schema <loc href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</loc> and the Java property files <loc href="../samples/localization/java-properties-dynamic/dog_de.xml">dog_de.xml</loc> and <loc href="../samples/localization/java-properties-dynamic/dog_fr.xml">dog_fr.xml</loc>.</p>
+                <p>Schematron <loc href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</loc> contains the following test:</p>
+                <example>
+                    <eg>&lt;sch:rule context=&quot;dog&quot;&gt;
+&lt;sch:let name=&quot;name&quot; value=&quot;@name&quot;/&gt;
+&lt;sch:let name=&quot;otherDogs&quot; value=&quot;../dog[@name/tokenize(., &apos;\s&apos;)[1] = $name/tokenize(., &apos;\s&apos;)[1]]&quot;/&gt;
+&lt;sch:let name=&quot;number&quot; value=&quot;count($otherDogs) + 1&quot;/&gt;
+&lt;sch:let name=&quot;newName&quot; value=&quot;concat(@name, &apos; &apos;, $number)&quot;/&gt;
+&lt;sch:report test=&quot;../dog[@name = $name]&quot; sqf:fix=&quot;addSuffix&quot;&gt;
+    You should not have two dogs with the same name! 
+&lt;/sch:report&gt;</eg>
+                </example>
+                <p>The test refers to the QuickFix "addSuffix":</p>
+                <example>
+                    <eg>&lt;sqf:fix id=&quot;addSuffix&quot;&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref=&quot;sample.dog.addBone.title&quot;&gt;Call the dog &lt;sch:value-of select=&quot;$newName&quot;/&gt;&lt;/sqf:title&gt;
+        &lt;sqf:p ref=&quot;sample.dog.addBone.p&quot;&gt;The dog will still have the name &lt;sch:value-of select=&quot;$name/tokenize(., &apos;\s&apos;)[1]&quot;/&gt; but now with the suffix &quot; &lt;sch:value-of select=&quot;$number&quot;/&gt;&quot;.&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:replace match=&quot;@name&quot; node-type=&quot;attribute&quot; target=&quot;name&quot; select=&quot;$newName&quot;/&gt;
+&lt;/sqf:fix&gt;</eg>
+                </example>
+                <p>The file <loc href="../samples/localization/java-properties-dynamic/dog_de.xml">dog_de.xml</loc> contains all german translations for the <el>sqf:title</el> and the <el>sqf:p</el> element:</p>
+                <example>
+                    <eg>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+&lt;properties&gt;
+    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Nenne den Hund ${1}&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Der Hund wird weiterhin ${1} heißen, nun aber mit dem Zusatz &quot; ${2}&quot;.&lt;/entry&gt;
+&lt;/properties&gt;</eg>
+                </example>
+                <p>The same applies to the file <loc href="../samples/localization/java-properties-dynamic/dog_fr.xml">dog_fr.xml</loc> and the france translations:</p>
+                <example>
+                    <eg>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+&lt;properties&gt;
+    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Nenne den Hund ${1}&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Der Hund wird weiterhin ${1} heißen, nun aber mit dem Zusatz &quot; ${2}&quot;.&lt;/entry&gt;
+&lt;/properties&gt;</eg>
+                </example>
             </div2>
         </div1>
     </back>

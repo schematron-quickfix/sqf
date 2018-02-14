@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="sample.dog.addBone.title">Nenne den Hund ${1}</entry>
+    <entry key="sample.dog.addBone.p">Der Hund wird weiterhin ${1} heißen, nun aber mit dem Zusatz " ${2}".</entry>
+</properties>
