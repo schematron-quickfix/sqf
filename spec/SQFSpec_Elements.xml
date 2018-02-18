@@ -890,6 +890,12 @@
                         <titleref href="#sch_foreign">sch:foreign</titleref>
                      .</p>
                </div5>
+               <div5 id="sqf_p_attributes_attrgroupref">
+                  <head/>
+                  <p>See attribute group 
+                        <titleref href="#sqf_refAttribute">sqf:refAttribute</titleref>
+                     .</p>
+               </div5>
             </div4>
             <div4 id="sqf_p_content_model">
                <head>Content model</head>
@@ -1290,6 +1296,12 @@
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
+                     .</p>
+               </div5>
+               <div5 id="sqf_title_attributes_attrgroupref">
+                  <head/>
+                  <p>See attribute group 
+                        <titleref href="#sqf_refAttribute">sqf:refAttribute</titleref>
                      .</p>
                </div5>
             </div4>
@@ -2197,6 +2209,74 @@
                
                
                <graphic source="img/svg/sqf_parameterAttributes.svg"/>
+            </div4>
+         </div3>
+         <div3 id="sqf_refAttribute">
+            <head>refAttribute</head>
+            <div4 id="sqf_refattribute_used_by">
+               <head>Used by</head>
+               <ulist>
+                  <item>
+                     <p>
+                        <titleref href="#sqf_p">
+                           sqf:p
+                        </titleref>
+                     </p>
+                  </item>
+                  <item>
+                     <p>
+                        <titleref href="#sqf_title">
+                           sqf:title
+                        </titleref>
+                     </p>
+                  </item>
+               </ulist>
+            </div4>
+            <div4 id="sqf_refattribute_attributes">
+               <head>Attributes</head>
+               <div5 id="refAttribute_ref">
+                  <head>@ref</head>
+                  <table cellspacing="0">
+                     <col width="15%"/>
+                     <col width="85%"/>
+                     <tbody>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Description
+                           </th>
+                           <td>
+                              References to alternative text phrases (e.g. for localisation).
+                              A minimum implementation for this attribute should support a reference to an ID of a <att>sch:diagnostic</att> element. Alternativly an implementation is free to support references to other localisation files (e.g. Java properties files). A reference token which does not reference to a known target should not occure an error but should be ignored.
+                           </td>
+                        </tr>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Use
+                           </th>
+                           <td>
+                              optional
+                           </td>
+                        </tr>
+                        <tr>
+                           <th xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" valign="top" align="left">
+                              Value
+                           </th>
+                           <td>
+                              
+                                 <code>xs:NMTOKENS</code>
+                              
+                              A whitespace separated list of tokens which represents a reference.
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div5>
+            </div4>
+            <div4 id="sqf_refattribute_content_model">
+               <head>Content model</head>
+               
+               
+               <graphic source="img/svg/sqf_refAttribute.svg"/>
             </div4>
          </div3>
          <div3 id="sqf_rootAttributes">
