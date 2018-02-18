@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" width="388.5" height="100" class="element_group" sqf:width="388.5" sqf:height="100">
-                     <g transform="translate(113, 5)" id="modeld10e1261_group_d10e1261" sqf:width="382" sqf:height="92.5">
-                        <rect width="270.5" height="90" rx="7" ry="7" fill="white" stroke="#007" stroke-width="1"/>
-                        <rect width="270.5" height="90" rx="7" ry="7" fill="white" stroke="#007" stroke-width="1"/>
-                        <path fill="#007" opacity="0.1" d="M 0 25 L 0 7 Q 0 0 7 0 L 263.5 0 Q 270.5 0 270.5 7 L 270.5 25 Z"/>
-                        <svg width="129" height="25" sqf:width="129" sqf:height="25">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" width="380.83203125" height="100" class="element_group" sqf:width="380.83203125" sqf:height="100">
+                     <g transform="translate(111.36376953125, 5)" id="modeld12e1272_group_d12e1272" sqf:width="374.33203125" sqf:height="92.5">
+                        <rect width="264.46826171875" height="90" rx="7" ry="7" fill="white" stroke="#007" stroke-width="1"/>
+                        <rect width="264.46826171875" height="90" rx="7" ry="7" fill="white" stroke="#007" stroke-width="1"/>
+                        <path fill="#007" opacity="0.1" d="M 0 25 L 0 7 Q 0 0 7 0 L 257.46826171875 0 Q 264.46826171875 0 264.46826171875 7 L 264.46826171875 25 Z"/>
+                        <svg width="129.16064453125" height="25" sqf:width="129.16064453125" sqf:height="25">
                            <g transform="translate(3,3)" sqf:width="3" sqf:height="3">
                               <rect width="5" height="5" x="6" y="3" fill="#007" opacity="0.5"/>
                               <rect width="5" height="5" x="6" y="11" fill="#007" opacity="0.5"/>
@@ -15,13 +15,13 @@
                               <text x="26" y="13" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">sqf:foreign-element</text>
                            </g>
                         </svg>
-                        <path d="M 2.5 25 L 268 25" fill="none" stroke="#007" stroke-width="0.25"/>
-                        <g transform="translate(269, 0)" sqf:width="269" sqf:height="0"/>
-                        <g transform="translate(0, 27.5)" sqf:width="268" sqf:height="87.5">
-                           <svg width="268" height="60" class="objectPaths" sqf:width="268" sqf:height="60">
+                        <path d="M 2.5 25 L 261.96826171875 25" fill="none" stroke="#007" stroke-width="0.25"/>
+                        <g transform="translate(262.96826171875, 0)" sqf:width="262.96826171875" sqf:height="0"/>
+                        <g transform="translate(0, 27.5)" sqf:width="261.96826171875" sqf:height="87.5">
+                           <svg width="261.96826171875" height="60" class="objectPaths" sqf:width="261.96826171875" sqf:height="60">
                               <path stroke="#007" stroke-width="1" fill="none" d="M 0 30 L 25 30"/>
-                              <g transform="translate(25,                                         0)" sqf:width="268" sqf:height="60">
-                                 <svg width="243" height="60" class="choice" sqf:width="243" sqf:height="60">
+                              <g transform="translate(25,                                         0)" sqf:width="261.96826171875" sqf:height="60">
+                                 <svg width="236.96826171875" height="60" class="choice" sqf:width="236.96826171875" sqf:height="60">
                                     <g transform="translate(0,20)" sqf:width="20" sqf:height="40">
                                        <svg width="20" height="20" sqf:width="20" sqf:height="20">
                                           <g>
@@ -40,36 +40,36 @@
                                           </g>
                                        </svg>
                                     </g>
-                                    <g transform="translate(20,30)" sqf:width="79" sqf:height="60">
-                                       <svg width="59" height="30" class="objectPaths" sqf:width="59" sqf:height="30">
+                                    <g transform="translate(20,30)" sqf:width="79.8583984375" sqf:height="60">
+                                       <svg width="59.8583984375" height="30" class="objectPaths" sqf:width="59.8583984375" sqf:height="30">
                                           <path stroke="#007" stroke-width="1" fill="none" d="M 0 15 L 15 15"/>
-                                          <g transform="translate(15,                                         0)" sqf:width="59" sqf:height="30">
-                                             <svg width="44" height="30" class="element_ref" sqf:width="44" sqf:height="30">
+                                          <g transform="translate(15,                                         0)" sqf:width="59.8583984375" sqf:height="30">
+                                             <svg width="44.8583984375" height="30" class="element_ref" sqf:width="44.8583984375" sqf:height="30">
                                                 <desc/>
                                                 <g alignment-baseline="baseline" class="svg-element-ref" transform="translate(0, 2.5)" sqf:width="0" sqf:height="2.5">
-                                                   <g id="modeld10e1261_elementRef_d10e1267">
-                                                      <rect height="25" width="44" rx="10" ry="10" stroke="#007" stoke-width="1" fill="white"/>
+                                                   <g id="modeld12e1272_elementRef_d12e1278">
+                                                      <rect height="25" width="44.8583984375" rx="10" ry="10" stroke="#007" stoke-width="1" fill="white"/>
                                                       <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">##local</text>
                                                    </g>
                                                 </g>
-                                                <g transform="translate(44, 0)" sqf:width="44" sqf:height="0"/>
+                                                <g transform="translate(44.8583984375, 0)" sqf:width="44.8583984375" sqf:height="0"/>
                                              </svg>
                                           </g>
                                        </svg>
                                     </g>
-                                    <g transform="translate(20,0)" sqf:width="243" sqf:height="30">
-                                       <svg width="223" height="30" class="objectPaths" sqf:width="223" sqf:height="30">
+                                    <g transform="translate(20,0)" sqf:width="236.96826171875" sqf:height="30">
+                                       <svg width="216.96826171875" height="30" class="objectPaths" sqf:width="216.96826171875" sqf:height="30">
                                           <path stroke="#007" stroke-width="1" fill="none" d="M 0 15 L 15 15"/>
-                                          <g transform="translate(15,                                         0)" sqf:width="223" sqf:height="30">
-                                             <svg width="208" height="30" class="element_ref" sqf:width="208" sqf:height="30">
+                                          <g transform="translate(15,                                         0)" sqf:width="216.96826171875" sqf:height="30">
+                                             <svg width="201.96826171875" height="30" class="element_ref" sqf:width="201.96826171875" sqf:height="30">
                                                 <desc/>
                                                 <g alignment-baseline="baseline" class="svg-element-ref" transform="translate(0, 2.5)" sqf:width="0" sqf:height="2.5">
-                                                   <g id="modeld10e1261_elementRef_d10e1265">
-                                                      <rect height="25" width="208" rx="10" ry="10" stroke="#007" stoke-width="1" fill="white"/>
+                                                   <g id="modeld12e1272_elementRef_d12e1276">
+                                                      <rect height="25" width="201.96826171875" rx="10" ry="10" stroke="#007" stoke-width="1" fill="white"/>
                                                       <text x="5" y="16" fill="black" font-family="arial, helvetica, sans-serif" font-size="11">http://www.w3.org/1999/XSL/Transform</text>
                                                    </g>
                                                 </g>
-                                                <g transform="translate(208, 0)" sqf:width="208" sqf:height="0"/>
+                                                <g transform="translate(201.96826171875, 0)" sqf:width="201.96826171875" sqf:height="0"/>
                                              </svg>
                                           </g>
                                        </svg>
@@ -81,17 +81,17 @@
                            </svg>
                         </g>
                      </g>
-                     <g transform="translate(0, 47.5)" sqf:width="113" sqf:height="77.5">
-                        <svg width="113" height="30" class="objectPaths" sqf:width="113" sqf:height="30">
-                           <path stroke="#007" stroke-width="1" fill="none" d="M 113 15 L 88 15"/>
-                           <g transform="translate(0,                                         0)" sqf:width="88" sqf:height="30">
-                              <svg width="88" height="30" sqf:width="88" sqf:height="30">
-                                 <g transform="translate(1,1)" id="modeld10e1261_d10e1253_parentOf_" sqf:width="1" sqf:height="1">
+                     <g transform="translate(0, 47.5)" sqf:width="111.36376953125" sqf:height="77.5">
+                        <svg width="111.36376953125" height="30" class="objectPaths" sqf:width="111.36376953125" sqf:height="30">
+                           <path stroke="#007" stroke-width="1" fill="none" d="M 111.36376953125 15 L 86.36376953125 15"/>
+                           <g transform="translate(0,                                         0)" sqf:width="86.36376953125" sqf:height="30">
+                              <svg width="86.36376953125" height="30" sqf:width="86.36376953125" sqf:height="30">
+                                 <g transform="translate(1,1)" id="modeld12e1272_d12e1264_parentOf_" sqf:width="1" sqf:height="1">
                                     <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sqf_foreign" target="_top">
-                                       <path stroke="#007" stoke-width="1" fill="white" d="M 0 28 L 0 10 Q 0 0 10 0 L 76 0 Q 86 0 86 10 L 86 28"/>
-                                       <path d="M 2.5 27 L 83.5 27" fill="none" stroke="#007" stroke-width="0.25"/>
-                                       <g transform="translate(0, 2.5)" sqf:width="88" sqf:height="27.5">
-                                          <svg width="88" height="25" sqf:width="88" sqf:height="25">
+                                       <path stroke="#007" stoke-width="1" fill="white" d="M 0 28 L 0 10 Q 0 0 10 0 L 74.36376953125 0 Q 84.36376953125 0 84.36376953125 10 L 84.36376953125 28"/>
+                                       <path d="M 2.5 27 L 81.86376953125 27" fill="none" stroke="#007" stroke-width="0.25"/>
+                                       <g transform="translate(0, 2.5)" sqf:width="86.36376953125" sqf:height="27.5">
+                                          <svg width="86.36376953125" height="25" sqf:width="86.36376953125" sqf:height="25">
                                              <g transform="translate(3,3)" sqf:width="3" sqf:height="3">
                                                 <rect width="5" height="5" x="6" y="3" fill="#007" opacity="0.5"/>
                                                 <rect width="5" height="5" x="6" y="11" fill="#007" opacity="0.5"/>
@@ -105,7 +105,7 @@
                                        </g>
                                     </a>
                                  </g>
-                                 <g transform="translate(88, 2.5)" sqf:width="88" sqf:height="2.5"/>
+                                 <g transform="translate(86.36376953125, 2.5)" sqf:width="86.36376953125" sqf:height="2.5"/>
                               </svg>
                            </g>
                         </svg>
