@@ -35,14 +35,14 @@ div.exampleHeader { font-weight: bold;
                     margin: 4px}
 </style><link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/TR/base.css"></head><body><div class="head"><p><a href="http://www.w3.org/"><img src="http://www.w3.org/Icons/w3c_home" alt="W3C" height="48" width="72"></a></p>
 <h1><a name="title" id="title"></a>Schematron Quick Fixes Specification</h1>
-<h2><a name="w3c-doctype" id="w3c-doctype"></a>Quick-fix support for XML Community Group &#8211; Draft July 2016</h2><dl><dt>This version:</dt><dd>
+<h2><a name="w3c-doctype" id="w3c-doctype"></a>Quick-fix support for XML Community Group &#8211; Draft February 2018</h2><dl><dt>This version:</dt><dd>
             <a href="http://schematron-quickfix.github.io/sqf/spec/SQFSpec.html">schematron-quickfix.github.io/sqf/spec/SQFSpec.html</a>
         </dd><dt>Latest version:</dt><dd>
             <a href="http://schematron-quickfix.github.io/sqf/spec/SQFSpec.html">schematron-quickfix.github.io/sqf/spec/SQFSpec.html</a>
-        </dd><dt>Editors:</dt><dd>Nico Kutscherauer</dd><dd>Octavian Nadolu</dd></dl><p class="copyright">Copyright &copy; 2016, published by the <a href="http://www.w3.org/community/quickfix/">Quick-fix support for XML Community Group</a> under the <a href="http://www.w3.org/community/about/agreements/cla/">W3C Community
+        </dd><dt>Editors:</dt><dd>Nico Kutscherauer</dd><dd>Octavian Nadolu</dd></dl><p class="copyright">Copyright &copy; 2018, published by the <a href="http://www.w3.org/community/quickfix/">Quick-fix support for XML Community Group</a> under the <a href="http://www.w3.org/community/about/agreements/cla/">W3C Community
                     Contributor License Agreement (CLA)</a>. A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/">summary</a>
                 is available. </p></div><hr><div>
-<h2><a name="abstract" id="abstract"></a>Abstract</h2><p>Schematron QuickFix is an extension of Schematron (standard ISO/IEC 19757-3:2006). Schematron QuickFix enables developers to define QuickFixes for Schematron errors. QuickFix implementations should present these QuickFixes for the reported Schematron errors to the user. The user can then decide which QuickFix fixes the error in an acceptable way.</p></div><div>
+<h2><a name="abstract" id="abstract"></a>Abstract</h2><p>Schematron QuickFix is an extension of Schematron (standard <a href="http://standards.iso.org/ittf/PubliclyAvailableStandards/c055982_ISO_IEC_19757-3_2016.zip"><cite>ISO/IEC 19757-3:2016</cite></a>). Schematron QuickFix enables developers to define QuickFixes for Schematron errors. QuickFix implementations should present these QuickFixes for the reported Schematron errors to the user. The user can then decide which QuickFix fixes the error in an acceptable way.</p></div><div>
 <h2><a name="status" id="status"></a>Status of this Document</h2><p><em>This specification was published by the <a href="http://www.w3.org/community/quickfix/">Quick-fix support for XML Community Group</a>. It is not a W3C Standard nor is it on the W3C Standards Track. Please note that under the <a href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a> there is a limited opt-out and other conditions apply. Learn more about <a href="http://www.w3.org/community/">W3C Community and Business Groups</a>.</em></p><p>Second Draft</p></div><div class="toc">
 <h2><a name="contents" id="contents"></a>Table of Contents</h2><p class="toc">1 <a href="#namespaces_and_prefixes">Namespaces and prefixes</a><br>
 2 <a href="#terminology">Terminology</a><br>
@@ -118,7 +118,7 @@ div.exampleHeader { font-weight: bold;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.7.2 <a href="#attribute-value-template">Attribute Value Template</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;5.8 <a href="#localization">Localization</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.8.1 <a href="#locatable_elements">Locatable elements</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.8.2 <a href="#localisation_of_a_quickfix">Localisation of a QuickFix or User Entry</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.8.2 <a href="#localization_of_a_quickfix">Localization of a QuickFix or User Entry</a><br>
 6 <a href="#implementation_modes">Implementation modes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;6.1 <a href="#xml_save_mode">Unparsed Process Mode</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;6.2 <a href="#xslt_only_mode">XSLT only mode</a><br>
@@ -187,6 +187,7 @@ div.exampleHeader { font-weight: bold;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.3 <a href="#sqf_p_attributes">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.3.1 <a href="#sqf_p_attributes_xmllang_optional">@xml:lang (optional)</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.3.2 <a href="#sqf_p_attributes_attrgroupref"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.3.3 <a href="#sqf_p_attributes_attrgroupref"></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.9.4 <a href="#sqf_p_content_model">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10 <a href="#sqf_param">&lt;sqf:param&gt;</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.10.1 <a href="#sqf_param_exception">Exception</a><br>
@@ -218,6 +219,7 @@ div.exampleHeader { font-weight: bold;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.3 <a href="#sqf_title_attributes">Attributes</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.3.1 <a href="#sqf_title_attributes_xmllang_optional">@xml:lang (optional)</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.3.2 <a href="#sqf_title_attributes_attrgroupref"></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.3.3 <a href="#sqf_title_attributes_attrgroupref"></a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.13.4 <a href="#sqf_title_content_model">Content model</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14 <a href="#sqf_user-entry">&lt;sqf:user-entry&gt;</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.1.14.1 <a href="#sqf_userentry_parent_elements">Parent elements</a><br>
@@ -281,16 +283,25 @@ div.exampleHeader { font-weight: bold;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.2.2 <a href="#parameterAttributes_name">@name</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.2.3 <a href="#parameterAttributes_type">@type</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.4.3 <a href="#sqf_parameterattributes_content_model">Content model</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5 <a href="#sqf_rootAttributes">rootAttributes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.1 <a href="#sqf_rootattributes_attributes">Attributes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.1.1 <a href="#rootAttributes_version">@version</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.2 <a href="#sqf_rootattributes_content_model">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5 <a href="#sqf_refAttribute">refAttribute</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.1 <a href="#sqf_refattribute_used_by">Used by</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.2 <a href="#sqf_refattribute_attributes">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.2.1 <a href="#refAttribute_ref">@ref</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.5.3 <a href="#sqf_refattribute_content_model">Content model</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.6 <a href="#sqf_rootAttributes">rootAttributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.6.1 <a href="#sqf_rootattributes_attributes">Attributes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.6.1.1 <a href="#rootAttributes_version">@version</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3.6.2 <a href="#sqf_rootattributes_content_model">Content model</a><br>
 </p>
 <h3><a name="appendices" id="appendices"></a>Appendices</h3><p class="toc">A <a href="#schematron_quick_fixes_schema">Schematron Quick Fixes schema</a><br>
 B <a href="#examples">Examples</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;B.1 <a href="#example_external_doc">QuickFixes for external documents</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;B.2 <a href="#formatting_and_indenting_inserted_content">Formatting and Indenting Inserted Content</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;B.3 <a href="#example_apply_fixes">QuickFix which applies to itself</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;B.4 <a href="#example_localization_1">Localization with Schematron Diagnostic Elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;B.5 <a href="#example_localization_2">Dynamic Localization with Schematron Diagnostic Elements</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;B.6 <a href="#example_localization_3">Localization with Java Property Files</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;B.7 <a href="#example_localization_4">Dynamic Localization with Java Propery Files</a><br>
 </p></div><hr><div class="body"><div class="div1">
 <h2><a name="namespaces_and_prefixes" id="namespaces_and_prefixes"></a>1 Namespaces and prefixes</h2><p>This document describes nodes that belong to different namespaces. All nodes that do not belong to the NULL namespace are give a prefix in order to distinguish them. The following table assigns a namespace URI to each prefix used in this document:</p><table><thead><tr><th>Prefix</th><th>Namespace URI</th><th>Corresponding standard</th></tr></thead><tbody><tr><td>sch</td><td>http://purl.oclc.org/dsdl/schematron</td><td>ISO Schematron</td></tr><tr><td>sqf</td><td>http://www.schematron-quickfix.com/validator/process</td><td>Schematron QuickFix</td></tr><tr><td>xsl</td><td>http://www.w3.org/1999/XSL/Transform</td><td>XSLT 2.0</td></tr></tbody></table></div><div class="div1">
 <h2><a name="terminology" id="terminology"></a>2 Terminology</h2><dl><dt class="label"><a name="sch-assertion" id="sch-assertion"></a>Schematron assertion</dt><dd><p>Condition which is declared by the Schematron elements <code>sch:report</code> or <code>sch:assert</code>.</p><p>A failed Schematron assertion produces a <a title="" href="#sch-error">Schematron error</a>. One Schematron assertion can produce multiple <a title="" href="#sch-error">Schematron errors</a>. </p></dd><dt class="label"><a name="sch-rule" id="sch-rule"></a>Schematron rule</dt><dd><p>According to the Schematron element <code>sch:rule</code>. It contains one or more <a title="" href="#sch-assertion">Schematron assertions</a>.</p><dl><dt class="label"><a name="sch-rule-context" id="sch-rule-context"></a>Context</dt><dd><p>The context of a <a title="" href="#sch-rule">Schematron rule</a> is defined by the attribute <code>context</code>. If a rule matches to more than one node, it has more than one context. </p></dd></dl></dd><dt class="label"><a name="sch-error" id="sch-error"></a>Schematron error</dt><dd><p>A Schematron error occurs if a <a title="" href="#sch-assertion">Schematron assertion</a> failed for one context of its <a title="" href="#sch-rule">Schematron rule</a>.</p><dl><dt class="label"><a name="sch-error-context" id="sch-error-context"></a>Context</dt><dd><p>The context of the <a title="" href="#sch-error">Schematron error</a> is the node, which was matched by the Schematron rule, when the <a title="" href="#sch-assertion">Schematron assertion</a> failed.</p><p>The attribute <code>subject</code> has no affect to the context of the Schematron error. Unlike to the <a title="" href="#sch-rule-context">context of the Schematron rule</a>, the Schematron error has only one context node.</p></dd></dl></dd></dl></div><div class="div1">
@@ -462,14 +473,31 @@ B <a href="#examples">Examples</a><br>
 <h4><a name="attribute-value-template" id="attribute-value-template"></a>5.7.2 Attribute Value Template</h4><p>The following table shows attributes, whose value is interpreted as <a href="http://www.w3.org/TR/xslt20/#attribute-value-templates"><cite>attribute value template</cite></a> corresponding to the XSLT 2.0 Recommendation:</p><p>
                         <table border="1" cellspacing="0" cellpadding="2"><thead><tr><th>Attribute</th><th>Element</th><th>Context</th><th>Effective value requirements</th></tr></thead><tbody><tr><td>regex</td><td>sqf:stringReplace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Valid <a href="http://www.w3.org/TR/xslt20/#regular-expressions"><cite>Regular Expression</cite></a> corresponding to the XSLT 2.0 Recommendation.</td></tr><tr><td>flags</td><td>sqf:stringReplace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>Should match to the requirements of the $flags parameter, specified in the <a href="https://www.w3.org/TR/xpath-functions/#flags"><cite>XQuery 1.0 and XPath 2.0 Functions and Operators</cite></a> Recommendation</td></tr><tr><td rowspan="2">target</td><td>sqf:add</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>xs:QName</td></tr><tr><td>sqf:replace</td><td><a href="#change-command-anchor-node"><cite>Anchor node</cite></a></td><td>xs:QName</td></tr></tbody></table>
                     </p><p>The effective value requirements should be satisfied after interpreting the attribute value template.</p></div></div><div class="div2">
-<h3><a name="localization" id="localization"></a>5.8 Localization</h3><p>The SQF localisation concept is based on the <a href="http://www.w3.org/TR/xml/#sec-lang-tag"><cite>XML concept to detect the natural language</cite></a>, using the <code>xml:lang</code> attribute. Consequently, SQF elements are able to inherit the language property of all ancestors.</p><div class="div3">
+<h3><a name="localization" id="localization"></a>5.8 Localization</h3><p>The SQF localization concept is based on the <a href="http://www.w3.org/TR/xml/#sec-lang-tag"><cite>XML concept to detect the natural language</cite></a>, using the <code>xml:lang</code> attribute. Consequently, SQF elements are able to inherit the language property of all ancestors.</p><div class="div3">
 <h4><a name="locatable_elements" id="locatable_elements"></a>5.8.1 Locatable elements</h4><p>The following list shows SQF elements, which are locatable with the attribute <code>xml:lang</code>:</p><p>
                         <ul><li><p><code>sqf:description</code></p></li><li><p><code>sqf:fix</code></p></li><li><p><code>sqf:fixes</code></p></li><li><p><code>sqf:group</code></p></li><li><p><code>sqf:p</code></p></li><li><p><code>sqf:title</code></p></li><li><p><code>sqf:user-entry</code></p></li></ul>
                     </p></div><div class="div3">
-<h4><a name="localisation_of_a_quickfix" id="localisation_of_a_quickfix"></a>5.8.2 Localisation of a QuickFix or User Entry</h4><p>The natural language parts of a QuickFix or User Entry are defined by the elements <code>sqf:title</code> and <code>sqf:p</code>. To provide an alternative text phrase for localisation (effective localisation value), these elements are permitted to obtain a <code>ref</code> attribute. The <code>ref</code> attribute may refer (by reference values) to IDs or key values of one or more text phrases in the same or separate document. Mulitple reference values should be separated by whitespaces. </p><p>The minimal implementation of the <code>ref</code> attribute should support a reference to an ID of a Schematron <code>sch:diagnostic</code> element. An implementation is free to support references to other text phrase formats. A recommended but not required supported text phrase format is the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html">XML Java properity file format</a>.</p><p>If a <code>ref</code> attribute contains one or more reference values which can not be resolved by the implementation, these values should be ignored. No error or warning should occurred.</p><p>A <code>ref</code> attrubute may refer to multipe text phrases in different languages by multiple reference values or may refer by one reference value which leads to different text phrases. In any case, the implementation needs to detect the requested language, the language code of the element which obtains the <code>ref</code> attribute (initial language) and all language codes of the referenced text phrases. The following four cases should be supported:</p><p>
-                        <ul><li><p>The requested language matches to the initial language.</p><p>In this case, the references should be ignored and the initial value of the element should be used as effective localisation value.</p></li><li><p>The requested language matches to one of the referenced text phrase</p><p>In this case, the referenced text phrase, which is asigned to the requested language should be used as effective localisation value. </p></li><li><p>The requested language matches to none of the given languages. </p><p>In this case, the references should be ignored and the initial value of the element should be used as effective localisation value.</p><p>This case is a localisation issue and should not occurre. The implementation is free to throw a warning.</p></li><li><p>Special case: The <code>ref</code> attribute may refer to multiple text phrases wich are asigned to the requested language. In this case each text node which represents a part of the initial value should be replaced by one refered text phrase to get the effective localised value. The replace assignment should be determined by the order of the text nodes and the order of the references inside of the <code>ref</code> attribute. </p><p>The number of references may unequal to the number of text node. In case of more references as text nodes, the remaining refered text phrases should be insterted at the end of the effective localised value. Multiple remaining values should be concatinated by zero-length strings. In case of more text nodes as referenced text phrases, the remaining text nodes should be ignored during determing the effective localised value.</p><p>The text nodes may separated by Schematron or SQF elements. They should be proceeded as usually and also be used to determ the effective localised value. </p></li></ul>
+<h4><a name="localization_of_a_quickfix" id="localization_of_a_quickfix"></a>5.8.2 Localization of a QuickFix or User Entry</h4><p>The natural language parts of a QuickFix or User Entry are defined by the
+                        elements <code>sqf:title</code> and <code>sqf:p</code>. To provide an alternative
+                        text phrase for localization (effective localization value), these elements
+                        are permitted to obtain a <code>ref</code> attribute. The <code>ref</code>
+                        attribute may refer (by reference values) to IDs or key values of one or
+                        more text phrases in the same or separate document. Multiple reference
+                        values should be separated by whitespaces. </p><p>The minimal implementation of the <code>ref</code> attribute should support a reference to an ID of a Schematron <code>sch:diagnostic</code> element. An implementation is free to support references to other text phrase formats (<a href="#example_external_doc"><cite>See example in Appendix</cite></a>). </p><p>If a <code>ref</code> attribute contains one or more reference values which can not be resolved by the implementation, these values should be ignored. No error or warning should occurred.</p><p>A <code>ref</code> attribute may refer to multiple text phrases in different
+                        languages by multiple reference values or may refer by one reference value
+                        which leads to different text phrases. In any case, the implementation needs
+                        to detect the requested language, the language code of the element which
+                        obtains the <code>ref</code> attribute (initial language) and all language
+                        codes of the referenced text phrases. The following four cases should be
+                        supported:</p><p>
+                        <ul><li><p>The requested language matches to the initial language.</p><p>In this case, the references should be ignored and the initial value of the element should be used as effective localization value.</p></li><li><p>The requested language matches to one of the referenced text phrase</p><p>In this case, the referenced text phrase, which is assigned to
+                                    the requested language should be used as effective localization
+                                    value. </p></li><li><p>The requested language matches to none of the given languages. </p><p>In this case, the references should be ignored and the initial value of the element should be used as effective localization value.</p><p>This case is a localization issue and should not occur. The
+                                    implementation is free to throw a warning.</p></li></ul>
                     </p></div></div></div><div class="div1">
-<h2><a name="implementation_modes" id="implementation_modes"></a>6 Implementation modes</h2><p>A QuickFix can be implemented generally in two different modes:<ul><li><p>Unparsed Process Mode</p></li><li><p>XSLT only mode</p></li></ul></p><p>An implementation is free to support only one or both modes. If an implementation supports both modes, it should be a general configurarion to switch between the two modes.</p><div class="div2">
+<h2><a name="implementation_modes" id="implementation_modes"></a>6 Implementation modes</h2><p>A QuickFix can be implemented generally in two different modes:<ul><li><p>Unparsed Process Mode</p></li><li><p>XSLT only mode</p></li></ul></p><p>An implementation is free to support only one or both modes. If an implementation
+                supports both modes, it should be a general configuration to switch between the two
+                modes.</p><div class="div2">
 <h3><a name="xml_save_mode" id="xml_save_mode"></a>6.1 Unparsed Process Mode</h3><p>The Unparsed Process Mode requires that no changes will be applied to the <a title="" href="#sch-source-document">source document</a>, which are not defined by the executed QuickFix. Changes which are caused by parsing the document and creating a new, XML identical document (skip the XML declaration, resolving default attributes, CDATA sections, etc.), should not influence the document. That is why it is not possible to implement the Unparsed Process Mode with only XSLT processes.</p></div><div class="div2">
 <h3><a name="xslt_only_mode" id="xslt_only_mode"></a>6.2 XSLT only mode</h3><p>If an implementation is based only on XSLT processes, this is called the XSLT only mode. In this case, it is allowed to change the <a title="" href="#sch-source-document">source document</a> on any QuickFix execution in the following ways, though it is not defined in the QuickFix:<ul><li><p>Skip the XML declaration</p></li><li><p>Skip the DOCTYPE declaration</p></li><li><p>Skip whitespace:<ul><li><p>which are outside of the root element and not in processing instructions and comments.</p></li><li><p>non significant whitespace</p></li></ul></p></li><li><p>Normalize whitespace<ul><li><p>Leading whitespace of content in processing instructions in prolog</p></li><li><p>between attributes</p></li></ul></p></li><li><p>Resolve default attributes to encoded attributes</p></li><li><p>Resolve CDATA sections to text nodes.</p></li><li><p>Resolve entity references.</p></li></ul></p></div></div><div class="div1">
 <h2><a name="schematron_quickfix_reference" id="schematron_quickfix_reference"></a>7 Schematron QuickFix reference</h2><div class="div2">
@@ -848,6 +876,9 @@ B <a href="#examples">Examples</a><br>
 <h6><a name="sqf_p_attributes_xmllang_optional" id="sqf_p_attributes_xmllang_optional"></a>7.1.9.3.1 @xml:lang (optional)</h6></div><div class="div5">
 <h6><a name="sqf_p_attributes_attrgroupref" id="sqf_p_attributes_attrgroupref"></a>7.1.9.3.2 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
+                     .</p></div><div class="div5">
+<h6><a name="sqf_p_attributes_attrgroupref" id="sqf_p_attributes_attrgroupref"></a>7.1.9.3.3 </h6><p>See attribute group 
+                        <a href="#sqf_refAttribute"><cite>sqf:refAttribute</cite></a>
                      .</p></div></div><div class="div4">
 <h5><a name="sqf_p_content_model" id="sqf_p_content_model"></a>7.1.9.4 Content model</h5><img src="img/svg/sqf_p.svg"></div></div><div class="div3">
 <h4><a name="sqf_param" id="sqf_param"></a>7.1.10 &lt;sqf:param&gt;</h4><p>This element defines a parameter for a QuickFix. The parameter can be used like a variable within the QuickFix. The value can be set by the <a href="#sqf_with-param"><cite>
@@ -1018,6 +1049,9 @@ B <a href="#examples">Examples</a><br>
 <h6><a name="sqf_title_attributes_xmllang_optional" id="sqf_title_attributes_xmllang_optional"></a>7.1.13.3.1 @xml:lang (optional)</h6></div><div class="div5">
 <h6><a name="sqf_title_attributes_attrgroupref" id="sqf_title_attributes_attrgroupref"></a>7.1.13.3.2 </h6><p>See attribute group 
                         <a href="#sch_foreign"><cite>sch:foreign</cite></a>
+                     .</p></div><div class="div5">
+<h6><a name="sqf_title_attributes_attrgroupref" id="sqf_title_attributes_attrgroupref"></a>7.1.13.3.3 </h6><p>See attribute group 
+                        <a href="#sqf_refAttribute"><cite>sqf:refAttribute</cite></a>
                      .</p></div></div><div class="div4">
 <h5><a name="sqf_title_content_model" id="sqf_title_content_model"></a>7.1.13.4 Content model</h5><img src="img/svg/sqf_title.svg"></div></div><div class="div3">
 <h4><a name="sqf_user-entry" id="sqf_user-entry"></a>7.1.14 &lt;sqf:user-entry&gt;</h4><p>Defines a user entry. With the help of the user entry, the user can interact with the QuickFix. The user entry refers to a <code>sqf:param</code> element. The value of the parameter is set manually by the user. The implementation should provide the user entry when the user selects the QuickFix.</p><div class="div4">
@@ -1401,9 +1435,38 @@ B <a href="#examples">Examples</a><br>
                               The value should be a valid XML Schema type.
                            </td></tr></tbody></table></div></div><div class="div4">
 <h5><a name="sqf_parameterattributes_content_model" id="sqf_parameterattributes_content_model"></a>7.3.4.3 Content model</h5><img src="img/svg/sqf_parameterAttributes.svg"></div></div><div class="div3">
-<h4><a name="sqf_rootAttributes" id="sqf_rootAttributes"></a>7.3.5 rootAttributes</h4><div class="div4">
-<h5><a name="sqf_rootattributes_attributes" id="sqf_rootattributes_attributes"></a>7.3.5.1 Attributes</h5><div class="div5">
-<h6><a name="rootAttributes_version" id="rootAttributes_version"></a>7.3.5.1.1 @version</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
+<h4><a name="sqf_refAttribute" id="sqf_refAttribute"></a>7.3.5 refAttribute</h4><div class="div4">
+<h5><a name="sqf_refattribute_used_by" id="sqf_refattribute_used_by"></a>7.3.5.1 Used by</h5><ul><li><p>
+                        <a href="#sqf_p"><cite>
+                           sqf:p
+                        </cite></a>
+                     </p></li><li><p>
+                        <a href="#sqf_title"><cite>
+                           sqf:title
+                        </cite></a>
+                     </p></li></ul></div><div class="div4">
+<h5><a name="sqf_refattribute_attributes" id="sqf_refattribute_attributes"></a>7.3.5.2 Attributes</h5><div class="div5">
+<h6><a name="refAttribute_ref" id="refAttribute_ref"></a>7.3.5.2.1 @ref</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
+                              Description
+                           </th><td>
+                              References to alternative text phrases (e.g. for localisation).
+                              A minimum implementation for this attribute should support a reference to an ID of a <code>sch:diagnostic</code> element. Alternativly an implementation is free to support references to other localisation files (e.g. Java properties files). A reference token which does not reference to a known target should not occure an error but should be ignored.
+                           </td></tr><tr><th valign="top" align="left">
+                              Use
+                           </th><td>
+                              optional
+                           </td></tr><tr><th valign="top" align="left">
+                              Value
+                           </th><td>
+                              
+                                 <code>xs:NMTOKENS</code>
+                              
+                              A whitespace separated list of tokens which represents a reference.
+                           </td></tr></tbody></table></div></div><div class="div4">
+<h5><a name="sqf_refattribute_content_model" id="sqf_refattribute_content_model"></a>7.3.5.3 Content model</h5><img src="img/svg/sqf_refAttribute.svg"></div></div><div class="div3">
+<h4><a name="sqf_rootAttributes" id="sqf_rootAttributes"></a>7.3.6 rootAttributes</h4><div class="div4">
+<h5><a name="sqf_rootattributes_attributes" id="sqf_rootattributes_attributes"></a>7.3.6.1 Attributes</h5><div class="div5">
+<h6><a name="rootAttributes_version" id="rootAttributes_version"></a>7.3.6.1.1 @version</h6><table cellspacing="0"><col width="15%" span="1"><col width="85%" span="1"><tbody><tr><th valign="top" align="left">
                               Description
                            </th><td>
                               The attribute defines the used Schematron QuickFix version. The attribute should be set, if the Schematron schema uses the Schematron QuickFix extensions.
@@ -1418,7 +1481,7 @@ B <a href="#examples">Examples</a><br>
                                  <code>xs:token</code>
                               
                            </td></tr></tbody></table></div></div><div class="div4">
-<h5><a name="sqf_rootattributes_content_model" id="sqf_rootattributes_content_model"></a>7.3.5.2 Content model</h5><img src="img/svg/sqf_rootAttributes.svg"></div></div></div></div></div><div class="back"><div class="div1">
+<h5><a name="sqf_rootattributes_content_model" id="sqf_rootattributes_content_model"></a>7.3.6.2 Content model</h5><img src="img/svg/sqf_rootAttributes.svg"></div></div></div></div></div><div class="back"><div class="div1">
 <h2><a name="schematron_quick_fixes_schema" id="schematron_quick_fixes_schema"></a>A Schematron Quick Fixes schema</h2><div class="exampleInner"><pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 
 &lt;!--  
@@ -2029,4 +2092,80 @@ B <a href="#examples">Examples</a><br>
     Do forever
      Say "Hello, World"
     End&lt;/sqf:add&gt;</pre></div></div></p></li></ul></p></div><div class="div2">
-<h3><a name="example_apply_fixes" id="example_apply_fixes"></a>B.3 QuickFix which applies to itself</h3><p>Tbd.</p></div></div></div></body></html>
+<h3><a name="example_apply_fixes" id="example_apply_fixes"></a>B.3 QuickFix which applies to itself</h3><p>Tbd.</p></div><div class="div2">
+<h3><a name="example_localization_1" id="example_localization_1"></a>B.4 Localization with Schematron Diagnostic Elements</h3><p>This example shows how to use the <code>ref</code> attribute of a <code>sqf:title</code> or <code>sqf:p</code> element to refer to a <code>sch:diagnostic</code> element. This example is restricted to a static title and description. See the following example for dynamic human readable localization.</p><p>The Schematron <a href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</a> contains the following test:</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sch:rule context="dog"&gt;
+    &lt;sch:assert test="bone" sqf:fix="addBone"&gt; A dog should have a bone &lt;/sch:assert&gt;</pre></div></div><p>The test refers to the QuickFix "addBone":</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:fix id="addBone"&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref="sample.dog.addBone.title_de sample.dog.addBone.title_fr"&gt;Add a bone&lt;/sqf:title&gt;
+        &lt;sqf:p ref="sample.dog.addBone.p_de sample.dog.addBone.p_fr"&gt;The dog will get a bone.&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:add node-type="element" target="bone"/&gt;
+&lt;/sqf:fix&gt;</pre></div></div><p>The references "sample.dog.addBone.title_de", "sample.dog.addBone.title_fr", "sample.dog.addBone.p_de" and "sample.dog.addBone.p_fr" refers to the following <code>sch:diagnostic</code> elements:</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sch:diagnostics&gt;
+    &lt;sch:diagnostic id="sample.dog.addBone.title_de" xml:lang="de"&gt;F&uuml;ge einen Knochen hinzu&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id="sample.dog.addBone.p_de" xml:lang="de"&gt;Der Hund wird einen Knochen erhalten.&lt;/sch:diagnostic&gt;
+    
+    &lt;sch:diagnostic id="sample.dog.addBone.title_fr" xml:lang="fr"&gt;Ajouter un os&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id="sample.dog.addBone.p_fr" xml:lang="fr"&gt;Le chien aura un os.&lt;/sch:diagnostic&gt;
+&lt;/sch:diagnostics&gt;</pre></div></div></div><div class="div2">
+<h3><a name="example_localization_2" id="example_localization_2"></a>B.5 Dynamic Localization with Schematron Diagnostic Elements</h3><p>This example shows how to use the <code>ref</code> attribute of a <code>sqf:title</code> or <code>sqf:p</code> element with dynamic content to refer to a <code>sch:diagnostic</code> element.</p><p>The Schematron <a href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</a> contains the following test:</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sch:rule context="dog"&gt;
+    &lt;sch:let name="name" value="@name"/&gt;
+    &lt;sch:let name="otherDogs" value="../dog[@name/tokenize(., '\s')[1] = $name/tokenize(., '\s')[1]]"/&gt;
+    &lt;sch:let name="number" value="count($otherDogs) + 1"/&gt;
+    &lt;sch:let name="newName" value="concat(@name, ' ', $number)"/&gt;
+    &lt;sch:report test="../dog[@name = $name]" sqf:fix="addSuffix"&gt; You should not have two dogs with the same name! &lt;/sch:report&gt;</pre></div></div><p>The test refers to the QuickFix "addSuffix":</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:fix id="addSuffix"&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref="sample.dog.addBone.title_de sample.dog.addBone.title_fr"&gt;Call the dog &lt;sch:value-of select="$newName"/&gt;&lt;/sqf:title&gt;
+        &lt;sqf:p ref="sample.dog.addBone.p_de sample.dog.addBone.p_fr"&gt;The dog will still have the name &lt;sch:value-of select="$name/tokenize(., '\s')[1]"/&gt; but now with the suffix " &lt;sch:value-of select="$number"/&gt;".&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:replace match="@name" node-type="attribute" target="name" select="$newName"/&gt;
+&lt;/sqf:fix&gt;</pre></div></div><p>The references "sample.dog.addBone.title_de", "sample.dog.addBone.title_fr", "sample.dog.addBone.p_de" and "sample.dog.addBone.p_fr" refers to the following <code>sch:diagnostic</code> elements:</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sch:diagnostics&gt;
+    &lt;sch:diagnostic id="sample.dog.addBone.title_de" xml:lang="de"&gt;Nenne den Hund &lt;sch:value-of select="$newName"/&gt;&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id="sample.dog.addBone.p_de" xml:lang="de"&gt;Der Hund wird weiterhin &lt;sch:value-of select="$name/tokenize(., '\s')[1]"/&gt; hei&szlig;en, nun aber mit dem Zusatz " &lt;sch:value-of select="$number"/&gt;".&lt;/sch:diagnostic&gt;
+    
+    &lt;sch:diagnostic id="sample.dog.addBone.title_fr" xml:lang="fr"&gt;Appelle le chien &lt;sch:value-of select="$newName"/&gt;&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id="sample.dog.addBone.p_fr" xml:lang="fr"&gt;Le chien portera toujours le nom de &lt;sch:value-of select="$name/tokenize(., '\s')[1]"/&gt; mais maintenant avec le suffixe " &lt;sch:value-of select="$number"/&gt;".&lt;/sch:diagnostic&gt;
+&lt;/sch:diagnostics&gt;</pre></div></div></div><div class="div2">
+<h3><a name="example_localization_3" id="example_localization_3"></a>B.6 Localization with Java Property Files</h3><p>This example shows how to use the <code>ref</code> attribute of a <code>sqf:title</code> or <code>sqf:p</code> element to refer to a Java property XML file. This example is restricted to a static title and description. See the following example for dynamic human readable localization.</p><p>The example contains the Schematron schema <a href="../samples/localization/java-properties/dog.sch">dog.sch</a> and the Java property files <a href="../samples/localization/java-properties/dog_de.xml">dog_de.xml</a> and <a href="../samples/localization/java-properties/dog_fr.xml">dog_fr.xml</a>.</p><p>The Schematron <a href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</a> contains the following test:</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sch:rule context="dog"&gt;
+&lt;sch:assert test="bone" sqf:fix="addBone"&gt;
+    A dog should have a bone
+&lt;/sch:assert&gt;</pre></div></div><p>The test refers to the QuickFix "addBone":</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:fix id="addBone"&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref="sample.dog.addBone.title"&gt;Add a bone&lt;/sqf:title&gt;
+        &lt;sqf:p ref="sample.dog.addBone.p"&gt;The dog will get a bone.&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:add node-type="element" target="bone"/&gt;
+&lt;/sqf:fix&gt;</pre></div></div><p>The file <a href="../samples/localization/java-properties/dog_de.xml">dog_de.xml</a> contains all german translations for the <code>sqf:title</code> and the <code>sqf:p</code> element:</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"&gt;
+&lt;properties&gt;
+    &lt;entry key="sample.dog.addBone.title"&gt;F&uuml;ge einen Knochen hinzu&lt;/entry&gt;
+    &lt;entry key="sample.dog.addBone.p"&gt;Der Hund wird einen Knochen erhalten.&lt;/entry&gt;
+&lt;/properties&gt;</pre></div></div><p>The same applies to the file <a href="../samples/localization/java-properties/dog_fr.xml">dog_fr.xml</a> and the france translations:</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"&gt;
+&lt;properties&gt;
+    &lt;entry key="sample.dog.addBone.title"&gt;Ajouter un os&lt;/entry&gt;
+    &lt;entry key="sample.dog.addBone.p"&gt;Le chien aura un os.&lt;/entry&gt;
+&lt;/properties&gt;</pre></div></div></div><div class="div2">
+<h3><a name="example_localization_4" id="example_localization_4"></a>B.7 Dynamic Localization with Java Propery Files</h3><p>This example shows how to use the <code>ref</code> attribute of a <code>sqf:title</code> or <code>sqf:p</code> element with dynamic content to refer to a Java property XML file. </p><p>The example contains the Schematron schema <a href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</a> and the Java property files <a href="../samples/localization/java-properties-dynamic/dog_de.xml">dog_de.xml</a> and <a href="../samples/localization/java-properties-dynamic/dog_fr.xml">dog_fr.xml</a>.</p><p>Schematron <a href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</a> contains the following test:</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sch:rule context="dog"&gt;
+&lt;sch:let name="name" value="@name"/&gt;
+&lt;sch:let name="otherDogs" value="../dog[@name/tokenize(., '\s')[1] = $name/tokenize(., '\s')[1]]"/&gt;
+&lt;sch:let name="number" value="count($otherDogs) + 1"/&gt;
+&lt;sch:let name="newName" value="concat(@name, ' ', $number)"/&gt;
+&lt;sch:report test="../dog[@name = $name]" sqf:fix="addSuffix"&gt;
+    You should not have two dogs with the same name! 
+&lt;/sch:report&gt;</pre></div></div><p>The test refers to the QuickFix "addSuffix":</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;sqf:fix id="addSuffix"&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref="sample.dog.addBone.title"&gt;Call the dog &lt;sch:value-of select="$newName"/&gt;&lt;/sqf:title&gt;
+        &lt;sqf:p ref="sample.dog.addBone.p"&gt;The dog will still have the name &lt;sch:value-of select="$name/tokenize(., '\s')[1]"/&gt; but now with the suffix " &lt;sch:value-of select="$number"/&gt;".&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:replace match="@name" node-type="attribute" target="name" select="$newName"/&gt;
+&lt;/sqf:fix&gt;</pre></div></div><p>The file <a href="../samples/localization/java-properties-dynamic/dog_de.xml">dog_de.xml</a> contains all german translations for the <code>sqf:title</code> and the <code>sqf:p</code> element:</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"&gt;
+&lt;properties&gt;
+    &lt;entry key="sample.dog.addBone.title"&gt;Nenne den Hund ${1}&lt;/entry&gt;
+    &lt;entry key="sample.dog.addBone.p"&gt;Der Hund wird weiterhin ${1} hei&szlig;en, nun aber mit dem Zusatz " ${2}".&lt;/entry&gt;
+&lt;/properties&gt;</pre></div></div><p>The same applies to the file <a href="../samples/localization/java-properties-dynamic/dog_fr.xml">dog_fr.xml</a> and the france translations:</p><div class="exampleOuter"><div class="exampleInner"><pre>&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"&gt;
+&lt;properties&gt;
+    &lt;entry key="sample.dog.addBone.title"&gt;Nenne den Hund ${1}&lt;/entry&gt;
+    &lt;entry key="sample.dog.addBone.p"&gt;Der Hund wird weiterhin ${1} hei&szlig;en, nun aber mit dem Zusatz " ${2}".&lt;/entry&gt;
+&lt;/properties&gt;</pre></div></div></div></div></div></body></html>
