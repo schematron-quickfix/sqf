@@ -1285,10 +1285,22 @@
 " id="d4n_jfb_wcb"?>
                     <?oxy_comment_start author="Nico" timestamp="20180214T082901+0100" comment="There is already one, few lines above at the beginning of 5.8 Localization section" parentID="d4n_jfb_wcb" mid="6"?>
                     <head>Localization of a QuickFix or User Entry<?oxy_comment_end mid="6"?><?oxy_comment_end?></head>
-                    <p>The natural language parts of a QuickFix or User Entry are defined by the elements <el>sqf:title</el> and <el>sqf:p</el>. To provide an alternative text phrase for localization (effective localization value), these elements are permitted to obtain a <att>ref</att> attribute. The <att>ref</att> attribute may refer (by reference values) to IDs or key values of one or more text phrases in the same or separate document. Mulitple reference values should be separated by whitespaces. </p>
+                    <p>The natural language parts of a QuickFix or User Entry are defined by the
+                        elements <el>sqf:title</el> and <el>sqf:p</el>. To provide an alternative
+                        text phrase for localization (effective localization value), these elements
+                        are permitted to obtain a <att>ref</att> attribute. The <att>ref</att>
+                        attribute may refer (by reference values) to IDs or key values of one or
+                        more text phrases in the same or separate document. Multiple reference
+                        values should be separated by whitespaces. </p>
                     <p>The minimal implementation of the <att>ref</att> attribute should support a reference to an ID of a Schematron <el>sch:diagnostic</el> element. An implementation is free to support references to other text phrase formats (<titleref href="#example_external_doc">See example in Appendix</titleref>). </p>
                     <p>If a <att>ref</att> attribute contains one or more reference values which can not be resolved by the implementation, these values should be ignored. No error or warning should occurred.</p>
-                    <p>A <att>ref</att> attrubute may refer to multipe text phrases in different languages by multiple reference values or may refer by one reference value which leads to different text phrases. In any case, the implementation needs to detect the requested language, the language code of the element which obtains the <att>ref</att> attribute (initial language) and all language codes of the referenced text phrases. The following four cases should be supported:</p>
+                    <p>A <att>ref</att> attribute may refer to multiple text phrases in different
+                        languages by multiple reference values or may refer by one reference value
+                        which leads to different text phrases. In any case, the implementation needs
+                        to detect the requested language, the language code of the element which
+                        obtains the <att>ref</att> attribute (initial language) and all language
+                        codes of the referenced text phrases. The following four cases should be
+                        supported:</p>
                     <p>
                         <ulist>
                             <item>
@@ -1297,12 +1309,15 @@
                             </item>
                             <item>
                                 <p>The requested language matches to one of the referenced text phrase</p>
-                                <p>In this case, the referenced text phrase, which is asigned to the requested language should be used as effective localization value. </p>
+                                <p>In this case, the referenced text phrase, which is assigned to
+                                    the requested language should be used as effective localization
+                                    value. </p>
                             </item>
                             <item>
                                 <p>The requested language matches to none of the given languages. </p>
                                 <p>In this case, the references should be ignored and the initial value of the element should be used as effective localization value.</p>
-                                <p>This case is a localization issue and should not occurre. The implementation is free to throw a warning.</p>
+                                <p>This case is a localization issue and should not occur. The
+                                    implementation is free to throw a warning.</p>
                             </item>
                         </ulist>
                     </p>
@@ -1319,7 +1334,9 @@
                         <p>XSLT only mode</p>
                     </item>
                 </ulist></p>
-            <p>An implementation is free to support only one or both modes. If an implementation supports both modes, it should be a general configurarion to switch between the two modes.</p>
+            <p>An implementation is free to support only one or both modes. If an implementation
+                supports both modes, it should be a general configuration to switch between the two
+                modes.</p>
             <div2 id="xml_save_mode">
                 <head>Unparsed Process Mode</head>
                 <p>The Unparsed Process Mode requires that no changes will be applied to the <termref def="sch-source-document">source document</termref>, which are not defined by the executed QuickFix. Changes which are caused by parsing the document and creating a new, XML identical document (skip the XML declaration, resolving default attributes, CDATA sections, etc.), should not influence the document. That is why it is not possible to implement the Unparsed Process Mode with only XSLT processes.</p>
