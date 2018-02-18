@@ -24,7 +24,7 @@
             </author>
         </authlist>
         <copyright>
-            <p>Copyright © 2016, published by the <loc href="http://www.w3.org/community/quickfix/"
+            <p>Copyright © 2018, published by the <loc href="http://www.w3.org/community/quickfix/"
                     >Quick-fix support for XML Community Group</loc> under the <xspecref
                     href="http://www.w3.org/community/about/agreements/cla/">W3C Community
                     Contributor License Agreement (CLA)</xspecref>. A human-readable <xspecref
@@ -36,7 +36,7 @@
             <p>Second Draft</p>
         </status>
         <abstract>
-            <p>Schematron QuickFix is an extension of Schematron (standard <?oxy_comment_start author="Nico" timestamp="20180210T141817+0100" comment="Note: Link to spec"?>ISO/IEC 19757-3:2006<?oxy_comment_end?>). Schematron QuickFix enables developers to define QuickFixes for Schematron errors. QuickFix implementations should present these QuickFixes for the reported Schematron errors to the user. The user can then decide which QuickFix fixes the error in an acceptable way.</p>
+            <p>Schematron QuickFix is an extension of Schematron (standard <titleref href="http://standards.iso.org/ittf/PubliclyAvailableStandards/c055982_ISO_IEC_19757-3_2016.zip">ISO/IEC 19757-3:2016</titleref>). Schematron QuickFix enables developers to define QuickFixes for Schematron errors. QuickFix implementations should present these QuickFixes for the reported Schematron errors to the user. The user can then decide which QuickFix fixes the error in an acceptable way.</p>
         </abstract>
         <langusage>
             <language>English</language>
