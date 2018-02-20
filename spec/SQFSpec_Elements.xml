@@ -2246,7 +2246,7 @@
                            </th>
                            <td>
                               References to alternative text phrases (e.g. for localisation).
-                              A minimum implementation for this attribute should support a reference to an ID of a <att>sch:diagnostic</att> element. Alternativly an implementation is free to support references to other localisation files (e.g. Java properties files). A reference token which does not reference to a known target should not occure an error but should be ignored.
+                              A minimum implementation for this attribute should support a reference to an ID of a <att>sch:diagnostic</att> element. Alternatively an implementation is free to support references to other localisation files (e.g. Java properties files). A reference token which does not reference to a known target should not occur an error but should be ignored.
                            </td>
                         </tr>
                         <tr>
