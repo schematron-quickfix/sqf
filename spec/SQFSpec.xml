@@ -2236,7 +2236,13 @@
                 </example>
             </div2>
             <div2 id="example_localization_4">
-                <head>Dynamic Localization with Java Property Files</head>
+                <head><?oxy_comment_start author="octavian_nadolu" timestamp="20180220T164001+0200" comment="I don&apos;t know how the values will be mapped to the ${1} ${2} parameters.
+It is possible the in the message to have also XSLT elements. I think it is difficult to detect the dynamical part from a message an then map it to some parameters.
+A solution that I propose is to define some specific parameters in the context of the fix:
+
+
+Also, we should start with ${0}, as in Java"?>Dynamic
+                    Localization with Java Property Files<?oxy_comment_end?></head>
                 <p>This example shows how to use the <att>ref</att> attribute of a
                         <el>sqf:title</el> or <el>sqf:p</el> element with dynamic content to refer
                     to a Java property XML file. </p>
