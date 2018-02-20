@@ -412,8 +412,9 @@
                         </ulist></p>
                     <p>In the following cases it is permitted that two QuickFixes, <titleref href="#quick-fix.group">QuickFix groups</titleref> or a QuickFix and a <titleref href="#quick-fix.group">QuickFix group</titleref> have the same IDs:<ulist>
                             <item>
-                                <p><?oxy_comment_start author="octavian_nadolu" timestamp="20151015T122111+0300" comment="Maybe we need to specify which fix is used in this case."?>One is <titleref href="#quick-fix.global-local">global</titleref> the other is <titleref href="#quick-fix.global-local">local</titleref>.<?oxy_comment_end?><?oxy_comment_start author="Nico Kutscherauer" timestamp="20151116T092206-0500" comment="I added a description in the section &quot;Scope&quot;"?></p>
-                                <?oxy_comment_end?>
+                                <p>One is <titleref href="#quick-fix.global-local">global</titleref>
+                                    the other is <titleref href="#quick-fix.global-local"
+                                        >local</titleref>.</p>
                             </item>
                             <item>
                                 <p>Both are <titleref href="#quick-fix.global-local">local</titleref>, but declared in different <termref def="sch-rule">Schematron rules</termref>.</p>
@@ -521,9 +522,12 @@
                     <head>Generic QuickFix</head>
                     <p>A generic QuickFix is different from a regular QuickFix in that it is defined for an unbounded count of provided QuickFixes. The count of provided QuickFixes may depend on the <termref def="sch-error-context">context of the Schematron error</termref>.</p>
                     <p>To create a generic QuickFix, the <el>sqf:fix</el> element gets a <att>use-for-each</att> attribute. The <att>use-for-each</att> attribute expects an XPath expression. For each returned value or item of the XPath expression a QuickFix should be provided to the user. The XPath expression will be evaluated in the <termref def="sch-error-context">context of the Schematron error</termref>. </p>
-                    <p>The XPath expression of the<?oxy_comment_start author="octavian_nadolu" timestamp="20151015T140641+0300" comment="We should update also the XML Schema."?>
-                        <att>use-for-each</att><?oxy_comment_end?><?oxy_comment_start author="Nico Kutscherauer" timestamp="20151024T101342+0200" comment="Added already in revision 44"?>
-                        <?oxy_comment_end?>attribute does not change the context of the generic QuickFix. To access to the currently returned item/value, a build-in XPath variable <code>$sqf:current</code> (in the SQF namespace) should be provided. The <code>$sqf:current</code> variable should be available in each XPath expression inside of the <el>sqf:fix</el> element, which has an <att>use-for-each</att> attribute.</p>
+                    <p>The XPath expression of the <att>use-for-each</att> attribute does not change
+                        the context of the generic QuickFix. To access to the currently returned
+                        item/value, a build-in XPath variable <code>$sqf:current</code> (in the SQF
+                        namespace) should be provided. The <code>$sqf:current</code> variable should
+                        be available in each XPath expression inside of the <el>sqf:fix</el>
+                        element, which has an <att>use-for-each</att> attribute.</p>
                     <p>It should be an error, if the <code>$sqf:current</code> variable was used in a <el>sqf:fix</el> element, which does not have an <att>use-for-each</att> attribute.</p>
                     <p><example>
                             <p>Example:</p>
@@ -1293,12 +1297,14 @@
                         more text phrases in the same or separate document. Multiple reference
                         values should be separated by whitespaces. </p>
                     <p>The minimal implementation of the <att>ref</att> attribute should support a reference to an ID of a Schematron <el>sch:diagnostic</el> element. An implementation is free to support references to other text phrase formats (<titleref href="#example_external_doc">See example in Appendix</titleref>). </p>
-                    <p>If a <att>ref</att> attribute contains one or more reference values which can not be resolved by the implementation, these values should be ignored. No error or warning should occurred.</p>
+                    <p>If a <att>ref</att> attribute contains one or more reference values which
+                        cannot be resolved by the implementation, these values should be ignored. No
+                        error or warning should occurred.</p>
                     <p>A <att>ref</att> attribute may refer to multiple text phrases in different
                         languages by multiple reference values or may refer by one reference value
                         which leads to different text phrases. In any case, the implementation needs
                         to detect the requested language, the language code of the element which
-                        obtains the <att>ref</att> attribute (initial language) and all language
+                        contains the <att>ref</att> attribute (initial language) and all language
                         codes of the referenced text phrases. The following four cases should be
                         supported:</p>
                     <p>
@@ -1617,3 +1623,4 @@
         </div1>
     </back>
 </spec>
+<?oxy_options track_changes="on"?>

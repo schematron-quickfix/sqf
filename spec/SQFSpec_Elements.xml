@@ -884,7 +884,7 @@
                <div5 id="sqf_p_attributes_xmllang_optional">
                   <head>@xml:lang (optional)</head>
                </div5>
-               <div5 id="sqf_p_attributes_attrgroupref">
+               <div5 id="sqf_p_attributes_attrgroupforeign">
                   <head/>
                   <p>See attribute group 
                         <titleref href="#sch_foreign">sch:foreign</titleref>
