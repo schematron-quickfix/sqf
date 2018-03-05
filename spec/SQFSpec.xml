@@ -1877,55 +1877,25 @@
                     </p>
                 </div3>
                 <div3 id="localization_of_a_quickfix">
-                    <?oxy_comment_start author="Nico" timestamp="20180210T142017+0100" comment="Small link to @xml:lang
-" id="d4n_jfb_wcb" mid="1"?>
-                    <?oxy_comment_start author="Nico" timestamp="20180214T082901+0100" comment="There is already one, few lines above at the beginning of 5.8 Localization section" parentID="d4n_jfb_wcb"?>
-                    <head>Localization of a QuickFix or User
-                        Entry<?oxy_comment_end?><?oxy_comment_end mid="1"?></head>
-                    <p>The natural language parts of a QuickFix or User Entry are defined by the
-                        elements <el>sqf:title</el> and <el>sqf:p</el>. To provide an alternative
-                        text phrase for localization (effective localization value), these elements
-                        are permitted to obtain a <att>ref</att> attribute. The <att>ref</att>
-                        attribute may refer (by reference values) to IDs or key values of one or
-                        more text phrases in the same or separate document. Multiple reference
-                        values should be separated by whitespaces. </p>
-                    <p>The minimal implementation of the <att>ref</att> attribute should support a
-                        reference to an ID of a Schematron <el>sch:diagnostic</el> element. An
-                        implementation is free to support references to other text phrase formats
-                            (<titleref href="#example_external_doc">See example in
-                            Appendix</titleref>). </p>
-                    <p>If a <att>ref</att> attribute contains one or more reference values which
-                        cannot be resolved by the implementation, these values should be ignored. No
-                        error or warning should occurred.</p>
-                    <p>A <att>ref</att> attribute may refer to multiple text phrases in different
-                        languages by multiple reference values or may refer by one reference value
-                        which leads to different text phrases. In any case, the implementation needs
-                        to detect the requested language, the language code of the element which
-                        contains the <att>ref</att> attribute (initial language) and all language
-                        codes of the referenced text phrases. The following four cases should be
-                        supported:</p>
+                    <head>Localization of a QuickFix or User Entry</head>
+                    <p>The natural language parts of a QuickFix or User Entry are defined by the elements <el>sqf:title</el> and <el>sqf:p</el>. To provide an alternative text phrase for localization (effective localization value), these elements are permitted to obtain a <att>ref</att> attribute. The <att>ref</att> attribute may refer (by reference values) to IDs or key values of one or more text phrases in the same or separate document. Multiple reference values should be separated by whitespaces. </p>
+                    <p>The minimal implementation of the <att>ref</att> attribute should support a reference to an ID of a Schematron <el>sch:diagnostic</el> element. An implementation is free to support references to other text phrase formats (<titleref href="#example_external_doc">See example in Appendix</titleref>). </p>
+                    <p>If a <att>ref</att> attribute contains one or more reference values which cannot be resolved by the implementation, these values should be ignored. No error or warning should occurred.</p>
+                    <p>A <att>ref</att> attribute may refer to multiple text phrases in different languages by multiple reference values or may refer by one reference value which leads to different text phrases. In any case, the implementation needs to detect the requested language, the language code of the element which contains the <att>ref</att> attribute (initial language) and all language codes of the referenced text phrases. The following four cases should be supported:</p>
                     <p>
                         <ulist>
                             <item>
                                 <p>The requested language matches to the initial language.</p>
-                                <p>In this case, the references should be ignored and the initial
-                                    value of the element should be used as effective localization
-                                    value.</p>
+                                <p>In this case, the references should be ignored and the initial value of the element should be used as effective localization value.</p>
                             </item>
                             <item>
-                                <p>The requested language matches to one of the referenced text
-                                    phrase</p>
-                                <p>In this case, the referenced text phrase, which is assigned to
-                                    the requested language should be used as effective localization
-                                    value. </p>
+                                <p>The requested language matches to one of the referenced text phrase</p>
+                                <p>In this case, the referenced text phrase, which is assigned to the requested language should be used as effective localization value. </p>
                             </item>
                             <item>
                                 <p>The requested language matches to none of the given languages. </p>
-                                <p>In this case, the references should be ignored and the initial
-                                    value of the element should be used as effective localization
-                                    value.</p>
-                                <p>This case is a localization issue and should not occur. The
-                                    implementation is free to throw a warning.</p>
+                                <p>In this case, the references should be ignored and the initial value of the element should be used as effective localization value.</p>
+                                <p>This case is a localization issue and should not occur. The implementation is free to throw a warning.</p>
                             </item>
                         </ulist>
                     </p>
@@ -2236,13 +2206,7 @@
                 </example>
             </div2>
             <div2 id="example_localization_4">
-                <head><?oxy_comment_start author="octavian_nadolu" timestamp="20180220T164001+0200" comment="I don&apos;t know how the values will be mapped to the ${1} ${2} parameters.
-It is possible the in the message to have also XSLT elements. I think it is difficult to detect the dynamical part from a message an then map it to some parameters.
-A solution that I propose is to define some specific parameters in the context of the fix:
-
-
-Also, we should start with ${0}, as in Java"?>Dynamic
-                    Localization with Java Property Files<?oxy_comment_end?></head>
+                <head>Dynamic Localization with Java Property Files</head>
                 <p>This example shows how to use the <att>ref</att> attribute of a
                         <el>sqf:title</el> or <el>sqf:p</el> element with dynamic content to refer
                     to a Java property XML file. </p>
@@ -2282,8 +2246,8 @@ Also, we should start with ${0}, as in Java"?>Dynamic
                     <eg>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
 &lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
 &lt;properties&gt;
-    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Nenne den Hund ${1}&lt;/entry&gt;
-    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Der Hund wird weiterhin ${1} heißen, nun aber mit dem Zusatz &quot; ${2}&quot;.&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Nenne den Hund {0}&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Der Hund wird weiterhin {0} heißen, nun aber mit dem Zusatz &quot; {1}&quot;.&lt;/entry&gt;
 &lt;/properties&gt;</eg>
                 </example>
                 <p>The same applies to the file <loc
@@ -2293,8 +2257,8 @@ Also, we should start with ${0}, as in Java"?>Dynamic
                     <eg>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
 &lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
 &lt;properties&gt;
-    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Nenne den Hund ${1}&lt;/entry&gt;
-    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Der Hund wird weiterhin ${1} heißen, nun aber mit dem Zusatz &quot; ${2}&quot;.&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Nenne den Hund {0}&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Der Hund wird weiterhin {0} heißen, nun aber mit dem Zusatz &quot; {1}&quot;.&lt;/entry&gt;
 &lt;/properties&gt;</eg>
                 </example>
             </div2>
