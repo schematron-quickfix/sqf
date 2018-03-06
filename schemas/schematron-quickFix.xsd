@@ -96,10 +96,19 @@
         </xs:attribute>
     </xs:attributeGroup>
 
+    <xs:attributeGroup name="refAttribute">
+        <xs:attribute name="ref" type="xs:NMTOKENS">
+            <xs:annotation>
+                <xs:documentation>References to alternative text phrases (e.g. for localisation).</xs:documentation>
+                <xs:documentation>A minimum implementation for this attribute should support a reference to an ID of a <icode type="attribute">sch:diagnostic</icode> element. Alternativly an implementation is free to support references to other localisation files (e.g. Java properties files). A reference token which does not reference to a known target should not occure an error but should be ignored.</xs:documentation>
+                <xs:documentation source="Value">A whitespace separated list of tokens which represents a reference.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:attributeGroup>
 
     <xs:group name="templateElements">
         <xs:annotation>
-            <xs:documentation>This element group describes the content of the activity elements. The behavior is similar to the content of the <icode type="element">xsl:template</icode> element. Additionally, the elements <icode type="element">sch:value-of</icode> and <icode type="element">sch:let</icode> are treated as <icode type="element">xsl:value-of</icode> and <icode type="element">xsl:variable</icode>. Also the <a ref="#sqf_keep"><icode type="element">sqf:keep</icode></a> element is available.</xs:documentation>
+            <xs:documentation>This element group describes the content of the activity elements. The behavior is similar to the content of the <icode type="element">xsl:template</icode> element. Additionally, the elements <icode type="element">sch:value-of</icode> and <icode type="element">sch:let</icode> are treated as <icode type="element">xsl:value-of</icode> and <icode type="element">xsl:variable</icode>. Also the <a ref="#sqf_copy-of"><icode type="element">sqf:copy-of</icode></a> element is available.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -148,7 +157,7 @@
             <xs:documentation>Defines a Schematron QuickFix group. If the group is linked by an assert or report, all QuickFixes of this group will be associated with the assert/report.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
                 <xs:element ref="sqf:fix"/>
             </xs:choice>
             <xs:attribute name="id" use="required" type="xs:string">
@@ -177,20 +186,10 @@
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                     <xs:group ref="sqf:foreign"/>
                     <xs:element ref="sch:let"/>
-                </xs:choice>
-                <xs:element ref="sqf:description" maxOccurs="unbounded"/>
-                <xs:group ref="sqf:foreign"/>
-                <xs:choice>
-                    <xs:sequence>
-                        <xs:element ref="sqf:call-fix"/>
-                    </xs:sequence>
-                    <xs:sequence>
-                        <xs:choice minOccurs="0" maxOccurs="unbounded">
-                            <xs:element ref="sch:let"/>
-                            <xs:element ref="sqf:user-entry"/>
-                        </xs:choice>
-                        <xs:group ref="sqf:activityElements"/>
-                    </xs:sequence>
+                    <xs:element ref="sqf:description"/>
+                    <xs:element ref="sqf:user-entry"/>
+                    <xs:element ref="sqf:call-fix"/>
+                    <xs:group ref="sqf:activityElements"/>
                 </xs:choice>
             </xs:sequence>
             <xs:attribute name="id" use="required" type="xs:NCName">
@@ -203,6 +202,12 @@
                 <xs:annotation>
                     <xs:documentation>The condition to provide the QuickFix.</xs:documentation>
                     <xs:documentation source="value">XPath expression. It expects as return value an xs:boolean.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="use-for-each" use="optional" type="xs:string" default=".">
+                <xs:annotation>
+                    <xs:documentation>QuickFixes with use-for-each attribute are generic. Each return value of the evaluated XPath expression should create an own QuickFix. To access to the current return value, the XPath variable $sqf:current should be provided.</xs:documentation>
+                    <xs:documentation source="value">XPath expression. It expects as return value an untyped sequence.</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="role" use="optional">
@@ -244,7 +249,7 @@
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="sqf:description" maxOccurs="unbounded"/>
+                <xs:element ref="sqf:description"/>
             </xs:sequence>
             <xs:attributeGroup ref="sqf:parameterAttributes"/>
             <xs:attribute ref="xml:lang"/>
@@ -341,6 +346,7 @@
                 </xs:choice>
             </xs:choice>
             <xs:attribute ref="xml:lang"/>
+            <xs:attributeGroup ref="sqf:refAttribute"/>
             <xs:attributeGroup ref="sch:foreign"/>
         </xs:complexType>
     </xs:element>
@@ -360,6 +366,7 @@
                 </xs:choice>
             </xs:choice>
             <xs:attribute ref="xml:lang"/>
+            <xs:attributeGroup ref="sqf:refAttribute"/>
             <xs:attributeGroup ref="sch:foreign"/>
         </xs:complexType>
     </xs:element>
@@ -428,6 +435,11 @@
                     <xs:documentation source="Value">XPath expression. The context of relative expressions is the substring to replace. </xs:documentation>
                     <xs:documentation><b>Note:</b> The context will be always an atomic value. To select nodes from the XML instance, the use of variables outside of the <icode type="element">sqf:stringReplace</icode> element is necessary.</xs:documentation>
                     <xs:documentation source="Default">There is no default value. If the <icode type="attribute">select</icode> attribute is not set, the content of the activity element defines the nodes to be inserted.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="flags" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation source="Value">Flags to control the interpretation of the regular expression (given in the <icode type="attribute">regex</icode> attribute). The flags can be specified by XPath expressions which are marked by curly brackets. After processing, the flags must meet the requirements of the <icode type="attribute">flags</icode> attribute of the <icode type="element">xsl:analyze-string</icode> element.</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
         </xs:complexType>
@@ -537,9 +549,9 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:element name="keep">
+    <xs:element name="copy-of">
         <xs:annotation>
-            <xs:documentation>This element is available within activity elements. The function is to copy nodes selected by the <icode type="attribute">select</icode> attribute. Unlike a deep copy function, with this function the copied nodes can be manipulated by the current or other activity elements.</xs:documentation>
+            <xs:documentation>This element is available within activity elements. The function is to copy nodes selected by the <icode type="attribute">select</icode> attribute. The element with its attribute is treated as <icode type="element">xsl:copy-of</icode> with <icode type="attribute">select</icode> attribute as it is defined in the XSLT requirement. </xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:attribute name="select" type="xs:string" default="node()">

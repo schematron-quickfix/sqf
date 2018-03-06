@@ -4,16 +4,16 @@
     <header>
         <title>Schematron Quick Fixes Specification</title>
         <w3c-designation>W3C Designation</w3c-designation>
-        <w3c-doctype>Quick-fix support for XML Community Group - Draft</w3c-doctype>
+        <w3c-doctype>Quick-fix support for XML Community Group &#x2013; Draft</w3c-doctype>
         <pubdate>
-            <month>May</month>
-            <year>2015</year>
+            <month>March</month>
+            <year>2018</year>
         </pubdate>
         <publoc>
-            <loc href="http://schematron-quickfix.github.io/sqf/spec/SQFSpec.html"/>
+            <loc href="http://schematron-quickfix.github.io/sqf/spec/SQFSpec.html">schematron-quickfix.github.io/sqf/spec/SQFSpec.html</loc>
         </publoc>
         <latestloc>
-            <loc href="http://schematron-quickfix.github.io/sqf"/>
+            <loc href="http://schematron-quickfix.github.io/sqf">schematron-quickfix.github.io/sqf</loc>
         </latestloc>
         <authlist>
             <author>
@@ -24,14 +24,32 @@
             </author>
         </authlist>
         <copyright>
-            <p>Copyright © 2015, published by the <loc href="http://www.w3.org/community/quickfix/">Quick-fix support for XML Community Group</loc> under the <xspecref href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</xspecref>. A human-readable <xspecref href="http://www.w3.org/community/about/agreements/cla-deed/">summary</xspecref> is available. </p>
+            <p>Copyright © 2018, published by the <loc href="http://www.w3.org/community/quickfix/"
+                    >Quick-fix support for XML Community Group</loc> under the <xspecref
+                    href="http://www.w3.org/community/about/agreements/cla/">W3C Community
+                    Contributor License Agreement (CLA)</xspecref>. A human-readable <xspecref
+                    href="http://www.w3.org/community/about/agreements/cla-deed/">summary</xspecref>
+                is available. </p>
         </copyright>
         <status>
-            <p><emph>This specification was published by the <loc href="http://www.w3.org/community/quickfix/">Quick-fix support for XML Community Group</loc>. It is not a W3C Standard nor is it on the W3C Standards Track. Please note that under the <xspecref href="http://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</xspecref> there is a limited opt-out and other conditions apply. Learn more about <loc href="http://www.w3.org/community/">W3C Community and Business Groups</loc>.</emph></p>
-            <p>First Draft</p>
+            <p><emph>This specification was published by the <loc
+                        href="http://www.w3.org/community/quickfix/">Quick-fix support for XML
+                        Community Group</loc>. It is not a W3C Standard nor is it on the W3C
+                    Standards Track. Please note that under the <xspecref
+                        href="http://www.w3.org/community/about/agreements/cla/">W3C Community
+                        Contributor License Agreement (CLA)</xspecref> there is a limited opt-out
+                    and other conditions apply. Learn more about <loc
+                        href="http://www.w3.org/community/">W3C Community and Business
+                    Groups</loc>.</emph></p>
+            <p>Second Draft</p>
         </status>
         <abstract>
-            <p>Schematron QuickFix is an extension of the ISO standard Schematron. With Schematron QuickFix the developer is able to define QuickFixes for the Schematron errors. The implementation should offer the user these QuickFixes for the reported Schematron errors. With just one click the user can decide which QuickFix acceptably fixes the error.</p>
+            <p>Schematron QuickFix is an extension of Schematron (standard <titleref
+                    href="http://standards.iso.org/ittf/PubliclyAvailableStandards/c055982_ISO_IEC_19757-3_2016.zip"
+                    >ISO/IEC 19757-3:2016</titleref>). Schematron QuickFix enables developers to
+                define QuickFixes for Schematron errors. QuickFix implementations should present
+                these QuickFixes for the reported Schematron errors to the user. The user can then
+                decide which QuickFix fixes the error in an acceptable way.</p>
         </abstract>
         <langusage>
             <language>English</language>
@@ -41,9 +59,11 @@
         </revisiondesc>
     </header>
     <body>
-        <div1>
+        <div1 id="namespaces_and_prefixes">
             <head>Namespaces and prefixes</head>
-            <p>This document describes the nodes which belong to different namespaces. For distinction and for unique descriptions all nodes, which do not belong to the NULL namespace, are named with a prefix. The following table assigns to each used prefix the corresponding namespace URI:</p>
+            <p>This document describes nodes that belong to different namespaces. All nodes that do
+                not belong to the NULL namespace are give a prefix in order to distinguish them. The
+                following table assigns a namespace URI to each prefix used in this document:</p>
             <table>
                 <thead>
                     <tr>
@@ -71,25 +91,32 @@
                 </tbody>
             </table>
         </div1>
-        <div1>
+        <div1 id="terminology">
             <head>Terminology</head>
             <glist>
                 <gitem>
                     <label id="sch-assertion">Schematron assertion</label>
                     <def>
-                        <p>Condition which is declared by the Schematron elements <el>sch:report</el> or <el>sch:assert</el>.</p>
-                        <p>A failed Schematron assertion produces a <termref def="sch-error">Schematron error</termref>. One Schematron assertion can produce multiple <termref def="sch-error">Schematron errors</termref>. </p>
+                        <p>Condition which is declared by the Schematron elements
+                                <el>sch:report</el> or <el>sch:assert</el>.</p>
+                        <p>A failed Schematron assertion produces a <termref def="sch-error"
+                                >Schematron error</termref>. One Schematron assertion can produce
+                            multiple <termref def="sch-error">Schematron errors</termref>. </p>
                     </def>
                 </gitem>
                 <gitem>
                     <label id="sch-rule">Schematron rule</label>
                     <def>
-                        <p>According to the Schematron element <el>sch:rule</el>. It contains one or more <termref def="sch-assertion">Schematron assertions</termref>.</p>
+                        <p>According to the Schematron element <el>sch:rule</el>. It contains one or
+                            more <termref def="sch-assertion">Schematron assertions</termref>.</p>
                         <glist>
                             <gitem id="sch-rule-context">
                                 <label>Context</label>
                                 <def>
-                                    <p>The context of a <termref def="sch-rule">Schematron rule</termref> is defined by the attribute <att>context</att>. If a rule matches to more than one node, it has more than one context. </p>
+                                    <p>The context of a <termref def="sch-rule">Schematron
+                                            rule</termref> is defined by the attribute
+                                            <att>context</att>. If a rule matches to more than one
+                                        node, it has more than one context. </p>
                                 </def>
                             </gitem>
                         </glist>
@@ -98,46 +125,69 @@
                 <gitem>
                     <label id="sch-error">Schematron error</label>
                     <def>
-                        <p>A Schematron error occurs if a <termref def="sch-assertion">Schematron assertion</termref> failed.</p>
+                        <p>A Schematron error occurs if a <termref def="sch-assertion">Schematron
+                                assertion</termref> failed for one context of its <termref
+                                def="sch-rule">Schematron rule</termref>.</p>
                         <glist>
                             <gitem>
                                 <label id="sch-error-context">Context</label>
                                 <def>
-                                    <p>The context of the <termref def="sch-error">Schematron error</termref> is the node, which was matched by the Schematron rule, when the <termref def="sch-assertion">Schematron assertion</termref> failed.</p>
-                                    <p>The attribute <att>subject</att> has no affect to the context of the Schematron error. Unlike to the <termref def="sch-rule-context">context of the Schematron rule</termref>, the Schematron error has only one context node.</p>
+                                    <p>The context of the <termref def="sch-error">Schematron
+                                            error</termref> is the node, which was matched by the
+                                        Schematron rule, when the <termref def="sch-assertion"
+                                            >Schematron assertion</termref> failed.</p>
+                                    <p>The attribute <att>subject</att> has no affect to the context
+                                        of the Schematron error. Unlike to the <termref
+                                            def="sch-rule-context">context of the Schematron
+                                            rule</termref>, the Schematron error has only one
+                                        context node.</p>
                                 </def>
                             </gitem>
                         </glist>
                     </def>
                 </gitem>
-
             </glist>
         </div1>
-        <div1>
+        <div1 id="introduction">
             <head>Introduction</head>
-            <p>This section describes the classification of the based concepts of Schematron QuickFix.</p>
-            <div2>
+            <p>This section describes the classification of the based concepts of Schematron
+                QuickFix.</p>
+            <div2 id="fix">
                 <head>Fix</head>
-                <p>A fix is a change of a document, applied to an occurred error. All changes must have the object to solve this error. Requirement is to detect the error first.</p>
+                <p>A fix is a change of a document, applied to an occurred error. All changes must
+                    have the object to solve this error. Requirement is to detect the error
+                    first.</p>
             </div2>
             <div2 id="quick-fix-concept">
                 <head>Quick fix</head>
-                <p>A Quick fix is a fully automatic implemented fix. In connection with an error (produced by a validation of a document) one ore more Quick fixes are offered to execute. A user can choose the Quick fix, which is executed by a fully automated process. </p>
+                <p>A Quick fix is a fully automatic implemented fix. In connection with an error
+                    (produced by a validation of a document) one ore more Quick fixes are offered to
+                    execute. A user can choose the Quick fix, which is executed by a fully automated
+                    process. </p>
                 <p>A Quick fix requires: </p>
                 <olist>
                     <item>
-                        <p>Instructions, written in a document processing language, to implement the fix. The instructions have to designed in a way, that it is able to process them applied to a context. The context is defined by the occurred error.</p>
+                        <p>Instructions, written in a document processing language, to implement the
+                            fix. The instructions have to designed in a way, that it is able to
+                            process them applied to a context. The context is defined by the
+                            occurred error.</p>
                     </item>
                     <item>
-                        <p>A human-readable description of the Quick fix. The description should be displayed to the user, when he chooses the Quick fix.</p>
+                        <p>A human-readable description of the Quick fix. The description should be
+                            displayed to the user, when he chooses the Quick fix.</p>
                     </item>
                 </olist>
-                <p>It is able to define Quick fixes inside of a validation parser or using a therefore designed script language. First, there is a limited quantity of Quick fixes, in the second case the quantity is unlimited.</p>
-                <p>It depends on the quantity of unique kinds of errors from the validation language, which way makes more sense. Is the quantity of kinds of errors limited, an implementation of Quick fixes inside of the parser is possible.</p>
-                <p>Requirements:</p>
+                <p>It is able to define Quick fixes inside of a validation parser or using a
+                    therefore designed script language. First, there is a limited quantity of Quick
+                    fixes, in the second case the quantity is unlimited.</p>
+                <p>It depends on the quantity of unique kinds of errors from the validation
+                    language, which way makes more sense. Is the quantity of kinds of errors
+                    limited, an implementation of Quick fixes inside of the parser is possible.</p>
+                <p>Basic requirements for an implementation of a Quick fix workflow:</p>
                 <ulist>
                     <item>
-                        <p>Links to or embedding into the parser or a validation language.</p>
+                        <p>Definition of Quick fixes (embedding into a parser or into a validation
+                            language).</p>
                     </item>
                     <item>
                         <p>A workflow to execute the Quick fixes.</p>
@@ -148,71 +198,125 @@
                 </ulist>
             </div2>
         </div1>
-        <div1>
+        <div1 id="workflow">
             <head>Workflow</head>
-            <p>Schematron QuickFix (SQF) is an extension of the validation language Schematron to embed Quick fixes. To overview the Schematron QuickFix concept, this section describes the integration of SQF into the Schematron workflow.</p>
+            <p>Schematron QuickFix (SQF) is an extension of the validation language Schematron to
+                embed Quick fixes. To provide an overview of the Schematron QuickFix concept, this
+                section describes the integration of SQF into the Schematron workflow.</p>
+            <note>
+                <p>Please note the different spelling of <emph>QuickFix</emph> and <emph>Quick
+                        fix</emph>. The spelling QuickFix means a Quick fix of the extension
+                    language Schematron QuickFix. The spelling Quick fix means a nonspecific Quick
+                    fix, which was described in the section <titleref href="#quick-fix-concept"
+                        >Quick fix</titleref>.</p>
+            </note>
             <p>The following figure shows the SQF workflow in eight steps:</p>
-            <graphic source="img/workflow.png"/>
-            <p>The following sections describes each step of the workflow diagram and its difference to the conventional Schematron workflow.</p>
-            <div2>
+            <graphic source="img/workflow.png"
+                alt="Workflow diagram with eight numbered steps that correspond to the eight sections in this chapter."/>
+            <p>The following sections describes each step of the workflow diagram and its difference
+                to the conventional Schematron workflow.</p>
+            <div2 id="schematron_validation">
                 <head>Schematron validation</head>
-                <p>The workflow starts with a classic Schematron validation process. There is no changes needed for Schematron QuickFix, but a preferred way to implement the QuickFixes is, to compile them during the basic Schematron validation. </p>
-                <p>For this specification, the following terms will be used to describe the documents, which are subject of this step:</p>
+                <p>The workflow starts with a classic Schematron validation process. There are no
+                    changes needed for Schematron QuickFix, but a preferred way to implement the
+                    QuickFixes is, to compile them during the basic Schematron validation. </p>
+                <p>For this specification, the following terms will be used to describe the
+                    documents, which are subject of this step:</p>
                 <glist>
                     <gitem>
-                        <label id="sch-document">Source document</label>
+                        <label id="sch-source-document">Source document</label>
                         <def>
-                            <p>The document, which is validated. If there are multiple documents, which are connected by using XInclude, these documents will be considered as one document. If there are multiple documents, which will be validated to one Schematron schema (for instance during a validation of documents of one folder), these validation will be considered as multiple separate validations.</p>
+                            <p>The document, which is validated. If there are multiple documents,
+                                which are connected by using XInclude, these documents will be
+                                considered as one document. If there are multiple documents, which
+                                will be validated to one Schematron schema (for instance during a
+                                validation of documents of a folder), this validations will be
+                                considered as multiple separated validations.</p>
                         </def>
                     </gitem>
                     <gitem>
                         <label>Schematron schema</label>
                         <def>
-                            <p>The <termref def="sch-document">source document</termref> will be validated against the Schematron schema. If there are multiple documents, which are connected by include techniques of Schematron, these documents will be considered as one document.</p>
+                            <p>The <termref def="sch-source-document">source document</termref> will
+                                be validated against the Schematron schema. If there are multiple
+                                schematron documents, which are connected by include techniques of
+                                Schematron, these documents will be considered as one document. If
+                                there are multiple schematron schemas are associated with the
+                                    <termref def="sch-source-document">source document</termref>
+                                (for instance by more than one <code>xml-model</code> processing
+                                instructions), the validations by each schema will be considered as
+                                multiple separated validations.</p>
                         </def>
                     </gitem>
                 </glist>
-                
             </div2>
-            <div2>
+            <div2 id="validation_result_check">
                 <head>Validation result check</head>
-                <p>The second step is the validation result check. If the validation result is true, the <termref def="sch-document">source document</termref> is valid and the next step is <titleref href="#step8">step 8</titleref>. If the validation result is false, there are errors detected.</p>
+                <p>The second step is the validation result check. If the validation result is true,
+                    the <termref def="sch-source-document">source document</termref> is valid and
+                    the next step is <titleref href="#step8">step 8</titleref>. If the validation
+                    result is false, there are errors detected.</p>
                 <p>In this step, there is no changes for Schematron QuickFix necessary.</p>
             </div2>
-            <div2>
+            <div2 id="error_report">
                 <head>Error report</head>
-                <p>The error report should be generated by the Schematron validation. It should be a valid SVRL document (Schematron Validation Report Language). </p>
-                <p>In this step, changes for Schematron QuickFix are not needed, but it is a possible way, to implement Schematron QuickFix, by extending the SVRL structure, so the report is able to contain the compiled QuickFixes.</p>
+                <p>The error report should be generated by the Schematron validation. The
+                    implementation is free to use a proprietary or a standardised structure for this
+                    report (SVRL for example). </p>
+                <p>In this step, changes for Schematron QuickFix are not needed, but it is a
+                    possible way, to implement Schematron QuickFix, by extending the SVRL or any
+                    other maybe existing report structure, so the report is able to contain the
+                    compiled QuickFixes.</p>
             </div2>
-            <div2>
+            <div2 id="show_the_errors_in_the_source_document">
                 <head>Show the errors in the source document</head>
-                <p>The last step of the classic Schematron validation workflow is, to display the detected errors, by using the error message in connection with the <termref def="sch-error-context">context of the Schematron error</termref>.</p>
-                <p>A required change for Schematron QuickFix is, to display additional to the Schematron error, the available QuickFixes for this error.</p>
+                <p>The last step of the classic Schematron validation workflow is, to display the
+                    detected errors, by using the error message in connection with the <termref
+                        def="sch-error-context">context of the Schematron error</termref>.</p>
+                <p>A required change for Schematron QuickFix is, to display the available QuickFixes
+                    for those errors, in relation to the Schematron error.</p>
             </div2>
-            <div2>
+            <div2 id="decision_of_the_user">
                 <head>Decision of the user</head>
-                <p>The Schematron QuickFix user should have an interactive option to select one or more QuickFixes to execute it. This is a new step for Schematron QuickFix only.</p>
+                <p>The Schematron QuickFix user should have an interactive option to select one or
+                    more QuickFixes to execute it. This is a new step for Schematron QuickFix
+                    only.</p>
             </div2>
-            <div2>
+            <div2 id="workflow_fix_process">
                 <head>Executing a Quick fix</head>
-                <p>Depending on the decision of the user, the selected QuickFix(es) will be executed. Thereby the <termref def="sch-document">source document</termref> will be the source of this fix process and will be replaced by the result of this process. This is also a new step for Schematron QuickFix only.</p>
+                <p>Depending on the decision of the user, the selected QuickFix(es) will be
+                    executed. Normally the <termref def="sch-source-document">source
+                        document</termref> will be the source of this fix process and will be
+                    replaced by the result of this process. But the implementation could support
+                    QuickFixes for external documents (<titleref href="#example_external_doc">See
+                        example in Appendix</titleref>). In this cases each external document will
+                    be the source of a separate fix process and replaced by the result.</p>
+                <p>This is also a new step for Schematron QuickFix only.</p>
             </div2>
-            <div2>
+            <div2 id="validation_after_the_fix">
                 <head>Validation after the fix</head>
-                <p>After each execution of a QuickFix, a new validation of the changed document is necessary to update the error report or to get a positive validation result. This is equal to a new Schematron validation in a classic Schematron workflow, which is necessary if there are any changes on the source document.</p>
+                <p>After each execution of a QuickFix, a new validation of the changed document is
+                    necessary to update the error report or to get a positive validation result.
+                    This is equal to a new Schematron validation in a classic Schematron workflow,
+                    which is necessary if there are any changes on the <termref
+                        def="sch-source-document">source document</termref>.</p>
             </div2>
             <div2 id="step8">
                 <head>Fixed document</head>
-                <p>The fixed document, which does not contains any errors any more is the target of each Schematron validation. There is no changes for Schematron QuickFix.</p>
+                <p>The fixed document, which does not contains any errors any more is the target of
+                    each Schematron validation. There is no changes for Schematron QuickFix.</p>
             </div2>
         </div1>
-        <div1>
+        <div1 id="language">
             <head>Language</head>
             <p>This section describes the meanings of the Schematron QuickFix syntax.</p>
-            <div2>
+            <div2 id="embedding_into_schematron">
                 <head>Embedding into Schematron</head>
-                <p>To embed Schematron QuickFix into Schematron, all extending elements should have the namespace <code>http://www.schematron-quickfix.com/validator/process</code> (prefix <code>sqf</code>).</p>
-                <p>The following table shows the permitted parent-child relations between the namespaces of SQF and Schematron.</p>
+                <p>To embed Schematron QuickFix into Schematron, all extending elements should have
+                    the namespace <code>http://www.schematron-quickfix.com/validator/process</code>
+                    (preferred prefix <code>sqf</code>).</p>
+                <p>The following table shows the permitted parent-child relations between the
+                    namespaces of SQF and Schematron.</p>
                 <table border="1" cellspacing="0" cellpadding="10">
                     <thead>
                         <tr>
@@ -292,7 +396,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <p>The following table shows which attributes from the SQF namespace should be permitted of which Schematron elements:</p>
+                <p>The following table shows which attributes from the SQF namespace should be
+                    permitted of which Schematron elements:</p>
                 <table border="1" cellspacing="0" cellpadding="10">
                     <thead>
                         <tr>
@@ -330,52 +435,60 @@
                     </tbody>
                 </table>
             </div2>
-            <div2>
+            <div2 id="quick-fix">
                 <head>QuickFix</head>
-                <note>
-                    <p>Please note the different spelling of <emph>QuickFix</emph> and <emph>Quick fix</emph>. The spelling QuickFix means a Quick fix of the extension language Schematron QuickFix. The spelling Quick fix means a not specific Quick fix, which was described in the section <titleref href="#quick-fix-concept">Quick fix</titleref>.</p>
-                </note>
-                <p>A QuickFix is consequently a <titleref href="#quick-fix-concept">Quick fix</titleref> of the language Schematron QuickFix.</p>
                 <p>A QuickFix requires the following properties:</p>
                 <ulist>
                     <item>
-                        <p>Title</p>
+                        <p>Description with at least a title</p>
                     </item>
                     <item>
                         <p>ID</p>
                     </item>
                     <item>
-                        <p>One or more change commands (see <titleref href="#change-commands">Change commands</titleref>)</p>
+                        <p>One or more change commands (see <titleref href="#change-commands">Change
+                                commands</titleref>)</p>
                     </item>
                 </ulist>
                 <p>A QuickFix is able to have the following additional properties:</p>
                 <ulist>
                     <item>
-                        <p>Additional description</p>
+                        <p>Additional documentation as a part of the description</p>
                     </item>
                     <item>
                         <p>Condition to provide the QuickFix</p>
                     </item>
                     <item>
-                        <p>User Entry to parametrise the QuickFix (see <titleref href="#user-entry">User Entries</titleref>)</p>
+                        <p>Loop to make the QuickFix generic (see <titleref href="#generic-fixes"
+                                >Generic QuickFix</titleref>)</p>
+                    </item>
+                    <item>
+                        <p>User Entry to parametrise the QuickFix (see <titleref href="#user-entry"
+                                >User Entries</titleref>)</p>
                     </item>
                 </ulist>
-                <div3>
+                <note>
+                    <p>Please note that the properties does not need to be declared directly in the
+                        corresponding <el>sqf:fix</el> element, but could also be adopted of other
+                        QuickFixes by calling them (<el>sqf:call-fix</el> element).</p>
+                </note>
+                <div3 id="definition_of_a_quickfix">
                     <head>Definition of a QuickFix</head>
-                    <p>The QuickFix is defined by the <el>sqf:fix</el> element. The requirements will be satisfied with the following base structure:</p>
+                    <p>The QuickFix is defined by the <el>sqf:fix</el> element. The requirements
+                        will be satisfied with the following base structure:</p>
                     <p><example>
                             <eg xml:space="preserve">&lt;sqf:fix id="fix1">
     &lt;sqf:description>
         &lt;sqf:title>Fix 1&lt;/sqf:title>
     &lt;/sqf:description>
-    [Elements from the content model  (sqf:delete | sqf:add | sqf:replace | sqf:stringReplace)+]
+    [Elements from the content model  (sqf:delete | sqf:add | sqf:replace | sqf:stringReplace | sqf:call-fix)+]
 &lt;/sqf:fix></eg>
                         </example></p>
                     <p>The defined QuickFix above has the following properties:</p>
                     <p>
                         <ulist>
                             <item>
-                                <p>Title: Fix 1</p>
+                                <p>Description / title: Fix 1</p>
                             </item>
                             <item>
                                 <p>ID: fix1</p>
@@ -386,76 +499,60 @@
                         </ulist>
                     </p>
                 </div3>
-                <div3>
+                <div3 id="quickfixes_id">
                     <head>QuickFixes ID</head>
-                    <p>The ID of the QuickFix and the QuickFix groups (see below) is the Identifier for references to QuickFixes and QuickFix groups.</p>
+                    <p>The ID of the QuickFix and the <titleref href="#quick-fix.group">QuickFix
+                            groups</titleref> is the Identifier to reference QuickFixes and
+                            <titleref href="#quick-fix.group">QuickFix groups</titleref>.</p>
                     <p>Requirements to set the ID:<ulist>
                             <item>
                                 <p>The ID has to correspond with the XSD type xs:NCName.</p>
                             </item>
                             <item>
-                                <p>Inside of a <termref def="sch-rule">Schematron rule</termref> the ID must be unique.</p>
+                                <p>Inside of a <termref def="sch-rule">Schematron rule</termref> the
+                                    ID must be unique.</p>
                             </item>
                             <item>
-                                <p>Global QuickFixes or QuickFix groups should not have the same IDs.</p>
+                                <p><titleref href="#quick-fix.global-local">Global</titleref>
+                                    QuickFixes or <titleref href="#quick-fix.group">QuickFix
+                                        groups</titleref> should not have the same IDs.</p>
                             </item>
                         </ulist></p>
-                    <p>In the following cases it is permitted that two QuickFixes, QuickFix groups or a QuickFix and a QuickFix group have the same IDs:<ulist>
+                    <p>In the following cases it is permitted that two QuickFixes, <titleref
+                            href="#quick-fix.group">QuickFix groups</titleref> or a QuickFix and a
+                            <titleref href="#quick-fix.group">QuickFix group</titleref> have the
+                        same IDs:<ulist>
                             <item>
-                                <p>One is global the other is local.</p>
+                                <p>One is <titleref href="#quick-fix.global-local">global</titleref>
+                                    the other is <titleref href="#quick-fix.global-local"
+                                        >local</titleref>.</p>
                             </item>
                             <item>
-                                <p>Both are local and declared in different <termref def="sch-rule">Schematron rules</termref>.</p>
+                                <p>Both are <titleref href="#quick-fix.global-local"
+                                        >local</titleref>, but declared in different <termref
+                                        def="sch-rule">Schematron rules</termref>.</p>
                             </item>
                         </ulist></p>
                 </div3>
-                <div3>
-                    <head>Reference to a QuickFix</head>
-                    <p><termref def="sch-assertion">Schematron assertions</termref> are able to refer to one or more QuickFixes. Therefore the <att>sqf:fix</att> attribute contains a whitespace separated list of IDs. Each ID refers to an ID of a QuickFix.</p>
+                <div3 id="quick-fix.global-local">
+                    <head>Global and local QuickFixes</head>
+                    <p>A QuickFix or a <titleref href="#quick-fix.group">QuickFix group</titleref>
+                        can be defined <titleref href="#quick-fix.global-local">global</titleref> or
+                            <titleref href="#quick-fix.global-local">local</titleref>. <titleref
+                            href="#quick-fix.global-local">Local</titleref> QuickFixes or <titleref
+                            href="#quick-fix.group">QuickFix groups</titleref> are declared inside
+                        of the <termref def="sch-rule">Schematron rule</termref> and only the
+                            <termref def="sch-assertion">assertions</termref> of this rule are able
+                        to refer to the QuickFixes or <titleref href="#quick-fix.group">QuickFix
+                            groups</titleref>. <titleref href="#quick-fix.global-local"
+                            >Global</titleref> QuickFixes or <titleref href="#quick-fix.group"
+                            >QuickFix groups</titleref> are declared inside of the
+                            <el>sqf:fixes</el> element and available for all <termref
+                            def="sch-assertion">Schematron assertions</termref> (see below <titleref
+                            href="#quick-fix.reference.scope">Scope</titleref>).</p>
                     <example>
-                        <p>The <el>sch:assert</el> element refers to the QuickFixes with the ID <attval>fix1</attval> and <attval>fix2</attval>:</p>
-                        <eg xml:space="preserve">&lt;sch:assert test="[...]" sqf:fix="fix1 fix2">[...]&lt;/sch:assert>
-&lt;sqf:fix id="fix1"> 
-    [...] 
-&lt;/sqf:fix> 
-&lt;sqf:fix id="fix2">
-    [...] 
-&lt;/sqf:fix></eg>
-                    </example>
-                    <p>Is a <termref def="sch-assertion">Schematron assertion</termref> producing a <termref def="sch-error">Schematron error</termref> that refers to a QuickFix, a Schematron QuickFix implementation needs to provide the QuickFix as a choice for the user in connection to the occurred error.</p>
-                    <p><emph>Exception:</emph> A QuickFix, which condition was not satisfied in the <termref def="sch-error-context">context of the Schematron error</termref>, should not be provided.</p>
-                    <p>The user should be able to execute each provided QuickFix.</p>
-                </div3>
-                <div3>
-                    <head>Execution of a QuickFix</head>
-                    <p>During the execution process of a QuickFix each <titleref href="#change-commands">command changes</titleref> will be executed in the <termref def="sch-error-context">context node of the error</termref>, if their condition was satisfied in this context.</p>
-                    <div4>
-                        <head>Execution of more than one QuickFix</head>
-                        <p>It is free to the implementation to allow executions of more than one QuickFix at once. But a execution of more than one QuickFix of the same Schematron error at once are not permitted.</p>
-                        <p>It is up to the implementation to warn the user against <titleref href="#conflicts">possible conflicts</titleref> or to hide QuickFixes to avoid such conflicts.</p>
-                    </div4>
-                </div3>
-                <div3>
-                    <head>QuickFix group</head>
-                    <p>A QuickFix group is a set of one or more QuickFixes. Additional it needs an ID, which is equal to the ID of a QuickFix. The QuickFix will be implemented with the <el>sqf:group</el> element.</p>
-                    <p>A <termref def="sch-assertion">Schematron assertion</termref> is able to refer to a QuickFix group on the same way it refers to a QuickFix. A reference to a QuickFix groups is equal to references to all QuickFixes which the QuickFix group contains. <example>
-                            <p>The QuickFix group has the ID groupid and contains the QuickFixes with the IDs fix1 and fix2.</p>
-                            <p>The first <el>sch:assert</el> element refers to the QuickFixes fix1 and fix2 per QuickFix ID. The second one refers to the same QuickFixes per ID of the QuickFix group.</p>
-                            <eg xml:space="preserve">&lt;sch:assert test="[...]" sqf:fix="fix1 fix2">[...]&lt;/sch:assert>
-&lt;sch:assert test="[...]" sqf:fix="groupid">[...]&lt;/sch:assert>
-&lt;sqf:group id="groupid">
-     &lt;sqf:fix id="fix1"> [...] &lt;/sqf:fix>
-     &lt;sqf:fix id="fix2"> [...] &lt;/sqf:fix>
-&lt;/sqf:group></eg>
-                        </example></p>
-                </div3>
-                <div3>
-                    <head>Scope of QuickFixes and QuickFix groups</head>
-                    <?oxy_comment_start author="Nico Kutscherauer" timestamp="20150418T145559+0200" comment="what happens in abstract patterns, abstract rules..."?>
-                    <p>A QuickFix or a QuickFix group can be defined global or local. Local QuickFixes or QuickFix groups are declared inside of the <termref def="sch-rule">Schematron rule</termref> and only the <termref def="sch-assertion">assertions</termref> of this rule are able to refer to the QuickFixes or QuickFix group. Global QuickFixes or QuickFix groups are declared inside of the <el>sqf:fixes</el> element and available for all <termref def="sch-assertion">Schematron assertions</termref>.</p>
-                    <?oxy_comment_end?>
-                    <example>
-                        <p>Example for a global QuickFix:</p>
+                        <p>Example for a <titleref href="#quick-fix.global-local">global</titleref>
+                            QuickFix:</p>
                         <eg xml:space="preserve">&lt;sch:schema> 
      [...] 
      &lt;sqf:fixes>
@@ -464,47 +561,339 @@
 &lt;/sch:schema></eg>
                     </example>
                     <example>
-                        <p>Example for a local QuickFix:</p>
+                        <p>Example for a <titleref href="#quick-fix.global-local">local</titleref>
+                            QuickFix:</p>
                         <eg xml:space="preserve">&lt;sch:rule context="[...]">
      [...] 
      &lt;sqf:fix id="fix1"> [...] &lt;/sqf:fix>
 &lt;/sch:rule></eg>
                     </example>
                 </div3>
+                <div3 id="quick-fix.reference">
+                    <head>Reference to a QuickFix</head>
+                    <p><termref def="sch-assertion">Schematron assertions</termref> are able to
+                        refer to one or more QuickFixes or <titleref href="#quick-fix.group"
+                            >QuickFix groups</titleref> or a mix of QuickFixes and <titleref
+                            href="#quick-fix.group">QuickFix groups</titleref>. Therefore the
+                            <att>sqf:fix</att> attribute contains a whitespace separated list of
+                        IDs. Each ID has to refer to an ID of a QuickFix or <titleref
+                            href="#quick-fix.group">QuickFix group</titleref>. The amount of
+                        references are unbounded, but implementations are able to set a limit.</p>
+                    <example>
+                        <p>The <el>sch:assert</el> element refers to the QuickFixes with the ID
+                                <attval>fix1</attval> and <attval>fix2</attval>:</p>
+                        <eg xml:space="preserve">&lt;sch:assert test="[...]" sqf:fix="fix1 fix2">[...]&lt;/sch:assert>
+&lt;sqf:fix id="fix1"> 
+    [...] 
+&lt;/sqf:fix> 
+&lt;sqf:fix id="fix2">
+    [...] 
+&lt;/sqf:fix></eg>
+                    </example>
+                    <div4 id="quick-fix.reference.scope">
+                        <head>Scope</head>
+                        <p><termref def="sch-assertion">Schematron assertions</termref> are only
+                            able to refer to QuickFixes or <titleref href="#quick-fix.group"
+                                >QuickFix groups</titleref> which are in scope of its <termref
+                                def="sch-rule">Schematron rules</termref>. </p>
+                        <p>
+                            <ulist>
+                                <item>
+                                    <p>A <titleref href="#quick-fix.global-local">local</titleref>
+                                        QuickFix or <titleref href="#quick-fix.group">QuickFix
+                                            group</titleref> is in scope, if its <el>sqf:fix</el> or
+                                            <el>sqf:group</el> element is a descendent element of
+                                        the same <el>sch:rule</el> element as the referring <termref
+                                            def="sch-assertion">Schematron assertion</termref>.</p>
+                                </item>
+                                <item>
+                                    <p>A <titleref href="#quick-fix.global-local">global</titleref>
+                                        QuickFix or <titleref href="#quick-fix.group">QuickFix
+                                            group</titleref> is in scope of any <termref
+                                            def="sch-rule">Schematron rules</termref> of the
+                                        Schematron Schema, except there is a <titleref
+                                            href="#quick-fix.global-local">local</titleref> QuickFix
+                                        or <titleref href="#quick-fix.group">QuickFix
+                                            group</titleref> with the same ID in the scope of the
+                                            <termref def="sch-rule">Schematron rules</termref>.</p>
+                                </item>
+                            </ulist>
+                        </p>
+                        <p role="error-def" id="references_1">It is an error, if a <termref
+                                def="sch-assertion">Schematron assertions</termref> refers to a
+                            QuickFix or <titleref href="#quick-fix.group">QuickFix group</titleref>,
+                            which is not in the scope of its <termref def="sch-rule">Schematron
+                                rules</termref>.</p>
+                    </div4>
+                    <div4 id="providing_conditions">
+                        <head>Providing conditions</head>
+                        <p>Is a <termref def="sch-assertion">Schematron assertion</termref>
+                            producing a <termref def="sch-error">Schematron error</termref> that
+                            refers to a QuickFix, a Schematron QuickFix implementation may provide
+                            the QuickFix as a choice for the user to execute the QuickFix in
+                            connection to the occurred error.</p>
+                        <p><emph>Exceptions:</emph>
+                        </p>
+                        <ulist>
+                            <item>
+                                <p>A QuickFix, which condition was not satisfied in the <termref
+                                        def="sch-error-context">context of the Schematron
+                                        error</termref>, should not be provided.</p>
+                            </item>
+                            <item>
+                                <p>A <titleref href="#generic-fixes">generic QuickFix</titleref> may
+                                    not able to be provided in some cases (see <titleref
+                                        href="#generic-fixes">Generic QuickFix
+                                    section</titleref>)</p>
+                            </item>
+                            <item>
+                                <p>It is up to the implementation to provide QuickFixes which has no
+                                    change commands or uses elements which are not supported by the
+                                    implementation.</p>
+                            </item>
+                        </ulist>
+                    </div4>
+                    <div4 id="default_quickfix">
+                        <head>Default QuickFix</head>
+                        <p>The <att>sqf:default-fix</att> attribute is provided to set a default
+                            QuickFix for a <termref def="sch-assertion">Schematron
+                                assertion</termref>. The attribute value should be the id of a
+                            QuickFix.</p>
+                        <p role="error-def" id="default-fix_1">It is an error, if the default
+                            QuickFix is not referred by the <termref def="sch-assertion">Schematron
+                                assertion</termref> (using the <att>sqf:fix</att> attribute).</p>
+                        <p>An implementation is free, how to handle the default QuickFix.</p>
+                    </div4>
+                </div3>
+                <div3 id="execution_of_a_quickfix">
+                    <head>Execution of a QuickFix</head>
+                    <p>During the execution process of a QuickFix each <titleref
+                            href="#change-commands">change command</titleref> will be executed in
+                        the <termref def="sch-error-context">context node of the error</termref>, if
+                        their condition was satisfied in this context.</p>
+                    <div4 id="execution_of_more_than_one_quickfix">
+                        <head>Execution of more than one QuickFix</head>
+                        <p>It is free to the implementation to allow executions of more than one
+                            QuickFix at once. But an execution of more than one QuickFix of the same
+                                <termref def="sch-error">Schematron error</termref> at once are not
+                            permitted.</p>
+                        <p>It is up to the implementation to warn the user against <titleref
+                                href="#conflicts">possible conflicts</titleref> or to hide
+                            QuickFixes to avoid such conflicts.</p>
+                    </div4>
+                </div3>
+                <div3 id="quick-fix.group">
+                    <head>QuickFix group</head>
+                    <p>A <titleref href="#quick-fix.group">QuickFix group</titleref> is a set of one
+                        or more QuickFixes. The QuickFix will be implemented with the
+                            <el>sqf:group</el> element. Additional it needs an ID, specified by a
+                        mandatory <att>id</att> attribute.</p>
+                    <p>A <termref def="sch-assertion">Schematron assertion</termref> is able to
+                        refer to a <titleref href="#quick-fix.group">QuickFix group</titleref> on
+                        the same way it refers to a QuickFix. A reference to a <titleref
+                            href="#quick-fix.group">QuickFix group</titleref> is equal to references
+                        to all QuickFixes which the <titleref href="#quick-fix.group">QuickFix
+                            group</titleref> contains. </p>
+                    <p><example>
+                            <p>The <titleref href="#quick-fix.group">QuickFix group</titleref> has
+                                the ID groupid and contains the QuickFixes with the IDs fix1 and
+                                fix2.</p>
+                            <p>The first <el>sch:assert</el> element refers to the QuickFixes fix1
+                                and fix2 per QuickFix ID. The second one refers to the same
+                                QuickFixes per ID of the <titleref href="#quick-fix.group">QuickFix
+                                    group</titleref>.</p>
+                            <eg xml:space="preserve">&lt;sch:assert test="[...]" sqf:fix="fix1 fix2">[...]&lt;/sch:assert>
+&lt;sch:assert test="[...]" sqf:fix="groupid">[...]&lt;/sch:assert>
+&lt;sqf:group id="groupid">
+     &lt;sqf:fix id="fix1"> [...] &lt;/sqf:fix>
+     &lt;sqf:fix id="fix2"> [...] &lt;/sqf:fix>
+&lt;/sqf:group></eg>
+                        </example></p>
+                    <p>For more information see the <titleref href="#sqf_group">sqf:group</titleref>
+                        definition in the SQF reference.</p>
+                </div3>
+                <div3 id="generic-fixes">
+                    <head>Generic QuickFix</head>
+                    <p>A generic QuickFix is different from a regular QuickFix in that it is defined
+                        for an unbounded count of provided QuickFixes. The count of provided
+                        QuickFixes may depend on the <termref def="sch-error-context">context of the
+                            Schematron error</termref>.</p>
+                    <p>To create a generic QuickFix, the <el>sqf:fix</el> element gets a
+                            <att>use-for-each</att> attribute. The <att>use-for-each</att> attribute
+                        expects an XPath expression. For each returned value or item of the XPath
+                        expression a QuickFix should be provided to the user. The XPath expression
+                        will be evaluated in the <termref def="sch-error-context">context of the
+                            Schematron error</termref>. </p>
+                    <p>The XPath expression of the <att>use-for-each</att> attribute does not change
+                        the context of the generic QuickFix. To access to the currently returned
+                        item/value, a build-in XPath variable <code>$sqf:current</code> (in the SQF
+                        namespace) should be provided. The <code>$sqf:current</code> variable should
+                        be available in each XPath expression inside of the <el>sqf:fix</el>
+                        element, which has an <att>use-for-each</att> attribute.</p>
+                    <p>It should be an error, if the <code>$sqf:current</code> variable was used in
+                        a <el>sqf:fix</el> element, which does not have an <att>use-for-each</att>
+                        attribute.</p>
+                    <p><example>
+                            <p>Example:</p>
+                            <eg xml:space="preserve">&lt;sqf:fix id="generic-fix" use-for-each="//*[@id]">
+      &lt;sqf:description>
+          &lt;sqf:title>Delete element &lt;value-of select="$sqf:current/@id"/>&lt;/sqf:title>
+     &lt;/sqf:description>
+     &lt;sqf:delete match="$sqf:current"/>
+&lt;/sqf:fix></eg>
+                            <p>For each element in the document which has an <att>id</att> attribute
+                                the implementation should provide one QuickFix. The title of those
+                                QuickFixes should be the fix string "Delete element " concatenated
+                                with the value of the corresponding <att>id</att> attribute. The
+                                change command will be, to delete the corresponding element.</p>
+                        </example></p>
+                    <div4 id="maximum_number_of_provided_quickfixes">
+                        <head>Maximum number of provided QuickFixes</head>
+                        <p>Please note, that it will be easy to create a high number of QuickFixes
+                            for each <termref def="sch-error">Schematron error</termref> using this
+                            structure. To handle this, an implementation is free to set a limit of
+                            allowed providing QuickFixes for generic QuickFixes. If a generic
+                            QuickFix violates this limit, the implementation is free to do not
+                            provide any QuickFixes or to occur an error. </p>
+                    </div4>
+                </div3>
+                <div3 id="role">
+                    <head>Role</head>
+                    <p>The role is a meta data of the QuickFix. The role of a QuickFix describes the
+                        type of change which it makes. There are five types of changes:<ulist>
+                            <item>
+                                <p><attval>add</attval></p>
+                                <p>The QuickFix adds nodes to the <termref def="sch-source-document"
+                                        >source document</termref>.</p>
+                            </item>
+                            <item>
+                                <p><attval>delete</attval></p>
+                                <p>The QuickFix deletes nodes in the <termref
+                                        def="sch-source-document">source document</termref>.</p>
+                            </item>
+                            <item>
+                                <p><attval>replace</attval></p>
+                                <p>The QuickFix replace nodes from the <termref
+                                        def="sch-source-document">source document</termref> by new
+                                    nodes.</p>
+                            </item>
+                            <item>
+                                <p><attval>stringReplace</attval></p>
+                                <p>The QuickFix replace parts of text nodes in the source document
+                                    by new nodes.</p>
+                            </item>
+                            <item>
+                                <p><attval>mix</attval></p>
+                                <p>This is a fallback role type, if the QuickFix do more things or
+                                    no type of change matches to the QuickFix.</p>
+                            </item>
+                        </ulist></p>
+                    <p>An implementation is free to support other additional roles. There are two
+                        ways to define the role of a QuickFix:</p>
+                    <p>
+                        <olist>
+                            <item>
+                                <p>Automatically &#x2013; the implementation detects the role by the
+                                    contained Activity Elements. The implementation is free to
+                                    define own criteria to detect the role type.</p>
+                            </item>
+                            <item>
+                                <p>Manually &#x2013; the developer overwrite the role manually using
+                                    the <att>role</att> attribute:</p>
+                                <example>
+                                    <eg xml:space="preserve">&lt;sqf:fix id="replaceAtttribute" role="replace">
+     [...]
+     &lt;sqf:add match="*[@id]" target="id" node-type="attribute" select="generate-id()"/>
+&lt;/sqf:fix></eg>
+                                    <p>The implementation may detect the role type
+                                            <attval>add</attval>, because the <el>sqf:add</el>
+                                        element was used only. But the developer knows, that this
+                                        QuickFix will replace the value of the <att>id</att>
+                                        attribute anytime, so he set the role manually.</p>
+                                </example>
+                            </item>
+                        </olist>
+                    </p>
+                </div3>
             </div2>
             <div2 id="change-commands">
                 <head>Change commands</head>
-                <p>A QuickFix needs at least one change command. A change command is implemented by an activity element (see element group <titleref href="#sqf_activityElements"><phrase><code>sqf:activityElements</code></phrase></titleref>). A change command is processed relative to an <titleref href="#change-command-anchor-node">anchor node</titleref>.</p>
+                <p>A QuickFix needs at least one change command. A change command is implemented by
+                    an activity element (see element group <titleref href="#sqf_activityElements"
+                                ><phrase><code>sqf:activityElements</code></phrase></titleref>). A
+                    change command is processed relative to an <titleref
+                        href="#change-command-anchor-node">anchor node</titleref>.</p>
                 <div3 id="change-command-anchor-node">
                     <head>Anchor node</head>
-                    <p>The anchor node is the context of a change command. By default the <termref def="sch-error-context">context of the Schematron error</termref> is the anchor node.</p>
-                    <p>To specify anchor nodes, the <att>match</att> attribute is provided to each activity element. If an activity element points to more than one anchor node, for each anchor node the change command will be executed. If an activity element points to no anchor node, no change command will be executed.</p>
+                    <p>The anchor node is the context of a change command. By default the <termref
+                            def="sch-error-context">context of the Schematron error</termref> is the
+                        anchor node.</p>
+                    <p>To specify anchor nodes, the <att>match</att> attribute is provided to each
+                        activity element. If an activity element points to more than one anchor
+                        node, for each anchor node the change command will be executed. If an
+                        activity element points to no anchor node, no change command will be
+                        executed.</p>
+                    <p>The <att>match</att> attribute expects an XPath expression. The context of
+                        relative expressions is the <termref def="sch-error-context">context of the
+                            Schematron error</termref>. It is recommended to allow expressions which
+                        can use the full functionality of XPath 2.0 (or newer) and additionally the
+                        XSLT 2.0 functions.</p>
+                    <div4 id="anchor_node_restrictions">
+                        <head>Requirements of the Anchor node / match attribute</head>
+                        <p>The only restriction to the XPath expression of the match attribute, is
+                            that the type of the return value needs to be <code>node()*</code>. Any
+                            return values which does not match to this type should occurs an
+                            error.</p>
+                        <p>An implementation is free to set further restrictions to the XPath
+                            expressions. If a Change command violates this restrictions, the
+                            implementation is free to occurs an error, to hide the corresponding
+                            QuickFixes or to do not execute those Change commands, but any other of
+                            the corresponding QuickFix.</p>
+                        <note>
+                            <p>Please note, that supporting any XPath 2.0/XSLT 2.0 functionality
+                                could have affects to the workflow: If one of the returned nodes
+                                changes the document context, the <titleref
+                                    href="#workflow_fix_process">fix process</titleref> should
+                                respect this.</p>
+                        </note>
+                    </div4>
                 </div3>
-                <div3>
+                <div3 id="conditions">
                     <head>Conditions</head>
-                    <p>Each change command can have a condition to execute. Therefore the attribute <att>use-when</att> is provided to each activity element. The condition will be defined in the <termref def="sch-error-context">context of the Schematron errors</termref>. If the condition is not satisfied the change command should not be executed.</p>
+                    <p>Each change command can have a condition to execute. Therefore the attribute
+                            <att>use-when</att> is provided to each activity element. The condition
+                        will be defined in the <termref def="sch-error-context">context of the
+                            Schematron errors</termref>. If the condition is not satisfied the
+                        change command should not be executed.</p>
                 </div3>
-                <div3>
+                <div3 id="fix_create_new_content">
                     <head>Create new content</head>
-                    <p>Depending of the <titleref href="#change-command-kind">kind</titleref>, the change command may create new content to insert it into or replace nodes from the <termref def="sch-document">source document</termref>. There are three ways to create new content:</p>
+                    <p>Depending of the <titleref href="#change-command-kind">kind</titleref>, the
+                        change command may create new content to insert it into or replace nodes
+                        from the <termref def="sch-source-document">source document</termref>. There
+                        are three ways to create new content:</p>
                     <div4 id="create-by-sqf-att">
-                        <head>By SQF attributes</head>
-                        <p>To create a new node, the change command may provide the attributes <att>type</att> and <att>target</att>. This attributes create exact one node.</p>
-                        <p>To create a new node the attribute type provides the following values:<ulist>
+                        <head>By the attributes <att>node-type</att> and <att>target</att></head>
+                        <p>To create a new node, the change command may provide the attributes
+                                <att>node-type</att> and <att>target</att>. This attributes create
+                            exact one node.</p>
+                        <p>To create a new node the attribute <att>node-type</att> provides the
+                            following values:<ulist>
                                 <item>
                                     <p><attval>keep</attval></p>
                                     <p>To create a node from the same type as the anchor node.</p>
                                 </item>
                                 <item>
                                     <p><attval>element</attval></p>
-                                    <p>To create a element.</p>
+                                    <p>To create an element.</p>
                                 </item>
                                 <item>
                                     <p><attval>attribute</attval></p>
-                                    <p>To create a attribute</p>
+                                    <p>To create an attribute</p>
                                 </item>
                                 <item>
-                                    <p><attval>processing-instruction</attval> or <attval>pi</attval></p>
+                                    <p><attval>processing-instruction</attval> or
+                                            <attval>pi</attval></p>
                                     <p>To create a processing instruction</p>
                                 </item>
                                 <item>
@@ -512,49 +901,113 @@
                                     <p>To create a comment</p>
                                 </item>
                             </ulist></p>
-                        <p>If the <att>type</att> attribute has not the value <attval>comment</attval>, the attribute <att>target</att> is required. It sets the name of the created node. The value of the <att>target</att> attribute will be interpreted as an <titleref href="#attribute-value-template">attribute value template</titleref>. The effective value should be valid to the XSD type xs:QName.</p>
-                        <p>If an Activity Element has an target attribute, the type attribute is required.</p>
-                        <p>If the <att>type</att> attribute has the value <attval>element</attval> (or <attval>keep</attval> and the anchor element is an element), the content of the new element will be created <titleref href="#create-by-xpath">by XPath</titleref> or <titleref href="#create-by-content">by the content of the Activity Element</titleref>.</p>
-                        <p>If the <att>type</att> attribute has the values <attval>attribute</attval>, <attval>processing-instruction</attval>, <attval>pi</attval> or <attval>comment</attval> (or <attval>keep</attval> and the anchor node is not an element), the value of the new node will be created <titleref href="#create-by-xpath">by XPath</titleref> or <titleref href="#create-by-content">by the content of the Activity Element</titleref>. If this returns nodes, the value will be created by the values of this nodes. More than one node value will be connected to one node value separated by whitespace.</p>
+                        <p>Bellow a list of restrictions to use the node-type and target attribute:<ulist>
+                                <item>
+                                    <p>If the <att>node-type</att> attribute has not the value
+                                            <attval>comment</attval>, the attribute
+                                            <att>target</att> is required. It sets the name of the
+                                        created node. The value of the <att>target</att> attribute
+                                        will be interpreted as an <titleref
+                                            href="#attribute-value-template">attribute value
+                                            template</titleref>. The effective value should be valid
+                                        to the XSD type xs:QName.</p>
+                                </item>
+                                <item>
+                                    <p>If an Activity Element has a target attribute, the
+                                            <att>node-type</att> attribute is required.</p>
+                                </item>
+                            </ulist></p>
+                        <p>To create the value or content of the new node, you need to respect the
+                            following terms:<ulist>
+                                <item>
+                                    <p>If the <att>node-type</att> attribute has the value
+                                            <attval>element</attval> (or <attval>keep</attval> and
+                                        the anchor element is an element), the content of the new
+                                        element will be created <titleref href="#create-by-xpath">by
+                                            XPath</titleref> or <titleref href="#create-by-content"
+                                            >by the content of the Activity Element</titleref>.</p>
+                                </item>
+                                <item>
+                                    <p>If the <att>node-type</att> attribute has the values
+                                            <attval>attribute</attval>,
+                                            <attval>processing-instruction</attval>,
+                                            <attval>pi</attval> or <attval>comment</attval> (or
+                                            <attval>keep</attval> and the anchor node is not an
+                                        element), the value of the new node will be created
+                                            <titleref href="#create-by-xpath">by XPath</titleref> or
+                                            <titleref href="#create-by-content">by the content of
+                                            the Activity Element</titleref>. If this returns nodes,
+                                        the value will be created by the values of this nodes. More
+                                        than one node value will be joined to one node value
+                                        separated by whitespace.</p>
+                                </item>
+                            </ulist></p>
                     </div4>
                     <div4 id="create-by-xpath">
                         <head>By an XPath expression</head>
-                        <p>To define the new content by an XPath expression, the <att>select</att> attribute is provided. </p>
+                        <p>To define the new content by an XPath expression, the <att>select</att>
+                            attribute is provided. The select attribute can be combined with the
+                            attributes node-type and target. In this case the XPath expression of
+                            the select attribute detects the content or value of the new node.
+                            Otherwise the XPath expression creates new content in the following
+                            way:</p>
                         <ulist>
                             <item>
-                                <p>If the XPath expression returns an atomic value, the value will be transformed into an text node.</p>
+                                <p>If the XPath expression returns an atomic value, the value will
+                                    be transformed into an text node.</p>
                             </item>
                             <item>
-                                <p>If the XPath expression returns a sequence of atomic values, all values will be transformed to a text node. The values will be separated by whitespace.</p>
+                                <p>If the XPath expression returns a sequence of atomic values, all
+                                    values will be transformed to a text node. The values will be
+                                    separated by whitespace.</p>
                             </item>
                             <item>
-                                <p><?oxy_comment_start author="Nico Kutscherauer" timestamp="20150511T121134+0200" comment="Shall it be free to the implementation, whether it is a deep copy or like a &quot;apply-templates&quot; which respects other change commands?"?>If the XPath expression returns one or more nodes, the nodes will be copied into the <termref def="sch-document">source document</termref>.<?oxy_comment_end?></p>
+                                <p>If the XPath expression returns one or more nodes, the nodes will
+                                    be copied into the <termref def="sch-source-document">source
+                                        document</termref> (see below <titleref href="#copy-nodes"
+                                        >Copy nodes</titleref>). </p>
                             </item>
                         </ulist>
-                        <p>If the Activity Element has a <att>select</att> attribute, the element should be empty.</p>
+                        <p>If the Activity Element has a <att>select</att> attribute, the element
+                            content should be empty.</p>
                     </div4>
                     <div4 id="create-by-content">
                         <head>By the Activity Element content</head>
-                        <p>The content of the Activity Elements has the same functionality as the content of <el>xsl:template</el> elements from the <titleref href="http://www.w3.org/TR/xslt20">XSLT 2.0 Recommendation</titleref>. This means:</p>
+                        <p>The content of the Activity Elements has the same functionality as the
+                            content of <el>xsl:template</el> elements from the <titleref
+                                href="http://www.w3.org/TR/xslt20">XSLT 2.0
+                                Recommendation</titleref>. This means:</p>
                         <ulist>
                             <item>
-                                <p>Elements from the XSLT namespace will be processed in the context of the change command. If XSLT elements are able to change the context in XSLT, this should have the same effect to there descendents in SQF.</p>
+                                <p>Elements from the XSLT namespace will be processed in the context
+                                    of the change command. If XSLT elements are able to change the
+                                    context in XSLT, this should have the same effect to there
+                                    descendents in SQF.</p>
                             </item>
                             <item>
-                                <p>Elements which not belong to the XSLT, SQF or Schematron namespace will be processed as <titleref href="http://www.w3.org/TR/xslt20/#dt-literal-result-element">Literal Result Elements</titleref>.</p>
+                                <p>Elements which not belong to the XSLT, SQF or Schematron
+                                    namespace will be processed as <titleref
+                                        href="http://www.w3.org/TR/xslt20/#dt-literal-result-element"
+                                        >Literal Result Elements</titleref>.</p>
                             </item>
                         </ulist>
                         <p>Extensions of the XSLT template behavior:</p>
                         <ulist>
                             <item>
-                                <p>Elements from the SQF namespace will be processed as it is defined in this specification. Permitted elements are:<ulist>
+                                <p>Elements from the SQF namespace will be processed as it is
+                                    defined in this specification. Permitted element is:<ulist>
                                         <item>
-                                            <p><el>sqf:keep</el></p>
+                                            <p><el>sqf:copy-of</el></p>
+                                            <p>To copy existing nodes into the <termref
+                                                  def="sch-source-document">source
+                                                  document</termref> (see below <titleref
+                                                  href="#copy-nodes">Copy nodes</titleref>).</p>
                                         </item>
                                     </ulist></p>
                             </item>
                             <item>
-                                <p>Elements from the Schematron namespace will be processed as it is defined in the Schematron specification. Permitted elements are:<ulist>
+                                <p>Elements from the Schematron namespace will be processed as it is
+                                    defined in the Schematron specification. Permitted elements are:<ulist>
                                         <item>
                                             <p><el>sch:let</el></p>
                                         </item>
@@ -566,23 +1019,67 @@
                                         </item>
                                     </ulist></p>
                             </item>
+                            <item>
+                                <p>The XSLT instruction <el>xsl:apply-templates</el> should be
+                                    handled as if there is a copy templates defined (see below
+                                        <titleref href="#copy-nodes">Copy nodes</titleref>).</p>
+                            </item>
                         </ulist>
+                    </div4>
+                    <div4 id="copy-nodes">
+                        <head>Copy nodes</head>
+                        <p>There are three ways to copy nodes:</p>
+                        <p>
+                            <ulist>
+                                <item>
+                                    <p>If the XPath expression of the <att>select</att> attribute of
+                                        an Activity Element returns one or more nodes, these nodes
+                                        will be copied.</p>
+                                </item>
+                                <item>
+                                    <p>With the <el>sqf:copy-of</el> element (as content of an
+                                        Activity Element) nodes can be copied. A <att>select</att>
+                                        attribute defines by an XPath expression the nodes to be
+                                        copied. The default value of the <att>select</att> attribute
+                                        is <attval>node()</attval>.</p>
+                                </item>
+                                <item>
+                                    <p>If the XSLT instruction <el>xsl:apply-templates</el> is used
+                                        as content of an Activity Element, the applied nodes should
+                                        also be copied. The implementation is free to do a full copy
+                                        of the applied nodes or to respect change commands caused by
+                                        other (or the same) executed QuickFixes. (<titleref
+                                            href="#example_apply_fixes">See example in
+                                            Appendix</titleref>)</p>
+                                </item>
+                            </ulist>
+                        </p>
                     </div4>
                 </div3>
                 <div3 id="conflicts">
                     <head>Conflicts</head>
-                    <p>A conflict is thrown, if there are more than one change command for the same anchor node, during an QuickFix execution. There are two kinds of conflicts:<ulist>
+                    <p>A conflict is thrown, if there are more than one change command for the same
+                        anchor node, during an QuickFix execution. There are two kinds of conflicts:<ulist>
                             <item>
                                 <p>Resolvable conflict</p>
-                                <p>If the conflict is between two or more change commands which belongs to the same QuickFix, the conflict is resolvable. In this case, the change command will be executed, whose activity element is defined at first inside of the <el>sqf:fix</el> element.</p>
+                                <p>If the conflict is between two or more change commands which
+                                    belongs to the same QuickFix, the conflict is resolvable. In
+                                    this case, the change command will be executed, whose activity
+                                    element is defined at first inside of the <el>sqf:fix</el>
+                                    element.</p>
                             </item>
                             <item>
                                 <p>Warning raised conflict</p>
-                                <p>If two or more change commands from different QuickFixes are in conflict, the conflict is not resolvable. A warning should be produced. The implementation is free to decide which QuickFix has hire priority. This kind of a conflict is just possible, if an implementation allows to execute more than one QuickFix at once.</p>
+                                <p>If two or more change commands from different QuickFixes are in
+                                    conflict, the conflict is not resolvable. A warning should be
+                                    produced. The implementation is free to decide which QuickFix
+                                    has higher priority. This kind of a conflict is just possible,
+                                    if an implementation allows to execute more than one QuickFix at
+                                    once.</p>
                             </item>
                         </ulist></p>
                 </div3>
-                <div3>
+                <div3 id="kind_of_the_change_commands">
                     <head id="change-command-kind">Kind of the change commands</head>
                     <p>There are four predefined kinds of change commands:<ulist>
                             <item>
@@ -598,58 +1095,551 @@
                                 <p>StringReplace</p>
                             </item>
                         </ulist></p>
-                    <glist>
-                        <gitem>
-                            <label>Delete</label>
-                            <def>
-                                <p>Deletes the anchor node.</p>
-                            </def>
-                        </gitem>
-                        <gitem>
-                            <label>Replace</label>
-                            <def>
-                                <p>Replaces the anchor node by one or more nodes.</p>
-                            </def>
-                        </gitem>
-                        <gitem>
-                            <label>StringReplace</label>
-                            <def>
-                                <p>Replaces substrings of the anchor node by one or more nodes. The anchor node needs to be a text node for this change command.</p>
-                            </def>
-                        </gitem>
-                    </glist>
-                    <p>A Schematron QuickFix implementation is free to provide extending Change commands. The extending change commands should provide the attributes of the attribute group <titleref href="#sqf_activityBase"><phrase><code>activityBase</code></phrase></titleref>.</p>
-                    <div4>
+                    <p>A Schematron QuickFix implementation is free to provide extending Change
+                        commands. The extending change commands should provide the attributes of the
+                        attribute group <titleref href="#sqf_activityBase"
+                                    ><phrase><code>activityBase</code></phrase></titleref> and
+                        respect the concepts to <titleref href="#fix_create_new_content">create new
+                            content</titleref>.</p>
+                    <div4 id="add">
                         <head>Add</head>
-                        <p>Creates one or more nodes and insert it relative to the anchor node. The new content can be created by the <titleref href="#create-by-sqf-att">SQF attributes</titleref>, <titleref href="#create-by-xpath">by XPath</titleref> or <titleref href="#create-by-content">by the content of the sqf:replace element</titleref>.</p>
+                        <p>Creates one or more nodes and insert it relative to the anchor node as
+                            new content. The new content could be created by the <titleref
+                                href="#create-by-sqf-att">SQF attributes</titleref>, <titleref
+                                href="#create-by-xpath">by XPath</titleref> or <titleref
+                                href="#create-by-content">by the content of the sqf:add
+                                element</titleref>.</p>
+                        <p>The position attribute detects the position relative to the anchor node,
+                            where the new content should be inserted. The following values are
+                            available:</p>
+                        <p>
+                            <glist>
+                                <gitem>
+                                    <label>first-child</label>
+                                    <def>
+                                        <p>If the anchor node is an element the new content will be
+                                            inserted after the start tag of the anchor node.</p>
+                                        <p>If the anchor node is an attribute, the new content will
+                                            be inserted after the start tag of the parent element of
+                                            the anchor node.</p>
+                                        <p>Otherwise: the new content will be inserted after the
+                                            anchor node.</p>
+                                        <p>This value is the default value of the
+                                                <att>position</att> attribute.</p>
+                                    </def>
+                                </gitem>
+                                <gitem>
+                                    <label>last-child</label>
+                                    <def>
+                                        <p>If the anchor node is an element the new content will be
+                                            inserted before the end tag of the anchor node.</p>
+                                        <p>If the anchor node is an attribute, the new content will
+                                            be inserted before the end tag of the parent element of
+                                            the anchor node.</p>
+                                        <p>Otherwise: the new content will be inserted after the
+                                            anchor node.</p>
+                                    </def>
+                                </gitem>
+                                <gitem>
+                                    <label>before</label>
+                                    <def>
+                                        <p>The new content will be inserted before the anchor
+                                            node.</p>
+                                        <p>If the anchor node is an attribute, the new content will
+                                            be inserted before the parent element of the anchor
+                                            node.</p>
+                                    </def>
+                                </gitem>
+                                <gitem>
+                                    <label>after</label>
+                                    <def>
+                                        <p>The new content will be inserted after the anchor
+                                            node.</p>
+                                        <p>If the anchor node is an attribute, the new content will
+                                            be inserted after the parent element of the anchor
+                                            node.</p>
+                                    </def>
+                                </gitem>
+                            </glist>
+                        </p>
+                        <p>The <att>position</att> attribute is useless, if the new content are one
+                            or more attributes. In this case, the new content should always be added
+                            as attribute(s) of the anchor node.</p>
+                        <p role="error-def">In the case, the new content is an attribute, it is an
+                            error if the anchor node is not an element.</p>
+                        <p>If the anchor node is an element and has an attribute with the same name
+                            as one of the new attributes, the new attributes should replace the
+                            existing attributes.</p>
                     </div4>
-                    <div4>
+                    <div4 id="delete">
                         <head>Delete</head>
                         <p>This change command deletes the anchor node.</p>
                     </div4>
-                    <div4>
+                    <div4 id="replace">
                         <head>Replace</head>
-                        <p>The anchor node will be replaced by new content. The new content can be created by the <titleref href="#create-by-sqf-att">SQF attributes</titleref>, <titleref href="#create-by-xpath">by XPath</titleref> or <titleref href="#create-by-content">by the content of the sqf:replace element</titleref>.</p>
+                        <p>The anchor node will be replaced by new content. The new content can be
+                            created by the <titleref href="#create-by-sqf-att">SQF
+                                attributes</titleref>, <titleref href="#create-by-xpath">by
+                                XPath</titleref> or <titleref href="#create-by-content">by the
+                                content of the sqf:replace element</titleref>.</p>
+                        <p role="error-def">It is an error, if the new content is an attribute, but
+                            the anchor node not.</p>
                     </div4>
-                    <div4>
+                    <div4 id="stringreplace">
                         <head>StringReplace</head>
-                        <p>The anchor node has to be a text node. To analyze the text node, the <att>regex</att> attribute is required. The attribute value of the regex attribute will be interpreted as an <titleref href="http://www.w3.org/TR/xslt20/#attribute-value-templates">attribute value template</titleref>. The effective value should be a valid <titleref href="http://www.w3.org/TR/xslt20/#regular-expressions">Regular Expression</titleref> corresponding to the XSLT 2.0 Recommendation.</p>
-                        <p>Any substrings, which matches to this Regular Expression, will be replaced by new content. The new content can be created <titleref href="#create-by-xpath">by XPath</titleref> or <titleref href="#create-by-content">by the content of the sqf:stringReplace element</titleref>.</p>
+                        <p>The anchor node has to be a text node. To analyze the text node, the
+                                <att>regex</att> attribute is required. The value of the
+                                <att>regex</att> attribute will be interpreted as an <titleref
+                                href="http://www.w3.org/TR/xslt20/#attribute-value-templates"
+                                >attribute value template</titleref>. The effective value should be
+                            a valid <titleref
+                                href="http://www.w3.org/TR/xslt20/#regular-expressions">Regular
+                                Expression</titleref> corresponding to the XSLT 2.0
+                            Recommendation.</p>
+                        <p>To control the interpretation of the Regular Expression, a
+                                <att>flags</att> attribute should be available. The value of the
+                                <att>flags</att> attribute will be interpreted as an <titleref
+                                href="http://www.w3.org/TR/xslt20/#attribute-value-templates"
+                                >attribute value template</titleref>. The effective value should be
+                            interpreted the same way, as the <titleref
+                                href="https://www.w3.org/TR/xpath-functions/#flags">XQuery 1.0 and
+                                XPath 2.0 Functions and Operators Recommendation</titleref>
+                            specifies the <code>$flags</code> parameter of Regular Expression
+                            functions.</p>
+                        <p>Any substrings, which matches to this Regular Expression, will be
+                            replaced by new content. The new content can be created <titleref
+                                href="#create-by-xpath">by XPath</titleref> or <titleref
+                                href="#create-by-content">by the content of the sqf:stringReplace
+                                element</titleref>.</p>
                     </div4>
                 </div3>
             </div2>
-            <div2>
+            <div2 id="variables">
+                <head>Variables</head>
+                <div3 id="declaration">
+                    <head>Declaration</head>
+                    <p>The Schematron QuickFix specification does not provide an own structure to
+                        declare variables for the XPath expressions. There are two permitted ways do
+                        declare variables:</p>
+                    <ulist>
+                        <item>
+                            <p>Using Schematron variables (<el>sch:let</el>).</p>
+                        </item>
+                        <item>
+                            <p>Using XSLT variables (<el>xsl:variable</el>).</p>
+                        </item>
+                    </ulist>
+                    <p>There is no difference between this ways, though the XSLT variables provides
+                        more functionality (e.g. <att>as</att> attribute, value by content). There
+                        should be no change of the original functionality by using these variable
+                        structures for Schematron QuickFix.</p>
+                    <div4 id="places_to_declare_variables">
+                        <head>Places to declare variables</head>
+                        <p>There are two places (inside of the SQF elements) to declare
+                            variables:</p>
+                        <p>
+                            <ulist>
+                                <item>
+                                    <p>In a <el>sqf:fix</el> element</p>
+                                </item>
+                                <item>
+                                    <p>Inside of any activity element.</p>
+                                </item>
+                            </ulist>
+                        </p>
+                    </div4>
+                    <div4 id="scope">
+                        <head>Scope</head>
+                        <p>There should be no changes to the original scope behavior of the used
+                            variable concepts.</p>
+                    </div4>
+                </div3>
+                <div3 id="usage">
+                    <head>Usage</head>
+                    <p>Variables should be available in any XPath expressions, which are in the
+                        scope of the variable. This shall also apply to the variables which are
+                        declared outside of the Schematron QuickFix elements (global variables or
+                        variables in <el>sch:rule</el> elements).</p>
+                </div3>
+            </div2>
+            <div2 id="parameter">
+                <head>Parameter</head>
+                <p>There are two different ways to use parameters for QuickFixes:</p>
+                <p>
+                    <ulist>
+                        <item>
+                            <p><emph>Default parameter:</emph> The default parameter is a common
+                                parameter to reuse and parametrize the QuickFix. Therefore the
+                                reused QuickFix may contains parameter(s) (see chapter <titleref
+                                    href="#param.declaration">Declaration</titleref>). Another
+                                QuickFix may call the reused QuickFix (see chapter <titleref
+                                    href="#param.call-fix">Call a QuickFix</titleref>). During the
+                                call, the calling QuickFix is able to set the value of the
+                                parameters of the reused QuickFix. </p>
+                        </item>
+                        <item>
+                            <p><emph>Abstract parameter:</emph> This parameter is to declare the
+                                usage of Schematron parameters inside of the QuickFix, which should
+                                be defined by the <el>sch:param</el> element.</p>
+                        </item>
+                    </ulist>
+                </p>
+                <p>The following sections should discuss the default parameter. The abstract
+                    parameter will be discussed in the section <titleref href="#abstract-param"
+                        >Abstract parameter</titleref> only.</p>
+                <div3 id="param.declaration">
+                    <head>Declaration</head>
+                    <p>The declaration of a parameter has to be at the beginning of the
+                            <el>sqf:fix</el> element, before any other elements. The sqf:param
+                        element declares one parameter. To declare multiple parameter you need
+                        multiple <el>sqf:param</el> elements.</p>
+                    <div4 id="name">
+                        <head>Name</head>
+                        <p>The <att>name</att> attribute is the only required attribute of the
+                                <el>sqf:param</el> element. It sets the name of the parameter.</p>
+                        <p role="error-def">It is an error, if there is an other parameter inside of
+                            the <el>sqf:fix</el> element with the same name.</p>
+                        <p>The value of the name attribute should to be valid to the type
+                            xs:QName.</p>
+                    </div4>
+                    <div4 id="param.default-value">
+                        <head>Default value</head>
+                        <p>The default value of the parameter will be set by the <att>default</att>
+                            attribute. The attribute value needs to be a valid XPath expression. The
+                            parameter will have the returned value, if the value is not set by the
+                            call of this fix (see chapter <titleref href="#param.call-fix">Call a
+                                QuickFix</titleref>). </p>
+                        <p>If the <att>default</att> attribute is omitted, the default value is a
+                            zero length string. </p>
+                    </div4>
+                    <div4 id="type">
+                        <head>Type</head>
+                        <p>If the <att>type</att> attribute is set, it specifies the required type
+                            of the parameter value. If the <att>type</att> attribute is omitted, the
+                            type of the parameter value is unspecified. The implementation is free
+                            to support proprietary or a standardised types. The types needs to be
+                            referred by a valid xs:QName.</p>
+                    </div4>
+                    <div4 id="required_parameters">
+                        <head>Required parameters</head>
+                        <p>A parameter is by default optional. If the call-fix do not specify a
+                            value for an optional parameter, the <titleref
+                                href="param.default-value">default value</titleref> will be used.
+                            The required attribute with the value <attval>yes</attval> indicates
+                            that the parameter value needs to be specified by the call-fix. </p>
+                        <p role="error-def">It is an error, if the <att>default</att> attribute is
+                            not omitted, though the <att>required</att> attribute has the value
+                                <attval>yes</attval>.</p>
+                    </div4>
+                </div3>
+                <div3 id="param.call-fix">
+                    <head>Call a QuickFix</head>
+                    <p>There are different use cases to call a QuickFix. In any case the
+                            <el>sqf:call-fix</el> element should be used:</p>
+                    <p>
+                        <ulist>
+                            <item>
+                                <p>Reuse the change commands of one QuickFix, specified by
+                                    parameters.</p>
+                            </item>
+                            <item>
+                                <p>Combine the change commands of QuickFixes by multiple QuickFix
+                                    calls.</p>
+                            </item>
+                            <item>
+                                <p>Add specific change commands to a QuickFix by mixing Activity
+                                    Elements with one or more QuickFix calls.</p>
+                            </item>
+                            <item>
+                                <p>Specify a description to the called QuickFixes or reuse the
+                                    description of the called QuickFix.</p>
+                            </item>
+                        </ulist>
+                    </p>
+                    <p>All use cases could be combined as well. If a QuickFix has multiple QuickFix
+                        calls or a mix of one QuickFix call and one or more Activity Elements, a
+                        specific description (sqf:description element) is mandatory. The reuse of
+                        the description of a called QuickFix is only permitted, if the calling
+                        QuickFix contains exactly one QuickFix call.</p>
+                    <p>To call a QuickFix, the <el>sqf:fix</el> element of the calling QuickFix may
+                        contain a <el>sqf:call-fix</el> element at any position. The only condition
+                        is, that it is after any <el>sqf:param</el> and <el>sqf:description</el>
+                        elements. The <el>sqf:call-fix</el> element should have a mandatory
+                            <att>ref</att> attribute. Its value should refer to an ID of any
+                        available QuickFix. The referred QuickFix will be called.</p>
+                    <p>If the calling QuickFix is a <titleref href="#quick-fix.global-local"
+                            >global</titleref> QuickFix, only other <titleref
+                            href="#quick-fix.global-local">global</titleref> QuickFixes or
+                        QuickFixes of <titleref href="#quick-fix.global-local">global</titleref>
+                        <titleref href="#quick-fix.group">QuickFix groups</titleref> are available.
+                        If the calling QuickFix is <titleref href="#quick-fix.global-local"
+                            >local</titleref>, any QuickFix is available, which is available for any
+                        assertion in the scope of the calling QuickFix. Additionally if there is a
+                            <titleref href="#quick-fix.global-local">local</titleref> QuickFix which
+                        has the same ID as a <titleref href="#quick-fix.global-local"
+                            >global</titleref> QuickFix, the <titleref
+                            href="#quick-fix.global-local">local</titleref> QuickFix may refer to
+                        the global QuickFix by containing a <el>sqf:call-fix</el> element with a
+                            <att>ref</att> attribute which refers to the ID of it self.</p>
+                    <p>It is permitted, to call a QuickFix inside of a <titleref
+                            href="#generic-fixes">generic QuickFix</titleref>.</p>
+                    <p>It should be occurred an error, if the called QuickFix is a <titleref
+                            href="#generic-fixes">generic QuickFix</titleref>.</p>
+                    <div4 id="specify_a_parameter">
+                        <head>Specify a parameter</head>
+                        <p>A <el>sqf:call-fix</el> element may contain one or more
+                                <el>sqf:with-param</el> elements. Each <el>sqf:with-param</el>
+                            element set a value of one parameter of the called QuickFix. The
+                            mandatory <att>name</att> attribute determines which parameter of the
+                            called QuickFix will be specified. The type of the <att>name</att>
+                            attribute needs to be a valid xs:QName.</p>
+                        <p>It is mandatory, that in the called QuickFix a parameter is declared
+                            which have the same name as the <att>name</att> attribute of the
+                                <el>sqf:with-param</el> element. </p>
+                        <p>The value of the parameter will be defined the same way as the <titleref
+                                href="http://www.w3.org/TR/xslt20/#variable-values">values of XSLT
+                                2.0 variables or parameters</titleref>, though it is no
+                                <att>as</att> attribute available.</p>
+                    </div4>
+                    <div4 id="adoption_of_properties">
+                        <head>Adoption of properties</head>
+                        <p>If a QuickFix calls another QuickFix, the calling QuickFix will adopt
+                            some kind of properties in any case, some properties only if there is no
+                            property from the same kind set for the calling QuickFix and other
+                            properties will be never adopted. If a QuickFix adopt a property, it is,
+                            as if the calling QuickFix obtained this property by itself. If the
+                            order of the property elements is significant (for instance the order of
+                            the Activity Elements), the effective position will be determinate by
+                            replacing all <el>sqf:call-fix</el> elements by the adopted property
+                            elements.</p>
+                        <p>The following properties of the called QuickFix will be adopted in any case:<ulist>
+                                <item>
+                                    <p>Any change command (defined by Activity Elements)</p>
+                                </item>
+                                <item>
+                                    <p>User Entry to parametrise the QuickFix (see <titleref
+                                            href="#user-entry">User Entries</titleref>)</p>
+                                </item>
+                                <item>
+                                    <p>Any other property of the above kinds, which may be adopted
+                                        by another QuickFix call.</p>
+                                </item>
+                            </ulist></p>
+                        <p>The following properties will be adopted conditionally:<ulist>
+                                <item>
+                                    <p>Description:: title and additional documentation</p>
+                                    <p>An adoption of the description is permitted only, if the
+                                        calling QuickFix calls exactly one QuickFix and does not
+                                        contains any Activity Element. Otherwise a specific
+                                        description for the calling QuickFix is mandatory.</p>
+                                    <p>The description of the called QuickFix will be adopted, if
+                                        the calling QuickFix has no description.</p>
+                                </item>
+                                <item>
+                                    <p>Condition to provide the QuickFix</p>
+                                    <p>The condition to provide will be adopted only, if the calling
+                                        QuickFix calls exactly one QuickFix, does not contain any
+                                        Activity Element and has no specific <att>use-when</att>
+                                        attribute.</p>
+                                </item>
+                                <item>
+                                    <p>Any other property of the above kinds, which may be adopted
+                                        by another QuickFix call and satisfies the conditions
+                                        described above.</p>
+                                </item>
+                            </ulist></p>
+                        <p>The following properties will not be adopted in any case:<ulist>
+                                <item>
+                                    <p>ID</p>
+                                </item>
+                            </ulist></p>
+                        <p>It is an error, if the called QuickFix has the following property:<ulist>
+                                <item>
+                                    <p>Loop to make the QuickFix generic (see <titleref
+                                            href="#generic-fixes">Generic QuickFix</titleref>)</p>
+                                </item>
+                            </ulist></p>
+                        <note>
+                            <p>Please note, that it is permitted, to call a QuickFix inside of a
+                                generic QuickFix.</p>
+                        </note>
+                    </div4>
+                </div3>
+                <div3 id="example">
+                    <head>Example</head>
+                    <p><example>
+                            <eg xml:space="preserve">&lt;sqf:fix id="call-fix"> 
+    [...] 
+    &lt;sqf:call-fix ref="reused-fix"> 
+        &lt;sqf:with-param name="param1" select="10"/> 
+    &lt;/sqf:call-fix> 
+&lt;/sqf:fix> 
+&lt;sqf:fix id="reused-fix"> 
+    &lt;sqf:param name="param1" default="'defaultValue'" type="xs:string"/> 
+    &lt;sqf:param name="param2" required="yes" type="xs:integer"/> 
+    [...] 
+&lt;/sqf:fix></eg>
+                        </example></p>
+                </div3>
+                <div3 id="abstract-param">
+                    <head>Abstract parameter</head>
+                    <div4 id="abstract_parameter_declaration">
+                        <head>Declaration</head>
+                        <p>A <titleref href="#sqf_param">sch:param</titleref> element from a
+                            QuickFix with the value of the <att>abstract</att> attribute set to
+                                <attval>true</attval> is defined as an abstract parameter of the
+                            QuickFix. As the <titleref href="#parameter">default
+                                parameter</titleref>, the abstract parameter declaration must be at
+                            the beginning of an <el>sqf:fix</el> element.</p>
+                        <p>A QuickFix referred from an abstract pattern must declare all abstract
+                            pattern parameters used by it. A <titleref href="#sqf_with-param"
+                                >sch:param</titleref> element, with the value of the
+                                <att>abstract</att> attribute set to <attval>true</attval>, must be
+                            added for all abstract pattern parameters used in the QuickFix.</p>
+                        <p>An abstract parameter defined in a QuickFix declares that the QuickFix
+                            uses a parameter of an abstract pattern. The QuickFix can be instantiate
+                            only from an abstract pattern that defines the abstract parameter. A
+                            QuickFix with one or more abstract parameters can be used only from
+                            abstract patterns. </p>
+                        <p>If a QuickFix <titleref href="#parameter">parameter</titleref> that is
+                            defined as abstract it cannot have the <att>type</att>,
+                                <att>required</att> and <att>default</att> attributes. Its value
+                            will be set form the abstract pattern instantiation.</p>
+                    </div4>
+                    <div4 id="abstract_parameter_usage">
+                        <head>Usage</head>
+                        <p>Abstract parameters cannot be used as normal XPath variables. The
+                            reference of the abstract parameter will be replaced at instantiation by
+                            the value specified in the abstract pattern. The replacing value will be
+                            set by the instantiation of the abstract pattern according to the
+                                <titleref href="http://www.schematron.com/iso/P8.html#GEN11"
+                                >Schematron specification</titleref>. The instantiation of the
+                            abstract pattern must specify a value for every abstract parameter of
+                            the QuickFix.</p>
+                    </div4>
+                </div3>
+            </div2>
+            <div2 id="user_entry">
                 <head>User Entry</head>
+                <p>A User Entry is a parameter for the QuickFix which can be set by the user during
+                    the runtime of the QuickFix execution. </p>
+                <p>A QuickFix can have multiple User Entries. A User Entry requires the following
+                    properties:</p>
+                <ulist>
+                    <item>
+                        <p>Title: A short description of the functionality of the User Entry</p>
+                    </item>
+                    <item>
+                        <p>Name: To refer the User Entry value inside of the XPath expressions of
+                            the QuickFix</p>
+                    </item>
+                </ulist>
+                <p>A User Entry is able to have the following additional properties:</p>
+                <ulist>
+                    <item>
+                        <p>Descriptions: More documentation information.</p>
+                    </item>
+                    <item>
+                        <p>Default value: To suggest this value to the user.</p>
+                    </item>
+                    <item>
+                        <p>Type: To restrict the possible values of the User Entry and get the value
+                            in the correct data type </p>
+                    </item>
+                </ulist>
+                <div3 id="definition_of_a_user_entry">
+                    <head>Definition of a User Entry</head>
+                    <p>User Entries have to be defined before any change commands in the
+                            <el>sqf:fix</el> element:</p>
+                    <p><example>
+                            <eg xml:space="preserve">&lt;sqf:fix id="fix1">
+    &lt;sqf:description>
+        &lt;sqf:title>Fix 1&lt;/sqf:title>
+    &lt;/sqf:description>
+    &lt;sqf:user-entry name="ue1">
+        &lt;sqf:description>
+            &lt;sqf:title>User Entry 1&lt;/sqf:title>
+        &lt;/sqf:description>
+    &lt;/sqf:user-entry>
+    &lt;sqf:user-entry name="ue2">
+        &lt;sqf:description>
+            &lt;sqf:title>User Entry 2&lt;/sqf:title>
+        &lt;/sqf:description>
+    &lt;/sqf:user-entry>
+    [Elements from the content model  (sqf:delete | sqf:add | sqf:replace | sqf:stringReplace)+]
+&lt;/sqf:fix></eg>
+                        </example></p>
+                    <p>Each <el>sqf:user-entry</el> element defines an User Entry. Consequently, the
+                        QuickFix <code>fix1</code> has two User Entries with the names
+                            <code>ue1</code> and <code>ue2</code>.</p>
+                </div3>
+                <div3 id="value_usage">
+                    <head>Value usage</head>
+                    <p>To use the value, each User Entry can be used as an XPath variable. So the
+                        value of the User Entry can be used in each XPath expression of all Activity
+                        Elements in the User Entry. The name of the XPath variable is the name of
+                        User Entry.</p>
+                    <p><example>
+                            <eg>&lt;sqf:user-entry name="ue1"> 
+    &lt;sqf:description> 
+        &lt;sqf:title>User Entry 1&lt;/sqf:title>
+      &lt;/sqf:description>
+ &lt;/sqf:user-entry>
+ &lt;sqf:replace target="{$ue1}" node-type="element" select="$ue1"/></eg>
+                        </example></p>
+                    <p>The Activity Element <el>sqf:replace</el> replaces the anchor node (<termref
+                            def="sch-error-context">context of the Schematron errors</termref>) by a
+                        new element. The name will be set by the user by setting the User Entry
+                            <code>ue1</code>. The content of the new element will be also the value
+                        of the User Entry <code>ue1</code>. </p>
+                    <div4 id="user_entry_scope">
+                        <head>Scope</head>
+                        <p>The User Entry value is available in all XPath expressions of all
+                            Activity Elements of the QuickFix. </p>
+                        <p><emph>Exceptions:</emph></p>
+                        <p>There could some restrictions of the implementation, which could restrict
+                            this (for instance, <titleref href="#anchor_node_restrictions"
+                                >restrictions to the match attribute</titleref>).</p>
+                    </div4>
+                </div3>
+                <div3 id="implementation_of_user_entries">
+                    <head>Implementation of User Entries</head>
+                    <p>A SQF implementation which supports User Entries should provide the user an
+                        interface to set User Entries after or while choosing the QuickFix. For this
+                        the titles of each User Entry should be displayed in connection with the
+                        corresponding QuickFixes.</p>
+                </div3>
+                <div3 id="default_value">
+                    <head>Default value</head>
+                    <p>The default attribute sets a default value for the User Entry, using an XPath
+                        expression. The result value can be used by the implementation to provide a
+                        default value to the user, when he set the User Entry. The default value
+                        should used like the default value of a parameter (see <el>sqf:param</el>
+                        element): </p>
+                    <ulist>
+                        <item>
+                            <p>There are no optional User Entries.</p>
+                        </item>
+                        <item>
+                            <p>Each User Entry should be set by the user.</p>
+                        </item>
+                        <item>
+                            <p>The default value is to provide it as possible value only.</p>
+                        </item>
+                    </ulist>
+                </div3>
             </div2>
-            <div2>
-                <head>Variables and parameter</head>
-            </div2>
-            <div2>
+            <div2 id="embedding_xpath">
                 <head>Embedding XPath</head>
-                <p>Schematron QuickFix is based on the W3C Recommendation XPath 2.0. Any XPath expression of the Schematron schema needs to match the syntax allowed by the XPath grammar.</p>
-                <div3>
+                <p>Schematron QuickFix is based on the W3C Recommendation XPath 2.0. Any XPath
+                    expression of the Schematron schema needs to match the syntax allowed by the
+                    XPath grammar.</p>
+                <div3 id="attributes_to_embed_xpath_expressions">
                     <head>Attributes to embed XPath expressions</head>
-                    <p>The following table shows attributes, whose value will be parsed as XPath expressions, corresponding to the <titleref href="http://www.w3.org/TR/xpath20/">XPath 2.0</titleref> Recommendation:</p>
+                    <p>The following table shows attributes, whose value will be parsed as XPath
+                        expressions, corresponding to the <titleref
+                            href="http://www.w3.org/TR/xpath20/">XPath 2.0</titleref>
+                        Recommendation:</p>
                     <p>
                         <table border="1" cellspacing="0" cellpadding="2">
                             <thead>
@@ -665,107 +1655,124 @@
                                 <tr>
                                     <td rowspan="2">default</td>
                                     <td>sqf:param</td>
-                                    <td><termref def="sch-error-context">context of the Schematron error</termref></td>
+                                    <td><termref def="sch-error-context">context of the Schematron
+                                            error</termref></td>
                                     <td>Default value for the parameter</td>
                                     <td>no requirement</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:user-entry</td>
-                                    <td><termref def="sch-error-context">context of the Schematron error</termref></td>
-                                    <td>Default value for User Entry</td>
+                                    <td><termref def="sch-error-context">context of the Schematron
+                                            error</termref></td>
+                                    <td>Default value for the User Entry</td>
                                     <td>no requirement</td>
                                 </tr>
                                 <tr>
                                     <td rowspan="4">match</td>
                                     <td>sqf:add</td>
-                                    <td><termref def="sch-error-context">context of the Schematron error</termref></td>
+                                    <td><termref def="sch-error-context">context of the Schematron
+                                            error</termref></td>
                                     <td>Contexts of the change commands</td>
                                     <td>node()*</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:delete</td>
-                                    <td><termref def="sch-error-context">context of the Schematron error</termref></td>
+                                    <td><termref def="sch-error-context">context of the Schematron
+                                            error</termref></td>
                                     <td>Contexts of the change commands</td>
                                     <td>node()*</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:replace</td>
-                                    <td><termref def="sch-error-context">context of the Schematron error</termref></td>
+                                    <td><termref def="sch-error-context">context of the Schematron
+                                            error</termref></td>
                                     <td>Contexts of the change commands</td>
                                     <td>node()*</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:stringReplace</td>
-                                    <td><termref def="sch-error-context">context of the Schematron error</termref></td>
+                                    <td><termref def="sch-error-context">context of the Schematron
+                                            error</termref></td>
                                     <td>Contexts of the change commands</td>
                                     <td>text()*</td>
                                 </tr>
                                 <tr>
                                     <td rowspan="5">select</td>
                                     <td>sqf:add</td>
-                                    <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor
+                                            node</titleref></td>
                                     <td>Nodes or atomic values, which should be inserted</td>
                                     <td>no requirement</td>
                                 </tr>
                                 <tr>
-                                    <td>sqf:keep</td>
+                                    <td>sqf:copy-of</td>
                                     <td>Inherits from the parent node.</td>
-                                    <td>Nodes to copy or apply to other change commands</td>
+                                    <td>Nodes to copy</td>
                                     <td>node()*</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:replace</td>
-                                    <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor
+                                            node</titleref></td>
                                     <td>Nodes or atomic values, which should be inserted</td>
                                     <td>no requirement</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:stringReplace</td>
-                                    <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor
+                                            node</titleref></td>
                                     <td>Nodes or atomic values, which should be inserted</td>
                                     <td>no requirement</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:with-param</td>
-                                    <td><termref def="sch-error-context">context of the Schematron error</termref></td>
+                                    <td><termref def="sch-error-context">context of the Schematron
+                                            error</termref></td>
                                     <td>Value for the parameter</td>
                                     <td>no requirement</td>
                                 </tr>
                                 <tr>
                                     <td rowspan="6">use-when</td>
                                     <td>sqf:add</td>
-                                    <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor
+                                            node</titleref></td>
                                     <td>Condition to process the change command</td>
                                     <td>no requirement, interpreted as boolean</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:delete</td>
-                                    <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor
+                                            node</titleref></td>
                                     <td>Condition to process the change command</td>
                                     <td>no requirement, interpreted as boolean</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:replace</td>
-                                    <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor
+                                            node</titleref></td>
                                     <td>Condition to process the change command</td>
                                     <td>no requirement, interpreted as boolean</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:stringReplace</td>
-                                    <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor
+                                            node</titleref></td>
                                     <td>Condition to process the change command</td>
                                     <td>no requirement, interpreted as boolean</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:fix</td>
-                                    <td><termref def="sch-error-context">context of the Schematron error</termref></td>
+                                    <td><termref def="sch-error-context">context of the Schematron
+                                            error</termref></td>
                                     <td>Condition to provide the QuickFix</td>
                                     <td>no requirement, interpreted as boolean</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:group</td>
-                                    <td><termref def="sch-error-context">context of the Schematron error</termref></td>
-                                    <td>Condition to provide all QuickFixes of this QuickFix group</td>
+                                    <td><termref def="sch-error-context">context of the Schematron
+                                            error</termref></td>
+                                    <td>Condition to provide all QuickFixes of this <titleref
+                                            href="#quick-fix.group">QuickFix group</titleref></td>
                                     <td>no requirement, interpreted as boolean</td>
                                 </tr>
                             </tbody>
@@ -774,7 +1781,10 @@
                 </div3>
                 <div3 id="attribute-value-template">
                     <head>Attribute Value Template</head>
-                    <p>The following table shows attributes, whose value is interpreted as <titleref href="http://www.w3.org/TR/xslt20/#attribute-value-templates">attribute value template</titleref> corresponding to the XSLT 2.0 Recommendation:</p>
+                    <p>The following table shows attributes, whose value is interpreted as <titleref
+                            href="http://www.w3.org/TR/xslt20/#attribute-value-templates">attribute
+                            value template</titleref> corresponding to the XSLT 2.0
+                        Recommendation:</p>
                     <p>
                         <table border="1" cellspacing="0" cellpadding="2">
                             <thead>
@@ -789,48 +1799,136 @@
                                 <tr>
                                     <td>regex</td>
                                     <td>sqf:stringReplace</td>
-                                    <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
-                                    <td>Valid <titleref href="http://www.w3.org/TR/xslt20/#regular-expressions">Regular Expression</titleref> corresponding to the XSLT 2.0 Recommendation.</td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor
+                                            node</titleref></td>
+                                    <td>Valid <titleref
+                                            href="http://www.w3.org/TR/xslt20/#regular-expressions"
+                                            >Regular Expression</titleref> corresponding to the XSLT
+                                        2.0 Recommendation.</td>
+                                </tr>
+                                <tr>
+                                    <td>flags</td>
+                                    <td>sqf:stringReplace</td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor
+                                            node</titleref></td>
+                                    <td>Should match to the requirements of the $flags parameter,
+                                        specified in the <titleref
+                                            href="https://www.w3.org/TR/xpath-functions/#flags"
+                                            >XQuery 1.0 and XPath 2.0 Functions and
+                                            Operators</titleref> Recommendation</td>
                                 </tr>
                                 <tr>
                                     <td rowspan="2">target</td>
                                     <td>sqf:add</td>
-                                    <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor
+                                            node</titleref></td>
                                     <td>xs:QName</td>
                                 </tr>
                                 <tr>
                                     <td>sqf:replace</td>
-                                    <td><titleref href="#change-command-anchor-node">Anchor node</titleref></td>
+                                    <td><titleref href="#change-command-anchor-node">Anchor
+                                            node</titleref></td>
                                     <td>xs:QName</td>
                                 </tr>
                             </tbody>
                         </table>
                     </p>
-                    <p>The effective value requirements should be satisfied after interpreting the attribute value template.</p>
+                    <p>The effective value requirements should be satisfied after interpreting the
+                        attribute value template.</p>
                 </div3>
             </div2>
-            <div2>
-                <head>Localisation</head>
+            <div2 id="localization">
+                <head>Localization</head>
+                <p>The SQF localization concept is based on the <titleref
+                        href="http://www.w3.org/TR/xml/#sec-lang-tag">XML concept to detect the
+                        natural language</titleref>, using the <att>xml:lang</att> attribute.
+                    Consequently, SQF elements are able to inherit the language property of all
+                    ancestors.</p>
+                <div3 id="locatable_elements">
+                    <head>Locatable elements</head>
+                    <p>The following list shows SQF elements, which are locatable with the attribute
+                            <att>xml:lang</att>:</p>
+                    <p>
+                        <ulist>
+                            <item>
+                                <p><el>sqf:description</el></p>
+                            </item>
+                            <item>
+                                <p><el>sqf:fix</el></p>
+                            </item>
+                            <item>
+                                <p><el>sqf:fixes</el></p>
+                            </item>
+                            <item>
+                                <p><el>sqf:group</el></p>
+                            </item>
+                            <item>
+                                <p><el>sqf:p</el></p>
+                            </item>
+                            <item>
+                                <p><el>sqf:title</el></p>
+                            </item>
+                            <item>
+                                <p><el>sqf:user-entry</el></p>
+                            </item>
+                        </ulist>
+                    </p>
+                </div3>
+                <div3 id="localization_of_a_quickfix">
+                    <head>Localization of a QuickFix or User Entry</head>
+                    <p>The natural language parts of a QuickFix or User Entry are defined by the elements <el>sqf:title</el> and <el>sqf:p</el>. To provide an alternative text phrase for localization (effective localization value), these elements are permitted to obtain a <att>ref</att> attribute. The <att>ref</att> attribute may refer (by reference values) to IDs or key values of one or more text phrases in the same or separate document. Multiple reference values should be separated by whitespaces. </p>
+                    <p>The minimal implementation of the <att>ref</att> attribute should support a reference to an ID of a Schematron <el>sch:diagnostic</el> element. An implementation is free to support references to other text phrase formats (<titleref href="#example_external_doc">See example in Appendix</titleref>). </p>
+                    <p>If a <att>ref</att> attribute contains one or more reference values which cannot be resolved by the implementation, these values should be ignored. No error or warning should occurred.</p>
+                    <p>A <att>ref</att> attribute may refer to multiple text phrases in different languages by multiple reference values or may refer by one reference value which leads to different text phrases. In any case, the implementation needs to detect the requested language, the language code of the element which contains the <att>ref</att> attribute (initial language) and all language codes of the referenced text phrases. The following four cases should be supported:</p>
+                    <p>
+                        <ulist>
+                            <item>
+                                <p>The requested language matches to the initial language.</p>
+                                <p>In this case, the references should be ignored and the initial value of the element should be used as effective localization value.</p>
+                            </item>
+                            <item>
+                                <p>The requested language matches to one of the referenced text phrase</p>
+                                <p>In this case, the referenced text phrase, which is assigned to the requested language should be used as effective localization value. </p>
+                            </item>
+                            <item>
+                                <p>The requested language matches to none of the given languages. </p>
+                                <p>In this case, the references should be ignored and the initial value of the element should be used as effective localization value.</p>
+                                <p>This case is a localization issue and should not occur. The implementation is free to throw a warning.</p>
+                            </item>
+                        </ulist>
+                    </p>
+                </div3>
             </div2>
         </div1>
-        <div1>
-            <head>Implementation <?oxy_comment_start author="Nico Kutscherauer" timestamp="20150511T141452+0200" comment="move to appendix?"?>modes<?oxy_comment_end?></head>
-            <p>A QuickFix can be implemented in two different modes:<ulist>
+        <div1 id="implementation_modes">
+            <head>Implementation modes</head>
+            <p>A QuickFix can be implemented generally in two different modes:<ulist>
                     <item>
-                        <p>XML save mode</p>
+                        <p>Unparsed Process Mode</p>
                     </item>
                     <item>
                         <p>XSLT only mode</p>
                     </item>
                 </ulist></p>
-            <p>An implementation is free to implement only one or both modes.</p>
-            <div2>
-                <head>XML save mode</head>
-                <p>The XML save mode requires that no changes will be applied to the <termref def="sch-document">source document</termref>, which are not defined by the executed QuickFix. Changes which are caused by an XSLT processor (skip the XML declaration, resolving default attributes, CDATA sections, etc.) any time, should not influence the document. That is why it is not possible to implement the XML save mode with only XSLT processes.</p>
+            <p>An implementation is free to support only one or both modes. If an implementation
+                supports both modes, it should be a general configuration to switch between the two
+                modes.</p>
+            <div2 id="xml_save_mode">
+                <head>Unparsed Process Mode</head>
+                <p>The Unparsed Process Mode requires that no changes will be applied to the
+                        <termref def="sch-source-document">source document</termref>, which are not
+                    defined by the executed QuickFix. Changes which are caused by parsing the
+                    document and creating a new, XML identical document (skip the XML declaration,
+                    resolving default attributes, CDATA sections, etc.), should not influence the
+                    document. That is why it is not possible to implement the Unparsed Process Mode
+                    with only XSLT processes.</p>
             </div2>
-            <div2>
+            <div2 id="xslt_only_mode">
                 <head>XSLT only mode</head>
-                <p>If an implementation is based only on XSLT processes, this is called the XSLT only mode. In this case, it is allowed to change the <termref def="sch-document">source document</termref> on any QuickFix execution in the following ways, though it is not defined in the QuickFix:<ulist>
+                <p>If an implementation is based only on XSLT processes, this is called the XSLT
+                    only mode. In this case, it is allowed to change the <termref
+                        def="sch-source-document">source document</termref> on any QuickFix
+                    execution in the following ways, though it is not defined in the QuickFix:<ulist>
                         <item>
                             <p>Skip the XML declaration</p>
                         </item>
@@ -840,7 +1938,8 @@
                         <item>
                             <p>Skip whitespace:<ulist>
                                     <item>
-                                        <p>which are outside of the root element and not in processing instructions and comments.</p>
+                                        <p>which are outside of the root element and not in
+                                            processing instructions and comments.</p>
                                     </item>
                                     <item>
                                         <p>non significant whitespace</p>
@@ -850,7 +1949,8 @@
                         <item>
                             <p>Normalize whitespace<ulist>
                                     <item>
-                                        <p>Leading whitespace of content in processing instructions in prolog</p>
+                                        <p>Leading whitespace of content in processing instructions
+                                            in prolog</p>
                                     </item>
                                     <item>
                                         <p>between attributes</p>
@@ -861,10 +1961,10 @@
                             <p>Resolve default attributes to encoded attributes</p>
                         </item>
                         <item>
-                            <p>Resolve CDATA sections</p>
+                            <p>Resolve CDATA sections to text nodes.</p>
                         </item>
                         <item>
-                            <p>Resolve Character entities.</p>
+                            <p>Resolve entity references.</p>
                         </item>
                     </ulist></p>
             </div2>
@@ -878,9 +1978,288 @@
         </xi:include>
     </body>
     <back>
-        <div1>
+        <div1 id="schematron_quick_fixes_schema">
             <head>Schematron Quick Fixes schema</head>
             <eg><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../schemas/schematron-quickFix.xsd" parse="text"/></eg>
+        </div1>
+        <div1 id="examples">
+            <head>Examples</head>
+            <div2 id="example_external_doc">
+                <head>QuickFixes for external documents</head>
+                <p>A QuickFix can be applied also over other documents than the one where the fix is
+                    executed. Therefore, external documents can be modified using a QuickFix
+                    operations.</p>
+                <p>There are two types of external documents:<ulist>
+                        <item>
+                            <p>Documents referred with XInclude and external entities. You can
+                                access them as the nodes in the current document, as in the
+                                following example: </p>
+                            <example>
+                                <p>Main document on which the quick if is applied:</p>
+                                <eg>&lt;Root xmlns:xi="http://www.w3.org/2001/XInclude">
+    &lt;xi:include href="included.xml"/>
+    &lt;Element>2&lt;/Element>
+&lt;/Root></eg>
+                                <p>Included document <quote>included.xml</quote>:</p>
+                                <eg>&lt;Element>3&lt;/Element></eg>
+                                <p>QuickFix that modifies the value of the element from the
+                                    XIncluded file.</p>
+                                <eg>&lt;sch:rule context="Element[preceding-sibling::Element]">
+    &lt;sch:assert test="number(.) > number(preceding-sibling::Element[1])" sqf:fix="AdjustPrevValue">
+        The current element value should be greater then the previous value.
+    &lt;/sch:assert>
+    
+    &lt;sqf:fix id="AdjustPrevValue">
+        &lt;sch:let name="NewValue" value="number(.) - 1"/>
+        &lt;sqf:description>
+            &lt;sqf:title>Adjust previous value to &lt;sch:value-of select="$NewValue"/>&lt;/sqf:title>
+        &lt;/sqf:description>
+        &lt;sqf:replace match="preceding-sibling::Element[1]/text()" select="$NewValue"/>
+    &lt;/sqf:fix>
+&lt;/sch:rule></eg>
+                            </example>
+                        </item>
+                        <item>
+                            <p>Documents referred using other type of references. You can apply the
+                                quick fixes over other documents using the
+                                    <function>doc()</function> function in the value of the
+                                    <att>match</att> attribute. For example, you can add a new key
+                                in the <code>keylist.xml</code> file using the following
+                                operation:</p>
+                            <example>
+                                <eg>&lt;sqf:add match="doc('keylist.xml')/KeyList" target="Key" node-type="element" select="Key2"></eg>
+                            </example>
+                        </item>
+                    </ulist></p>
+            </div2>
+            <div2 id="formatting_and_indenting_inserted_content">
+                <head>Formatting and Indenting Inserted Content</head>
+                <p>The content that is inserted by the Add, Replace, or String Replace operations
+                    can be formatted. There are several methods available to format the content that
+                    is inserted:<ulist>
+                        <item>
+                            <p><term>xsl:text</term> - You can use an <el>xsl:text</el> element to
+                                format the inserted content, as in the following example:<example>
+                                    <eg>&lt;sqf:add position="last-child">
+    &lt;row>&lt;xsl:text>
+    &lt;/xsl:text>
+        &lt;entry>First column&lt;/entry>&lt;xsl:text>
+        &lt;/xsl:text>
+        &lt;entry>Second column&lt;/entry>&lt;xsl:text>
+        &lt;/xsl:text>
+    &lt;/row>&lt;xsl:text>
+    &lt;/xsl:text>
+&lt;/sqf:add></eg>
+                                </example></p>
+                        </item>
+                        <item>
+                            <p><term>xml:space</term> - Use the <att>xml:space</att> attribute and
+                                set its value to <attval>preserve</attval> to format the content and
+                                specify the spacing between elements, as in the following example:<example>
+                                    <eg>&lt;sqf:add node-type="element" target="codeblock" xml:space="preserve">
+    /* a long sample program */
+    Do forever
+     Say "Hello, World"
+    End&lt;/sqf:add></eg>
+                                </example></p>
+                        </item>
+                    </ulist></p>
+            </div2>
+            <div2 id="example_apply_fixes" role="unfinished">
+                <head>QuickFix which applies to itself</head>
+                <p>Tbd.</p>
+            </div2>
+            <div2 id="example_localization_1">
+                <head>Localization with Schematron Diagnostic Elements</head>
+                <p>This example shows how to use the <att>ref</att> attribute of a
+                        <el>sqf:title</el> or <el>sqf:p</el> element to refer to a
+                        <el>sch:diagnostic</el> element. This example is restricted to a static
+                    title and description. See the following example for dynamic human readable
+                    localization.</p>
+                <p>The Schematron <loc
+                        href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</loc>
+                    contains the following test:</p>
+                <example>
+                    <eg>&lt;sch:rule context=&quot;dog&quot;&gt;
+    &lt;sch:assert test=&quot;bone&quot; sqf:fix=&quot;addBone&quot;&gt; A dog should have a bone &lt;/sch:assert&gt;</eg>
+                </example>
+                <p>The test refers to the QuickFix "addBone":</p>
+                <example>
+                    <eg>&lt;sqf:fix id=&quot;addBone&quot;&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref=&quot;sample.dog.addBone.title_de sample.dog.addBone.title_fr&quot;&gt;Add a bone&lt;/sqf:title&gt;
+        &lt;sqf:p ref=&quot;sample.dog.addBone.p_de sample.dog.addBone.p_fr&quot;&gt;The dog will get a bone.&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:add node-type=&quot;element&quot; target=&quot;bone&quot;/&gt;
+&lt;/sqf:fix&gt;</eg>
+                </example>
+                <p>The references <attval>sample.dog.addBone.title_de</attval>,
+                        <attval>sample.dog.addBone.title_fr</attval>,
+                        <attval>sample.dog.addBone.p_de</attval> and
+                        <attval>sample.dog.addBone.p_fr</attval> refers to the following
+                        <el>sch:diagnostic</el> elements:</p>
+                <example>
+                    <eg>&lt;sch:diagnostics&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.title_de&quot; xml:lang=&quot;de&quot;&gt;Füge einen Knochen hinzu&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.p_de&quot; xml:lang=&quot;de&quot;&gt;Der Hund wird einen Knochen erhalten.&lt;/sch:diagnostic&gt;
+    
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.title_fr&quot; xml:lang=&quot;fr&quot;&gt;Ajouter un os&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.p_fr&quot; xml:lang=&quot;fr&quot;&gt;Le chien aura un os.&lt;/sch:diagnostic&gt;
+&lt;/sch:diagnostics&gt;</eg>
+                </example>
+            </div2>
+            <div2 id="example_localization_2">
+                <head>Dynamic Localization with Schematron Diagnostic Elements</head>
+                <p>This example shows how to use the <att>ref</att> attribute of a
+                        <el>sqf:title</el> or <el>sqf:p</el> element with dynamic content to refer
+                    to a <el>sch:diagnostic</el> element.</p>
+                <p>The Schematron <loc
+                        href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</loc>
+                    contains the following test:</p>
+                <example>
+                    <eg>&lt;sch:rule context=&quot;dog&quot;&gt;
+    &lt;sch:let name=&quot;name&quot; value=&quot;@name&quot;/&gt;
+    &lt;sch:let name=&quot;otherDogs&quot; value=&quot;../dog[@name/tokenize(., &apos;\s&apos;)[1] = $name/tokenize(., &apos;\s&apos;)[1]]&quot;/&gt;
+    &lt;sch:let name=&quot;number&quot; value=&quot;count($otherDogs) + 1&quot;/&gt;
+    &lt;sch:let name=&quot;newName&quot; value=&quot;concat(@name, &apos; &apos;, $number)&quot;/&gt;
+    &lt;sch:report test=&quot;../dog[@name = $name]&quot; sqf:fix=&quot;addSuffix&quot;&gt; You should not have two dogs with the same name! &lt;/sch:report&gt;</eg>
+                </example>
+                <p>The test refers to the QuickFix "addSuffix":</p>
+                <example>
+                    <eg>&lt;sqf:fix id=&quot;addSuffix&quot;&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref=&quot;sample.dog.addBone.title_de sample.dog.addBone.title_fr&quot;&gt;Call the dog &lt;sch:value-of select=&quot;$newName&quot;/&gt;&lt;/sqf:title&gt;
+        &lt;sqf:p ref=&quot;sample.dog.addBone.p_de sample.dog.addBone.p_fr&quot;&gt;The dog will still have the name &lt;sch:value-of select=&quot;$name/tokenize(., &apos;\s&apos;)[1]&quot;/&gt; but now with the suffix &quot; &lt;sch:value-of select=&quot;$number&quot;/&gt;&quot;.&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:replace match=&quot;@name&quot; node-type=&quot;attribute&quot; target=&quot;name&quot; select=&quot;$newName&quot;/&gt;
+&lt;/sqf:fix&gt;</eg>
+                </example>
+                <p>The references <attval>sample.dog.addBone.title_de</attval>,
+                        <attval>sample.dog.addBone.title_fr</attval>,
+                        <attval>sample.dog.addBone.p_de</attval> and
+                        <attval>sample.dog.addBone.p_fr</attval> refers to the following
+                        <el>sch:diagnostic</el> elements:</p>
+                <example>
+                    <eg>&lt;sch:diagnostics&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.title_de&quot; xml:lang=&quot;de&quot;&gt;Nenne den Hund &lt;sch:value-of select=&quot;$newName&quot;/&gt;&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.p_de&quot; xml:lang=&quot;de&quot;&gt;Der Hund wird weiterhin &lt;sch:value-of select=&quot;$name/tokenize(., &apos;\s&apos;)[1]&quot;/&gt; heißen, nun aber mit dem Zusatz &quot; &lt;sch:value-of select=&quot;$number&quot;/&gt;&quot;.&lt;/sch:diagnostic&gt;
+    
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.title_fr&quot; xml:lang=&quot;fr&quot;&gt;Appelle le chien &lt;sch:value-of select=&quot;$newName&quot;/&gt;&lt;/sch:diagnostic&gt;
+    &lt;sch:diagnostic id=&quot;sample.dog.addBone.p_fr&quot; xml:lang=&quot;fr&quot;&gt;Le chien portera toujours le nom de &lt;sch:value-of select=&quot;$name/tokenize(., &apos;\s&apos;)[1]&quot;/&gt; mais maintenant avec le suffixe &quot; &lt;sch:value-of select=&quot;$number&quot;/&gt;&quot;.&lt;/sch:diagnostic&gt;
+&lt;/sch:diagnostics&gt;</eg>
+                </example>
+            </div2>
+            <div2 id="example_localization_3">
+                <head>Localization with Java Property Files</head>
+                <p>This example shows how to use the <att>ref</att> attribute of a
+                        <el>sqf:title</el> or <el>sqf:p</el> element to refer to a Java property XML
+                    file. This example is restricted to a static title and description. See the
+                    following example for dynamic human readable localization.</p>
+                <p>The example contains the Schematron schema <loc
+                        href="../samples/localization/java-properties/dog.sch">dog.sch</loc> and the
+                    Java property files <loc
+                        href="../samples/localization/java-properties/dog_de.xml">dog_de.xml</loc>
+                    and <loc href="../samples/localization/java-properties/dog_fr.xml"
+                        >dog_fr.xml</loc>.</p>
+                <p>The Schematron <loc
+                        href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</loc>
+                    contains the following test:</p>
+                <example>
+                    <eg>&lt;sch:rule context=&quot;dog&quot;&gt;
+&lt;sch:assert test=&quot;bone&quot; sqf:fix=&quot;addBone&quot;&gt;
+    A dog should have a bone
+&lt;/sch:assert&gt;</eg>
+                </example>
+                <p>The test refers to the QuickFix "addBone":</p>
+                <example>
+                    <eg>&lt;sqf:fix id=&quot;addBone&quot;&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref=&quot;sample.dog.addBone.title&quot;&gt;Add a bone&lt;/sqf:title&gt;
+        &lt;sqf:p ref=&quot;sample.dog.addBone.p&quot;&gt;The dog will get a bone.&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:add node-type=&quot;element&quot; target=&quot;bone&quot;/&gt;
+&lt;/sqf:fix&gt;</eg>
+                </example>
+                <p>The file <loc href="../samples/localization/java-properties/dog_de.xml"
+                        >dog_de.xml</loc> contains all German translations for the
+                        <el>sqf:title</el> and the <el>sqf:p</el> element:</p>
+                <example>
+                    <eg>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+&lt;properties&gt;
+    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Füge einen Knochen hinzu&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Der Hund wird einen Knochen erhalten.&lt;/entry&gt;
+&lt;/properties&gt;</eg>
+                </example>
+                <p>The same applies to the file <loc
+                        href="../samples/localization/java-properties/dog_fr.xml">dog_fr.xml</loc>
+                    and the French translations:</p>
+                <example>
+                    <eg>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+&lt;properties&gt;
+    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Ajouter un os&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Le chien aura un os.&lt;/entry&gt;
+&lt;/properties&gt;</eg>
+                </example>
+            </div2>
+            <div2 id="example_localization_4">
+                <head>Dynamic Localization with Java Property Files</head>
+                <p>This example shows how to use the <att>ref</att> attribute of a
+                        <el>sqf:title</el> or <el>sqf:p</el> element with dynamic content to refer
+                    to a Java property XML file. </p>
+                <p>The example contains the Schematron schema <loc
+                        href="../samples/localization/java-properties-dynamic/dog.sch">dog.sch</loc>
+                    and the Java property files <loc
+                        href="../samples/localization/java-properties-dynamic/dog_de.xml"
+                        >dog_de.xml</loc> and <loc
+                        href="../samples/localization/java-properties-dynamic/dog_fr.xml"
+                        >dog_fr.xml</loc>.</p>
+                <p>Schematron <loc href="../samples/localization/java-properties-dynamic/dog.sch"
+                        >dog.sch</loc> contains the following test:</p>
+                <example>
+                    <eg>&lt;sch:rule context=&quot;dog&quot;&gt;
+&lt;sch:let name=&quot;name&quot; value=&quot;@name&quot;/&gt;
+&lt;sch:let name=&quot;otherDogs&quot; value=&quot;../dog[@name/tokenize(., &apos;\s&apos;)[1] = $name/tokenize(., &apos;\s&apos;)[1]]&quot;/&gt;
+&lt;sch:let name=&quot;number&quot; value=&quot;count($otherDogs) + 1&quot;/&gt;
+&lt;sch:let name=&quot;newName&quot; value=&quot;concat(@name, &apos; &apos;, $number)&quot;/&gt;
+&lt;sch:report test=&quot;../dog[@name = $name]&quot; sqf:fix=&quot;addSuffix&quot;&gt;
+    You should not have two dogs with the same name! 
+&lt;/sch:report&gt;</eg>
+                </example>
+                <p>The test refers to the QuickFix "addSuffix":</p>
+                <example>
+                    <eg>&lt;sqf:fix id=&quot;addSuffix&quot;&gt;
+    &lt;sqf:description&gt;
+        &lt;sqf:title ref=&quot;sample.dog.addBone.title&quot;&gt;Call the dog &lt;sch:value-of select=&quot;$newName&quot;/&gt;&lt;/sqf:title&gt;
+        &lt;sqf:p ref=&quot;sample.dog.addBone.p&quot;&gt;The dog will still have the name &lt;sch:value-of select=&quot;$name/tokenize(., &apos;\s&apos;)[1]&quot;/&gt; but now with the suffix &quot; &lt;sch:value-of select=&quot;$number&quot;/&gt;&quot;.&lt;/sqf:p&gt;
+    &lt;/sqf:description&gt;
+    &lt;sqf:replace match=&quot;@name&quot; node-type=&quot;attribute&quot; target=&quot;name&quot; select=&quot;$newName&quot;/&gt;
+&lt;/sqf:fix&gt;</eg>
+                </example>
+                <p>The file <loc href="../samples/localization/java-properties-dynamic/dog_de.xml"
+                        >dog_de.xml</loc> contains all German translations for the
+                        <el>sqf:title</el> and the <el>sqf:p</el> element:</p>
+                <example>
+                    <eg>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+&lt;properties&gt;
+    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Nenne den Hund {0}&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Der Hund wird weiterhin {0} heißen, nun aber mit dem Zusatz &quot; {1}&quot;.&lt;/entry&gt;
+&lt;/properties&gt;</eg>
+                </example>
+                <p>The same applies to the file <loc
+                        href="../samples/localization/java-properties-dynamic/dog_fr.xml"
+                        >dog_fr.xml</loc> and the French translations:</p>
+                <example>
+                    <eg>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;!DOCTYPE properties SYSTEM &quot;http://java.sun.com/dtd/properties.dtd&quot;&gt;
+&lt;properties&gt;
+    &lt;entry key=&quot;sample.dog.addBone.title&quot;&gt;Nenne den Hund {0}&lt;/entry&gt;
+    &lt;entry key=&quot;sample.dog.addBone.p&quot;&gt;Der Hund wird weiterhin {0} heißen, nun aber mit dem Zusatz &quot; {1}&quot;.&lt;/entry&gt;
+&lt;/properties&gt;</eg>
+                </example>
+            </div2>
         </div1>
     </back>
 </spec>
