@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  
+    Copyright (c) 2014 Nico Kutscherauer
+        
+    This file is part of Escali Schematron.
+    
+    Escali Schematron is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    Escali Schematron is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with Escali Schematron.  If not, see http://www.gnu.org/licenses/gpl-3.0.
+    
+    -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://www.schematron-quickfix.com/validator/process" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xml:lang="en">
+    <xs:import namespace="http://purl.oclc.org/dsdl/schematron" schemaLocation="iso-schematron.xsd"/>
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+
+    <xs:annotation>
+        <xs:appinfo source="sqf:meta">
+            <title navTitle="SQF reference">Schematron QuickFix reference</title>
+        </xs:appinfo>
+        <xs:appinfo source="sqf:meta" xml:lang="de">
+            <title navTitle="SQF-Referenz">Schematron QuickFix Referenz</title>
+        </xs:appinfo>
+    </xs:annotation>
+
+    <xs:annotation>
+        <xs:documentation>In this documentation the following expressions will be used. The table bellow shows the definitions of these expressions:</xs:documentation>
+        <xs:documentation source="QuickFix">A possible fix for a Schematron report or assert. An implementation should provide it to the user (per default) for each reported assert or report. The QuickFix will be executed if the user chooses it.</xs:documentation>
+        <xs:documentation source="Global QuickFix">A QuickFix which is defined in the top-level <icode type="element">sqf:fixes</icode> element. A global QuickFix is available in each Schematron rule.</xs:documentation>
+        <xs:documentation source="Local QuickFix">A QuickFix which is defined for a Schematron rule. It is only available in this Schematron rule.</xs:documentation>
+        <xs:documentation source="Execute a QuickFix">All activity elements which the QuickFix contains will be performed.</xs:documentation>
+        <xs:documentation source="Activity element">implements a change command.</xs:documentation>
+        <xs:documentation source="Change command">defined by an activity element for a change of the XML instance. A change command can have the activity kinds "add", "delete", "replace" and "stringReplace".</xs:documentation>
+        <xs:documentation source="Add change command">creates one or more nodes and adds them relatively to an anchor node to the XML instance.</xs:documentation>
+        <xs:documentation source="Delete change command">deletes one or more nodes.</xs:documentation>
+        <xs:documentation source="Replace change command">creates one or more nodes and replaces nodes of the XML instance with them.</xs:documentation>
+        <xs:documentation source="String replace change command">creates one or more nodes and replaces substrings of a text node of the XML instance with them.</xs:documentation>
+        <xs:documentation source="Anchor node">context node of an activity element. The node is the subject of the change command of the activity element.</xs:documentation>
+    </xs:annotation>
+
+    <xs:attributeGroup name="messageAttributes">
+        <xs:annotation>
+            <xs:documentation xml:lang="de">Attribute zur Zuweisung eins oder mehrerer QuickFixes zu einem Schematron-Assert oder -Report.</xs:documentation>
+            <xs:documentation>Attributes to assign one or more QuickFixes to a Schematron assert or report.</xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="fix" type="xs:string" use="optional" form="qualified">
+            <xs:annotation>
+                <xs:documentation>This attribute refers to one or more QuickFixes which should be assigned to the Schematron assert or report. Each referred QuickFix must be defined globally or locally for the same Schematron rule.</xs:documentation>
+                <xs:documentation>The reference works with the ID of the QuickFix. If there is a local and a global QuickFix having the same ID, the local QuickFix will be selected.</xs:documentation>
+                <xs:documentation source="Value">A list of IDs of the referred QuickFixes separated by white space.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="default-fix" type="xs:string" use="optional" form="qualified">
+            <xs:annotation>
+                <xs:documentation>This attribute sets a default QuickFix for the Schematron assert or report. The default QuickFix must also be referred by the <icode type="attribute">sqf:fix</icode> attribute.</xs:documentation>
+                <xs:documentation source="Value">The ID of a QuickFix which is referred by the <icode type="attribute">sqf:fix</icode> attribute.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="rootAttributes">
+        <xs:attribute name="version" type="xs:token">
+            <xs:annotation>
+                <xs:documentation>The attribute defines the used Schematron QuickFix version. The attribute should be set, if the Schematron schema uses the Schematron QuickFix extensions.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="parameterAttributes">
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>This attribute defines the name of the parameter or User Entry.</xs:documentation>
+                <xs:documentation source="Value">Must be unique within a QuickFix.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="default" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>This attribute defines a default value for a parameter or User Entry by using a XPath expression. If the attribute is set to a <icode type="element">sqf:param</icode> element, the element must be empty.</xs:documentation>
+                <xs:documentation source="Value">Must be a valid XPath expression.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>This attribute defines the type of the parameter or User Entry.</xs:documentation>
+                <xs:documentation source="Value">The value should be a valid XML Schema type.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="refAttribute">
+        <xs:attribute name="ref" type="xs:NMTOKENS">
+            <xs:annotation>
+                <xs:documentation>References to alternative text phrases (e.g. for localisation).</xs:documentation>
+                <xs:documentation>A minimum implementation for this attribute should support a reference to an ID of a <icode type="attribute">sch:diagnostic</icode> element. Alternativly an implementation is free to support references to other localisation files (e.g. Java properties files). A reference token which does not reference to a known target should not occure an error but should be ignored.</xs:documentation>
+                <xs:documentation source="Value">A whitespace separated list of tokens which represents a reference.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <xs:group name="templateElements">
+        <xs:annotation>
+            <xs:documentation>This element group describes the content of the activity elements. The behavior is similar to the content of the <icode type="element">xsl:template</icode> element. Additionally, the elements <icode type="element">sch:value-of</icode> and <icode type="element">sch:let</icode> are treated as <icode type="element">xsl:value-of</icode> and <icode type="element">xsl:variable</icode>. Also the <a ref="#sqf_copy-of"><icode type="element">sqf:copy-of</icode></a> element is available.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:any processContents="skip"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="activityElements">
+        <xs:annotation>
+            <xs:documentation>An activity element defines a change command for one or more nodes of the instance element. This change command is specified by the kind of activity element, the content and several attributes.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element ref="sqf:add"/>
+                <xs:element ref="sqf:delete"/>
+                <xs:element ref="sqf:replace"/>
+                <xs:element ref="sqf:stringReplace"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="fixElements">
+        <xs:annotation>
+            <xs:documentation>Elements to define QuickFixes or QuickFix groups inside of a Schematron schema.</xs:documentation>
+        </xs:annotation>
+        <xs:choice>
+            <xs:element ref="sqf:fix"/>
+            <xs:element ref="sqf:group"/>
+        </xs:choice>
+    </xs:group>
+
+    <xs:element name="fixes">
+        <xs:annotation>
+            <xs:documentation>Contains globally useable Schematron QuickFixes and QuickFix groups.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:group ref="sqf:fixElements"/>
+            </xs:choice>
+            <xs:attribute ref="xml:lang"/>
+            <xs:attribute name="id" type="xs:ID"/>
+            <xs:attributeGroup ref="sch:foreign"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="group">
+        <xs:annotation>
+            <xs:documentation>Defines a Schematron QuickFix group. If the group is linked by an assert or report, all QuickFixes of this group will be associated with the assert/report.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="sqf:fix"/>
+            </xs:choice>
+            <xs:attribute name="id" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>The ID to reference the QuickFix group.</xs:documentation>
+                    <xs:documentation source="value">characters of type xs:ID. The value must be unique in the parent element.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="use-when" use="optional" type="xs:string" default="true()">
+                <xs:annotation>
+                    <xs:documentation>The condition to provide the QuickFixes of the QuickFix group.</xs:documentation>
+                    <xs:documentation source="value">XPath expression. It expects as return value an xs:boolean.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute ref="xml:lang"/>
+            <xs:attributeGroup ref="sch:foreign"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="fix">
+        <xs:annotation>
+            <xs:documentation>Defines a Schematron QuickFix with its content. All commands will be processed if the QuickFix is activated by the user.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="sqf:param" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:group ref="sqf:foreign"/>
+                    <xs:element ref="sch:let"/>
+                    <xs:element ref="sqf:description"/>
+                    <xs:element ref="sqf:user-entry"/>
+                    <xs:element ref="sqf:call-fix"/>
+                    <xs:group ref="sqf:activityElements"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="id" use="required" type="xs:NCName">
+                <xs:annotation>
+                    <xs:documentation>The ID to reference the QuickFix.</xs:documentation>
+                    <xs:documentation source="value">characters of type xs:ID. The value must be unique in the parent element.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="use-when" use="optional" type="xs:string" default="true()">
+                <xs:annotation>
+                    <xs:documentation>The condition to provide the QuickFix.</xs:documentation>
+                    <xs:documentation source="value">XPath expression. It expects as return value an xs:boolean.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="use-for-each" use="optional" type="xs:string" default=".">
+                <xs:annotation>
+                    <xs:documentation>QuickFixes with use-for-each attribute are generic. Each return value of the evaluated XPath expression should create an own QuickFix. To access to the current return value, the XPath variable $sqf:current should be provided.</xs:documentation>
+                    <xs:documentation source="value">XPath expression. It expects as return value an untyped sequence.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="role" use="optional">
+                <xs:annotation>
+                    <xs:documentation>With this attribute the role of the QuickFix can be set manually.</xs:documentation>
+                    <xs:documentation>The role of a QuickFix describes the type of change which it makes. If the role is not set manually, the role is the type of the used activity element ("add", "delete", "replace" or "stringReplace"). If two different activity elements are used in a QuickFix, the role is automatically "mix".</xs:documentation>
+                    <xs:documentation source="default">Depends on which activity element is used by the QuickFix.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="replace"/>
+                        <xs:enumeration value="add"/>
+                        <xs:enumeration value="stringReplace"/>
+                        <xs:enumeration value="delete"/>
+                        <xs:enumeration value="mix"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute ref="xml:lang"/>
+            <xs:attributeGroup ref="sch:foreign"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="description">
+        <xs:annotation>
+            <xs:documentation>Adds a human readable description to the parent element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="sqf:title"/>
+                <xs:element ref="sqf:p" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute ref="xml:lang"/>
+            <xs:attributeGroup ref="sch:foreign"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="user-entry">
+        <xs:annotation>
+            <xs:documentation>Defines a user entry. With the help of the user entry, the user can interact with the QuickFix. The user entry refers to a <icode type="element">sqf:param</icode> element. The value of the parameter is set manually by the user. The implementation should provide the user entry when the user selects the QuickFix.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="sqf:description"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="sqf:parameterAttributes"/>
+            <xs:attribute ref="xml:lang"/>
+            <xs:attributeGroup ref="sch:foreign"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="call-fix">
+        <xs:annotation>
+            <xs:documentation>This element calls another QuickFix within a QuickFix. The called QuickFix must be defined globally or for the same Schematron rule as the calling QuickFix. A calling QuickFix should not have other activity elements.</xs:documentation>
+            <xs:documentation>The calling QuickFix adopts the activity elements of the called QuickFix. With the help of parameters, these can be specified (see <a ref="#sqf_with-param"><icode type="element">sqf:with-param</icode></a>).</xs:documentation>
+            <xs:documentation>The description and other characteristics (e.g. @use-when) of the called QuickFix will not be adopted.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="sqf:with-param" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="ref" use="required" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>This attribute refers to a QuickFix by using the ID. The referred QuickFix must be defined globally or for the same Schematron rule as the referring QuickFix.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attributeGroup ref="sch:foreign"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="with-param">
+        <xs:annotation>
+            <xs:documentation>With the help of this element, QuickFix calls can be specified. A <icode type="element">sqf:with-param</icode> element refers to a parameter of the called QuickFix.</xs:documentation>
+            <xs:documentation>The content or the <icode type="attribute">select</icode> attribute define the value of the parameter. If there is content, the <icode type="element">sqf:with-param</icode> element should not have a <icode type="attribute">select</icode> attribute.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="true">
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:any processContents="lax"/>
+            </xs:choice>
+            <xs:attribute name="name" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation source="Value">The name of the referred parameter.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="select" type="xs:string" use="optional">
+                <xs:annotation>
+                    <xs:documentation>This attribute defines with a XPath expression the value of the parameter. If the attribute is set, the <icode type="element">sqf:with-param</icode> element must be empty.</xs:documentation>
+                    <xs:documentation source="Value">Must be a valid XPath expression.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attributeGroup ref="sch:foreign"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="param">
+        <xs:annotation>
+            <xs:documentation>This element defines a parameter for a QuickFix. The parameter can be used like a variable within the QuickFix. The value can be set by the <a ref="#sqf_with-param"><icode type="element">sqf:with-param</icode></a> element.</xs:documentation>
+            <xs:documentation>The content defines a default value for the parameter.</xs:documentation>
+            <xs:documentation source="Exception">Abstract parameters (see attribute <icode type="attribute">abstract</icode>) cannot be used as normal XPath variables. An abstract parameter declares, that the current QuickFix uses a parameter of an abstract pattern. A QuickFix with one or more abstract parameters can be used just by abstract patterns. The value of the parameter will be set by the instantiation of the abstract pattern according to the Schematron specification. The instantiation of the abstract pattern must specify a value for every abstract parameter of the QuickFix.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="true">
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:any processContents="lax"/>
+            </xs:choice>
+            <xs:attribute name="required" default="no">
+                <xs:annotation>
+                    <xs:documentation>This attribute sets for the parameter whether it is optional or required.</xs:documentation>
+                    <xs:documentation>If the parameter is required, it cannot have a <icode type="attribute">default</icode> attribute or any content.</xs:documentation>
+                    <xs:documentation source="Value">The value <icode type="attributeValue">yes</icode> is used for required, <icode type="attributeValue">no</icode> for optional.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="yes"/>
+                        <xs:enumeration value="no"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="abstract" type="xs:boolean" default="false">
+                <xs:annotation>
+                    <xs:documentation>This attribute sets for the parameter whether it is abstract or not.</xs:documentation>
+
+                    <xs:documentation>The current quick fix can be instantiate only from an abstract pattern that defines this abstract parameter. Inside of a global QuickFix every used parameter of an abstract pattern must be declared by an abstract parameter.</xs:documentation>
+                    <xs:documentation>If a parameter is defined as abstract, it can not have a <icode type="attribute">type</icode>, <icode type="attribute">required</icode> or <icode type="attribute">default</icode> attribute. Its value will be only form the abstract pattern instantiation.</xs:documentation>
+                    <xs:documentation source="Value">The value <icode type="attributeValue">true</icode> is used for abstract parameter, <icode type="attributeValue">false</icode> for regular parameter.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attributeGroup ref="sqf:parameterAttributes"/>
+            <xs:attributeGroup ref="sch:foreign"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="title">
+        <xs:annotation>
+            <xs:documentation>Name of a QuickFix or a user entry.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="true">
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:group ref="sch:foreign"/>
+                <xs:choice>
+                    <xs:element ref="sch:name"/>
+                    <xs:element ref="sch:value-of"/>
+                </xs:choice>
+            </xs:choice>
+            <xs:attribute ref="xml:lang"/>
+            <xs:attributeGroup ref="sqf:refAttribute"/>
+            <xs:attributeGroup ref="sch:foreign"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="p">
+        <xs:annotation>
+            <xs:documentation>Paragraph within a description.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="true">
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:group ref="sch:foreign"/>
+                <xs:choice>
+                    <xs:element ref="sch:name"/>
+                    <xs:element ref="sch:value-of"/>
+                    <xs:element ref="sch:emph"/>
+                    <xs:element ref="sch:dir"/>
+                    <xs:element ref="sch:span"/>
+                </xs:choice>
+            </xs:choice>
+            <xs:attribute ref="xml:lang"/>
+            <xs:attributeGroup ref="sqf:refAttribute"/>
+            <xs:attributeGroup ref="sch:foreign"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="replace">
+        <xs:annotation>
+            <xs:documentation>This activity element replaces one or more nodes of the XML instance by a node. The activity command combines the delete and the add command.</xs:documentation>
+            <xs:documentation>The nodes to be deleted are defined by the <icode type="attribute">match</icode> attribute. The nodes to be added are defined by the attributes <icode type="attribute">node-type</icode> and <icode type="attribute">select</icode> and the content of the <icode type="element">sqf:replace</icode> element.</xs:documentation>
+            <xs:documentation>The position of the nodes to be added is the position of the nodes to be deleted.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="true">
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:group ref="sqf:templateElements"/>
+            </xs:choice>
+            <xs:attributeGroup ref="sqf:activityManipulate"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="delete">
+        <xs:annotation>
+            <xs:documentation>This activity element deletes one or more nodes of the XML instance.</xs:documentation>
+            <xs:documentation>The <icode type="attribute">match</icode> attribute defines the nodes to be deleted.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:attributeGroup ref="sqf:activityBase"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="add">
+        <xs:annotation>
+            <xs:documentation>This activity element adds a node to one or more nodes of the XML instance.</xs:documentation>
+            <xs:documentation>The attributes <icode type="attribute">match</icode> and <icode type="attribute">position</icode> define the position where the nodes will be added. The position is determined by the anchor node(s) (<a ref="#activityBase_match">@match</a>) and the insertion direction (<a ref="#add_position">@position</a>).</xs:documentation>
+            <xs:documentation>The attributes <icode type="attribute">node-type</icode>, <icode type="attribute">select</icode> and <icode type="attribute">target</icode> and the content of the element define the nodes to be added.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="true">
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:group ref="sqf:templateElements"/>
+            </xs:choice>
+            <xs:attribute name="position" type="sqf:positionType">
+                <xs:annotation>
+                    <xs:documentation>The <icode type="attribute">position</icode> attribute defines the position of the nodes to be added relatively to the anchor node (see <a ref="#activityBase_match">@match</a>).</xs:documentation>
+                    <xs:documentation source="Default">If the value of the <icode type="attribute">node-type</icode> attribute is <icode type="attributeValue">attribute</icode>, the <icode type="attribute">position</icode> attribute should not be set, because the node to be added will always be inserted as attribute. Otherwise the default value is <icode type="attributeValue">first-child</icode>.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attributeGroup ref="sqf:activityManipulate"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stringReplace">
+        <xs:annotation>
+            <xs:documentation>This activity element replaces substrings of text nodes by other nodes. The text nodes are defined by the <icode type="attribute">match</icode> attribute. The <icode type="attribute">regex</icode> attribute defines the substrings of the text nodes.</xs:documentation>
+            <xs:documentation>The nodes to be inserted are defined by the content of the <icode type="element">sqf:stringReplace</icode> element or the <icode type="attribute">select</icode> attribute. <b>Note:</b> The context within the <icode type="element">sqf:stringReplace</icode> element is set to the substrings. So, it is an atomic value.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="true">
+            <xs:choice>
+                <xs:group ref="sqf:templateElements"/>
+            </xs:choice>
+            <xs:attributeGroup ref="sqf:activityBase"/>
+            <xs:attribute name="regex" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation source="Value">Regular expression. The expression can be specified by XPath expressions which are marked by curly brackets. After processing, the regular expression must meet the requirements of the <icode type="attribute">regex</icode> attribute of the <icode type="element">xsl:analyze-string</icode> element.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="select" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>The <icode type="attribute">select</icode> attribute defines nodes or an atomic value as the nodes to be inserted. If the <icode type="attribute">select</icode> attribute is set, the <icode type="attribute">sqf:stringReplace</icode> element should be empty.</xs:documentation>
+                    <xs:documentation>The selected nodes will be copied. Unlike a deep copy function, the copied nodes could be manipulated by the current or other activity elements.</xs:documentation>
+                    <xs:documentation source="Value">XPath expression. The context of relative expressions is the substring to replace. </xs:documentation>
+                    <xs:documentation><b>Note:</b> The context will be always an atomic value. To select nodes from the XML instance, the use of variables outside of the <icode type="element">sqf:stringReplace</icode> element is necessary.</xs:documentation>
+                    <xs:documentation source="Default">There is no default value. If the <icode type="attribute">select</icode> attribute is not set, the content of the activity element defines the nodes to be inserted.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="flags" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation source="Value">Flags to control the interpretation of the regular expression (given in the <icode type="attribute">regex</icode> attribute). The flags can be specified by XPath expressions which are marked by curly brackets. After processing, the flags must meet the requirements of the <icode type="attribute">flags</icode> attribute of the <icode type="element">xsl:analyze-string</icode> element.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:attributeGroup name="activityBase">
+        <xs:attribute name="match" type="xs:string" default=".">
+            <xs:annotation>
+                <xs:documentation>The <icode type="attribute">match</icode> attribute defines anchor nodes for an activity element.</xs:documentation>
+                <xs:documentation>For each selected anchor node, the command of the activity element will be executed. For each execution, the context will be set to the anchor node.</xs:documentation>
+                <xs:documentation>Exception: The <icode type="attribute">match</icode> attribute of the <a ref="#sqf_stringReplace"><icode type="element">sqf:stringReplace</icode></a> element should only select text nodes.</xs:documentation>
+                <xs:documentation source="Value">XPath expression. The context of relative expressions is the context of the related Schematron rule.</xs:documentation>
+                <xs:documentation source="Default">By default the anchor node is the context node of the related Schematron rule.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="use-when" use="optional" type="xs:string" default="true()">
+            <xs:annotation>
+                <xs:documentation>A condition for the action of the activity Element. The action will just be executed, if the condition returns true.</xs:documentation>
+                <xs:documentation source="value">XPath expression. It expects as return value an xs:boolean.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attributeGroup ref="sch:foreign"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="activityManipulate">
+        <xs:attributeGroup ref="sqf:activityBase"/>
+        <xs:attribute name="node-type" type="sqf:nodeTypeType">
+            <xs:annotation>
+                <xs:documentation>The <icode type="attribute">node-type</icode> attribute defines the node type of the nodes to be added. The attribute is required, if the target attribute is set.</xs:documentation>
+                <xs:documentation>If the <icode type="attribute">node-type</icode> value is missing, the activity element should not have a <icode type="attribute">target</icode> attribute. In this case the nodes to be added will be defined by the activity elements content or <icode type="attribute">select</icode> attribute.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>The <icode type="attribute">select</icode> attribute defines nodes or an atomic value as the content of the node to be added. If the <icode type="attribute">select</icode> attribute is set, the activity element should be empty.</xs:documentation>
+                <xs:documentation>The selected nodes will be copied into the node to be added. Unlike a deep copy function, the copied nodes could be manipulated by the current or other activity elements.</xs:documentation>
+                <xs:documentation source="Value">XPath expression. The context of relative expressions is the anchor node.</xs:documentation>
+                <xs:documentation source="Default">There is no default value. If the <icode type="attribute">select</icode> attribute is not set, the content of the activity element defines the content of the nodes to be added.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="target" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>This attribute defines the name of the node to be added. The attribute is required if the <icode type="attribute">node-type</icode> attribute is specified and the value is not <icode type="attributeValue">comment</icode>.</xs:documentation>
+                <xs:documentation source="Value">A string to define a node name. The string can be specified by XPath expressions which are marked by curly brackets. After processing, the name must be valid to the XML Schema type xs:QName.</xs:documentation>
+                <xs:documentation>Prefixes must be attached to a namespace in the current context of the Schematron schema. Names without prefixes will be attached to the namespace declared by the <icode type="element">sqf:default-namespace</icode> element or to the null namespace.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+
+
+    <xs:simpleType name="positionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="after">
+                <xs:annotation>
+                    <xs:documentation>The nodes to be added will be inserted after the anchor node.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="before">
+                <xs:annotation>
+                    <xs:documentation>The nodes to be added will be inserted before the anchor node.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="first-child">
+                <xs:annotation>
+                    <xs:documentation>The nodes to be added will be inserted as the first child of the anchor node.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="last-child">
+                <xs:annotation>
+                    <xs:documentation>The nodes to be added will be inserted as the last child of the anchor node.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="nodeTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="keep">
+                <xs:annotation>
+                    <xs:documentation>The node type of the node to be added will be defined by the anchor node.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="element">
+                <xs:annotation>
+                    <xs:documentation>The node to be added will be an element.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="attribute">
+                <xs:annotation>
+                    <xs:documentation>The node to be added will be an attribute. The <icode type="attribute">position</icode> attribute should not be set.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="processing-instruction">
+                <xs:annotation>
+                    <xs:documentation>The node to be added will be a processing instruction.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="pi">
+                <xs:annotation>
+                    <xs:documentation>The short notation of "processing-instruction".</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="comment">
+                <xs:annotation>
+                    <xs:documentation>The node to be added will be a comment. If the value of the <icode type="attribute">node-type</icode> attribute is <icode type="attributeValue">comment</icode>, the activity element should not have a <icode type="attribute">target</icode> attribute.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="copy-of">
+        <xs:annotation>
+            <xs:documentation>This element is available within activity elements. The function is to copy nodes selected by the <icode type="attribute">select</icode> attribute. The element with its attribute is treated as <icode type="element">xsl:copy-of</icode> with <icode type="attribute">select</icode> attribute as it is defined in the XSLT requirement. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:attribute name="select" type="xs:string" default="node()">
+                <xs:annotation>
+                    <xs:documentation>The attribute selects nodes to be copied.</xs:documentation>
+                    <xs:documentation source="Value">XPath expression.</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:group name="foreign">
+        <xs:sequence>
+            <xs:group minOccurs="0" maxOccurs="unbounded" ref="sqf:foreign-element"/>
+        </xs:sequence>
+    </xs:group>
+
+    <xs:group name="foreign-element">
+        <xs:choice>
+            <xs:any namespace="http://www.w3.org/1999/XSL/Transform" processContents="skip"/>
+            <xs:any namespace="##local" processContents="skip"/>
+        </xs:choice>
+    </xs:group>
+</xs:schema>
