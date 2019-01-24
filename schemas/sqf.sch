@@ -35,14 +35,22 @@
     <pattern id="query.binding">
         <title>Query binding</title>
         <rule context="sch:schema" id="query.binding_1">
-            <assert test="not(namespace::sqf) or @queryBinding = ('xslt2', 'xslt3')" sqf:fix="setQueryBinding" id="query.binding_1-1"> Schematron Quick Fixes are only available within Schematron schemas based on XSLT 2.0.</assert>
+            <assert test="not(namespace::sqf) or @queryBinding = ('xslt2', 'xslt3')" sqf:fix="setQueryBinding20 setQueryBinding30" id="query.binding_1-1"> Schematron Quick Fixes are only available within Schematron schemas based on XSLT 2.0/3.0.</assert>
 
-            <sqf:fix id="setQueryBinding" role="replace">
+            <sqf:fix id="setQueryBinding20" role="replace">
                 <sqf:description>
                     <sqf:title>Set @queryBinding attribute value to 'xslt2'</sqf:title>
-                    <sqf:p>The quick fixes support works only with 'xslt2' query binding. So, the @queryBinding attribute value must be set to 'xslt2'.</sqf:p>
+                    <sqf:p>The quick fixes support works only with 'xslt2'/'xslt3' query binding. So, the @queryBinding attribute value must be set to 'xslt2'/'xslt3'.</sqf:p>
                 </sqf:description>
                 <sqf:add node-type="attribute" target="queryBinding" select="'xslt2'"/>
+            </sqf:fix>
+            
+            <sqf:fix id="setQueryBinding30" role="replace">
+                <sqf:description>
+                    <sqf:title>Set @queryBinding attribute value to 'xslt3'</sqf:title>
+                    <sqf:p>The quick fixes support works only with 'xslt2'/'xslt3' query binding. So, the @queryBinding attribute value must be set to 'xslt2'/'xslt3'.</sqf:p>
+                </sqf:description>
+                <sqf:add node-type="attribute" target="queryBinding" select="'xslt3'"/>
             </sqf:fix>
         </rule>
     </pattern>
@@ -787,7 +795,7 @@
     <xsl:function name="sqf:getRoots" as="document-node()*">
         <xsl:param name="context" as="element()*"/>
         <xsl:variable name="contextRoot" select="$context/root(.)"/>
-        <xsl:variable name="includeImports" select="$contextRoot/(sch:schema/es:import | .//sch:include)/doc(resolve-uri(@href, base-uri(.)))/*"/>
+        <xsl:variable name="includeImports" select="$contextRoot/(sch:schema/sch:extends | sch:schema/es:import | .//sch:include)/doc(resolve-uri(@href, base-uri(.)))/*"/>
         <xsl:sequence select="$contextRoot, $includeImports/sqf:getRoots(.)"/>
     </xsl:function>
 
