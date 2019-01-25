@@ -788,9 +788,9 @@
     <!--  
     Functions
     -->
-    <xsl:variable name="LOCAL_ONLY" select="'LOCAL_ONLY'" as="xs:string"/>
-    <xsl:variable name="GLOBAL_ONLY" select="'GLOBAL_ONLY'" as="xs:string"/>
-    <xsl:variable name="GLOBAL_AND_LOCAL" select="'GLOBAL_AND_LOCAL'" as="xs:string"/>
+    <let name="LOCAL_ONLY" value="'LOCAL_ONLY'"/>
+    <let name="GLOBAL_ONLY" value="'GLOBAL_ONLY'"/>
+    <let name="GLOBAL_AND_LOCAL" value="'GLOBAL_AND_LOCAL'"/>
 
     <xsl:function name="sqf:getRoots" as="document-node()*">
         <xsl:param name="context" as="element()*"/>
